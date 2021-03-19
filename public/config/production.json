@@ -1,0 +1,8 @@
+{
+    "api": {
+        "http" : {
+            "baseURL": "https://codingstones.ru/",
+            "authURL": "https://codingstones.ru/auth"
+        }
+    }
+}
