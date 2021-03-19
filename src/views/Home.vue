@@ -29,12 +29,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   h1 {
-    font-size: 40px;
+    font-size: 20px;
+    margin: 0;
   }
   h2 {
-    font-size: 60px;
+    font-size: 56px;
+    margin: 20px 0 20px 0;
   }
-
 </style>
