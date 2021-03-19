@@ -2,18 +2,18 @@
   <main>
     <h1>Тестовый заголовок</h1>
     <h2>Новая эра в области аналитики</h2>
-    <div class="laptop">
-      <img src="@/assets/laptop.svg">
-    </div>
+    <laptop></laptop>
     <div style="width: 300px; height: 300px;"></div>
   </main>
 </template>
 
 <script>
+import Laptop from "@/components/Home/Laptop";
+
 export default {
   name: "Home",
   components: {
-
+    Laptop
   },
   data() {
     return {
@@ -36,10 +36,5 @@ export default {
   h2 {
     font-size: 60px;
   }
-  .laptop {
-    height: 1000px;
-  }
-  .laptop img {
-    width: 1300px;
-  }
+
 </style>
