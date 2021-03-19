@@ -64,6 +64,7 @@ export default {
     align-self: center;
   }
   .links > * {
+    cursor: pointer;
     padding: 4px 10px;
     margin: 0 5px;
   }

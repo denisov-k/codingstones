@@ -12,9 +12,12 @@ name: "Laptop"
 
 <style scoped>
   .laptop {
-    height: 1000px;
+    height: 72vh;
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
   }
   .laptop img {
-    width: 1300px;
+
   }
 </style>
