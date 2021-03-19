@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>Тестовый заголовок</h2>
+    <h1>Тестовый заголовок</h1>
     <h2>Новая эра в области аналитики</h2>
     <div class="laptop">
       <img src="@/assets/laptop.svg">
