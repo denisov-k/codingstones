@@ -1,5 +1,6 @@
 <template>
   <main>
+    <h1>Тестовый заголовок</h2>
     <h2>Новая эра в области аналитики</h2>
     <div class="laptop">
       <img src="@/assets/laptop.svg">
@@ -29,6 +30,9 @@ export default {
 </script>
 
 <style>
+  h1 {
+    font-size: 40px;
+  }
   h2 {
     font-size: 60px;
   }
