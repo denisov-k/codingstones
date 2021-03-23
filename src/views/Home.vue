@@ -3,7 +3,6 @@
     <h1>Тестовый заголовок</h1>
     <h2>Новая эра в области аналитики</h2>
     <laptop></laptop>
-    <div style="width: 300px; height: 300px;"></div>
   </main>
 </template>
 
@@ -36,6 +35,6 @@ export default {
   }
   h2 {
     font-size: 56px;
-    margin: 20px 0 20px 0;
+    margin: 20px 30px;
   }
 </style>

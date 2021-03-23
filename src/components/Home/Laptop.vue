@@ -1,8 +1,11 @@
 <template>
-  <div class="laptop">
-    <img src="@/assets/laptop.svg">
-    <div class="laptop-screen">
-      <div class="browser">
+  <div class="laptop-layout">
+    <div class="laptop">
+      <img src="@/assets/laptop.svg">
+      <div class="laptop-screen">
+        <div class="browser">
+          <div class="analyst-screen"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -15,12 +18,17 @@ name: "Laptop"
 </script>
 
 <style scoped>
+  .laptop-layout {
+    text-align: -webkit-center;
+  }
   .laptop {
+    background-image: url('../../assets/laptop.svg');
+
     display: flex;
     position: relative;
     justify-content: center;
     max-width: 1000px;
-    margin: auto;
+    margin: 0 5%;
   }
   .laptop img {
     width: 100%;
@@ -34,7 +42,7 @@ name: "Laptop"
     top: 3%;
     bottom: 10.5%;
 
-    background-color: black;
+    background-color: #999ffc;
   }
   .browser {
     background-image: url('../../assets/browser.svg');
