@@ -1,7 +1,10 @@
 <template>
   <div class="laptop">
     <img src="@/assets/laptop.svg">
-    <div class="laptop-screen"></div>
+    <div class="laptop-screen">
+      <div class="browser">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,11 +16,11 @@ name: "Laptop"
 
 <style scoped>
   .laptop {
-    /*height: 72vh;*/
     display: flex;
     position: relative;
     justify-content: center;
-    margin: 0 70px;
+    max-width: 1000px;
+    margin: auto;
   }
   .laptop img {
     width: 100%;
@@ -28,8 +31,14 @@ name: "Laptop"
     position: absolute;
     left: 11.5%;
     right: 11.5%;
-    top: 20px;
-    bottom: 66px;
-    background-color: #335cd2;
+    top: 3%;
+    bottom: 10.5%;
+
+    background-color: black;
+  }
+  .browser {
+    background-image: url('../../assets/browser.svg');
+
+    height: 100%;
   }
 </style>
