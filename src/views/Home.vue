@@ -1,18 +1,19 @@
 <template>
   <main>
-    <h1>Тестовый заголовок</h1>
-    <h2>Новая эра в области аналитики</h2>
-    <laptop></laptop>
+    <laptop-screen></laptop-screen>
+    <AnalyticsSlider></AnalyticsSlider>
   </main>
 </template>
 
 <script>
-import Laptop from "@/components/Home/Laptop";
+
+import LaptopScreen from "@/views/LaptopScreen";
+import AnalyticsSlider from "@/views/Analytics/Slider";
 
 export default {
   name: "Home",
   components: {
-    Laptop
+    LaptopScreen, AnalyticsSlider
   },
   data() {
     return {

@@ -42,11 +42,20 @@ name: "Laptop"
     top: 3%;
     bottom: 10.5%;
 
-    background-color: #999ffc;
+    background-color: white;
   }
   .browser {
     background-image: url('../../assets/browser.svg');
-
     height: 100%;
+    position: relative;
   }
+  .analyst-screen {
+    position: absolute;
+    top: 7%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #999ffc;
+  }
+
 </style>

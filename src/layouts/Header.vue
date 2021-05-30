@@ -1,6 +1,6 @@
 <template>
   <header class="layouts--header">
-    <div class="head">
+    <div class="header-content">
       <div class="logo">
         <span>CodingStones</span>
       </div>
@@ -37,15 +37,15 @@ export default {
     position: sticky;
     justify-content: center;
     top: 0;
-    background-color: #141416db;
-    z-index: 1;
+    background-color: #080808c7;
+    z-index: 10;
   }
-  .head {
+  .header-content {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 1000px;
-    margin: 0 50px;
+    margin: 0 3%;
   }
 
   .logo {

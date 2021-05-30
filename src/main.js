@@ -3,9 +3,12 @@ import App from './App.vue'
 import Config from './utils/Config'
 import router from './router'
 
+import 'vue-awesome/icons';
 
 import store from './store/store'
 import SessionActions from './store/store-session-actions'
+
+import 'flexboxgrid/dist/flexboxgrid.min.css';
 
 Vue.config.productionTip = false
 
