@@ -22,18 +22,19 @@ name: "Laptop"
     text-align: -webkit-center;
   }
   .laptop {
-    background-image: url('../../assets/laptop.svg');
-
     display: flex;
     position: relative;
     justify-content: center;
     max-width: 1000px;
-    margin: 0 5%;
+    margin: 30px 5%;
+
+    user-select: none;
   }
   .laptop img {
     width: 100%;
     height: 100%;
     z-index: 1;
+    -webkit-user-drag: none;
   }
   .laptop-screen {
     position: absolute;

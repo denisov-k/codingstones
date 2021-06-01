@@ -51,6 +51,7 @@ export default {
   .logo {
     display: flex;
     height: 50px;
+    margin: 0 5px;
     color: white;
     opacity: 0.92;
     font-weight: 600;

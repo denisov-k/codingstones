@@ -48,6 +48,6 @@ body {
   overflow: auto;
 }
 .content {
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 </style>
