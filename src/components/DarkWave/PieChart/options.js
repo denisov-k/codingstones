@@ -4,7 +4,7 @@ const options = {
         formatter: "{b}: {c}",
         position: 'top',
         extraCssText: "white-space:pre-wrap; max-width:400px;",
-        confine: true,
+        appendToBody: true,
     },
     series: [],
     legend: {

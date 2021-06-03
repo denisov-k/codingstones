@@ -31,7 +31,7 @@ export default {
     return {
       chart: Object,
       isLoading: false,
-      dataURL: 'data/tiles_1.json',
+      dataURL: 'data/tiles_2.json',
       // dataURL: 'api/app2/page_2/tiles_2',
       data: [],
       watchableFields: ['region'],

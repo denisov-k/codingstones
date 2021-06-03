@@ -79,6 +79,7 @@ export default {
             },
             data: series[0],
             center: ['50%', '50%'],
+            radius: [0, '40%'],
             minShowLabelAngle: 1,
             label: {
               bleedMargin: 5,

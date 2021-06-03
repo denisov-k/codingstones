@@ -1,4 +1,6 @@
 export default {
     AUTH: 'auth',
-    LOGOUT: 'logout'
+    LOGOUT: 'logout',
+    TOGGLE_FILTER: 'toggleFilter',
+    CLEAR_ALL_FILTERS: 'clearAllFilters'
 }

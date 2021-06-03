@@ -6,7 +6,7 @@ module.exports = {
     },
     position: 'top',
     extraCssText: "white-space:pre-wrap; max-width:400px;",
-    confine: true,
+    appendToBody: true,
   },
   grid: {
     top: 20,

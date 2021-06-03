@@ -18,14 +18,6 @@ router.beforeEach((to, from, next) => {
 })
 
 Config.init().then(() => {
-  new Vue({
-    router,
-    store,
-    render: h => h(App),
-  }).$mount('#app');
-});
-
-/*Config.init().then(() => {
   store.dispatch(SessionActions.AUTH).then(() => {
     new Vue({
       router,
@@ -35,4 +27,4 @@ Config.init().then(() => {
   }).catch((err) => {
     alert(err);
   })
-});*/
+});
