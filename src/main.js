@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Config from './utils/Config'
 import router from './router'
+import VueGtag from "vue-gtag";
 
 import 'vue-awesome/icons';
 
@@ -11,6 +12,10 @@ import SessionActions from './store/store-session-actions'
 import 'flexboxgrid/dist/flexboxgrid.min.css';
 
 Vue.config.productionTip = false
+
+Vue.use(VueGtag, {
+  config: { id: "G-YQBYSJWJKP" }
+});
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title
