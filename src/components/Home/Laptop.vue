@@ -56,7 +56,7 @@ name: "Laptop"
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #999ffc;
+    background-color: rgb(236 238 240);
   }
 
 </style>

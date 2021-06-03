@@ -49,9 +49,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #252525;
   }
-
   .widget-container {
-    background-color: #1d1d1d;
+    background-color: #0e0e0e;
   }
 </style>

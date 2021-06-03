@@ -6,11 +6,13 @@
 </template>
 
 <script>
-import api from '@/services/api';
+import ServiceTransport from "@/services/ServiceTransport";
 import * as echarts from "echarts";
 
 import WidgetContainer from "@/components/Widget/Container";
 import defaultOptions from "./options";
+
+const api = new ServiceTransport({ withCredentials: true });
 
 export default {
   name: "BarChart",
@@ -20,7 +22,8 @@ export default {
     return {
       chart: Object,
       isLoading: true,
-      dataURL: 'api/app2/page_2/barchart',
+      dataURL: '/data/barchart.json',
+      // dataURL: 'api/app2/page_2/barchart',
       watchableFields: ['region'],
       extraButtons: [
         { icon: { name: 'eraser' }, onClick: this.clearAllSelections },

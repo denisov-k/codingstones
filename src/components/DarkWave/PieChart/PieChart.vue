@@ -7,11 +7,11 @@
 
 <script>
 import WidgetContainer from "@/components/Widget/Container";
-
-import api from '@/services/api';
+import ServiceTransport from "@/services/ServiceTransport";
 import * as echarts from "echarts";
-
 import defaultOptions from "./options";
+
+const api = new ServiceTransport({ withCredentials: true });
 
 export default {
   name: "PieChart",
@@ -20,7 +20,8 @@ export default {
     return {
       isLoading: true,
       chart: Object,
-      dataURL: 'api/app2/page_2/pie_2',
+      dataURL: 'data/piechart.json',
+      // dataURL: 'api/app2/page_2/pie_2',
       extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
     }
   },

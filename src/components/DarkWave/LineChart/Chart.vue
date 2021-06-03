@@ -6,11 +6,13 @@
 </template>
 
 <script>
-import api from '@/services/api';
 import * as echarts from "echarts";
 
 import defaultOptions from './options';
 import WidgetContainer from "@/components/Widget/Container";
+import ServiceTransport from "@/services/ServiceTransport";
+
+const api = new ServiceTransport({ withCredentials: true });
 
 export default {
   name: "LineChart",
@@ -20,7 +22,7 @@ export default {
       isLoading: true,
       chart: Object,
       data: null,
-      dataURL: 'api/app2/page_2/linechart',
+      dataURL: '/data/linechart.json',
       extraButtons: [
         {
           icon: { name: 'file-image' }, onClick: this.exportImage

@@ -1,19 +1,23 @@
 <template>
   <main>
     <laptop-screen scroll-anchor></laptop-screen>
-    <AnalyticsSlider scroll-anchor></AnalyticsSlider>
+    <office-analytic scroll-anchor></office-analytic>
+    <water-analytic scroll-anchor></water-analytic>
+    <analytic-draft3 scroll-anchor></analytic-draft3>
   </main>
 </template>
 
 <script>
 
 import LaptopScreen from "@/views/LaptopScreen";
-import AnalyticsSlider from "@/views/Analytics/Slider";
+import OfficeAnalytic from "@/views/Analytics/Office";
+import WaterAnalytic from "@/views/Analytics/Water"
+import AnalyticDraft3 from "@/views/Analytics/Draft3"
 
 export default {
   name: "Home",
   components: {
-    LaptopScreen, AnalyticsSlider
+    LaptopScreen, OfficeAnalytic, WaterAnalytic, AnalyticDraft3
   },
   data() {
     return {

@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import api from '@/services/api';
 import * as echarts from "echarts";
-
 import WidgetContainer from "@/components/Widget/Container";
 import defaultOptions from "./options";
+import ServiceTransport from "@/services/ServiceTransport";
 
+const api = new ServiceTransport({ withCredentials: true });
 
 export default {
   name: "TreeMapChart1",
@@ -20,7 +20,8 @@ export default {
     return {
       chart: Object,
       isLoading: true,
-      dataURL: 'api/app2/page_2/tiles_1',
+      dataURL: 'data/tiles_1.json',
+      // dataURL: 'api/app2/page_2/tiles_1',
       extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
     }
   },
