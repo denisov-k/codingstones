@@ -25,7 +25,7 @@ export default {
   },
   created() {
     window.addEventListener('mousewheel', this.handleScroll, { passive: false });
-    window.addEventListener('touchmove', this.handleScroll, { passive: false });
+    // window.addEventListener('touchmove', this.handleScroll, { passive: false });
   },
   methods: {
     handleScroll(event) {
@@ -52,7 +52,7 @@ export default {
 
       element.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: 'start',
         inline: 'center'
       });
 

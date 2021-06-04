@@ -1,18 +1,18 @@
 <template>
   <div class="analytic-screen">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-12 col-sm-4">
         <tree-map-chart1></tree-map-chart1>
       </div>
-      <div class="col-xs-8">
+      <div class="col-xs-12 col-sm-8">
         <Map></Map>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <tree-map-chart2></tree-map-chart2>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <bar-chart></bar-chart>
       </div>
     </div>
@@ -39,9 +39,9 @@ export default {
 
 <style scoped>
   .analytic-screen {
-    padding: 10px;
-    height: 100vh;
     display: flex;
+    padding: 10px;
+    min-height: 100vh;
     flex-direction: column;
     justify-content: center;
     background-color: #367dc3;

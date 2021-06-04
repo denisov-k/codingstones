@@ -1,29 +1,29 @@
 <template>
   <div class="analytic-screen">
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6 start-sm">
         <h2 class="title">{{ title }}</h2>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6 end-sm">
         <h2 class="subtitle">{{ subtitle }}</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-12 col-sm-4">
         <tree-map-chart1></tree-map-chart1>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-12 col-sm-4">
         <line-chart></line-chart>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-12 col-sm-4">
         <pie-chart></pie-chart>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <tree-map-chart2></tree-map-chart2>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-sm-6">
         <bar-chart></bar-chart>
       </div>
     </div>
@@ -59,20 +59,18 @@ export default {
 <style scoped>
   .analytic-screen {
     padding: 10px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #eceef0;
   }
   .title {
     color: #2a728e;
-    margin: auto;
-    line-height: 100px;
+    margin: 20px;
   }
   .subtitle {
     color: #8a8a8a;
-    margin: auto;
-    line-height: 100px;
+    margin: 20px;
   }
 </style>
