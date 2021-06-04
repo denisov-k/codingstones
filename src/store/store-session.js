@@ -63,11 +63,9 @@ const Session = {
         }
     },
     getters: {
-        /*authStatus: state => state.status,
-        getFilter: function (name) {
-            console.log(arguments, this)
-            return state.filters.filter(item => item.name === name).map(item => item.name);
-        }*/
+        getFiltersByFields: state => fields => {
+            return state.filters.filter(item => fields.includes(item.name));
+        }
     }
 }
 export default Session;

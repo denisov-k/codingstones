@@ -1,7 +1,5 @@
 import ServiceTransport from './ServiceTransport';
 
-import Config from "@/utils/Config";
-
-const api =  new ServiceTransport({ baseURL: Config.data.api.http.baseURL, withCredentials: true });
+const api =  new ServiceTransport({});
 
 export default api;

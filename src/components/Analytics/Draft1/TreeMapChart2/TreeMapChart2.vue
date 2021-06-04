@@ -1,34 +1,45 @@
 <template>
-  <widget-container title="Долевая структура ошибок в полях" :exportURL="dataURL" :extra-buttons="extraButtons"
-                    id="tree-chart-1" :on-resize="repaint" :is-loading="isLoading">
+  <widget-container title="Долевая структура ошибок в полях" :exportURL="dataURL" v-lazy="setupChart"
+                    id="tree-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
 
 <script>
 import * as echarts from "echarts";
+
 import WidgetContainer from "@/components/Widget/Container";
 import defaultOptions from "./options";
-import ServiceTransport from "@/services/ServiceTransport";
 
-const api = new ServiceTransport({ withCredentials: true });
+import api from "@/services/api";
 
 export default {
-  name: "TreeMapChart1",
+  name: "TreeChart",
   components: {  WidgetContainer },
+  computed: {
+    selectedRegions() {
+      return this.$store.state.session.filters.filter(item => this.watchableFields.includes(item.name)).map(item => item.value);
+    }
+  },
+  watch: {
+    selectedRegions() {
+      this.setupChart();
+    }
+  },
   data() {
     return {
       chart: Object,
-      isLoading: true,
-      dataURL: 'data/tiles_1.json',
-      // dataURL: 'api/app2/page_2/tiles_1',
+      isLoading: false,
+      dataURL: 'data/tiles_2.json',
+      // dataURL: 'api/app2/page_2/tiles_2',
+      data: [],
+      watchableFields: ['region'],
+
       extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
     }
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
-
-    this.setupChart();
   },
   methods: {
     exportImage() {
@@ -40,11 +51,13 @@ export default {
       a.click();
     },
     setupChart() {
+      this.chart.clear();
+
       this.isLoading = true;
 
-      this.getData().then(({ xAxisData, series }) => {
+      this.getData().then(({ series }) => {
 
-        this.paintChart({ xAxes: [], yAxes: [xAxisData], series: [series] });
+        this.paintChart({ xAxes: [], yAxes: [], series: [series] });
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
@@ -52,18 +65,24 @@ export default {
       this.chart.resize();
     },
     getData() {
-      return api.request(this.dataURL).then(({data}) => {
+
+      let dataReq = this.data.length ? Promise.resolve({ data: this.data}) :
+          api.request(this.dataURL, {}, null, 'get', { baseURL: '/' });
+
+      return dataReq.then(({data}) => {
+
+        this.data = data;
+
+        if (this.selectedRegions.length)
+          data = data.filter(item => this.selectedRegions.includes(item.region));
+
         const rtnData = [];
 
         const names = data.map(el => el.part);
-
         const uniqueNames = [...new Set(names)];
-
         uniqueNames.forEach(el => rtnData.push({name: el, value: 0, children: []}));
-
         data.forEach(el => {
           const foundInd = rtnData.findIndex(root => root.name === el.part);
-
           rtnData[foundInd].children.push({name: el.err, value: el.total});
           rtnData[foundInd].value += el.total;
         });
@@ -73,12 +92,16 @@ export default {
     },
     paintChart({xAxes, yAxes, series}) {
 
+      if (!this.selectedRegions.length)
+        return this.catchError('Выберите элемент на графике "Количество ошибок"')
+
       const options = {
         ...defaultOptions,
         series: [{
           type: 'treemap',
           data: series[0],
           name: 'Структура',
+          visibleMin: 500,
           left: 20,
           right: 20,
           top: 10,
@@ -99,7 +122,7 @@ export default {
               value: {
                 align: 'center',
                 color: '#fff',
-                fontSize: 12,
+                fontSize: 13,
                 backgroundColor: 'rgba(0,0,0,0.3)',
                 padding: [2, 4],
                 borderRadius: 2,
@@ -146,6 +169,8 @@ export default {
       this.chart.setOption(options);
     },
     catchError(e) {
+      this.chart.clear();
+
       this.chart.setOption({
         title: {
           show: true,
@@ -153,7 +178,7 @@ export default {
             color: 'grey',
             fontSize: 20
           },
-          text: `Ошибка ${e}`,
+          text: `${e}`,
           left: 'center',
           top: 'center'
         },
@@ -165,8 +190,6 @@ export default {
         },
         series: []
       })
-
-      console.error(e);
     }
   },
   created() {
@@ -181,7 +204,7 @@ export default {
 
 <style scoped>
 #tree-chart-1 {
-  height: 400px;
+  height: 300px;
 }
 .chart {
   width: -webkit-fill-available;

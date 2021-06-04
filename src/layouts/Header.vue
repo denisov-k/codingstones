@@ -5,8 +5,8 @@
         <span>CodingStones</span>
       </div>
       <div class="links">
-        <span>Обзор</span>
-        <span class="solid">Купить</span>
+        <span v-on:click="goTo('home')">Обзор</span>
+        <span v-on:click="goTo('tariffs')" class="solid">Купить</span>
       </div>
     </div>
   </header>
@@ -23,7 +23,9 @@ export default {
 
   },
   methods: {
-
+    goTo(route) {
+      this.$router.push({ name: route }).catch((e) => {});
+    }
   },
   created: function () {
 

@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Динамика изменения количества ошибок по типам" :exportURL="dataURL"
+  <widget-container title="Динамика изменения количества ошибок по типам" :exportURL="dataURL" v-lazy="setupChart"
                     id="chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -10,9 +10,8 @@ import * as echarts from "echarts";
 
 import defaultOptions from './options';
 import WidgetContainer from "@/components/Widget/Container";
-import ServiceTransport from "@/services/ServiceTransport";
 
-const api = new ServiceTransport({ withCredentials: true });
+import api from "@/services/api";
 
 export default {
   name: "LineChart",
@@ -32,8 +31,6 @@ export default {
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
-
-    this.setupChart();
   },
   methods: {
     exportImage() {
@@ -72,7 +69,7 @@ export default {
     },
     getData() {
 
-      return api.request(this.dataURL + '?format=qlik').then(({data}) => {
+      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
 
         const { rowsData, columnsData } = this.parseData(data);
 

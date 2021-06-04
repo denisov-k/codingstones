@@ -14,9 +14,11 @@ export default {
     }
   },
   created: function () {
-
   },
   mounted() {
+
+  },
+  methods: {
 
   }
 }

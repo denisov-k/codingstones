@@ -27,6 +27,25 @@ export default new Router({
                 authGroups: [],
             },
             children: [],
+        },
+        {
+            path: '/tariffs',
+            name: 'tariffs',
+            components: {
+                header: Header,
+                aside: Aside,
+                default: () => import('@/views/Tariffs.vue')
+            },
+            meta: {
+                title: 'Покупка',
+                description: '',
+                viewTitle: '',
+                viewDescription: '',
+                icon: '',
+                visible: true,
+                authGroups: [],
+            },
+            children: [],
         }
     ]
 })

@@ -1,6 +1,14 @@
 <template>
   <div class="analytic-screen">
     <div class="row">
+      <div class="col-xs-6">
+        <h2 class="title">{{ title }}</h2>
+      </div>
+      <div class="col-xs-6">
+        <h2 class="subtitle">{{ subtitle }}</h2>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-4">
         <tree-map-chart1></tree-map-chart1>
       </div>
@@ -23,12 +31,12 @@
 </template>
 
 <script>
-import BarChart from "@/components/DarkWave/BarChart";
-import TreeMapChart1 from "@/components/DarkWave/TreeMapChart1";
-import TreeMapChart2 from "@/components/DarkWave/TreeMapChart2";
+import BarChart from "@/components/Analytics/Draft1/BarChart";
+import TreeMapChart1 from "@/components/Analytics/Draft1/TreeMapChart1";
+import TreeMapChart2 from "@/components/Analytics/Draft1/TreeMapChart2";
 
-import LineChart from "@/components/DarkWave/LineChart";
-import PieChart from "@/components/DarkWave/PieChart";
+import LineChart from "@/components/Analytics/Draft1/LineChart";
+import PieChart from "@/components/Analytics/Draft1/PieChart";
 
 export default {
   name: "Page2",
@@ -39,6 +47,12 @@ export default {
     TreeMapChart2,
     LineChart,
   },
+  data: () => {
+    return {
+      title: 'Пример аналитического экрана',
+      subtitle: 'Ещё один заголовок'
+    }
+  }
 }
 </script>
 
@@ -50,5 +64,15 @@ export default {
     flex-direction: column;
     justify-content: center;
     background-color: #eceef0;
+  }
+  .title {
+    color: #2a728e;
+    margin: auto;
+    line-height: 100px;
+  }
+  .subtitle {
+    color: #8a8a8a;
+    margin: auto;
+    line-height: 100px;
   }
 </style>

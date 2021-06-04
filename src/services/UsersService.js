@@ -24,6 +24,8 @@ export default class UsersService extends Service {
      */
     getCurrent() {
 
+        return new Promise((resolve => resolve({ username: 'test' })))
+
         let callback = function (response) {
             if (typeof response.data !== 'object')
                 document.location.href = Config.data.api.http.loginURL;

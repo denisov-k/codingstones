@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Карта" id="map" :is-loading="isLoading" :on-resize="repaint">
+  <widget-container title="Карта" id="map" :is-loading="isLoading" :on-resize="repaint" v-lazy="setupChart">
     <div id="chartContainer" class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -11,7 +11,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import 'leaflet.markercluster';
 import layers from './layers.json';
 
-import ServiceTransport from '@/services/ServiceTransport';
+import api from "@/services/api";
 import WidgetContainer from "@/components/Widget/Container";
 
 const COLORS = ['green', 'white', 'red', 'orange', 'yellow', 'black']
@@ -26,17 +26,16 @@ export default {
     return {
       isLoading: true,
       dataURL: 'data/map.json',
-      layer: layers[1],
+      layer: layers[3],
       chart: Object,
-      transport: Object
     }
   },
   created() {
-    this.transport = new ServiceTransport();
+
   },
   methods: {
     getData(count) {
-      return this.transport.request(this.dataURL).then((response) => {
+      return api.request(this.dataURL).then((response) => {
         return { points: response.data }
       })
     },
@@ -102,7 +101,6 @@ export default {
   },
   mounted() {
 
-    this.setupChart();
 
   }
 }

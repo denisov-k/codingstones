@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import BarChart from "@/components/DarkWave/BarChart";
-import TreeMapChart1 from "@/components/DarkWave/TreeMapChart1";
-import TreeMapChart2 from "@/components/DarkWave/TreeMapChart2";
+import BarChart from "@/components/Analytics/Draft1/BarChart";
+import TreeMapChart1 from "@/components/Analytics/Draft1/TreeMapChart1";
+import TreeMapChart2 from "@/components/Analytics/Draft1/TreeMapChart2";
 
 import Map from "@/components/Home/Map";
 

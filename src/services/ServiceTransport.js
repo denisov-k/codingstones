@@ -32,6 +32,7 @@ export default class ServiceTransport {
             url: url,
             cancelToken: source.token,
             withCredentials: true,
+            baseURL: Config.data.api.http.baseURL,
             ...options
         };
         request[method == 'get' ? 'params' : 'data'] = params;

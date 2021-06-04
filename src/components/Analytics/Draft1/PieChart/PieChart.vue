@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Долевая структура типов ошибок" :exportURL="dataURL"
+  <widget-container title="Долевая структура типов ошибок" :exportURL="dataURL" v-lazy="setupChart"
                     id="pie-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -7,11 +7,10 @@
 
 <script>
 import WidgetContainer from "@/components/Widget/Container";
-import ServiceTransport from "@/services/ServiceTransport";
 import * as echarts from "echarts";
 import defaultOptions from "./options";
 
-const api = new ServiceTransport({ withCredentials: true });
+import api from "@/services/api";
 
 export default {
   name: "PieChart",
@@ -26,11 +25,7 @@ export default {
     }
   },
   mounted() {
-
     this.chart = echarts.init(this.$refs["chartContainer"]);
-
-    this.setupChart();
-
   },
   methods: {
     exportImage() {
@@ -43,7 +38,7 @@ export default {
     },
     getData() {
 
-      return api.request(this.dataURL).then(({data}) => {
+      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
 
         let seriesData = data.map(({type, total}) => {
           return {

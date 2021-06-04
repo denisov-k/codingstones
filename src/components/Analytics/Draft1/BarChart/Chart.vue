@@ -1,18 +1,17 @@
 <template>
   <widget-container title="Количество ошибок" :exportURL="dataURL"
-                    id="bar-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
+                    id="bar-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading" v-lazy="setupChart">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
 
 <script>
-import ServiceTransport from "@/services/ServiceTransport";
 import * as echarts from "echarts";
 
 import WidgetContainer from "@/components/Widget/Container";
 import defaultOptions from "./options";
 
-const api = new ServiceTransport({ withCredentials: true });
+import api from "@/services/api";
 
 export default {
   name: "BarChart",
@@ -31,11 +30,6 @@ export default {
       ]
     }
   },
-  computed: {
-    selectedFields() {
-      return this.$store.state.session.filters.filter(item => this.watchableFields.includes(item.name));
-    }
-  },
   methods: {
     exportImage() {
       let a = document.createElement("a"),
@@ -51,30 +45,31 @@ export default {
       this.getData().then(({ xAxes, series }) => {
 
         this.paintChart({ xAxes, yAxes: [], series });
-        this.setupEvents({ xAxes, yAxes: [], series });
+        this.setupEvents({ xAxes });
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
-    setupEvents({ xAxes, series }) {
+    setupEvents({ xAxes }) {
       this.chart.on('selectchanged', (params) => {
-        let selectedRegions = params.selected.length ? params.selected[0].dataIndex.map(item => {
-          return { name: 'region', value: xAxes[0][item], id: item } // FIXME
-        }) : [];
+        let selectedRegions = [];
 
-        this.setSelectedRegions(selectedRegions)
-      });
-    },
-    setSelectedRegions(regions) {
-      this.$store.commit('setFilters', regions);
+        if (params.selected.length)
+          selectedRegions = params.selected[0].dataIndex.map(item => {
+            return { name: 'region', value: xAxes[0][item], id: item } // FIXME
+          });
+
+        this.$store.commit('setFilters', selectedRegions);
+      })
     },
     clearAllSelections() {
 
-      let dataIndexes = this.selectedFields.map(item => item.id);
+      let selectedFilters = this.$store.getters.getFiltersByFields(this.watchableFields),
+          selectedIndexes = selectedFilters.map(item => item.id);
 
       this.chart.dispatchAction({
         type: 'unselect',
         seriesIndex: 0,
-        dataIndex: dataIndexes
+        dataIndex: selectedIndexes
       })
     },
     paintChart({xAxes, yAxes, series}) {
@@ -126,7 +121,7 @@ export default {
       const X_AXIS_KEY = 'region';
       const Y_AXIS_KEY = 'errors';
 
-      return api.request(this.dataURL).then(({data}) => {
+      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
         data.sort((a, b) => parseFloat(a[Y_AXIS_KEY]) - parseFloat(b[Y_AXIS_KEY]));
         const xArray = [];
         const yArray = [];
@@ -169,8 +164,6 @@ export default {
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
-
-    this.setupChart();
   },
   destroyed() {
     this.chart.dispose();

@@ -1,23 +1,22 @@
 <template>
   <main>
     <laptop-screen scroll-anchor></laptop-screen>
-    <office-analytic scroll-anchor></office-analytic>
+    <analytic-draft1 scroll-anchor></analytic-draft1>
     <water-analytic scroll-anchor></water-analytic>
     <analytic-draft3 scroll-anchor></analytic-draft3>
   </main>
 </template>
 
 <script>
-
 import LaptopScreen from "@/views/LaptopScreen";
-import OfficeAnalytic from "@/views/Analytics/Office";
+import AnalyticDraft1 from "@/views/Analytics/Draft1";
 import WaterAnalytic from "@/views/Analytics/Water"
 import AnalyticDraft3 from "@/views/Analytics/Draft3"
 
 export default {
   name: "Home",
   components: {
-    LaptopScreen, OfficeAnalytic, WaterAnalytic, AnalyticDraft3
+    LaptopScreen, AnalyticDraft1, WaterAnalytic, AnalyticDraft3
   },
   data() {
     return {
@@ -56,6 +55,10 @@ export default {
         block: 'center',
         inline: 'center'
       });
+
+      let moveEvent = new CustomEvent("scrolled");
+
+      window.dispatchEvent(moveEvent);
 
       this.inMove = false;
     }

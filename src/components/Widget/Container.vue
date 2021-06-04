@@ -19,6 +19,11 @@ import Loading from "@/components/Widget/Loading";
 export default {
   name: "WidgetContainer",
   components: { WidgetTools, Loading },
+  data() {
+    return {
+
+    }
+  },
   props: {
     title: String,
     subtitle: String,

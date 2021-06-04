@@ -23,12 +23,21 @@
 </template>
 
 <script>
-import BarChart from "@/components/DarkWave/BarChart";
-import TreeMapChart1 from "@/components/DarkWave/TreeMapChart1";
-import TreeMapChart2 from "@/components/DarkWave/TreeMapChart2";
 
-import LineChart from "@/components/DarkWave/LineChart";
-import PieChart from "@/components/DarkWave/PieChart";
+const BarChart = () => ({
+  component: import('@/components/Analytics/Draft1/BarChart'),
+  /*loading: LoadingComponent,
+  error: ErrorComponent,*/
+  // The error component will be displayed if a timeout is
+  // provided and exceeded. Default: Infinity.
+  timeout: 3000
+})
+
+import TreeMapChart1 from "@/components/Analytics/Draft1/TreeMapChart1";
+import TreeMapChart2 from "@/components/Analytics/Draft1/TreeMapChart2";
+
+import LineChart from "@/components/Analytics/Draft1/LineChart";
+import PieChart from "@/components/Analytics/Draft1/PieChart";
 
 export default {
   name: "Page2",
