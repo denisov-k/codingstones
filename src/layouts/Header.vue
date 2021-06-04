@@ -41,18 +41,19 @@ export default {
     top: 0;
     background-color: #080808c7;
     z-index: 10;
+    margin-top: -50px;
   }
   .header-content {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 1000px;
+    height: 50px;
     margin: 0 3%;
   }
 
   .logo {
     display: flex;
-    height: 50px;
     margin: 0 5px;
     color: white;
     opacity: 0.92;

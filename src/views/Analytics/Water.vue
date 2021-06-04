@@ -40,7 +40,7 @@ export default {
 <style scoped>
   .analytic-screen {
     display: flex;
-    padding: 10px;
+    padding: 10px 50px;
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;

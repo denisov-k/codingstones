@@ -39,7 +39,7 @@ import LineChart from "@/components/Analytics/Draft1/LineChart";
 import PieChart from "@/components/Analytics/Draft1/PieChart";
 
 export default {
-  name: "Page2",
+  name: "Draft1",
   components: {
     PieChart,
     BarChart,
@@ -58,11 +58,11 @@ export default {
 
 <style scoped>
   .analytic-screen {
-    padding: 10px;
+    padding: 10px 50px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: #eceef0;
   }
   .title {

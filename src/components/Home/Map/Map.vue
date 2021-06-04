@@ -113,10 +113,8 @@ function getRandomInt(max) {
 <style>
 #map {
   height: 400px;
-  width: calc(100% - 30px);
 }
 .chart {
-  width: -webkit-fill-available;
   height: 100%;
 }
 .blob {
