@@ -1,0 +1,81 @@
+<template>
+  <main>
+    <laptop-screen scroll-anchor></laptop-screen>
+    <analytic-draft1 scroll-anchor></analytic-draft1>
+    <water-analytic scroll-anchor></water-analytic>
+    <analytic-draft3 scroll-anchor></analytic-draft3>
+    <about-us scroll-anchor></about-us>
+  </main>
+</template>
+
+<script>
+import LaptopScreen from "@/views/Home/LaptopScreen";
+import AnalyticDraft1 from "@/views/Home/Analytics/Draft1";
+import WaterAnalytic from "@/views/Home/Analytics/Water"
+import AnalyticDraft3 from "@/views/Home/Analytics/Draft3"
+import AboutUs from "@/views/Home/AboutUs";
+
+export default {
+  name: "Home",
+  components: {
+    AboutUs,
+    LaptopScreen, AnalyticDraft1, WaterAnalytic, AnalyticDraft3
+  },
+  data() {
+    return {
+      inMove: false,
+    }
+  },
+  created() {
+    window.addEventListener('mousewheel', this.handleScroll, { passive: false });
+    // window.addEventListener('touchmove', this.handleScroll, { passive: false });
+  },
+  methods: {
+    handleScroll(event) {
+      let anchor = event.path.find((item) => {
+        if (item.hasAttribute)
+          return item.hasAttribute('scroll-anchor');
+      });
+
+      if (!anchor || this.inMove)
+        return;
+
+      let target = event.wheelDelta < 30 ? anchor.nextSibling : anchor.previousSibling;
+
+      if (!target)
+        return;
+
+      this.moveToAnchor(target);
+
+      event.preventDefault();
+      return false;
+    },
+    moveToAnchor(element) {
+      this.inMove = true;
+
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'center'
+      });
+
+      let moveEvent = new CustomEvent("scrolled");
+
+      window.dispatchEvent(moveEvent);
+
+      this.inMove = false;
+    }
+  }
+}
+</script>
+
+<style scoped>
+  h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  h2 {
+    font-size: 56px;
+    margin: 20px 30px;
+  }
+</style>

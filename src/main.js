@@ -15,8 +15,10 @@ import 'flexboxgrid/dist/flexboxgrid.min.css';
 Vue.config.productionTip = false
 
 Vue.use(VueGtag, {
-  config: { id: "G-YQBYSJWJKP" }
-});
+  config: { id: "G-YQBYSJWJKP" },
+  appName: 'CodingStones',
+  pageTrackerScreenviewEnabled: true
+}, router);
 
 Vue.directive("lazy", LazyLoadDirective);
 

@@ -1,7 +1,7 @@
 export default {
   bind: (el, binding, vnode) => {
     if (typeof binding.value !== "function")
-      throw 'Incorrect v-lazy value type: should be function';
+      throw 'Incorrect v-lazy value type: should be a function';
 
     const lazyFunction = binding.value;
 
