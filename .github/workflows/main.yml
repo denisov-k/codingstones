@@ -28,3 +28,4 @@ jobs:
         local-dir: ./dist/
         server-dir: /www/codingstones.ru/
         dangerous-clean-slate: true
+        log-level: verbose
