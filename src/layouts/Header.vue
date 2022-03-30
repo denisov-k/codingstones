@@ -1,11 +1,11 @@
 <template>
   <header class="layouts--header">
     <div class="header-content">
-      <div class="logo">
+      <div class="logo" v-on:click="goToHome">
         <span>CodingStones</span>
       </div>
       <div class="links">
-        <span v-on:click="goTo('home')">Обзор</span>
+        <span v-on:click="goToAnalytic">Обзор</span>
         <span v-on:click="goTo('tariffs')" class="solid">Купить</span>
       </div>
     </div>
@@ -24,7 +24,19 @@ export default {
   },
   methods: {
     goTo(route) {
-      this.$router.push({ name: route }).catch((e) => {});
+      this.$router.push({ name: route }).catch(e => {});
+    },
+    async goToAnalytic() {
+      if (this.$route.name !== 'home')
+        await this.$router.push({ name: 'home' });
+
+      document.getElementById("analytic-examples").scrollIntoView({behavior: "smooth"});
+    },
+    async goToHome() {
+      if (this.$route.name !== 'home')
+        await this.$router.push({ name: 'home' });
+
+      document.getElementsByTagName("main")[0].scrollIntoView({behavior: "smooth"});
     }
   },
   created: function () {
@@ -60,6 +72,7 @@ export default {
     font-weight: 600;
     font-size: 21px;
     align-self: center;
+    cursor: pointer;
   }
   .logo span {
     align-self: center;
