@@ -2,8 +2,14 @@
   <div class="laptop-container">
     <div class="laptop">
       <img src="@/assets/laptop.svg">
-      <div class="laptop-screen">
-        <div class="browser">
+      <div class="laptop-screen" v-on:click="nextScreen">
+        <div class="desktop" v-show="activeScreenIndex === 0">
+          <img src="@/assets/logo.svg">
+        </div>
+        <div class="messenger" v-show="activeScreenIndex === 1">
+
+        </div>
+        <div class="browser" v-show="activeScreenIndex === 2">
           <div class="analyst-screen"></div>
         </div>
       </div>
@@ -12,9 +18,19 @@
 </template>
 
 <script>
-export default {
-name: "Laptop"
-}
+  export default {
+    name: "Laptop",
+    data: () => {
+      return {
+        activeScreenIndex: 0,
+      }
+    },
+    methods: {
+      nextScreen() {
+        this.activeScreenIndex = this.activeScreenIndex >= 2 ? 0 : this.activeScreenIndex + 1;
+      }
+    }
+  }
 </script>
 
 <style scoped>
@@ -30,10 +46,10 @@ name: "Laptop"
     height: inherit;
     user-select: none;
   }
-  .laptop img {
+  .laptop > img {
     width: 100%;
     height: 100%;
-    z-index: 1;
+    /*z-index: 1;*/
     -webkit-user-drag: none;
   }
   .laptop-screen {
@@ -44,6 +60,23 @@ name: "Laptop"
     bottom: 10.5%;
 
     background-color: white;
+  }
+  .desktop {
+    height: 100%;
+    background-color: #4c4c4c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .desktop > img {
+    max-width: 300px;
+    width: 50%;
+    -webkit-user-drag: none;
+  }
+  .messenger {
+    height: 100%;
+    background-color: #367b8f;
   }
   .browser {
     background-image: url('../../assets/browser.svg');

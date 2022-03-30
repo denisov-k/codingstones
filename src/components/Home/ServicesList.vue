@@ -7,17 +7,21 @@
       <div class="service-description">{{ activeItem.description }}</div>
     </div>
     <div class="list col-xs-12 col-sm-6">
-      <h3>Услуги</h3>
-      <div v-for="(item, index) in services" :key="index" class="list-item"
-           v-on:click="setActiveItem(index, 0)"
-           :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
-        {{ item.name }}
+      <div>
+        <h3>Услуги</h3>
+        <div v-for="(item, index) in services" :key="index" class="list-item"
+             v-on:click="setActiveItem(index, 0)"
+             :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
+          {{ item.name }}
+        </div>
       </div>
-      <h3>Особенности</h3>
-      <div v-for="(item, index) in features" :key="index" class="list-item"
-           v-on:click="setActiveItem(index, 1)"
-           :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
-        {{ item.name }}
+      <div>
+        <h3>Особенности</h3>
+        <div v-for="(item, index) in features" :key="index" class="list-item"
+             v-on:click="setActiveItem(index, 1)"
+             :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
+          {{ item.name }}
+        </div>
       </div>
     </div>
   </div>
@@ -32,19 +36,19 @@ export default {
       activeListIndex: 0,
       services: [
         { name: 'Консультация по Business Intelligence', description: 'Архитектурная и продуктовая' },
-        { name: 'Создание модели данных' },
-        { name: 'Подключение источников данных' },
-        { name: 'Определение метрик' },
-        { name: 'Предиктивный анализ' },
-        { name: 'Подготовка макета и разработка визуального слоя' },
-        { name: 'Интеграция аналитического решения в бизнес заказчика' },
-        { name: 'Администрирование систем' },
+        { name: 'Создание модели данных', description: 'test' },
+        { name: 'Подключение источников данных', description: 'test' },
+        { name: 'Определение метрик', description: 'test' },
+        { name: 'Предиктивный анализ', description: 'test' },
+        { name: 'Визуальный слой', description: 'Подготовка макета и разработка визуального слоя' },
+        { name: 'Интеграция решения', description: 'Интеграция аналитического решения в бизнес заказчика' },
+        { name: 'Администрирование систем', description: 'test' },
       ],
       features: [
-        { name: 'Современные подход и технологии' },
-        { name: 'Различные форматы (классическая аналитика, соц.сети и т.д.)' },
-        { name: 'Уникальный дизайн' },
-        { name: 'Независимость от вендора' },
+        { name: 'Современные подход и технологии', description: 'test' },
+        { name: 'Различные форматы', description: 'Различные форматы (классическая аналитика, соц.сети и т.д.)' },
+        { name: 'Уникальный дизайн', description: 'test' },
+        { name: 'Независимость от вендора', description: 'test' },
       ]
     }
   },
@@ -64,14 +68,14 @@ export default {
 
 <style scoped>
   h3 {
-    margin: 12px 0;
+    margin: 8px;
   }
 
   #services-and-features-container {
     padding: 0 7%;
   }
   #services-and-features-container > div {
-
+    padding: 0 25px;
   }
   .info {
     display: flex;
@@ -91,9 +95,12 @@ export default {
   }
   .list {
     text-align: left;
-    padding: 0 25px;
+  }
+  .list > div:nth-child(1) {
+    margin-bottom: 20px;
   }
   .list-item {
+    font-size: 15px;
     cursor: pointer;
     background-color: #1b1e25;
     border-radius: 8px;
@@ -108,6 +115,7 @@ export default {
     background-color: #3f3f3f;
   }
   .list-item.selected {
-    background-color: #1c2049;
+    background-color: #335cd2;
+    color: black;
   }
 </style>

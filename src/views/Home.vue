@@ -91,14 +91,14 @@ export default {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 0;
-    margin-top: 50px;
+    padding: 30px 0;
+    margin-top: 80px;
   }
   #services-and-features {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 50px 0;
+    margin: 60px 0;
   }
   #about-us {
     background-color: #eceef0;
