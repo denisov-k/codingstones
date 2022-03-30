@@ -21,10 +21,11 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: isp25.adminvps.ru
+        server: 45.128.206.87
         protocol: ftps
         username: codings1
         password: ${{ secrets.ftp_password }}
         local-dir: ./dist/
         server-dir: /www/codingstones.ru/
         dangerous-clean-slate: true
+        log-level: verbose
