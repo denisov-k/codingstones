@@ -1,5 +1,5 @@
 <template>
-  <div class="laptop-layout">
+  <div class="laptop-container">
     <div class="laptop">
       <img src="@/assets/laptop.svg">
       <div class="laptop-screen">
@@ -18,16 +18,16 @@ name: "Laptop"
 </script>
 
 <style scoped>
-  .laptop-layout {
+  .laptop-container {
     text-align: -webkit-center;
   }
   .laptop {
     display: flex;
     position: relative;
     justify-content: center;
-    max-width: 1000px;
+    max-width: 860px;
     margin: 30px 5%;
-
+    height: inherit;
     user-select: none;
   }
   .laptop img {

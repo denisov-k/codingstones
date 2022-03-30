@@ -23,6 +23,7 @@ export default {
   }
 }
 </script>
+<style src="flexboxgrid/dist/flexboxgrid.min.css"></style>
 <style>
 @font-face {
   font-family: "SF Pro";
@@ -51,5 +52,9 @@ body {
 }
 .content {
 
+}
+.row {
+  margin: 0;
+  width: 100%;
 }
 </style>

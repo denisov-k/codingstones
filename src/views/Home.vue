@@ -1,25 +1,33 @@
 <template>
   <main>
-    <laptop-screen scroll-anchor></laptop-screen>
-    <analytic-draft1 scroll-anchor></analytic-draft1>
-    <water-analytic scroll-anchor></water-analytic>
-    <analytic-draft3 scroll-anchor></analytic-draft3>
-    <about-us scroll-anchor></about-us>
+    <div id="laptop-welcome">
+      <h1>Тестовый заголовок</h1>
+      <h2>Второй заголовок</h2>
+      <laptop></laptop>
+    </div>
+    <div id="services-and-features">
+      <services-list></services-list>
+    </div>
+    <div id="analytic-examples">
+      <div class="slider">
+        <analytic-draft1></analytic-draft1>
+      </div>
+    </div>
+    <div id="about-us">
+
+    </div>
   </main>
 </template>
 
 <script>
-import LaptopScreen from "@/views/Home/LaptopScreen";
-import AnalyticDraft1 from "@/views/Home/Analytics/Draft1";
-import WaterAnalytic from "@/views/Home/Analytics/Water"
-import AnalyticDraft3 from "@/views/Home/Analytics/Draft3"
-import AboutUs from "@/views/Home/AboutUs";
+import Laptop from "@/components/Home/Laptop";
+import ServicesList from "@/components/Home/ServicesList";
+import AnalyticDraft1 from "@/views/Analytics/Draft1";
 
 export default {
   name: "Home",
   components: {
-    AboutUs,
-    LaptopScreen, AnalyticDraft1, WaterAnalytic, AnalyticDraft3
+    Laptop, ServicesList, AnalyticDraft1
   },
   data() {
     return {
@@ -71,11 +79,32 @@ export default {
 
 <style scoped>
   h1 {
-    font-size: 20px;
+    font-size: 1.275em;
     margin: 0;
   }
   h2 {
-    font-size: 56px;
-    margin: 20px 30px;
+    font-size: 1.875em;
+    margin: 20px 0;
+  }
+  #laptop-welcome {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0;
+    margin-top: 50px;
+  }
+  #services-and-features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  #about-us {
+    background-color: #eceef0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
   }
 </style>

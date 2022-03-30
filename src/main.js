@@ -10,8 +10,6 @@ import 'vue-awesome/icons';
 import store from './store/store'
 import SessionActions from './store/store-session-actions'
 
-import 'flexboxgrid/dist/flexboxgrid.min.css';
-
 Vue.config.productionTip = false
 
 Vue.use(VueGtag, {

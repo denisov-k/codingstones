@@ -15,7 +15,7 @@ export default new Router({
             components: {
                 header: Header,
                 aside: Aside,
-                default: () => import('@/views/Home/')
+                default: () => import('@/views/Home.vue')
             },
             meta: {
                 title: 'CodingStones',
