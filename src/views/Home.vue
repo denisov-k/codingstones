@@ -1,7 +1,7 @@
 <template>
   <main>
     <div id="laptop-welcome">
-      <h1>Тестовый заголовок</h1>
+      <h1>{{ $t('title') }}</h1>
       <h2>Второй заголовок</h2>
       <laptop></laptop>
     </div>
@@ -109,3 +109,14 @@ export default {
     height: 100vh;
   }
 </style>
+
+<i18n>
+{
+  "en": {
+    "title": "Hello i18n in SFC!"
+  },
+  "ru": {
+    "title": "Тестовый заголовок"
+  }
+}
+</i18n>

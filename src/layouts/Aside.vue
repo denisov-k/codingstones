@@ -9,7 +9,6 @@
         <div class="version-info">
           <!--<img class="logo-icon" src="@/assets/images/logo-icon-2.png">
           <div class="uk-padding-small uk-text-small">v.{{appVersion}} ({{appRev}})</div>-->
-          <div class="uk-padding-small uk-text-small">v.{{ appVersion }}</div>
         </div>
       </div>
     </div>
@@ -18,7 +17,7 @@
 <script>
 import AsideMenu from './AsideMenu';
 import Config from '../utils/Config';
-import {version as appVersion} from '../../package.json';
+// import {version as appVersion} from '../../package.json';
 
 export default {
   components: {
@@ -26,7 +25,7 @@ export default {
   },
   data() {
     return {
-      appVersion
+      appVersion: ''
     }
   },
   computed: {

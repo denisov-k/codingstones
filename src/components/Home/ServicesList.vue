@@ -6,8 +6,8 @@
       </div>
       <div class="service-description">{{ activeItem.description }}</div>
     </div>
-    <div class="list col-xs-12 col-sm-6">
-      <div>
+    <div class="lists col-xs-12 col-sm-6">
+      <div class="list">
         <h3>Услуги</h3>
         <div v-for="(item, index) in services" :key="index" class="list-item"
              v-on:click="setActiveItem(index, 0)"
@@ -15,7 +15,7 @@
           {{ item.name }}
         </div>
       </div>
-      <div>
+      <div class="list">
         <h3>Особенности</h3>
         <div v-for="(item, index) in features" :key="index" class="list-item"
              v-on:click="setActiveItem(index, 1)"
@@ -73,12 +73,12 @@ export default {
   }
 
   #services-and-features-container {
-    padding: 0 5%;
+    /*padding: 0 5%;*/
     display: flex;
     justify-content: center;
   }
   #services-and-features-container > div {
-    padding: 0 25px;
+    padding: 0 65px;
   }
   .info {
     display: flex;
@@ -96,17 +96,24 @@ export default {
   .service-icon {
     margin: 10px 0;
   }
-  .list {
+  .lists {
     text-align: left;
   }
-  .list > div:nth-child(1) {
+  .lists > div:nth-child(1) {
     margin-bottom: 20px;
   }
+  .list {
+    min-width: 300px;
+    max-width: 400px;
+    margin: auto;
+  }
   .list-item {
+    color: #080808;
     font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    background-color: #1b1e25;
-    border-radius: 8px;
+    background-color: #383838;
+    border-radius: 7px;
     margin: 5px 0;
     white-space: nowrap;
     overflow: hidden;
@@ -119,6 +126,7 @@ export default {
   }
   .list-item.selected {
     background-color: #335cd2;
-    color: black;
+    color: white;
+    font-weight: 500;
   }
 </style>

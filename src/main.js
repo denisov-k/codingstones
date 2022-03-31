@@ -9,6 +9,7 @@ import 'vue-awesome/icons';
 
 import store from './store/store'
 import SessionActions from './store/store-session-actions'
+import i18n from './i18n'
 
 Vue.config.productionTip = false
 
@@ -30,7 +31,8 @@ Config.init().then(() => {
     new Vue({
       router,
       store,
-      render: h => h(App),
+      i18n,
+      render: h => h(App)
     }).$mount('#app');
   }).catch((err) => {
     alert(err);
