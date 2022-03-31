@@ -7,13 +7,19 @@
       <div class="links">
         <span v-on:click="goToAnalytic">Обзор</span>
         <span v-on:click="goTo('tariffs')" class="solid">Купить</span>
+        <locale-switcher></locale-switcher>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import LocaleSwitcher from "@/components/LocaleSwitcher";
+
 export default {
+  components: {
+    LocaleSwitcher
+  },
   data() {
     return {
 
@@ -53,7 +59,6 @@ export default {
     top: 0;
     background-color: #080808c7;
     z-index: 10;
-    margin-top: -50px;
   }
   .header-content {
     display: flex;
@@ -83,7 +88,7 @@ export default {
     color: #b7b7b7;
     align-self: center;
   }
-  .links > * {
+  .links > span {
     cursor: pointer;
     padding: 4px 10px;
     margin: 0 5px;

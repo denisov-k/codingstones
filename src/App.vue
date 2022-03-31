@@ -50,7 +50,7 @@ body {
   overflow: auto;
 }
 .content {
-
+  margin-top: -50px;
 }
 .row {
   margin: 0;

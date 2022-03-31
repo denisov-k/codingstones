@@ -8,7 +8,7 @@
     </div>
     <div class="lists col-xs-12 col-sm-6">
       <div class="list">
-        <h3>Услуги</h3>
+        <h3>{{ $t('services.list_name') }}</h3>
         <div v-for="(item, index) in services" :key="index" class="list-item"
              v-on:click="setActiveItem(index, 0)"
              :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="list">
-        <h3>Особенности</h3>
+        <h3>{{ $t('features.list_name') }}</h3>
         <div v-for="(item, index) in features" :key="index" class="list-item"
              v-on:click="setActiveItem(index, 1)"
              :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
@@ -30,31 +30,38 @@
 <script>
 export default {
   name: "ServicesList",
-  data: () => {
+  data: function() {
     return {
       activeItemIndex: 0,
-      activeListIndex: 0,
-      services: [
-        { name: 'Консультация по Business Intelligence', description: 'Архитектурная и продуктовая' },
-        { name: 'Создание модели данных', description: 'test' },
-        { name: 'Подключение источников данных', description: 'test' },
-        { name: 'Определение метрик', description: 'test' },
-        { name: 'Предиктивный анализ', description: 'test' },
-        { name: 'Визуальный слой', description: 'Подготовка макета и разработка визуального слоя' },
-        { name: 'Интеграция решения', description: 'Интеграция аналитического решения в бизнес заказчика' },
-        { name: 'Администрирование систем', description: 'test' },
-      ],
-      features: [
-        { name: 'Современные подход и технологии', description: 'test' },
-        { name: 'Различные форматы', description: 'Различные форматы (классическая аналитика, соц.сети и т.д.)' },
-        { name: 'Уникальный дизайн', description: 'test' },
-        { name: 'Независимость от вендора', description: 'test' },
-      ]
+      activeListIndex: 0
     }
   },
   computed: {
     activeItem: function () {
       return [this.services, this.features][this.activeListIndex][this.activeItemIndex];
+    },
+    services: function() {
+      const $t = this.$t.bind(this)
+
+      return [
+        { name: $t('services.consultation.name'), description: $t('services.consultation.description') },
+        { name: $t('services.data_analysis.name'), description: $t('services.data_analysis.description') },
+        { name: $t('services.data_modeling.name'), description: $t('services.data_modeling.description') },
+        { name: $t('services.data_connecting.name'), description: $t('services.data_connecting.description') },
+        { name: $t('services.visualisation.name'), description: $t('services.visualisation.description') },
+        { name: $t('services.integration.name'), description: $t('services.integration.description') },
+        { name: $t('services.support.name'), description: $t('services.support.description') },
+      ]
+    },
+    features: function() {
+      const $t = this.$t.bind(this)
+
+      return [
+        { name: 'Современные подход и технологии', description: 'test' },
+        { name: 'Различные форматы', description: 'Различные форматы (классическая аналитика, соц.сети и т.д.)' },
+        { name: 'Уникальный дизайн', description: 'test' },
+        { name: 'Независимость от вендора', description: 'test' },
+      ]
     }
   },
   methods: {
@@ -69,7 +76,7 @@ export default {
 <style scoped>
   h3 {
     font-size: 20px;
-    margin: 8px;
+    margin: 10px 8px;
   }
 
   #services-and-features-container {
@@ -130,3 +137,60 @@ export default {
     font-weight: 500;
   }
 </style>
+
+<i18n>
+{
+  "en": {
+    "services": {
+      "list_name": "Services",
+      "consultation": {
+        "name": "Consultation in Business Intelligence",
+        "description": "We will analyse your tasks and offer the best options"
+      },
+      "data_analysis": {
+        "name": "Data analysis",
+        "description": "Metrics"
+      }
+    },
+    "features": {
+      "list_name": "Features"
+    }
+  },
+  "ru": {
+    "services": {
+      "list_name": "Услуги",
+      "consultation": {
+        "name": "Консультация по Business Intelligence",
+        "description": "Мы анализируем ваши задачи и предлагаем оптимальные варианты решений"
+      },
+      "data_analysis": {
+        "name": "Анализ данных",
+        "description": "Постановка гипотез и определение показателей, релевантных для организации"
+      },
+      "data_modeling": {
+        "name": "Разработка модели данных",
+        "description": "Создание схемы данных в нормализованном виде"
+      },
+      "data_connecting": {
+        "name": "Подключение источников данных",
+        "description": "Конфигурация планировщика и адаптеров для работы с источниками данных"
+      },
+      "visualisation": {
+        "name": "Создание визуального слоя",
+        "description": "Подготовка макета и разработка визуального слоя"
+      },
+      "integration": {
+        "name": "Интеграция решения",
+        "description": "Интеграция аналитического решения в контур заказчика"
+      },
+      "support": {
+        "name": "Поддержка",
+        "description": "Поддержка"
+      }
+    },
+    "features": {
+      "list_name": "Особенности"
+    }
+  }
+}
+</i18n>
