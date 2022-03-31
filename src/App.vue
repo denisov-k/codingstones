@@ -36,7 +36,6 @@ html, body {
 }
 body {
   margin: auto;
-  background-color: #080808;
 }
 
 #app {

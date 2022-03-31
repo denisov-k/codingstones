@@ -68,11 +68,14 @@ export default {
 
 <style scoped>
   h3 {
+    font-size: 20px;
     margin: 8px;
   }
 
   #services-and-features-container {
-    padding: 0 7%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: center;
   }
   #services-and-features-container > div {
     padding: 0 25px;

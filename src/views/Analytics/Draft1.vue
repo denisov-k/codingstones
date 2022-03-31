@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
   .analytic-screen {
-    padding: 10px 15px;
+    padding: 60px 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -67,10 +67,10 @@ export default {
   }
   .title {
     color: #2a728e;
-    margin: 20px;
+    margin: 0 10px 15px;
   }
   .subtitle {
     color: #8a8a8a;
-    margin: 20px;
+    margin: 0 10px 15px;
   }
 </style>
