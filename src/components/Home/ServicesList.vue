@@ -85,7 +85,7 @@ export default {
     justify-content: center;
   }
   #services-and-features-container > div {
-    padding: 0 65px;
+    padding: 0 5%;
   }
   .info {
     display: flex;
@@ -98,7 +98,9 @@ export default {
   }
   .service-description {
     font-size: 17px;
-    margin: 5px 0;
+    margin: 5px auto;
+    min-width: 270px;
+    max-width: 400px;
   }
   .service-icon {
     margin: 10px 0;
@@ -110,7 +112,7 @@ export default {
     margin-bottom: 20px;
   }
   .list {
-    min-width: 300px;
+    min-width: 270px;
     max-width: 400px;
     margin: auto;
   }
@@ -139,58 +141,78 @@ export default {
 </style>
 
 <i18n>
-{
-  "en": {
-    "services": {
-      "list_name": "Services",
-      "consultation": {
-        "name": "Consultation in Business Intelligence",
-        "description": "We will analyse your tasks and offer the best options"
+  {
+    "en": {
+      "services": {
+        "list_name": "Services",
+        "consultation": {
+          "name": "Consultation in Business Intelligence",
+          "description": "We will analyse your tasks and offer the best options"
+        },
+        "data_analysis": {
+          "name": "Data analysis",
+          "description": "Metrics"
+        },
+        "data_modeling": {
+          "name": "Data modeling",
+          "description": "Создание схемы данных в нормализованном виде"
+        },
+        "data_connecting": {
+          "name": "Data connecting",
+          "description": "Конфигурация планировщика и адаптеров для работы с источниками данных"
+        },
+        "visualisation": {
+          "name": "Creating visualisation layer",
+          "description": "Подготовка макета и разработка визуального слоя"
+        },
+        "integration": {
+          "name": "Solution integration",
+          "description": "Интеграция аналитического решения в контур заказчика"
+        },
+        "support": {
+          "name": "Support",
+          "description": "Поддержка"
+        }
       },
-      "data_analysis": {
-        "name": "Data analysis",
-        "description": "Metrics"
+      "features": {
+        "list_name": "Features"
       }
     },
-    "features": {
-      "list_name": "Features"
-    }
-  },
-  "ru": {
-    "services": {
-      "list_name": "Услуги",
-      "consultation": {
-        "name": "Консультация по Business Intelligence",
-        "description": "Мы анализируем ваши задачи и предлагаем оптимальные варианты решений"
+    "ru": {
+      "services": {
+        "list_name": "Услуги",
+        "consultation": {
+          "name": "Консультация по Business Intelligence",
+          "description": "Мы проанализируем ваши задачи и предложим оптимальные варианты решений"
+        },
+        "data_analysis": {
+          "name": "Анализ данных",
+          "description": "Постановка гипотез и определение показателей, релевантных для организации"
+        },
+        "data_modeling": {
+          "name": "Разработка модели данных",
+          "description": "Создание схемы данных в нормализованном виде"
+        },
+        "data_connecting": {
+          "name": "Подключение источников данных",
+          "description": "Конфигурация планировщика и адаптеров для работы с источниками данных"
+        },
+        "visualisation": {
+          "name": "Создание визуального слоя",
+          "description": "Подготовка макета и разработка визуального слоя"
+        },
+        "integration": {
+          "name": "Интеграция решения",
+          "description": "Интеграция аналитического решения в контур заказчика"
+        },
+        "support": {
+          "name": "Поддержка",
+          "description": "Поддержка"
+        }
       },
-      "data_analysis": {
-        "name": "Анализ данных",
-        "description": "Постановка гипотез и определение показателей, релевантных для организации"
-      },
-      "data_modeling": {
-        "name": "Разработка модели данных",
-        "description": "Создание схемы данных в нормализованном виде"
-      },
-      "data_connecting": {
-        "name": "Подключение источников данных",
-        "description": "Конфигурация планировщика и адаптеров для работы с источниками данных"
-      },
-      "visualisation": {
-        "name": "Создание визуального слоя",
-        "description": "Подготовка макета и разработка визуального слоя"
-      },
-      "integration": {
-        "name": "Интеграция решения",
-        "description": "Интеграция аналитического решения в контур заказчика"
-      },
-      "support": {
-        "name": "Поддержка",
-        "description": "Поддержка"
+      "features": {
+        "list_name": "Особенности"
       }
-    },
-    "features": {
-      "list_name": "Особенности"
     }
   }
-}
 </i18n>

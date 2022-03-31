@@ -2,7 +2,7 @@
   <main>
     <div id="laptop-welcome">
       <h1>{{ $t('title') }}</h1>
-      <h2>Второй заголовок</h2>
+      <h2>{{ $t('subtitle') }}</h2>
       <laptop></laptop>
     </div>
     <div id="services-and-features">
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div id="about-us">
-
+      <contacts></contacts>
     </div>
   </main>
 </template>
@@ -22,12 +22,13 @@
 <script>
 import Laptop from "@/components/Home/Laptop";
 import ServicesList from "@/components/Home/ServicesList";
+import Contacts from "@/components/Home/Contacts";
 import AnalyticDraft1 from "@/views/Analytics/Draft1";
 
 export default {
   name: "Home",
   components: {
-    Laptop, ServicesList, AnalyticDraft1
+    Laptop, ServicesList, AnalyticDraft1, Contacts
   },
   data() {
     return {
@@ -102,7 +103,7 @@ export default {
     background-color: #080808;
   }
   #about-us {
-    background-color: #eceef0;
+    background-color: #080808;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,10 +114,12 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Hello i18n in SFC!"
+    "title": "Hello, World!",
+    "subtitle": "Subtitle"
   },
   "ru": {
-    "title": "Тестовый заголовок"
+    "title": "Тестовый заголовок",
+    "subtitle": "Второй заголовок"
   }
 }
 </i18n>

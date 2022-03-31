@@ -5,8 +5,8 @@
         <span>CodingStones</span>
       </div>
       <div class="links">
-        <span v-on:click="goToAnalytic">Обзор</span>
-        <span v-on:click="goTo('tariffs')" class="solid">Купить</span>
+        <span v-on:click="goToAnalytic">{{ $t('overview') }}</span>
+        <span v-on:click="goTo('tariffs')" class="solid">{{ $t('buy') }}</span>
         <locale-switcher></locale-switcher>
       </div>
     </div>
@@ -50,6 +50,19 @@ export default {
   }
 }
 </script>
+
+<i18n>
+  {
+    "en": {
+      "overview": "Overview",
+      "buy": "Buy"
+    },
+    "ru": {
+      "overview": "Обзор",
+      "buy": "Купить"
+    }
+  }
+</i18n>
 
 <style scoped>
   .layouts--header {
