@@ -90,7 +90,7 @@ export default {
   h3 {
     color: black;
     font-size: 1.875em;
-    margin: 15px 0;
+    margin: 5px 0;
     display: inline-block;
   }
   #laptop-welcome {
@@ -110,7 +110,7 @@ export default {
   }
   #analytic-examples {
     text-align: left;
-    padding: 50px 60px;
+    padding: 7vmin;
   }
   #about-us {
     background-color: #080808;

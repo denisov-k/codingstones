@@ -81,13 +81,15 @@ export default {
 
 <style scoped>
   .navigation {
+    font-size: 17px;
     color: #aeaeae;
-    margin: 15px 0px;
+    margin: 25px 0;
+    text-align: center;
   }
   .item-label {
     display: inline-block;
     cursor: pointer;
-    padding: 5px 15px;
+    padding: 0 2%;
     text-decoration-line: underline;
     text-underline-position: under;
     text-decoration-color: #aeaeae;
