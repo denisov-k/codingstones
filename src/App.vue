@@ -49,10 +49,6 @@ body {
   flex-direction: column;
   overflow: auto;
 }
-.content {
-  margin-top: -50px;
-  min-width: 400px;
-}
 .row {
   margin: 0;
   width: 100%;

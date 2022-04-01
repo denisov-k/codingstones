@@ -71,7 +71,7 @@ export default {
 
 <style scoped>
   .analytic-screen {
-    padding: 20px;
+    padding: 1%;
     background-color: #eceef0;
   }
   .title {

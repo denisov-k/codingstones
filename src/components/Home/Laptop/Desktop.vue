@@ -26,7 +26,11 @@
     </div>
     <transition name="fade">
       <div class="message" v-show="isMessageShowed">
-
+        <v-icon name="envelope" />
+        <div class="labels">
+          <span class="header">{{ $t('message.header') }}</span>
+          <span class="content">{{ $t('message.content') }}</span>
+        </div>
       </div>
     </transition>
   </div>
@@ -48,7 +52,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.isMessageShowed = true
-    }, 1000)
+    }, 1500)
   }
 }
 </script>
@@ -65,7 +69,7 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
-  .header {
+  .desktop > .header {
     display: flex;
     width: 100%;
     background-color: $interface-color;
@@ -95,7 +99,7 @@ export default {
     height: auto;
   }
 
-  .footer {
+  .desktop > .footer {
     margin: 2%;
     display: flex;
     background-color: $interface-color;
@@ -104,7 +108,7 @@ export default {
     height: 10%;
     justify-content: center;
   }
-  .footer > .application {
+  .application {
     display: inline-block;
     padding: 3% 3%;
     height: 100%;
@@ -127,7 +131,36 @@ export default {
     background-color: $interface-color;
     right: 3%;
     bottom: 20%;
-    border-radius: 3px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    /*padding: 2.5% 1%;*/
+    box-sizing: border-box;
+  }
+  .message > svg {
+    width: 20%;
+    height: auto;
+    margin: 0 10%;
+    fill: #212f58;
+  }
+  .message .labels {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    /*margin: 0 2% auto;
+    height: 50%;*/
+    font-size: 0.9vw;
+  }
+  .message span {
+    display: inline-block;
+    margin: 3% 0;
+  }
+  .message .header {
+
+  }
+  .message .content {
+    color: #080808;
   }
 
   .fade-enter-active {
@@ -153,6 +186,10 @@ export default {
       "view": "View",
       "window": "Window",
       "help": "Help"
+    },
+    "message": {
+      "header": "Telegram Desktop",
+      "content": "New message"
     }
   },
   "ru": {
@@ -163,6 +200,10 @@ export default {
       "view": "Просмотр",
       "window": "Окно",
       "help": "Помощь"
+    },
+    "message": {
+      "header": "Telegram Desktop",
+      "content": "Новое сообщение"
     }
   }
 }

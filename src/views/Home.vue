@@ -13,8 +13,9 @@
       <analytical-screens-slider></analytical-screens-slider>
     </div>
     <div id="about-us">
-      <contacts></contacts>
+      <h3>{{ $t('about_us.title') }}</h3>
     </div>
+    <contacts></contacts>
   </main>
 </template>
 
@@ -79,6 +80,10 @@ export default {
 </script>
 
 <style scoped>
+  main {
+    margin-top: -50px;
+    min-width: 400px;
+  }
   h1 {
     font-size: 1.5vmax;
     margin: 0;
@@ -88,7 +93,6 @@ export default {
     margin: 2vmax 0;
   }
   h3 {
-    color: black;
     font-size: 1.875em;
     margin: 5px 0;
     display: inline-block;
@@ -109,6 +113,7 @@ export default {
     background-color: #080808;
   }
   #analytic-examples {
+    color: black;
     text-align: left;
     padding: 7vmin;
   }
@@ -116,7 +121,7 @@ export default {
     background-color: #080808;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 7vmin;
     height: 100vh;
   }
 </style>
@@ -130,6 +135,9 @@ export default {
     },
     "analytic": {
       "title": "Examples"
+    },
+    "about_us": {
+      "title": "About us"
     }
   },
   "ru": {
@@ -139,6 +147,9 @@ export default {
     },
     "analytic": {
       "title": "Примеры"
+    },
+    "about_us": {
+      "title": "О нас"
     }
   }
 }

@@ -39,6 +39,9 @@ export default {
     flex-direction: column;
     align-items: center;
     /* color: black; */
+    background-color: #080808;
+    justify-content: center;
+    height: 100vh;
   }
   a {
     color: #335cd2;
