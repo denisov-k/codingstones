@@ -2,10 +2,10 @@
   <div class="analytic-screen">
     <div class="row">
       <div class="col-xs-12 col-sm-6 start-sm">
-        <h2 class="title">{{ title }}</h2>
+        <h2 class="title">{{ $t('title') }}</h2>
       </div>
       <div class="col-xs-12 col-sm-6 end-sm">
-        <h2 class="subtitle">{{ subtitle }}</h2>
+        <h2 class="subtitle">{{ $t('subtitle') }}</h2>
       </div>
     </div>
     <div class="row">
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import BarChart from "@/components/Analytics/Draft1/BarChart";
-import TreeMapChart1 from "@/components/Analytics/Draft1/TreeMapChart1";
-import TreeMapChart2 from "@/components/Analytics/Draft1/TreeMapChart2";
+import BarChart from "@/components/AnalyticalScreens/Draft1/BarChart";
+import TreeMapChart1 from "@/components/AnalyticalScreens/Draft1/TreeMapChart1";
+import TreeMapChart2 from "@/components/AnalyticalScreens/Draft1/TreeMapChart2";
 
-import LineChart from "@/components/Analytics/Draft1/LineChart";
-import PieChart from "@/components/Analytics/Draft1/PieChart";
+import LineChart from "@/components/AnalyticalScreens/Draft1/LineChart";
+import PieChart from "@/components/AnalyticalScreens/Draft1/PieChart";
 
 export default {
   name: "Draft1",
@@ -56,21 +56,30 @@ export default {
 }
 </script>
 
+<i18n>
+{
+  "en": {
+    "title": "Title",
+    "subtitle": "Subtitle"
+  },
+  "ru": {
+    "title": "Пример аналитического экрана",
+    "subtitle": "Ещё один заголовок"
+  }
+}
+</i18n>
+
 <style scoped>
   .analytic-screen {
-    padding: 60px 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 20px;
     background-color: #eceef0;
   }
   .title {
-    color: #2a728e;
-    margin: 0 10px 15px;
+    color: #8a8a8a;
+    margin: 20px 10px;
   }
   .subtitle {
     color: #8a8a8a;
-    margin: 0 10px 15px;
+    margin: 20px 10px;
   }
 </style>

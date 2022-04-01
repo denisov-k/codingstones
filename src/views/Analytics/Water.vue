@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import BarChart from "@/components/Analytics/Draft1/BarChart";
-import TreeMapChart1 from "@/components/Analytics/Draft1/TreeMapChart1";
-import TreeMapChart2 from "@/components/Analytics/Draft1/TreeMapChart2";
+import BarChart from "@/components/AnalyticalScreens/Draft1/BarChart";
+import TreeMapChart1 from "@/components/AnalyticalScreens/Draft1/TreeMapChart1";
+import TreeMapChart2 from "@/components/AnalyticalScreens/Draft1/TreeMapChart2";
 
-import Map from "@/components/Home/Map";
+import Map from "@/components/AnalyticalScreens/Map";
 
 export default {
   name: "Page2",
@@ -39,11 +39,7 @@ export default {
 
 <style scoped>
   .analytic-screen {
-    display: flex;
-    padding: 10px 15px;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: center;
+    padding: 15px;
     background-color: #367dc3;
   }
 </style>

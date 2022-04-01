@@ -51,6 +51,7 @@ body {
 }
 .content {
   margin-top: -50px;
+  min-width: 400px;
 }
 .row {
   margin: 0;

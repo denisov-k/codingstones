@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: "ServicesList",
+  name: "ServicesAndFeaturesList",
   data: function() {
     return {
       activeItemIndex: 0,
@@ -121,7 +121,7 @@ export default {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    background-color: #383838;
+    background-color: #313131;
     border-radius: 7px;
     margin: 5px 0;
     white-space: nowrap;

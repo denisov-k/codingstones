@@ -1,17 +1,16 @@
 <template>
   <main>
     <div id="laptop-welcome">
-      <h1>{{ $t('title') }}</h1>
-      <h2>{{ $t('subtitle') }}</h2>
+      <h1>{{ $t('welcome.title') }}</h1>
+      <h2>{{ $t('welcome.subtitle') }}</h2>
       <laptop></laptop>
     </div>
     <div id="services-and-features">
-      <services-list></services-list>
+      <services-and-features-list></services-and-features-list>
     </div>
     <div id="analytic-examples">
-      <div class="slider">
-        <analytic-draft1></analytic-draft1>
-      </div>
+      <h3>{{ $t('analytic.title') }}</h3>
+      <analytical-screens-slider></analytical-screens-slider>
     </div>
     <div id="about-us">
       <contacts></contacts>
@@ -21,14 +20,15 @@
 
 <script>
 import Laptop from "@/components/Home/Laptop";
-import ServicesList from "@/components/Home/ServicesList";
+import ServicesAndFeaturesList from "@/components/Home/ServicesAndFeaturesList";
+import AnalyticalScreensSlider from "@/components/Home/AnalyticalScreensSlider";
 import Contacts from "@/components/Home/Contacts";
-import AnalyticDraft1 from "@/views/Analytics/Draft1";
+
 
 export default {
   name: "Home",
   components: {
-    Laptop, ServicesList, AnalyticDraft1, Contacts
+    Laptop, ServicesAndFeaturesList, AnalyticalScreensSlider, Contacts
   },
   data() {
     return {
@@ -80,27 +80,37 @@ export default {
 
 <style scoped>
   h1 {
-    font-size: 1.275em;
+    font-size: 1.5vmax;
     margin: 0;
   }
   h2 {
+    font-size: 2.5vmax;
+    margin: 2vmax 0;
+  }
+  h3 {
+    color: black;
     font-size: 1.875em;
-    margin: 20px 0;
+    margin: 15px 0;
+    display: inline-block;
   }
   #laptop-welcome {
     width: 100%;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    padding: 120px 0 30px;
+    padding: calc(120px - 2vw) 0 30px;
     background-color: #080808;
   }
   #services-and-features {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 0;
+    padding: 50px 0;
     background-color: #080808;
+  }
+  #analytic-examples {
+    text-align: left;
+    padding: 50px 60px;
   }
   #about-us {
     background-color: #080808;
@@ -114,12 +124,22 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Hello, World!",
-    "subtitle": "Subtitle"
+    "welcome": {
+      "title": "Hello, World!",
+      "subtitle": "Subtitle"
+    },
+    "analytic": {
+      "title": "Examples"
+    }
   },
   "ru": {
-    "title": "Тестовый заголовок",
-    "subtitle": "Второй заголовок"
+    "welcome": {
+      "title": "Тестовый заголовок",
+      "subtitle": "Второй заголовок"
+    },
+    "analytic": {
+      "title": "Примеры"
+    }
   }
 }
 </i18n>
