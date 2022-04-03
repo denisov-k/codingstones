@@ -71,7 +71,7 @@ export default {
     justify-content: center;
     top: 0;
     background-color: #080808c7;
-    z-index: 10;
+    z-index: 10000;
   }
   .header-content {
     display: flex;

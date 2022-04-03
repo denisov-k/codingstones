@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Долевая структура ошибок в полях" :exportURL="dataURL" v-lazy="setupChart"
+  <widget-container title="Долевая структура ошибок в полях" :exportURL="dataURL"
                     id="tree-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -37,9 +37,6 @@ export default {
 
       extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
     }
-  },
-  mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"]);
   },
   methods: {
     exportImage() {
@@ -191,6 +188,11 @@ export default {
         series: []
       })
     }
+  },
+  mounted() {
+    this.chart = echarts.init(this.$refs["chartContainer"]);
+
+    this.setupChart();
   },
   created() {
     window.addEventListener("resize", this.repaint);

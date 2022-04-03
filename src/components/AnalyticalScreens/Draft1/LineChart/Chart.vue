@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Динамика изменения количества ошибок по типам" :exportURL="dataURL" v-lazy="setupChart"
+  <widget-container title="Динамика изменения количества ошибок по типам" :exportURL="dataURL"
                     id="chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -28,9 +28,6 @@ export default {
         }
       ]
     }
-  },
-  mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"]);
   },
   methods: {
     exportImage() {
@@ -147,14 +144,13 @@ export default {
       console.error(e);
     }
   },
-  created() {
-    var repaint;
-    const onRepaint = this.repaint;
+  mounted() {
+    this.chart = echarts.init(this.$refs["chartContainer"]);
 
-    window.addEventListener("resize",function(){
-      clearTimeout(repaint);
-      repaint = setTimeout(onRepaint, 300);
-    });
+    this.setupChart();
+  },
+  created() {
+    window.addEventListener("resize", this.repaint);
   },
   destroyed() {
     this.chart.dispose();

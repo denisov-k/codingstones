@@ -27,7 +27,7 @@ import TreeMapChart2 from "@/components/AnalyticalScreens/Draft1/TreeMapChart2";
 import Map from "@/components/AnalyticalScreens/Map";
 
 export default {
-  name: "Page2",
+  name: "Draft2",
   components: {
     Map,
     BarChart,

@@ -1,6 +1,6 @@
 <template>
   <widget-container title="Количество ошибок" :exportURL="dataURL"
-                    id="bar-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading" v-lazy="setupChart">
+                    id="bar-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -159,11 +159,13 @@ export default {
       console.error(e);
     }
   },
-  created() {
-    window.addEventListener("resize", this.repaint);
-  },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
+
+    this.setupChart();
+  },
+  created() {
+    window.addEventListener("resize", this.repaint);
   },
   destroyed() {
     this.chart.dispose();

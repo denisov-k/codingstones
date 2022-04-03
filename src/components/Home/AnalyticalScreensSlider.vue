@@ -14,7 +14,8 @@
 <script>
 
 const AnalyticDraft1 = () => import("@/views/Analytics/Draft1");
-const AnalyticDraft2 = () => import("@/views/Analytics/Water");
+const AnalyticDraft2 = () => import("@/views/Analytics/Draft2");
+const AnalyticDraft3 = () => import("@/views/Analytics/Draft3");
 
 export default {
   name: "AnalyticalScreensSlider",
@@ -33,7 +34,7 @@ export default {
       return [
         { name: $t('list.first.name'), view: AnalyticDraft1 },
         { name: $t('list.second.name'), view: AnalyticDraft2 },
-        { name: $t('list.third.name'), view: AnalyticDraft1 }
+        { name: $t('list.third.name'), view: AnalyticDraft3 }
       ]
     },
     activeItem: function () {
@@ -89,6 +90,7 @@ export default {
   .item-label {
     display: inline-block;
     cursor: pointer;
+    line-height: 30px;
     padding: 0 2%;
     text-decoration-line: underline;
     text-underline-position: under;

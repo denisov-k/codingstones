@@ -113,6 +113,7 @@ export default {
     background-color: #080808;
   }
   #analytic-examples {
+    min-height: 100vh;
     color: black;
     text-align: left;
     padding: 7vmin;

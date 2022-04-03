@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Карта" id="map" :is-loading="isLoading" :on-resize="repaint" v-lazy="setupChart">
+  <widget-container title="Карта" id="map" :is-loading="isLoading" :on-resize="repaint">
     <div id="chartContainer" class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -26,7 +26,7 @@ export default {
     return {
       isLoading: true,
       dataURL: 'data/map.json',
-      layer: layers[3],
+      layer: layers[2],
       chart: Object,
     }
   },
@@ -35,8 +35,9 @@ export default {
   },
   methods: {
     getData(count) {
-      return api.request(this.dataURL).then((response) => {
-        return { points: response.data }
+      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
+      // return api.request(this.dataURL).then((response) => {
+        return { points: data }
       })
     },
     setupChart() {
@@ -100,8 +101,7 @@ export default {
     }
   },
   mounted() {
-
-
+    this.setupChart();
   }
 }
 
@@ -110,15 +110,18 @@ function getRandomInt(max) {
 }
 </script>
 
-<style>
+<style src="leaflet/dist/leaflet.css"></style>
+<style src="leaflet.markercluster/dist/MarkerCluster.css"></style>
+<style src="leaflet.markercluster/dist/MarkerCluster.Default.css"></style>
+<style scoped>
 #map {
   height: 400px;
 }
 .chart {
   height: 100%;
 }
-.blob {
-  background: black;
+.chart >>> .blob {
+  background: #367dc3;
   border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
   /*margin: 10px;*/

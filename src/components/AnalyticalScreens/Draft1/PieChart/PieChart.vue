@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Долевая структура типов ошибок" :exportURL="dataURL" v-lazy="setupChart"
+  <widget-container title="Долевая структура типов ошибок" :exportURL="dataURL"
                     id="pie-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -23,9 +23,6 @@ export default {
       // dataURL: 'api/app2/page_2/pie_2',
       extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
     }
-  },
-  mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"]);
   },
   methods: {
     exportImage() {
@@ -118,6 +115,11 @@ export default {
 
       console.error(e);
     }
+  },
+  mounted() {
+    this.chart = echarts.init(this.$refs["chartContainer"]);
+
+    this.setupChart();
   },
   created() {
     window.addEventListener("resize", this.repaint);
