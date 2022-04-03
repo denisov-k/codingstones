@@ -2,7 +2,7 @@
   <div class="row" id="services-and-features-container">
     <div class="info col-xs-12 col-sm-6">
       <div class="service-icon">
-        <img src="@/assets/icons/analysis.png" />
+        <img src="@/assets/services/analysis.png" />
       </div>
       <div class="service-description">{{ activeItem.description }}</div>
     </div>

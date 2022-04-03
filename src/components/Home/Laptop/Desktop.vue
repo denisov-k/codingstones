@@ -10,9 +10,15 @@
         <span>{{ $t('controls.help') }}</span>
       </div>
       <div class="indicators">
-        <v-icon name="battery-three-quarters" />
-        <v-icon name="wifi" />
-        <v-icon name="magnifying-glass" />
+        <div class="indicator">
+          <v-icon name="battery-three-quarters" />
+        </div>
+        <div class="indicator">
+          <v-icon name="wifi" />
+        </div>
+        <div class="indicator">
+          <v-icon name="magnifying-glass" />
+        </div>
       </div>
     </div>
     <img src="@/assets/cs-icon-logo.svg">
@@ -58,12 +64,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $interface-color: #717171;
+  $interface-color: #0000005e;
+  $text-color: #6c6c6c;
 
   .desktop {
     position: relative;
     height: 100%;
-    background: linear-gradient(180deg, #11181f 0%, #15292d 100%);
+    background: linear-gradient(180deg, #0d1223 0%, #1b2d5f 50%, #0f1a3a 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,22 +86,23 @@ export default {
   }
   .controls {
     font-size: 0.75vw;
-    color: #080808;
+    color: $text-color;
   }
   .controls > span {
-    margin: 0 5px;
+    margin: 0 4%;
   }
   .controls > span:nth-child(1) {
     font-weight: 600;
     margin: 0 5px 0 0;
   }
   .indicators {
-    line-height: 0.75vw;
     display: flex;
     align-items: center;
+    fill: $text-color;
+    line-height: 0.75vw;
   }
   .indicators > * {
-    margin: 0 5px;
+    margin: 0 4%;
     width: 0.75vw;
     height: auto;
   }
@@ -130,7 +138,7 @@ export default {
     height: 15%;
     background-color: $interface-color;
     right: 3%;
-    bottom: 20%;
+    top: 10%;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -141,7 +149,7 @@ export default {
     width: 20%;
     height: auto;
     margin: 0 10%;
-    fill: #212f58;
+    fill: #ffffff;
   }
   .message .labels {
     display: flex;
@@ -157,10 +165,10 @@ export default {
     margin: 3% 0;
   }
   .message .header {
-
+    color: #5e6fa1;
   }
   .message .content {
-    color: #080808;
+    color: #ffffff;
   }
 
   .fade-enter-active {
@@ -188,7 +196,7 @@ export default {
       "help": "Help"
     },
     "message": {
-      "header": "Telegram Desktop",
+      "header": "Messenger",
       "content": "New message"
     }
   },
@@ -202,7 +210,7 @@ export default {
       "help": "Помощь"
     },
     "message": {
-      "header": "Telegram Desktop",
+      "header": "Messenger",
       "content": "Новое сообщение"
     }
   }

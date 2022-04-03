@@ -53,26 +53,26 @@ export default {
   "en": {
     "list": {
       "first": {
-        "name": "First screen"
+        "name": "Classic dashboard"
       },
       "second": {
-        "name": "Second screen"
+        "name": "Personal analytic"
       },
       "third": {
-        "name": "Third screen"
+        "name": "Gamification"
       }
     }
   },
   "ru": {
     "list": {
       "first": {
-        "name": "Первый экран"
+        "name": "Классическая аналитика"
       },
       "second": {
-        "name": "Второй экран"
+        "name": "Личный кабинет"
       },
       "third": {
-        "name": "Третий экран"
+        "name": "Геймификация"
       }
     }
   }
