@@ -3,7 +3,7 @@
     <div class="sidebar">
       <div class="header">
         <div class="menu-button">
-          <v-icon name="bars" />
+          <icon-menu></icon-menu>
         </div>
         <div class="search-box">
           <span class="placeholder">{{ $t('header.search') }}</span>
@@ -27,20 +27,20 @@
           <span class="subtitle">{{ $t('header.subtitle') }}</span>
         </div>
         <div class="controls">
-          <search-icon />
-          <v-icon name="envelope" />
-          <v-icon name="envelope" />
-          <v-icon name="envelope" />
+          <component v-for="(item, index) in controls" :is="item" :key="index"></component>
         </div>
       </div>
       <div class="body">
-
+        <div class="message">
+          <div class="avatar"></div>
+          <div class="message-text"></div>
+        </div>
       </div>
       <div class="footer">
-        <v-icon name="envelope" />
+        <icon-clip></icon-clip>
         <span class="placeholder">{{ $t('footer.placeholder') }}</span>
-        <v-icon name="face-smile" />
-        <v-icon name="paper-plane-top" />
+        <icon-smile></icon-smile>
+        <icon-send-message></icon-send-message>
       </div>
     </div>
   </div>
@@ -48,15 +48,22 @@
 
 <script>
 import Icon from 'vue-awesome/components/Icon';
-import SearchIcon from '@/assets/welcome/desktop/search-icon.svg?inline';
 
-console.log(SearchIcon)
+import IconMenu from '@/assets/welcome/desktop/burger-menu.svg?inline';
+import IconClip from '@/assets/welcome/desktop/clip.svg?inline';
+import IconSendMessage from '@/assets/welcome/desktop/send-button.svg?inline';
+import IconSmile from '@/assets/welcome/desktop/smileys.svg?inline';
+
+import SearchIcon from '@/assets/welcome/desktop/search.svg?inline';
+import PhoneIcon from '@/assets/welcome/desktop/phone.svg?inline';
+import DotsIcon from '@/assets/welcome/desktop/setting-dots.svg?inline';
+import WindowIcon from '@/assets/welcome/desktop/window.svg?inline';
 
 export default {
   name: "Messenger",
   components: {
     'v-icon': Icon,
-    SearchIcon
+    IconMenu, IconSmile, IconSendMessage, IconClip
   },
   data() {
     return {
@@ -65,6 +72,12 @@ export default {
         { avatar: '', name: 'Имя 2', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 3', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 4', message: 'Новое сообщение' },
+      ],
+      controls: [
+        SearchIcon,
+        PhoneIcon,
+        WindowIcon,
+        DotsIcon,
       ],
       selectedDialogIndex: 1
     }
@@ -75,63 +88,75 @@ export default {
 <style lang="scss" scoped>
   $interface-color: #1d2429;
 
+  svg path {
+    fill: inherit;
+  }
+
   .messenger {
     display: flex;
     height: 100%;
     background-color: #0e1820;
+    font-size: 8px;
   }
   .header, .footer {
     display: flex;
-    height: 7%;
+    height: 30px;
     width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+    align-items: center;
   }
   .sidebar {
-    width: 30%;
+    min-width: 30%;
+    max-width: 35%;
     height: 100%;
     background-color: $interface-color;
+  }
+  @media only screen and (max-width: 600px) {
+    .sidebar {
+      display: none;
+    }
   }
   .sidebar .header {
 
   }
   .header .menu-button {
     display: flex;
-    justify-content: center;
-    align-items: center;
     fill: #7c7c7c;
-    padding: 0 0.7vw;
+    padding: 0 2px;
   }
   .menu-button svg {
-    width: 1.1vw;
+    height: 8px;
+    width: auto;
   }
   .header .search-box {
     display: flex;
     align-items: center;
-    width: 85%;
+    width: -webkit-fill-available;
     background-color: #0e1820;
-    margin: 0.4vw;
     border-radius: 2px;
+    height: 18px;
+    margin-left: 7px;
   }
   .search-box .placeholder {
-    font-size: 0.9vw;
-    padding: 0 0.7vw;
+    padding: 0 6px;
     color: #686868;
   }
   .sidebar .dialogs {
-    height: 93%;
+    height: calc(100% - 35px);
   }
   .dialog {
     display: flex;
-    height: 15%;
   }
   .dialog.selected {
     background-color: #292f47;
   }
   .dialog .avatar {
-    width: calc(27% - 2vw);
-    margin: 1vw;
+    width: 28px;
+    margin: 10px;
     background-color: #678291;
     border-radius: 16px;
-    height: calc(100% - 2vw);
+    height: 28px;
   }
   .dialog .name {
 
@@ -141,23 +166,26 @@ export default {
   }
 
   .main {
-    width: 70%;
+    width: -webkit-fill-available;
     height: 100%;
     margin-left: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .main .header {
     justify-content: space-between;
     background-color: $interface-color;
-    padding: 0 0.5vw;
-    box-sizing: border-box;
   }
   .titles {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 0.9vw;
-    margin: 0 0.5vw;
+    /*margin: 0 0.5vw;*/
     justify-content: center;
+  }
+  .titles > span {
+    margin: 1px 0;
   }
   .subtitle {
     color: #686868;
@@ -168,31 +196,29 @@ export default {
     align-items: center;
   }
   .controls > svg {
-    width: 1.1vw;
-    margin: 0 0.5vw;
+    margin: 0 5px;
     fill: #7c7c7c;
-    height: auto;
+    height: 10px;
   }
   .main .body {
-    height: 86%;
+    height: calc(100% - 60px);
   }
   .main .footer {
     background-color: $interface-color;
   }
   .footer .placeholder {
-    width: 80%;
-    font-size: 1.2vw;
+    width: -webkit-fill-available;
+    font-size: 8px;
     color: #686868;
     align-self: center;
     text-align: left;
-    padding: 0 15px;
+    padding: 0 2%;
     box-sizing: border-box;
   }
   .footer > svg {
-    margin: auto;
+    margin: 0 5px;
     fill: #7c7c7c;
-    width: 1.1vw;
-    height: auto;
+    height: 12px;
   }
 
 </style>

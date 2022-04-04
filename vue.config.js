@@ -24,6 +24,32 @@ module.exports = defineConfig({
       .resourceQuery(/blockType=i18n/)
       .type('javascript/auto')
       .use('i18n')
-      .loader('@intlify/vue-i18n-loader')
+      .loader('@intlify/vue-i18n-loader');
+
+    config.module.rules.delete("svg");
+  },
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.svg$/,
+          oneOf: [
+            {
+              resourceQuery: /inline/,
+              use: [
+                'vue-svg-loader',
+              ],
+            },
+            {
+              loader: 'url-loader',
+              options: {
+                name: 'assets/[name].[hash:8].[ext]',
+                esModule: false,
+              }
+            }
+          ]
+        }
+      ]
+    }
   }
 })
