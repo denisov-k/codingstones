@@ -27,7 +27,7 @@
           <span class="subtitle">{{ $t('header.subtitle') }}</span>
         </div>
         <div class="controls">
-          <v-icon name="envelope" />
+          <search-icon />
           <v-icon name="envelope" />
           <v-icon name="envelope" />
           <v-icon name="envelope" />
@@ -37,7 +37,10 @@
 
       </div>
       <div class="footer">
-
+        <v-icon name="envelope" />
+        <span class="placeholder">{{ $t('footer.placeholder') }}</span>
+        <v-icon name="face-smile" />
+        <v-icon name="paper-plane-top" />
       </div>
     </div>
   </div>
@@ -45,11 +48,15 @@
 
 <script>
 import Icon from 'vue-awesome/components/Icon';
+import SearchIcon from '@/assets/welcome/desktop/search-icon.svg?inline';
+
+console.log(SearchIcon)
 
 export default {
   name: "Messenger",
   components: {
-    'v-icon': Icon
+    'v-icon': Icon,
+    SearchIcon
   },
   data() {
     return {
@@ -164,6 +171,7 @@ export default {
     width: 1.1vw;
     margin: 0 0.5vw;
     fill: #7c7c7c;
+    height: auto;
   }
   .main .body {
     height: 86%;
@@ -171,6 +179,22 @@ export default {
   .main .footer {
     background-color: $interface-color;
   }
+  .footer .placeholder {
+    width: 80%;
+    font-size: 1.2vw;
+    color: #686868;
+    align-self: center;
+    text-align: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .footer > svg {
+    margin: auto;
+    fill: #7c7c7c;
+    width: 1.1vw;
+    height: auto;
+  }
+
 </style>
 
 <i18n>
@@ -183,6 +207,9 @@ export default {
     },
     "message": {
 
+    },
+    "footer": {
+      "placeholder": "Type a message..."
     }
   },
   "ru": {
@@ -193,6 +220,9 @@ export default {
     },
     "message": {
 
+    },
+    "footer": {
+      "placeholder": "Введите сообщение..."
     }
   }
 }

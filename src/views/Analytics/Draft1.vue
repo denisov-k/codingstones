@@ -9,21 +9,21 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
         <tree-map-chart1></tree-map-chart1>
       </div>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
         <line-chart></line-chart>
       </div>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <pie-chart></pie-chart>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <tree-map-chart2></tree-map-chart2>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12 col-md-6">
         <bar-chart></bar-chart>
       </div>
     </div>

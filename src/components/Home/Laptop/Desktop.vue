@@ -10,15 +10,13 @@
         <span>{{ $t('controls.help') }}</span>
       </div>
       <div class="indicators">
-        <div class="indicator">
+
           <v-icon name="battery-three-quarters" />
-        </div>
-        <div class="indicator">
+
           <v-icon name="wifi" />
-        </div>
-        <div class="indicator">
+
           <v-icon name="magnifying-glass" />
-        </div>
+
       </div>
     </div>
     <img src="@/assets/cs-icon-logo.svg">
@@ -89,11 +87,11 @@ export default {
     color: $text-color;
   }
   .controls > span {
-    margin: 0 4%;
+    margin: 0 0.8vw;
   }
   .controls > span:nth-child(1) {
     font-weight: 600;
-    margin: 0 5px 0 0;
+    margin: 0 0.8vw 0 0;
   }
   .indicators {
     display: flex;
@@ -102,7 +100,7 @@ export default {
     line-height: 0.75vw;
   }
   .indicators > * {
-    margin: 0 4%;
+    margin: 0 0.5vw;
     width: 0.75vw;
     height: auto;
   }
@@ -113,6 +111,7 @@ export default {
     background-color: $interface-color;
     padding: 0 5%;
     border-radius: 6px;
+    width: 35%;
     height: 10%;
     justify-content: center;
   }

@@ -109,20 +109,20 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 70px 0;
+    padding: 60px 0;
     background-color: #080808;
   }
   #analytic-examples {
     min-height: 100vh;
     color: black;
     text-align: left;
-    padding: 7vmin;
+    padding: 60px 6vmin;
   }
   #about-us {
     background-color: #080808;
     display: flex;
     flex-direction: column;
-    padding: 7vmin;
+    padding: 6vmin;
     height: 100vh;
   }
 </style>
