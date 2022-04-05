@@ -1,8 +1,8 @@
 <template>
-  <div class="laptop-container">
-    <div class="laptop">
+  <div class="device-container">
+    <div class="device">
       <img src="@/assets/welcome/laptop.svg">
-      <div class="laptop-screen" v-on:click="nextScreen">
+      <div :class="[ isDeviceSmall ? 'mobile-screen' : 'laptop-screen' ]" v-on:click="nextScreen">
         <desktop v-if="activeScreenIndex === 0"></desktop>
         <messenger v-else-if="activeScreenIndex === 1"></messenger>
         <browser v-else-if="activeScreenIndex === 2"></browser>
@@ -17,28 +17,48 @@
   import Browser from "./Browser";
 
   export default {
-    name: "Laptop",
+    name: "Device",
     components: {
       Desktop, Messenger, Browser
     },
     data: () => {
       return {
         activeScreenIndex: 0,
+        window: {
+          width: 0,
+          height: 0
+        }
+      }
+    },
+    computed: {
+      isDeviceSmall: function () {
+        return this.window.width <= 600;
       }
     },
     methods: {
       nextScreen() {
         this.activeScreenIndex = this.activeScreenIndex >= 2 ? 0 : this.activeScreenIndex + 1;
+      },
+      handleResize() {
+        this.window.width = window.innerWidth;
+        this.window.height = window.innerHeight;
       }
-    }
+    },
+    created() {
+      window.addEventListener('resize', this.handleResize);
+      this.handleResize();
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.handleResize);
+    },
   }
 </script>
 
 <style scoped>
-  .laptop-container {
+  .device-container {
     text-align: -webkit-center;
   }
-  .laptop {
+  .device {
     display: flex;
     position: relative;
     justify-content: center;
@@ -47,7 +67,7 @@
     height: inherit;
     user-select: none;
   }
-  .laptop > img {
+  .device > img {
     width: 100%;
     height: 100%;
     /*z-index: 1;*/
@@ -63,9 +83,16 @@
     background-color: white;
     cursor: pointer;
   }
+  .mobile-screen {
+    position: absolute;
+    left: 11.5%;
+    right: 11.5%;
+    top: 3%;
+    bottom: 10.5%;
 
-
-
+    background-color: white;
+    cursor: pointer;
+  }
 
 </style>
 

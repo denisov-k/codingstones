@@ -79,30 +79,30 @@ export default {
     width: 100%;
     background-color: $interface-color;
     justify-content: space-between;
-    padding: 0.35vh 2vw;
+    padding: 3px 10px;
     box-sizing: border-box;
   }
   .controls {
-    font-size: 0.75vw;
+    font-size: 8px;
     color: $text-color;
+    margin-right: 20px;
   }
   .controls > span {
-    margin: 0 0.8vw;
+    margin: 0 7px;
   }
   .controls > span:nth-child(1) {
     font-weight: 600;
-    margin: 0 0.8vw 0 0;
+    margin-left: 0;
   }
   .indicators {
     display: flex;
     align-items: center;
     fill: $text-color;
-    line-height: 0.75vw;
   }
   .indicators > * {
-    margin: 0 0.5vw;
-    width: 0.75vw;
-    height: auto;
+    margin: 0 3px;
+    width: auto;
+    height: 8px;
   }
 
   .desktop > .footer {
@@ -135,9 +135,11 @@ export default {
     position: absolute;
     width: 25%;
     height: 15%;
+    min-width: 130px;
+    min-height: 45px;
     background-color: $interface-color;
-    right: 3%;
-    top: 10%;
+    right: 20px;
+    top: 35px;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -157,7 +159,7 @@ export default {
     justify-content: space-between;
     /*margin: 0 2% auto;
     height: 50%;*/
-    font-size: 0.9vw;
+    font-size: 8px;
   }
   .message span {
     display: inline-block;

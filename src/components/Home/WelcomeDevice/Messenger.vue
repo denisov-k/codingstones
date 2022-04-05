@@ -49,15 +49,15 @@
 <script>
 import Icon from 'vue-awesome/components/Icon';
 
-import IconMenu from '@/assets/welcome/desktop/burger-menu.svg?inline';
-import IconClip from '@/assets/welcome/desktop/clip.svg?inline';
-import IconSendMessage from '@/assets/welcome/desktop/send-button.svg?inline';
-import IconSmile from '@/assets/welcome/desktop/smileys.svg?inline';
+import IconMenu from '@/assets/welcome/messenger/burger-menu.svg?inline';
+import IconClip from '@/assets/welcome/messenger/clip.svg?inline';
+import IconSendMessage from '@/assets/welcome/messenger/send-button.svg?inline';
+import IconSmile from '@/assets/welcome/messenger/smileys.svg?inline';
 
-import SearchIcon from '@/assets/welcome/desktop/search.svg?inline';
-import PhoneIcon from '@/assets/welcome/desktop/phone.svg?inline';
-import DotsIcon from '@/assets/welcome/desktop/setting-dots.svg?inline';
-import WindowIcon from '@/assets/welcome/desktop/window.svg?inline';
+import SearchIcon from '@/assets/welcome/messenger/search.svg?inline';
+import PhoneIcon from '@/assets/welcome/messenger/phone.svg?inline';
+import DotsIcon from '@/assets/welcome/messenger/setting-dots.svg?inline';
+import WindowIcon from '@/assets/welcome/messenger/window.svg?inline';
 
 export default {
   name: "Messenger",

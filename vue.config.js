@@ -37,11 +37,12 @@ module.exports = defineConfig({
             {
               resourceQuery: /inline/,
               use: [
+                'babel-loader',
                 'vue-svg-loader',
               ],
             },
             {
-              loader: 'url-loader',
+              loader: 'file-loader',
               options: {
                 name: 'assets/[name].[hash:8].[ext]',
                 esModule: false,

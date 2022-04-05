@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
   .browser {
-    background-image: url("@/assets/welcome/browser.svg");
+    background-image: url("~@/assets/welcome/browser/browser.svg");
     height: 100%;
     position: relative;
   }

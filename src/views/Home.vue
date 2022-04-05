@@ -1,9 +1,9 @@
 <template>
   <main>
-    <div id="laptop-welcome">
+    <div id="welcome">
       <h1>{{ $t('welcome.title') }}</h1>
       <h2>{{ $t('welcome.subtitle') }}</h2>
-      <laptop></laptop>
+      <welcome-device></welcome-device>
     </div>
     <div id="services-and-features">
       <services-and-features-list></services-and-features-list>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Laptop from "@/components/Home/Laptop";
+import WelcomeDevice from "@/components/Home/WelcomeDevice";
 import ServicesAndFeaturesList from "@/components/Home/ServicesAndFeaturesList";
 import AnalyticalScreensSlider from "@/components/Home/AnalyticalScreensSlider";
 import Contacts from "@/components/Home/Contacts";
@@ -29,7 +29,7 @@ import Contacts from "@/components/Home/Contacts";
 export default {
   name: "Home",
   components: {
-    Laptop, ServicesAndFeaturesList, AnalyticalScreensSlider, Contacts
+    WelcomeDevice, ServicesAndFeaturesList, AnalyticalScreensSlider, Contacts
   },
   data() {
     return {
@@ -97,7 +97,7 @@ export default {
     margin: 5px 0;
     display: inline-block;
   }
-  #laptop-welcome {
+  #welcome {
     width: 100%;
     display: inline-flex;
     flex-direction: column;
