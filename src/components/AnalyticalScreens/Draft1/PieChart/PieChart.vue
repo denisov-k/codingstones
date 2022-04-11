@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Долевая структура типов ошибок" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL"
                     id="pie-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -140,3 +140,16 @@ export default {
   height: 100%;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "title": "Fractional structure of error types",
+    "subtitle": ""
+  },
+  "ru": {
+    "title": "Долевая структура типов ошибок",
+    "subtitle": ""
+  }
+}
+</i18n>

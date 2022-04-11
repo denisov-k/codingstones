@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Карта" id="map" :is-loading="isLoading" :on-resize="repaint">
+  <widget-container :title="$t('title')" id="map" :is-loading="isLoading" :on-resize="repaint">
     <div id="chartContainer" class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -109,6 +109,19 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 </script>
+
+<i18n>
+{
+  "en": {
+    "title": "Map",
+    "subtitle": ""
+  },
+  "ru": {
+    "title": "Карта",
+    "subtitle": ""
+  }
+}
+</i18n>
 
 <style src="leaflet/dist/leaflet.css"></style>
 <style src="leaflet.markercluster/dist/MarkerCluster.css"></style>

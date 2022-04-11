@@ -1,1 +1,57 @@
-<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.39 32.39"><defs><style>.cls-1{fill:url(#Безымянный_градиент_2);}.cls-2{fill:url(#Безымянный_градиент_6);}.cls-3{fill:url(#Безымянный_градиент_3);}.cls-4{fill:url(#Безымянный_градиент_6-2);}.cls-5{fill:url(#Безымянный_градиент_5);}.cls-6{fill:url(#Безымянный_градиент_6-3);}.cls-7{fill:url(#Безымянный_градиент_7);}.cls-8{fill:#8f8f8f;}</style><linearGradient id="Безымянный_градиент_2" x1="16.19" x2="16.19" y2="32.39" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fafafa"/><stop offset="1" stop-color="#ccc"/></linearGradient><linearGradient id="Безымянный_градиент_6" x1="1598.82" y1="-664.12" x2="1598.82" y2="-671.1" gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#bfbfbf"/><stop offset="1" stop-color="#ebebeb"/></linearGradient><linearGradient id="Безымянный_градиент_3" x1="1598.83" y1="-665.24" x2="1598.83" y2="-669.97" gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#93ae1b"/><stop offset="1" stop-color="#adcc21"/></linearGradient><linearGradient id="Безымянный_градиент_6-2" x1="1598.82" y1="-673.23" x2="1598.82" y2="-680.21" xlink:href="#Безымянный_градиент_6"/><linearGradient id="Безымянный_градиент_5" x1="1598.83" y1="-674.36" x2="1598.83" y2="-679.09" gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#c07000"/><stop offset="1" stop-color="#e99733"/></linearGradient><linearGradient id="Безымянный_градиент_6-3" x1="1598.79" y1="-682.34" x2="1598.79" y2="-689.32" xlink:href="#Безымянный_градиент_6"/><linearGradient id="Безымянный_градиент_7" x1="1598.83" y1="-683.48" x2="1598.83" y2="-688.2" gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#c740a9"/><stop offset="1" stop-color="#f16dd2"/></linearGradient></defs><rect class="cls-1" width="32.39" height="32.39" rx="6.94"/><g id="Слой_1-2" data-name="Слой 1"><path class="cls-2" d="M415.57,554.73a3.49,3.49,0,1,1,3.49-3.49h0A3.48,3.48,0,0,1,415.57,554.73Z" transform="translate(-408.96 -544.18)"/><path class="cls-3" d="M413.21,551.23a2.37,2.37,0,1,1,2.37,2.37h0a2.36,2.36,0,0,1-2.36-2.36Z" transform="translate(-408.96 -544.18)"/><path class="cls-4" d="M415.55,563.85a3.49,3.49,0,1,1,3.49-3.49h0A3.51,3.51,0,0,1,415.55,563.85Z" transform="translate(-408.96 -544.18)"/><path class="cls-5" d="M413.19,560.35a2.37,2.37,0,1,1,2.37,2.37h0A2.38,2.38,0,0,1,413.19,560.35Z" transform="translate(-408.96 -544.18)"/><path class="cls-6" d="M415.49,573a3.49,3.49,0,1,1,3.5-3.48,3.5,3.5,0,0,1-3.5,3.48Z" transform="translate(-408.96 -544.18)"/><path class="cls-7" d="M413.17,569.47a2.37,2.37,0,1,1,2.37,2.37h0a2.36,2.36,0,0,1-2.36-2.36Z" transform="translate(-408.96 -544.18)"/><rect class="cls-8" x="429.64" y="542.39" width="0.42" height="16.88" transform="translate(-530.91 435.24) rotate(-89.87)"/><rect class="cls-8" x="429.6" y="551.86" width="0.42" height="16.88" transform="translate(-540.42 444.65) rotate(-89.87)"/><rect class="cls-8" x="429.58" y="561.36" width="0.42" height="16.88" transform="translate(-549.94 454.11) rotate(-89.87)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 32.39 32.39">
+    <defs>
+        <style>
+            .cls-1{fill:url(#Безымянный_градиент_2);}.cls-2{fill:url(#Безымянный_градиент_6);}.cls-3{fill:url(#Безымянный_градиент_3);}.cls-4{fill:url(#Безымянный_градиент_6-2);}.cls-5{fill:url(#Безымянный_градиент_5);}.cls-6{fill:url(#Безымянный_градиент_6-3);}.cls-7{fill:url(#Безымянный_градиент_7);}.cls-8{fill:#8f8f8f;}
+        </style>
+        <linearGradient id="Безымянный_градиент_2" x1="16.19" x2="16.19" y2="32.39" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fafafa"/>
+            <stop offset="1" stop-color="#ccc"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_6" x1="1598.82" y1="-664.12" x2="1598.82" y2="-671.1"
+                        gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#bfbfbf"/>
+            <stop offset="1" stop-color="#ebebeb"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_3" x1="1598.83" y1="-665.24" x2="1598.83" y2="-669.97"
+                        gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#93ae1b"/>
+            <stop offset="1" stop-color="#adcc21"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_6-2" x1="1598.82" y1="-673.23" x2="1598.82" y2="-680.21"
+                        xlink:href="#Безымянный_градиент_6"/>
+        <linearGradient id="Безымянный_градиент_5" x1="1598.83" y1="-674.36" x2="1598.83" y2="-679.09"
+                        gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#c07000"/>
+            <stop offset="1" stop-color="#e99733"/>
+        </linearGradient>
+        <linearGradient id="Безымянный_градиент_6-3" x1="1598.79" y1="-682.34" x2="1598.79" y2="-689.32"
+                        xlink:href="#Безымянный_градиент_6"/>
+        <linearGradient id="Безымянный_градиент_7" x1="1598.83" y1="-683.48" x2="1598.83" y2="-688.2"
+                        gradientTransform="matrix(1, 0, 0, -1, -1181.61, -120.22)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#c740a9"/>
+            <stop offset="1" stop-color="#f16dd2"/>
+        </linearGradient>
+    </defs>
+    <rect class="cls-1" width="32.39" height="32.39" rx="6.94"/>
+    <g id="Слой_1-2" data-name="Слой 1">
+        <path class="cls-2" d="M415.57,554.73a3.49,3.49,0,1,1,3.49-3.49h0A3.48,3.48,0,0,1,415.57,554.73Z"
+              transform="translate(-408.96 -544.18)"/>
+        <path class="cls-3" d="M413.21,551.23a2.37,2.37,0,1,1,2.37,2.37h0a2.36,2.36,0,0,1-2.36-2.36Z"
+              transform="translate(-408.96 -544.18)"/>
+        <path class="cls-4" d="M415.55,563.85a3.49,3.49,0,1,1,3.49-3.49h0A3.51,3.51,0,0,1,415.55,563.85Z"
+              transform="translate(-408.96 -544.18)"/>
+        <path class="cls-5" d="M413.19,560.35a2.37,2.37,0,1,1,2.37,2.37h0A2.38,2.38,0,0,1,413.19,560.35Z"
+              transform="translate(-408.96 -544.18)"/>
+        <path class="cls-6" d="M415.49,573a3.49,3.49,0,1,1,3.5-3.48,3.5,3.5,0,0,1-3.5,3.48Z"
+              transform="translate(-408.96 -544.18)"/>
+        <path class="cls-7" d="M413.17,569.47a2.37,2.37,0,1,1,2.37,2.37h0a2.36,2.36,0,0,1-2.36-2.36Z"
+              transform="translate(-408.96 -544.18)"/>
+        <rect class="cls-8" x="429.64" y="542.39" width="0.42" height="16.88"
+              transform="translate(-530.91 435.24) rotate(-89.87)"/>
+        <rect class="cls-8" x="429.6" y="551.86" width="0.42" height="16.88"
+              transform="translate(-540.42 444.65) rotate(-89.87)"/>
+        <rect class="cls-8" x="429.58" y="561.36" width="0.42" height="16.88"
+              transform="translate(-549.94 454.11) rotate(-89.87)"/>
+    </g>
+</svg>

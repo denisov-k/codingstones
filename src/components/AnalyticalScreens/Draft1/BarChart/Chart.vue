@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Количество ошибок" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL"
                     id="bar-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -183,3 +183,15 @@ export default {
   height: 100%;
 }
 </style>
+<i18n>
+{
+  "en": {
+    "title": "Errors count",
+    "subtitle": ""
+  },
+  "ru": {
+    "title": "Количество ошибок",
+    "subtitle": ""
+  }
+}
+</i18n>

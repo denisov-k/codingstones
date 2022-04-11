@@ -64,7 +64,7 @@ export default {
     return {
       dialogs: [
         { avatar: '', name: 'Имя 1', message: 'Новое сообщение' },
-        { avatar: '', name: 'Имя 2', message: 'Новое сообщение' },
+        { avatar: '', name: 'CodingStones', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 3', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 4', message: 'Новое сообщение' },
       ],
@@ -80,10 +80,6 @@ export default {
 
 <style lang="scss" scoped>
   $interface-color: #1d2429;
-
-  svg path {
-    fill: inherit;
-  }
 
   .messenger {
     display: flex;
@@ -250,6 +246,8 @@ export default {
       "title": "CodingStones",
       "subtitle": "Bot",
       "search": "Search"
+    },
+    "dialogs": {
     },
     "message": {
       "first": "This is example of text message"

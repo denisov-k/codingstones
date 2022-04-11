@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Динамика изменения количества ошибок по типам" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL"
                     id="chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -181,3 +181,16 @@ export default {
   margin-left: 50px;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "title": "Dynamics of changes in the number of errors by type",
+    "subtitle": ""
+  },
+  "ru": {
+    "title": "Динамика изменения количества ошибок по типам",
+    "subtitle": ""
+  }
+}
+</i18n>

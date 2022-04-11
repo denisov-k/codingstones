@@ -1,1 +1,5 @@
-<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.63 87.94"><defs><style>.cls-1{fill:#6c7883;}</style></defs><rect class="cls-1" width="125.63" height="12.56"/><rect class="cls-1" y="37.69" width="125.63" height="12.56"/><rect class="cls-1" y="75.38" width="125.63" height="12.56"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125.63 87.94">
+    <rect width="125.63" height="12.56"/>
+    <rect y="37.69" width="125.63" height="12.56"/>
+    <rect y="75.38" width="125.63" height="12.56"/>
+</svg>

@@ -1,5 +1,5 @@
 <template>
-  <widget-container title="Долевая структура ошибок в полях" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL"
                     id="tree-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -40,10 +40,9 @@ export default {
   },
   methods: {
     exportImage() {
-      let a = document.createElement("a"),
-          image = this.chart.getDataURL({ pixelRatio: 2, backgroundColor: '#fff' });
+      let a = document.createElement("a");
 
-      a.href = image;
+      a.href = this.chart.getDataURL({pixelRatio: 2, backgroundColor: '#fff'});
       a.download = "Image.png";
       a.click();
     },
@@ -213,3 +212,16 @@ export default {
   height: 100%;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "title": "Fractional structure of errors in the fields",
+    "subtitle": ""
+  },
+  "ru": {
+    "title": "Долевая структура ошибок в полях",
+    "subtitle": ""
+  }
+}
+</i18n>

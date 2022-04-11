@@ -10,10 +10,10 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <tree-map-chart1></tree-map-chart1>
+        <line-chart></line-chart>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <line-chart></line-chart>
+        <Map></Map>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
         <pie-chart></pie-chart>
@@ -32,7 +32,7 @@
 
 <script>
 import BarChart from "@/components/AnalyticalScreens/Draft1/BarChart";
-import TreeMapChart1 from "@/components/AnalyticalScreens/Draft1/TreeMapChart1";
+import Map from "@/components/AnalyticalScreens/Map";
 import TreeMapChart2 from "@/components/AnalyticalScreens/Draft1/TreeMapChart2";
 
 import LineChart from "@/components/AnalyticalScreens/Draft1/LineChart";
@@ -43,7 +43,7 @@ export default {
   components: {
     PieChart,
     BarChart,
-    TreeMapChart1,
+    Map,
     TreeMapChart2,
     LineChart,
   },
