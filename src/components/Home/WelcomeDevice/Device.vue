@@ -1,12 +1,11 @@
 <template>
-  <div class="device-container">
-    <div class="device">
-      <img src="@/assets/welcome/laptop.svg">
-      <div :class="[ isDeviceSmall ? 'mobile-screen' : 'laptop-screen' ]" v-on:click="nextScreen">
-        <desktop v-if="activeScreenIndex === 0"></desktop>
-        <messenger v-else-if="activeScreenIndex === 1"></messenger>
-        <browser v-else-if="activeScreenIndex === 2"></browser>
-      </div>
+  <div class="device">
+    <img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall">
+    <img src="@/assets/welcome/mobile.svg" v-else>
+    <div class="screen" v-on:click="nextScreen">
+      <desktop v-if="activeScreenIndex === 0"></desktop>
+      <messenger v-else-if="activeScreenIndex === 1"></messenger>
+      <browser v-else-if="activeScreenIndex === 2"></browser>
     </div>
   </div>
 </template>
@@ -62,38 +61,37 @@
     display: flex;
     position: relative;
     justify-content: center;
-    max-width: 860px;
-    margin: 25px 5%;
-    height: inherit;
+    margin: 10px auto;
     user-select: none;
+    box-sizing: border-box;
+    aspect-ratio: 146 / 75;
+    max-height: 60vh;
+    width: 90%;
   }
+
   .device > img {
-    width: 100%;
+    position: absolute;
     height: 100%;
-    /*z-index: 1;*/
-    -webkit-user-drag: none;
+    width: 100%;
+    z-index: 1;
   }
-  .laptop-screen {
-    position: absolute;
-    left: 11.5%;
-    right: 11.5%;
-    top: 3%;
-    bottom: 10.5%;
-
-    background-color: white;
-    cursor: pointer;
-  }
-  .mobile-screen {
-    position: absolute;
-    left: 11.5%;
-    right: 11.5%;
-    top: 3%;
-    bottom: 10.5%;
-
-    background-color: white;
-    cursor: pointer;
+  .screen {
+    box-sizing: border-box;
+    padding: 1.6% 11.5% 5.3%;
+    width: 100%;
   }
 
+  @media only screen and (max-width: 600px) {
+    .device {
+      aspect-ratio: 76 / 150;
+      max-height: 100vh;
+      margin-top: 10px;
+    }
+    .screen {
+      padding: 3% 4.5% 2.5%;
+      border-radius: 20px;
+    }
+  }
 </style>
 
 <i18n>

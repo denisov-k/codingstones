@@ -99,10 +99,11 @@ export default {
   }
   #welcome {
     width: 100%;
+    min-height: 80vh;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    padding: calc(120px - 2vw) 0 30px;
+    padding: 120px 0 30px;
     background-color: #080808;
   }
   #services-and-features {

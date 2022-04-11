@@ -9,14 +9,11 @@
         <span>{{ $t('controls.window') }}</span>
         <span>{{ $t('controls.help') }}</span>
       </div>
+      <div class="time">{{ time }}</div>
       <div class="indicators">
-
-          <v-icon name="battery-three-quarters" />
-
-          <v-icon name="wifi" />
-
-          <v-icon name="magnifying-glass" />
-
+        <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/battery.svg')" />
+        <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/wifi.svg')" />
+        <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/search.svg')" />
       </div>
     </div>
     <img src="@/assets/cs-icon-logo.svg">
@@ -50,7 +47,8 @@ export default {
   },
   data() {
     return {
-      isMessageShowed: false
+      isMessageShowed: false,
+      time: '7:37'
     }
   },
   mounted() {
@@ -66,6 +64,7 @@ export default {
   $text-color: #6c6c6c;
 
   .desktop {
+    font-size: 8px;
     position: relative;
     height: 100%;
     background: linear-gradient(180deg, #0d1223 0%, #1b2d5f 50%, #0f1a3a 100%);
@@ -99,10 +98,14 @@ export default {
     align-items: center;
     fill: $text-color;
   }
-  .indicators > * {
+  .indicator {
     margin: 0 3px;
     width: auto;
     height: 8px;
+  }
+  .time {
+    display: none;
+    color: $text-color;
   }
 
   .desktop > .footer {
@@ -111,8 +114,7 @@ export default {
     background-color: $interface-color;
     padding: 0 5%;
     border-radius: 6px;
-    width: 35%;
-    height: 10%;
+    height: 45px;
     justify-content: center;
   }
   .application {
@@ -134,17 +136,18 @@ export default {
   .message {
     position: absolute;
     width: 25%;
+    right: 15px;
     height: 15%;
     min-width: 130px;
     min-height: 45px;
-    background-color: $interface-color;
-    right: 20px;
-    top: 35px;
+    background-color: #0000005e;
+    top: 30px;
     border-radius: 6px;
     display: flex;
     align-items: center;
-    /*padding: 2.5% 1%;*/
     box-sizing: border-box;
+    z-index: 100;
+    cursor: pointer;
   }
   .message > svg {
     width: 20%;
@@ -159,7 +162,6 @@ export default {
     justify-content: space-between;
     /*margin: 0 2% auto;
     height: 50%;*/
-    font-size: 8px;
   }
   .message span {
     display: inline-block;
@@ -183,6 +185,25 @@ export default {
     opacity: 0;
   }
 
+  @media only screen and (max-width: 600px) {
+    .desktop > img {
+      width: 35%;
+    }
+    .message {
+      width: 90%;
+      right: auto;
+      left: auto;
+    }
+    .controls {
+      display: none;
+    }
+    .time {
+      display: block;
+    }
+    .application:nth-child(4), .application:nth-child(5) {
+      display: none;
+    }
+  }
 </style>
 
 <i18n>

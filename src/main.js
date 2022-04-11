@@ -4,6 +4,7 @@ import Config from './utils/Config'
 import router from './router'
 import VueGtag from "vue-gtag"
 import LazyLoadDirective from './directives/lazy'
+import InlineSvg from 'vue-inline-svg';
 
 import 'vue-awesome/icons';
 
@@ -12,6 +13,8 @@ import SessionActions from './store/store-session-actions'
 import i18n from './i18n'
 
 Vue.config.productionTip = false
+
+Vue.component('inline-svg', InlineSvg);
 
 Vue.use(VueGtag, {
   config: { id: "G-YQBYSJWJKP" },

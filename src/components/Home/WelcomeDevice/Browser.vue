@@ -23,5 +23,7 @@ export default {
     left: 0;
     right: 0;
     background-color: rgb(236 238 240);
+    z-index: 10;
+    cursor: pointer;
   }
 </style>

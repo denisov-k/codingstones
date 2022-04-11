@@ -3,7 +3,7 @@
     <div class="sidebar">
       <div class="header">
         <div class="menu-button">
-          <icon-menu></icon-menu>
+          <inline-svg :src="require('@/assets/welcome/messenger/burger-menu.svg')" />
         </div>
         <div class="search-box">
           <span class="placeholder">{{ $t('header.search') }}</span>
@@ -27,7 +27,10 @@
           <span class="subtitle">{{ $t('header.subtitle') }}</span>
         </div>
         <div class="controls">
-          <component v-for="(item, index) in controls" :is="item" :key="index"></component>
+          <inline-svg :src="require('@/assets/welcome/messenger/search.svg')" />
+          <inline-svg :src="require('@/assets/welcome/messenger/phone.svg')" />
+          <inline-svg :src="require('@/assets/welcome/messenger/window.svg')" />
+          <inline-svg :src="require('@/assets/welcome/messenger/setting-dots.svg')" />
         </div>
       </div>
       <div class="body">
@@ -37,33 +40,21 @@
         </div>
       </div>
       <div class="footer">
-        <icon-clip></icon-clip>
+        <inline-svg :src="require('@/assets/welcome/messenger/clip.svg')" />
         <span class="placeholder">{{ $t('footer.placeholder') }}</span>
-        <icon-smile></icon-smile>
-        <icon-send-message></icon-send-message>
+        <inline-svg :src="require('@/assets/welcome/messenger/smileys.svg')" />
+        <inline-svg :src="require('@/assets/welcome/messenger/send-button.svg')" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Icon from 'vue-awesome/components/Icon';
-
-import IconMenu from '@/assets/welcome/messenger/burger-menu.svg?inline';
-import IconClip from '@/assets/welcome/messenger/clip.svg?inline';
-import IconSendMessage from '@/assets/welcome/messenger/send-button.svg?inline';
-import IconSmile from '@/assets/welcome/messenger/smileys.svg?inline';
-
-import SearchIcon from '@/assets/welcome/messenger/search.svg?inline';
-import PhoneIcon from '@/assets/welcome/messenger/phone.svg?inline';
-import DotsIcon from '@/assets/welcome/messenger/setting-dots.svg?inline';
-import WindowIcon from '@/assets/welcome/messenger/window.svg?inline';
 
 export default {
   name: "Messenger",
   components: {
-    'v-icon': Icon,
-    IconMenu, IconSmile, IconSendMessage, IconClip
+
   },
   data() {
     return {
@@ -72,12 +63,6 @@ export default {
         { avatar: '', name: 'Имя 2', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 3', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 4', message: 'Новое сообщение' },
-      ],
-      controls: [
-        SearchIcon,
-        PhoneIcon,
-        WindowIcon,
-        DotsIcon,
       ],
       selectedDialogIndex: 1
     }
@@ -202,6 +187,8 @@ export default {
   }
   .main .body {
     height: calc(100% - 60px);
+    z-index: 10;
+    cursor: pointer;
   }
   .main .footer {
     background-color: $interface-color;
