@@ -34,7 +34,8 @@ export default {
       return [
         { name: $t('list.first.name'), view: AnalyticDraft1 },
         { name: $t('list.second.name'), view: AnalyticDraft2 },
-        { name: $t('list.third.name'), view: AnalyticDraft3 }
+        { name: $t('list.third.name'), view: AnalyticDraft3 },
+        { name: $t('list.four.name'), view: AnalyticDraft3 },
       ]
     },
     activeItem: function () {
@@ -61,6 +62,9 @@ export default {
       },
       "third": {
         "name": "Gamification"
+      },
+      "four": {
+        "name": "Smart feed"
       }
     }
   },
@@ -74,6 +78,9 @@ export default {
       },
       "third": {
         "name": "Геймификация"
+      },
+      "four": {
+        "name": "Умная лента"
       }
     }
   }

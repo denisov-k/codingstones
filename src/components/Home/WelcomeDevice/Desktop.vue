@@ -120,6 +120,7 @@ export default {
   .application {
     display: inline-block;
     padding: 3% 3%;
+    min-width: 30px;
     height: 100%;
     box-sizing: border-box;
   }
@@ -145,9 +146,9 @@ export default {
     border-radius: 6px;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     z-index: 100;
     cursor: pointer;
+    padding-right: 10px;
   }
   .message > svg {
     width: 20%;
@@ -160,12 +161,13 @@ export default {
     align-items: flex-start;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 9px;
     /*margin: 0 2% auto;
     height: 50%;*/
   }
   .message span {
     display: inline-block;
-    margin: 3% 0;
+    margin: 2% 0;
   }
   .message .header {
     color: #5e6fa1;
@@ -193,6 +195,11 @@ export default {
       width: 90%;
       right: auto;
       left: auto;
+      height: 10%;
+    }
+    .message > svg {
+      width: 15%;
+      margin: 0 5%;
     }
     .controls {
       display: none;

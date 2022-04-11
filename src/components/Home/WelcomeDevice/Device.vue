@@ -73,11 +73,11 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 1;
+    /*z-index: 1;*/
   }
   .screen {
     box-sizing: border-box;
-    padding: 1.6% 11.5% 5.3%;
+    padding: 1.7% 11.5% 5.3%;
     width: 100%;
   }
 

@@ -2,9 +2,9 @@
   <div class="row" id="services-and-features-container">
     <div class="info col-xs-12 col-sm-6">
       <div class="service-icon">
-        <img src="@/assets/services/analysis.png" />
+        <img :src="activeItem.image" />
       </div>
-      <div class="service-description">{{ activeItem.description }}</div>
+      <div class="description">{{ activeItem.description }}</div>
     </div>
     <div class="lists col-xs-12 col-sm-6">
       <div class="list">
@@ -44,7 +44,8 @@ export default {
       const $t = this.$t.bind(this)
 
       return [
-        { name: $t('services.consultation.name'), description: $t('services.consultation.description') },
+        { name: $t('services.consultation.name'), description: $t('services.consultation.description'),
+          image: require('@/assets/services/analysis.png') },
         { name: $t('services.data_analysis.name'), description: $t('services.data_analysis.description') },
         { name: $t('services.data_modeling.name'), description: $t('services.data_modeling.description') },
         { name: $t('services.data_connecting.name'), description: $t('services.data_connecting.description') },
@@ -75,8 +76,8 @@ export default {
 
 <style scoped>
   h3 {
-    font-size: 20px;
-    margin: 10px 8px;
+    font-size: 24px;
+    margin: 14px 8px;
   }
 
   #services-and-features-container {
@@ -96,7 +97,7 @@ export default {
   .info img {
     width: 250px;
   }
-  .service-description {
+  .description {
     font-size: 17px;
     margin: 5px auto;
     min-width: 270px;
@@ -121,7 +122,7 @@ export default {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    background-color: #313131;
+    background-color: #7f7f7f;
     border-radius: 7px;
     margin: 5px 0;
     white-space: nowrap;
@@ -131,10 +132,10 @@ export default {
     padding: 7px 10px;
   }
   .list-item:hover {
-    background-color: #3f3f3f;
+    background-color: #525c79;
   }
   .list-item.selected {
-    background-color: #335cd2;
+    background-color: #353d56;
     color: white;
     font-weight: 500;
   }

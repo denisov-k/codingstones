@@ -36,7 +36,11 @@
       <div class="body">
         <div class="message">
           <div class="avatar"></div>
-          <div class="message-text"></div>
+          <div class="message-text">{{ $t('message.first') }}</div>
+        </div>
+        <div class="message" v-if="isNewMessageDisplayed">
+          <div class="avatar"></div>
+          <div class="message-text">{{ $t('message.second') }}</div>
         </div>
       </div>
       <div class="footer">
@@ -64,9 +68,13 @@ export default {
         { avatar: '', name: 'Имя 3', message: 'Новое сообщение' },
         { avatar: '', name: 'Имя 4', message: 'Новое сообщение' },
       ],
-      selectedDialogIndex: 1
+      selectedDialogIndex: 1,
+      isNewMessageDisplayed: false
     }
   },
+  mounted() {
+    setTimeout(() => this.isNewMessageDisplayed = true, 1500)
+  }
 }
 </script>
 
@@ -189,7 +197,32 @@ export default {
     height: calc(100% - 60px);
     z-index: 10;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3px 0;
   }
+  .message {
+    display: flex;
+    margin: 2px 5px;
+  }
+  .message .avatar {
+    min-width: 26px;
+    min-height: 26px;
+    border-radius: 16px;
+    background-color: #335cd2;
+    margin-right: 5px;
+  }
+  .message:not(:last-child) .avatar {
+    opacity: 0;
+  }
+  .message-text {
+    background-color: #383639;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 9px;
+  }
+
   .main .footer {
     background-color: $interface-color;
   }
@@ -219,7 +252,7 @@ export default {
       "search": "Search"
     },
     "message": {
-
+      "first": "This is example of text message"
     },
     "footer": {
       "placeholder": "Type a message..."
@@ -232,7 +265,7 @@ export default {
       "search": "Поиск"
     },
     "message": {
-
+      "first": "Пример первого сообщения"
     },
     "footer": {
       "placeholder": "Введите сообщение..."

@@ -93,7 +93,7 @@ export default {
     margin: 2vmax 0;
   }
   h3 {
-    font-size: 1.875em;
+    font-size: 24px;
     margin: 5px 0;
     display: inline-block;
   }
@@ -118,6 +118,10 @@ export default {
     color: black;
     text-align: left;
     padding: 60px 6vmin;
+  }
+  #analytic-examples h3 {
+    display: flex;
+    justify-content: center;
   }
   #about-us {
     background-color: #080808;
