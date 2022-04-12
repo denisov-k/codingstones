@@ -73,7 +73,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    /*z-index: 1;*/
+    z-index: 1;
   }
   .screen {
     box-sizing: border-box;

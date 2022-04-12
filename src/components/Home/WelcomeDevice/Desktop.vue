@@ -60,18 +60,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $interface-color: #0000005e;
+  $interface-color: #000000a8;
   $text-color: #6c6c6c;
 
   .desktop {
     font-size: 8px;
     position: relative;
     height: 100%;
-    background: linear-gradient(180deg, #0d1223 0%, #1b2d5f 50%, #0f1a3a 100%);
+    background-color: linear-gradient(180deg, #0d1223 0%, #1b2d5f 50%, #0f1a3a 100%);
+    background-image: url("@/assets/welcome/desktop/wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-radius: inherit;
   }
   .desktop > .header {
     display: flex;

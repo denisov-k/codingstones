@@ -33,16 +33,22 @@
           <inline-svg :src="require('@/assets/welcome/messenger/setting-dots.svg')" />
         </div>
       </div>
-      <div class="body">
-        <div class="message">
+      <transition-group name="fade" tag="div" class="body">
+        <div class="message" key="0">
           <div class="avatar"></div>
-          <div class="message-text">{{ $t('message.first') }}</div>
+          <div class="content">
+            <img src="@/assets/welcome/messenger/piechart.svg">
+            <span>{{ $t('message.first') }}</span>
+          </div>
         </div>
-        <div class="message" v-if="isNewMessageDisplayed">
+        <div class="message" key="1" v-if="isNewMessageDisplayed">
           <div class="avatar"></div>
-          <div class="message-text">{{ $t('message.second') }}</div>
+          <div class="content">
+            <img src="@/assets/welcome/messenger/barchart.svg">
+            <span>{{ $t('message.second') }}</span>
+          </div>
         </div>
-      </div>
+      </transition-group>
       <div class="footer">
         <inline-svg :src="require('@/assets/welcome/messenger/clip.svg')" />
         <span class="placeholder">{{ $t('footer.placeholder') }}</span>
@@ -86,6 +92,7 @@ export default {
     height: 100%;
     background-color: #0e1820;
     font-size: 8px;
+    border-radius: inherit;
   }
   .header, .footer {
     display: flex;
@@ -100,11 +107,6 @@ export default {
     max-width: 35%;
     height: 100%;
     background-color: $interface-color;
-  }
-  @media only screen and (max-width: 600px) {
-    .sidebar {
-      display: none;
-    }
   }
   .sidebar .header {
 
@@ -161,10 +163,15 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    border-radius: inherit;
   }
   .main .header {
     justify-content: space-between;
     background-color: $interface-color;
+
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
   }
   .titles {
     display: flex;
@@ -190,21 +197,28 @@ export default {
     height: 10px;
   }
   .main .body {
-    height: calc(100% - 60px);
+    height: calc(100% - 66px);
     z-index: 10;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 3px 0;
+    overflow: hidden;
+    position: absolute;
+    bottom: 30px;
   }
-  .message {
+  .body .message {
     display: flex;
     margin: 2px 5px;
+    align-items: flex-end;
+    max-width: 250px;
   }
+
   .message .avatar {
-    min-width: 26px;
-    min-height: 26px;
+    flex: none;
+    width: 26px;
+    height: 26px;
     border-radius: 16px;
     background-color: #335cd2;
     margin-right: 5px;
@@ -212,15 +226,28 @@ export default {
   .message:not(:last-child) .avatar {
     opacity: 0;
   }
-  .message-text {
+  .content {
+    display: flex;
+    flex-direction: column;
     background-color: #383639;
     padding: 5px;
     border-radius: 3px;
     font-size: 9px;
+    width: 100%;
+  }
+  .content img {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .content span {
+    color: #eaeaea;
+    text-align: left;
   }
 
   .main .footer {
     background-color: $interface-color;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
   }
   .footer .placeholder {
     width: -webkit-fill-available;
@@ -236,7 +263,28 @@ export default {
     fill: #7c7c7c;
     height: 12px;
   }
-
+  @media only screen and (max-width: 600px) {
+    .sidebar {
+      display: none;
+    }
+    .header {
+      height: 40px;
+      padding: 10px 15px 0px;
+    }
+    .body {
+      height: calc(100% - 86px) !important;
+      bottom: 40px !important;
+      margin: 2px 0;
+    }
+    .footer {
+      height: 40px;
+      padding: 0 10px 12px;
+    }
+    .body .message {
+      max-width: 100%;
+      margin: 5px 10px;
+    }
+  }
 </style>
 
 <i18n>
@@ -250,7 +298,8 @@ export default {
     "dialogs": {
     },
     "message": {
-      "first": "This is example of text message"
+      "first": "This is example of text message",
+      "second": "This is example of text message"
     },
     "footer": {
       "placeholder": "Type a message..."
@@ -263,7 +312,8 @@ export default {
       "search": "Поиск"
     },
     "message": {
-      "first": "Пример первого сообщения"
+      "first": "Пример первого сообщения",
+      "second": "Пример второго сообщения"
     },
     "footer": {
       "placeholder": "Введите сообщение..."

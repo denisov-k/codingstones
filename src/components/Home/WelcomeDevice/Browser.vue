@@ -51,12 +51,15 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
+    border-radius: inherit;
   }
   .header {
     display: flex;
     height: 25px;
     padding: 0 10px;
     background-color: #f6f6f6;
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
   }
   .header > * {
     display: flex;
@@ -120,7 +123,9 @@ export default {
     z-index: 10;
     cursor: pointer;
     display: flex;
-    height: calc(100% - 25px)
+    height: calc(100% - 25px);
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
   }
 
   @media only screen and (max-width: 600px) {
