@@ -27,7 +27,7 @@
     </div>
     <transition name="fade">
       <div class="message" v-show="isMessageShowed">
-        <v-icon name="envelope" />
+        <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/mail.svg')" />
         <div class="labels">
           <span class="header">{{ $t('message.header') }}</span>
           <span class="content">{{ $t('message.content') }}</span>
@@ -38,13 +38,8 @@
 </template>
 
 <script>
-import Icon from 'vue-awesome/components/Icon';
-
 export default {
   name: "Desktop",
-  components: {
-    'v-icon': Icon
-  },
   data() {
     return {
       isMessageShowed: false,

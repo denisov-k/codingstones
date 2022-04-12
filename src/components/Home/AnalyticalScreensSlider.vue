@@ -12,15 +12,10 @@
 </template>
 
 <script>
-
-const AnalyticDraft1 = () => import("@/views/Analytics/Draft1");
-const AnalyticDraft2 = () => import("@/views/Analytics/Draft2");
-const AnalyticDraft3 = () => import("@/views/Analytics/Draft3");
-
 export default {
   name: "AnalyticalScreensSlider",
   components: {
-    AnalyticDraft1
+
   },
   data() {
     return {
@@ -32,10 +27,10 @@ export default {
       const $t = this.$t.bind(this)
 
       return [
-        { name: $t('list.first.name'), view: AnalyticDraft1 },
-        { name: $t('list.second.name'), view: AnalyticDraft2 },
-        { name: $t('list.third.name'), view: AnalyticDraft3 },
-        { name: $t('list.four.name'), view: AnalyticDraft3 },
+        { name: $t('list.classic.name'), view: () => import("@/views/Analytics/Classic") },
+        { name: $t('list.second.name'), view: () => import("@/views/Analytics/Draft2") },
+        { name: $t('list.third.name'), view: () => import("@/views/Analytics/Draft3") },
+        { name: $t('list.four.name'), view: () => import("@/views/Analytics/Draft3") },
       ]
     },
     activeItem: function () {
@@ -54,7 +49,7 @@ export default {
 {
   "en": {
     "list": {
-      "first": {
+      "classic": {
         "name": "Classic dashboard"
       },
       "second": {
@@ -70,7 +65,7 @@ export default {
   },
   "ru": {
     "list": {
-      "first": {
+      "classic": {
         "name": "Классическая аналитика"
       },
       "second": {

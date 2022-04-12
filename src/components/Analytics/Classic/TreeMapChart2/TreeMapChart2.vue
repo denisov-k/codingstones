@@ -35,7 +35,9 @@ export default {
       data: [],
       watchableFields: ['region'],
 
-      extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
+      extraButtons: [
+        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+      ]
     }
   },
   methods: {

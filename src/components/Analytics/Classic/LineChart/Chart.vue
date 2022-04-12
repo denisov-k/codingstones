@@ -23,9 +23,7 @@ export default {
       data: null,
       dataURL: '/data/linechart.json',
       extraButtons: [
-        {
-          icon: { name: 'file-image' }, onClick: this.exportImage
-        }
+        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
       ]
     }
   },

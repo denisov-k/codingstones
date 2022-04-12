@@ -25,8 +25,8 @@ export default {
       // dataURL: 'api/app2/page_2/barchart',
       watchableFields: ['region'],
       extraButtons: [
-        { icon: { name: 'eraser' }, onClick: this.clearAllSelections },
-        { icon: { name: 'file-image' }, onClick: this.exportImage },
+        { icon: require('@/assets/widget/clear.svg'), onClick: this.clearAllSelections },
+        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
       ]
     }
   },

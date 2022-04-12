@@ -7,7 +7,7 @@ module.exports = defineConfig({
     https: false
   },
   transpileDependencies: [
-    "vue-awesome"
+
   ],
   pluginOptions: {
     i18n: {

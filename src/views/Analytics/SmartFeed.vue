@@ -39,7 +39,7 @@ import LineChart from "@/components/Analytics/Classic/LineChart";
 import PieChart from "@/components/Analytics/Classic/PieChart";
 
 export default {
-  name: "Draft2",
+  name: "Draft1",
   components: {
     PieChart,
     BarChart,
@@ -69,17 +69,27 @@ export default {
 }
 </i18n>
 
-<style scoped>
+<style lang="scss" scoped>
+  $text-color: #3f3f3f;
+
   .analytic-screen {
     padding: 1%;
     background-color: #eceef0;
+    background-image: url("@/assets/analytics/classic/background.jpg");
   }
   .title {
-    color: #8a8a8a;
+    color: $text-color;
     margin: 20px 10px;
   }
   .subtitle {
-    color: #8a8a8a;
+    color: $text-color;
     margin: 20px 10px;
+  }
+  .widget-container {
+    background-color: unset;
+    border: 1px solid #00000052;
+  }
+  .widget-container .title {
+    color: $text-color;
   }
 </style>

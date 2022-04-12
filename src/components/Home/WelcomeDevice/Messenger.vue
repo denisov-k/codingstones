@@ -35,18 +35,19 @@
       </div>
       <transition-group name="fade" tag="div" class="body">
         <div class="message" key="0">
-          <div class="avatar"></div>
           <div class="content">
             <img src="@/assets/welcome/messenger/piechart.svg">
             <span>{{ $t('message.first') }}</span>
           </div>
+          <inline-svg :src="require('@/assets/welcome/messenger/share.svg')" class="share" />
         </div>
         <div class="message" key="1" v-if="isNewMessageDisplayed">
-          <div class="avatar"></div>
+
           <div class="content">
             <img src="@/assets/welcome/messenger/barchart.svg">
             <span>{{ $t('message.second') }}</span>
           </div>
+          <inline-svg :src="require('@/assets/welcome/messenger/share.svg')" class="share" />
         </div>
       </transition-group>
       <div class="footer">
@@ -215,33 +216,36 @@ export default {
     max-width: 250px;
   }
 
-  .message .avatar {
+  .message .share {
     flex: none;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     border-radius: 16px;
-    background-color: #335cd2;
-    margin-right: 5px;
+    background-color: #00000036;
+    margin-left: 10px;
+    fill: #1d2429;
+    padding: 5px;
+    box-sizing: border-box;
   }
   .message:not(:last-child) .avatar {
     opacity: 0;
   }
-  .content {
+  .message .content {
     display: flex;
     flex-direction: column;
     background-color: #383639;
     padding: 5px;
     border-radius: 3px;
-    font-size: 9px;
     width: 100%;
   }
-  .content img {
+  .message .content img {
     width: 100%;
     margin-bottom: 5px;
   }
-  .content span {
+  .message .content span {
     color: #eaeaea;
     text-align: left;
+    font-size: 10px;
   }
 
   .main .footer {

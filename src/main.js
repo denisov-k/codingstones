@@ -6,8 +6,6 @@ import VueGtag from "vue-gtag"
 import LazyLoadDirective from './directives/lazy'
 import InlineSvg from 'vue-inline-svg';
 
-import 'vue-awesome/icons';
-
 import store from './store/store'
 import SessionActions from './store/store-session-actions'
 import i18n from './i18n'

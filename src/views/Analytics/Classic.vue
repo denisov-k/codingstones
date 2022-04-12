@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import BarChart from "@/components/AnalyticalScreens/Draft1/BarChart";
-import Map from "@/components/AnalyticalScreens/Map";
-import TreeMapChart2 from "@/components/AnalyticalScreens/Draft1/TreeMapChart2";
+import BarChart from "@/components/Analytics/Classic/BarChart";
+import Map from "@/components/Analytics/Map";
+import TreeMapChart2 from "@/components/Analytics/Classic/TreeMapChart2";
 
-import LineChart from "@/components/AnalyticalScreens/Draft1/LineChart";
-import PieChart from "@/components/AnalyticalScreens/Draft1/PieChart";
+import LineChart from "@/components/Analytics/Classic/LineChart";
+import PieChart from "@/components/Analytics/Classic/PieChart";
 
 export default {
   name: "Draft1",
@@ -69,17 +69,30 @@ export default {
 }
 </i18n>
 
-<style scoped>
+<style lang="scss" scoped>
+  $text-color: #3f3f3f;
+
   .analytic-screen {
     padding: 1%;
     background-color: #eceef0;
+    background-image: url("@/assets/analytics/classic/background.jpg");
   }
   .title {
-    color: #8a8a8a;
+    color: $text-color;
     margin: 20px 10px;
   }
   .subtitle {
-    color: #8a8a8a;
+    color: $text-color;
     margin: 20px 10px;
+  }
+  .widget-container {
+    background-color: unset;
+    border: 1px solid #00000052;
+  }
+  .widget-container .title {
+    color: $text-color;
+  }
+  .widget-container .button > svg {
+    fill: rebeccapurple;
   }
 </style>

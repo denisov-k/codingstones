@@ -21,7 +21,9 @@ export default {
       isLoading: true,
       dataURL: 'data/tiles_1.json',
       // dataURL: 'api/app2/page_2/tiles_1',
-      extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
+      extraButtons: [
+        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+      ]
     }
   },
   methods: {

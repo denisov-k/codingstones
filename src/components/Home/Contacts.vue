@@ -1,19 +1,14 @@
 <template>
   <div id="contacts">
-    <v-icon name="paper-plane" scale="7" />
+    <inline-svg :src="require('@/assets/welcome/contacts/send.svg')" />
     <h3>{{ $t('title') }}</h3>
     <a :href="`mailto:${email}`">{{ email }}</a>
   </div>
 </template>
 
 <script>
-import Icon from 'vue-awesome/components/Icon';
-
 export default {
   name: "Contacts",
-  components: {
-    'v-icon': Icon
-  },
   data() {
     return {
       email: 'contact@codingstones.ru'
@@ -49,5 +44,6 @@ export default {
   }
   svg {
     fill: #b5b5b5;
+    height: 100px;
   }
 </style>

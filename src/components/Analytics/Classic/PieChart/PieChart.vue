@@ -21,7 +21,9 @@ export default {
       chart: Object,
       dataURL: 'data/piechart.json',
       // dataURL: 'api/app2/page_2/pie_2',
-      extraButtons: [{ icon: { name: 'file-image' }, onClick: this.exportImage }]
+      extraButtons: [
+        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+      ]
     }
   },
   methods: {
