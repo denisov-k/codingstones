@@ -9,11 +9,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-xs-12 col-md-7 col-lg-8">
         <flight-chart></flight-chart>
       </div>
-      <div class="col-xs-4">
-        <bar-chart></bar-chart>
+      <div class="col-xs-12 col-md-5 col-lg-4">
+        <div class="widgets-list">
+          <bar-chart></bar-chart>
+          <sunburst></sunburst>
+          <sunburst></sunburst>
+        </div>
       </div>
     </div>
   </div>
@@ -21,20 +25,16 @@
 
 <script>
 import BarChart from "@/components/Analytics/Classic/BarChart";
-import Map from "@/components/Analytics/Map";
-import TreeMapChart2 from "@/components/Analytics/Classic/TreeMapChart2";
 
-import LineChart from "@/components/Analytics/Classic/LineChart";
+import Sunburst from "@/components/Analytics/SmartFeed/Sunburst";
 import FlightChart from "@/components/Analytics/SmartFeed/Flights";
 
 export default {
   name: "SmartFeed",
   components: {
+    Sunburst,
     FlightChart,
     BarChart,
-    Map,
-    TreeMapChart2,
-    LineChart,
   },
   data: () => {
     return {
@@ -77,7 +77,6 @@ export default {
       margin: 20px 10px;
     }
   }
-
   .widget-container /deep/ {
     .widget {
       background-color: #0000008c;
@@ -88,6 +87,22 @@ export default {
     }
     .button {
       fill: $text-color;
+    }
+  }
+
+  .widgets-list {
+    max-height: 600px;
+    overflow: auto;
+  }
+  @media only screen and (max-width: 1024px) {
+    .widgets-list {
+      white-space: nowrap;
+
+      .widget-container {
+        width: 400px !important;
+        height: 400px !important;
+        display: inline-flex;
+      }
     }
   }
 </style>

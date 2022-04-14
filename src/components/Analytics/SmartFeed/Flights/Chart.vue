@@ -1,6 +1,6 @@
 <template>
   <widget-container :title="$t('title')" :exportURL="dataURL"
-                    id="bar-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
+                    id="flights" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -160,7 +160,7 @@ export default {
 </script>
 
 <style scoped>
-#bar-chart-1 {
+#flights {
   height: 600px;
 }
 .chart {
