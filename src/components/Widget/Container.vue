@@ -77,14 +77,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /*border-bottom: 1px solid #dddddd;*/
 }
 .title {
   font-size: 14px;
   float: left;
   margin: 12px 15px;
   font-weight: 600;
-  color: #979797;
   color: #2a728e;
 }
 .subtitle {

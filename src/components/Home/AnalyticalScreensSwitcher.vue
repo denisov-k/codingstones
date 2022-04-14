@@ -30,7 +30,7 @@ export default {
         { name: $t('list.classic.name'), view: () => import("@/views/Analytics/Classic") },
         { name: $t('list.second.name'), view: () => import("@/views/Analytics/Draft2") },
         { name: $t('list.third.name'), view: () => import("@/views/Analytics/Draft3") },
-        { name: $t('list.four.name'), view: () => import("@/views/Analytics/Draft3") },
+        { name: $t('list.smart_feed.name'), view: () => import("@/views/Analytics/SmartFeed") },
       ]
     },
     activeItem: function () {
@@ -58,7 +58,7 @@ export default {
       "third": {
         "name": "Gamification"
       },
-      "four": {
+      "smart_feed": {
         "name": "Smart feed"
       }
     }
@@ -74,7 +74,7 @@ export default {
       "third": {
         "name": "Геймификация"
       },
-      "four": {
+      "smart_feed": {
         "name": "Умная лента"
       }
     }
@@ -85,7 +85,7 @@ export default {
 <style scoped>
   .navigation {
     font-size: 17px;
-    color: #aeaeae;
+    color: #747474;
     margin: 25px 0;
     text-align: center;
   }

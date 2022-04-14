@@ -70,26 +70,33 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-  $text-color: #3f3f3f;
+  $text-color: #dadada;
 
   .analytic-screen {
     padding: 1%;
     background-color: #eceef0;
-    background-image: url("@/assets/analytics/classic/background.jpg");
+    background-image: url("@/assets/analytics/smart_feed/background_2.jpg");
+    background-size: cover;
+    background-position: center;
+
+    .title {
+      color: $text-color;
+      margin: 20px 10px;
+    }
+    .subtitle {
+      color: $text-color;
+      margin: 20px 10px;
+    }
   }
-  .title {
-    color: $text-color;
-    margin: 20px 10px;
-  }
-  .subtitle {
-    color: $text-color;
-    margin: 20px 10px;
-  }
-  .widget-container {
-    background-color: unset;
-    border: 1px solid #00000052;
-  }
-  .widget-container .title {
-    color: $text-color;
+
+  .widget-container /deep/ {
+    background-color: #0000008c;
+
+    .title {
+      color: $text-color;
+    }
+    .button {
+      fill: $text-color;
+    }
   }
 </style>

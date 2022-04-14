@@ -273,7 +273,7 @@ export default {
     }
     .header {
       height: 40px;
-      padding: 10px 15px 0px;
+      padding: 10px 15px 0;
     }
     .body {
       height: calc(100% - 86px) !important;

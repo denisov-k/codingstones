@@ -114,7 +114,7 @@ export default {
   }
   .list {
     min-width: 270px;
-    max-width: 400px;
+    max-width: 340px;
     margin: auto;
   }
   .list-item {
@@ -122,7 +122,7 @@ export default {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    background-color: #7f7f7f;
+    background-color: #254e76;
     border-radius: 7px;
     margin: 5px 0;
     white-space: nowrap;
@@ -132,12 +132,10 @@ export default {
     padding: 7px 10px;
   }
   .list-item:hover {
-    background-color: #525c79;
+    background-color: #606a82;
   }
   .list-item.selected {
-    background-color: #353d56;
-    color: white;
-    font-weight: 500;
+    background-color: #a9a9a9;
   }
 </style>
 

@@ -69,17 +69,33 @@ export default {
 }
 </i18n>
 
-<style scoped>
-  .analytic-screen {
-    padding: 1%;
-    background-color: #eceef0;
-  }
+<style lang="scss" scoped>
+$text-color: #545454;
+
+.analytic-screen {
+  padding: 1%;
+  background-color: #eceef0;
+  background-image: url("@/assets/analytics/classic/background.jpg");
+
   .title {
-    color: #8a8a8a;
+    color: $text-color;
     margin: 20px 10px;
   }
   .subtitle {
-    color: #8a8a8a;
+    color: $text-color;
     margin: 20px 10px;
   }
+}
+
+.widget-container /deep/ {
+  background-color: unset;
+  border: 1px solid #00000052;
+
+  .title {
+    color: $text-color;
+  }
+  .button {
+    fill: $text-color;
+  }
+}
 </style>

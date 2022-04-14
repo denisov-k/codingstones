@@ -22,7 +22,7 @@
 <script>
 import WelcomeDevice from "@/components/Home/WelcomeDevice";
 import ServicesAndFeaturesList from "@/components/Home/ServicesAndFeaturesList";
-import AnalyticalScreensSlider from "@/components/Home/AnalyticalScreensSlider";
+import AnalyticalScreensSlider from "@/components/Home/AnalyticalScreensSwitcher";
 import Contacts from "@/components/Home/Contacts";
 
 
@@ -129,6 +129,9 @@ export default {
     flex-direction: column;
     padding: 6vmin;
     height: 100vh;
+  }
+  #about-us h3 {
+    font-size: 32px;
   }
 </style>
 
