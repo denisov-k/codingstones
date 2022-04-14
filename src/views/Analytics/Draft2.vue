@@ -36,7 +36,7 @@ import Map from "@/components/Analytics/Map";
 import TreeMapChart2 from "@/components/Analytics/Classic/TreeMapChart2";
 
 import LineChart from "@/components/Analytics/Classic/LineChart";
-import PieChart from "@/components/Analytics/Classic/PieChart";
+import PieChart from "@/components/Analytics/Draft2/PieChart";
 
 export default {
   name: "Draft2",
@@ -98,8 +98,9 @@ $text-color: #545454;
   .button {
     fill: $text-color;
   }
-}
-.widget-container.expanded {
-  background-image: url("@/assets/analytics/classic/background.jpg");
+
+  &.expanded .widget {
+    background-image: url("@/assets/analytics/classic/background.jpg");
+  }
 }
 </style>

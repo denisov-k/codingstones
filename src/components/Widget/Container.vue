@@ -64,6 +64,7 @@ export default {
   overflow: hidden;
   display: flex;
   flex-flow: column;
+  background-origin: content-box;
 }
 .widget-container.expanded {
   position: fixed;
@@ -83,6 +84,7 @@ export default {
   height: 100%;
   border-radius: 20px;
   background-color: white;
+  overflow: auto;
 }
 .widget-header {
   display: flex;
