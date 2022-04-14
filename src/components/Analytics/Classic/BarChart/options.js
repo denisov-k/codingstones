@@ -1,8 +1,7 @@
 module.exports = {
   tooltip: {
-    position: 'top',
     extraCssText: "white-space:pre-wrap; max-width:400px;",
-    appendToBody: true,
+    confine: true,
   },
   dataZoom: [
     {

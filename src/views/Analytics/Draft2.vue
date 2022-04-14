@@ -88,14 +88,18 @@ $text-color: #545454;
 }
 
 .widget-container /deep/ {
-  background-color: unset;
-  border: 1px solid #00000052;
-
+  .widget {
+    background-color: unset;
+    border: 1px solid #00000052;
+  }
   .title {
     color: $text-color;
   }
   .button {
     fill: $text-color;
   }
+}
+.widget-container.expanded {
+  background-image: url("@/assets/analytics/classic/background.jpg");
 }
 </style>

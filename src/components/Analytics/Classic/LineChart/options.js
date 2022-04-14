@@ -4,9 +4,8 @@ module.exports = {
     formatter: function(item) {
       return `${item.marker}${item.seriesName}, ${item.name}\nОшибочных строк: ${item.value.toFixed(0)}`;
     },
-    position: 'top',
     extraCssText: "white-space:pre-wrap; max-width:400px;",
-    appendToBody: true,
+    confine: true,
   },
   grid: {
     top: 20,

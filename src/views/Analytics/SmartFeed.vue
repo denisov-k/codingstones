@@ -90,7 +90,9 @@ export default {
   }
 
   .widget-container /deep/ {
-    background-color: #0000008c;
+    .widget {
+      background-color: #0000008c;
+    }
 
     .title {
       color: $text-color;

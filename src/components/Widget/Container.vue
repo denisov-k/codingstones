@@ -1,13 +1,15 @@
 <template>
   <div class="widget-container">
-    <div class="widget-header">
-      <span class="title">{{ title }}</span>
-      <span class="subtitle">{{ subtitle }}</span>
-      <widget-tools :exportURL="exportURL" :onExpand="onResize" :extra-buttons="extraButtons" :title="title"></widget-tools>
-    </div>
-    <div class="widget-content">
-      <loading v-show="isLoading"></loading>
-      <slot></slot>
+    <div class="widget">
+      <div class="widget-header">
+        <span class="title">{{ title }}</span>
+        <span class="subtitle">{{ subtitle }}</span>
+        <widget-tools :exportURL="exportURL" :onExpand="onResize" :extra-buttons="extraButtons" :title="title"></widget-tools>
+      </div>
+      <div class="widget-content">
+        <loading v-show="isLoading"></loading>
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -59,19 +61,28 @@ export default {
 <style scoped>
 .widget-container {
   margin: 10px;
-  border-radius: 20px;
-  background-color: white;
-  /*box-shadow: 0 1px 5px #b4b4b4;*/
+  overflow: hidden;
   display: flex;
   flex-flow: column;
 }
 .widget-container.expanded {
   position: fixed;
   z-index: 10002;
-  top: 10px !important;
-  left: 10px !important;
-  width: calc(100% - 40px) !important;
-  height: calc(100% - 40px) !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #000000a3;
+}
+.widget {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  border-radius: 20px;
+  background-color: white;
 }
 .widget-header {
   display: flex;

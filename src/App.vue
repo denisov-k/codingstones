@@ -49,6 +49,9 @@ export default {
     flex-direction: column;
     overflow: auto;
   }
+  #app:has( .expanded) {
+    overflow: hidden;
+  }
   .row {
     margin: 0;
     width: 100%;
