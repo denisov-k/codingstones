@@ -172,7 +172,7 @@ export default {
 
 <style scoped>
 #line_race {
-  height: 400px;
+
 }
 .chart {
   width: 100%;

@@ -173,7 +173,7 @@ export default {
 
 <style scoped>
 #flights {
-  height: 600px;
+
 }
 .chart {
   width: 100%;

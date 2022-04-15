@@ -176,7 +176,7 @@ export default {
 
 <style scoped>
 #bubble_chart {
-  height: 400px;
+
 }
 .chart {
   width: 100%;

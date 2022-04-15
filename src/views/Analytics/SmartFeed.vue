@@ -1,22 +1,13 @@
 <template>
   <div class="analytic-screen">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 start-sm">
-        <h2 class="title">{{ $t('title') }}</h2>
+      <div class="col-xs-12 col-md-8 col-lg-8">
+        <component :is="selectedWidget"></component>
       </div>
-      <div class="col-xs-12 col-sm-6 end-sm">
-        <h2 class="subtitle">{{ $t('subtitle') }}</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-7 col-lg-8">
-        <flight-chart></flight-chart>
-      </div>
-      <div class="col-xs-12 col-md-5 col-lg-4">
+      <div class="col-xs-12 col-md-4 col-lg-4">
         <div class="widgets-list">
-          <sunburst></sunburst>
-          <line-race></line-race>
-          <bubble-chart></bubble-chart>
+          <component v-for="(widget, index) in widgets" :is="widget"
+                     :key="index" @click.native="selectWidget(index)"></component>
         </div>
       </div>
     </div>
@@ -24,23 +15,39 @@
 </template>
 
 <script>
-import Sunburst from "@/components/Analytics/SmartFeed/Sunburst";
-import FlightChart from "@/components/Analytics/SmartFeed/Flights";
-import LineRace from "@/components/Analytics/SmartFeed/LineRace"
-import BubbleChart from "@/components/Analytics/SmartFeed/BubbleChart";
+let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
+    FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
+    LineRace = () => import('@/components/Analytics/SmartFeed/LineRace'),
+    BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart');
 
 export default {
   name: "SmartFeed",
-  components: {
-    Sunburst,
-    FlightChart,
-    LineRace,
-    BubbleChart
+  computed: {
+    widgetsList() {
+      let list = [ ...this.widgets];
+      list.splice(this.selectedWidgetIndex, 1);
+
+      return list;
+    },
+    selectedWidget() {
+      return this.widgets[this.selectedWidgetIndex];
+    }
   },
   data: () => {
     return {
-      title: 'Пример аналитического экрана',
-      subtitle: 'Ещё один заголовок'
+      selectedWidgetIndex: 0,
+      widgets: [
+        Sunburst,
+        LineRace,
+        FlightChart,
+        BubbleChart
+      ]
+    }
+  },
+  methods: {
+    selectWidget(index) {
+      console.log(index)
+      this.selectedWidgetIndex = index;
     }
   }
 }
@@ -49,12 +56,12 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Title",
-    "subtitle": "Subtitle"
+    "title": "Active widget",
+    "subtitle": "Available data"
   },
   "ru": {
-    "title": "Пример аналитического экрана",
-    "subtitle": "Ещё один заголовок"
+    "title": "Активный виджет",
+    "subtitle": "Доступные данные"
   }
 }
 </i18n>
@@ -78,11 +85,18 @@ export default {
       margin: 20px 10px;
     }
   }
+
+  .widget-container.expanded /deep/ {
+    .widget {
+      background-color: black;
+    }
+  }
   .widget-container /deep/ {
+    height: 600px;
+
     .widget {
       background-color: #0000008c;
     }
-
     .title {
       color: $text-color;
     }
@@ -109,6 +123,7 @@ export default {
   .widgets-list /deep/ {
     max-height: 600px;
     overflow: auto;
+    marquee-speed: fast;
 
     margin: 10px;
 
@@ -118,9 +133,19 @@ export default {
     .widget-container:last-child {
       margin: 10px 10px 0;
     }
-
-    .widget {
-      /*zoom: 65%;*/
+    .widget-container {
+      height: 300px;
+      cursor: pointer;
+    }
+    .widget-buttons {
+      display: none;
+    }
+    .widget-content {
+      pointer-events: none;
+      zoom: 0.75;
+    }
+    .expanded .widget-content {
+      zoom: 1;
     }
   }
   @media only screen and (max-width: 1024px) {
@@ -128,8 +153,8 @@ export default {
       white-space: nowrap;
 
       .widget-container {
-        width: 400px !important;
-        height: 400px !important;
+        width: 400px;
+        height: 400px;
         display: inline-flex;
       }
       .widget-container:first-child {

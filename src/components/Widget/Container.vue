@@ -73,7 +73,7 @@ export default {
   left: 0;
   width: 100% !important;
   height: 100% !important;
-  margin: auto;
+  margin: auto !important;
   padding: 10px;
   box-sizing: border-box;
   background-color: #000000a3;

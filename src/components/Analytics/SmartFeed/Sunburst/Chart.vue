@@ -62,18 +62,18 @@ export default {
             {},
             {
               r0: 0,
-              r: 40,
+              r: 80,
               label: {
                 rotate: 0
               }
             },
             {
-              r0: 40,
-              r: 105
+              r0: 80,
+              r: 165
             },
             {
-              r0: 115,
-              r: 140,
+              r0: 175,
+              r: 200,
               itemStyle: {
                 shadowBlur: 2,
                 shadowColor: colors[2],
@@ -86,8 +86,8 @@ export default {
               }
             },
             {
-              r0: 140,
-              r: 145,
+              r0: 200,
+              r: 205,
               itemStyle: {
                 shadowBlur: 80,
                 shadowColor: colors[0]
@@ -170,10 +170,10 @@ export default {
 
 <style scoped>
 #sunburst-1 {
-  height: 400px;
+
 }
 .chart {
-  width: -webkit-fill-available;
+  width: 100%;
   height: 100%;
 }
 </style>
