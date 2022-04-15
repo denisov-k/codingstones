@@ -10,6 +10,9 @@
         <loading v-show="isLoading"></loading>
         <slot></slot>
       </div>
+      <div class="widget-footer">
+        <slot name="footer"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -61,9 +64,6 @@ export default {
 <style scoped>
 .widget-container {
   margin: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-flow: column;
   background-origin: content-box;
 }
 .widget-container.expanded {
@@ -81,6 +81,7 @@ export default {
 .widget {
   display: flex;
   flex-flow: column;
+  width: 100%;
   height: 100%;
   border-radius: 20px;
   background-color: white;
@@ -90,6 +91,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  white-space: break-spaces;
 }
 .title {
   font-size: 14px;

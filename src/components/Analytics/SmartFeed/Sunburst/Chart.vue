@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart"
                     id="sunburst-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -41,7 +41,7 @@ export default {
       let series = [
         {
           type: 'sunburst',
-          center: ['50%', '48%'],
+          center: ['50%', '50%'],
           data: data,
           sort: function (a, b) {
             if (a.depth === 1) {
@@ -154,9 +154,9 @@ export default {
     }
   },
   mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"]);
+    this.chart = echarts.init(this.$refs["chartContainer"], {} ,{ devicePixelRatio: 2, useDirtyRect: true });
 
-    this.setupChart();
+    // this.setupChart();
   },
   created() {
     window.addEventListener("resize", this.repaint);

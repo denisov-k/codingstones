@@ -44,7 +44,8 @@ export default class ServiceTransport {
 
                     this._unregisterRequest(requestId);
                     if (!this.isResponseCorrect(response))
-                        this.goToAuth();
+                        console.error(response)
+                        //this.goToAuth();
                     else
                         resolve(responseHandler ? responseHandler(response) : response);
                 })

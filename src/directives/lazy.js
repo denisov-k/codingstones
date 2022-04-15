@@ -12,9 +12,11 @@ export default {
       }
     }
 
+    const observerOptions = { threshold: 0.1, trackVisibility: true, delay: 100 };
+
     const observer = new IntersectionObserver(function([entry]) {
       handleIntersect(entry, vnode);
-    });
+    }, observerOptions);
 
     observer.observe(el);
   },

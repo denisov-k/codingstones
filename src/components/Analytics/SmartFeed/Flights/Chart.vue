@@ -41,17 +41,27 @@ export default {
     setupChart() {
       this.isLoading = true;
 
-      this.getData().then(({ series }) => {
+      this.getData().then(({ series, legend }) => {
 
-        this.paintChart({ series });
+        this.paintChart({ series, legend });
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
-    paintChart({xAxes, yAxes, series}) {
+    paintChart({ series, legend }) {
 
       const options = {
         ...defaultOptions,
-        series
+        series,
+        legend: {
+          selectedMode: 'single',
+          left: 10,
+          bottom: 10,
+          data: legend,
+          orient: 'vertical',
+          textStyle: {
+            color: '#fff'
+          }
+        },
       }
 
       this.chart.setOption(options);
@@ -117,7 +127,9 @@ export default {
               return !!series;
             });
 
-        return { series }
+        let legend = Object.keys(routesGroupByAirline);
+
+        return { series, legend }
       })
     },
     catchError(e) {
@@ -164,18 +176,18 @@ export default {
   height: 600px;
 }
 .chart {
-  width: -webkit-fill-available;
+  width: 100%;
   height: 100%;
 }
 </style>
 <i18n>
 {
   "en": {
-    "title": "Errors count",
+    "title": "Routes by air companies",
     "subtitle": ""
   },
   "ru": {
-    "title": "Количество ошибок",
+    "title": "Маршруты авиакомпаний",
     "subtitle": ""
   }
 }

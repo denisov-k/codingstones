@@ -14,9 +14,9 @@
       </div>
       <div class="col-xs-12 col-md-5 col-lg-4">
         <div class="widgets-list">
-          <bar-chart></bar-chart>
           <sunburst></sunburst>
-          <sunburst></sunburst>
+          <line-race></line-race>
+          <bubble-chart></bubble-chart>
         </div>
       </div>
     </div>
@@ -24,17 +24,18 @@
 </template>
 
 <script>
-import BarChart from "@/components/Analytics/Classic/BarChart";
-
 import Sunburst from "@/components/Analytics/SmartFeed/Sunburst";
 import FlightChart from "@/components/Analytics/SmartFeed/Flights";
+import LineRace from "@/components/Analytics/SmartFeed/LineRace"
+import BubbleChart from "@/components/Analytics/SmartFeed/BubbleChart";
 
 export default {
   name: "SmartFeed",
   components: {
     Sunburst,
     FlightChart,
-    BarChart,
+    LineRace,
+    BubbleChart
   },
   data: () => {
     return {
@@ -90,9 +91,13 @@ export default {
     }
   }
 
-  .widgets-list {
+  .widgets-list /deep/ {
     max-height: 600px;
     overflow: auto;
+
+    .widget {
+      /*zoom: 65%;*/
+    }
   }
   @media only screen and (max-width: 1024px) {
     .widgets-list {
