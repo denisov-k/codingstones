@@ -91,9 +91,33 @@ export default {
     }
   }
 
+  .widgets-list::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .widgets-list::-webkit-scrollbar-track {
+    background-color: black;
+    border-radius: 25px;
+  }
+
+  .widgets-list::-webkit-scrollbar-thumb {
+    background: #4e4e4e;
+    border-radius: 25px;
+  }
+
   .widgets-list /deep/ {
     max-height: 600px;
     overflow: auto;
+
+    margin: 10px;
+
+    .widget-container:first-child {
+      margin: 0 10px 10px;
+    }
+    .widget-container:last-child {
+      margin: 10px 10px 0;
+    }
 
     .widget {
       /*zoom: 65%;*/
@@ -107,6 +131,12 @@ export default {
         width: 400px !important;
         height: 400px !important;
         display: inline-flex;
+      }
+      .widget-container:first-child {
+        margin: 10px 10px 10px 0;
+      }
+      .widget-container:last-child {
+        margin: 10px 0 10px 10px;
       }
     }
   }
