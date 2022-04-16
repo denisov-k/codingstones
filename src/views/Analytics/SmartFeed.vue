@@ -1,13 +1,14 @@
 <template>
-  <div class="analytic-screen">
+  <div id="smart-feed">
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8">
         <component :is="selectedWidget"></component>
       </div>
       <div class="col-xs-12 col-md-4 col-lg-4">
         <div class="widgets-list">
-          <component v-for="(widget, index) in widgets" :is="widget"
-                     :key="index" @click.native="selectWidget(index)"></component>
+          <component v-for="(widget, index) in widgetsList" :is="widget"
+                     :key="index" @click.native="selectWidget(widget)">
+          </component>
         </div>
       </div>
     </div>
@@ -23,14 +24,11 @@ let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
 export default {
   name: "SmartFeed",
   computed: {
-    widgetsList() {
-      let list = [ ...this.widgets];
-      list.splice(this.selectedWidgetIndex, 1);
-
-      return list;
-    },
     selectedWidget() {
       return this.widgets[this.selectedWidgetIndex];
+    },
+    widgetsList() {
+      return this.widgets.filter((item, index) => index !== this.selectedWidgetIndex);
     }
   },
   data: () => {
@@ -45,9 +43,8 @@ export default {
     }
   },
   methods: {
-    selectWidget(index) {
-      console.log(index)
-      this.selectedWidgetIndex = index;
+    selectWidget(widget) {
+      this.selectedWidgetIndex = this.widgets.indexOf(widget);
     }
   }
 }
@@ -69,7 +66,7 @@ export default {
 <style lang="scss" scoped>
   $text-color: #dadada;
 
-  .analytic-screen {
+  #smart-feed {
     padding: 1%;
     background-color: #eceef0;
     background-image: url("@/assets/analytics/smart_feed/background_2.jpg");
@@ -88,7 +85,7 @@ export default {
 
   .widget-container.expanded /deep/ {
     .widget {
-      background-color: black;
+      background-color: #121212;
     }
   }
   .widget-container /deep/ {
@@ -123,9 +120,23 @@ export default {
   .widgets-list /deep/ {
     max-height: 600px;
     overflow: auto;
-    marquee-speed: fast;
+    margin: 10px 10px 10px 0;
 
-    margin: 10px;
+    .widget-container {
+      height: 300px;
+      cursor: pointer;
+
+      .widget-buttons {
+        display: none;
+      }
+      .widget-content {
+        pointer-events: none;
+        zoom: 0.75;
+      }
+      .expanded .widget-content {
+        zoom: 1;
+      }
+    }
 
     .widget-container:first-child {
       margin: 0 10px 10px;
@@ -133,20 +144,7 @@ export default {
     .widget-container:last-child {
       margin: 10px 10px 0;
     }
-    .widget-container {
-      height: 300px;
-      cursor: pointer;
-    }
-    .widget-buttons {
-      display: none;
-    }
-    .widget-content {
-      pointer-events: none;
-      zoom: 0.75;
-    }
-    .expanded .widget-content {
-      zoom: 1;
-    }
+
   }
   @media only screen and (max-width: 1024px) {
     .widgets-list {

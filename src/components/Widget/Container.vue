@@ -67,16 +67,17 @@ export default {
   background-origin: content-box;
 }
 .widget-container.expanded {
-  position: fixed;
+  position: fixed !important;
   z-index: 10002;
-  top: 0;
-  left: 0;
+  top: 0 !important;
+  left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   margin: auto !important;
   padding: 10px;
   box-sizing: border-box;
   background-color: #000000a3;
+  transform: unset !important;
 }
 .widget {
   display: flex;
