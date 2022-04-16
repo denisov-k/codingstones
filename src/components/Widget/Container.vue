@@ -10,9 +10,6 @@
         <loading v-show="isLoading"></loading>
         <slot></slot>
       </div>
-      <div class="widget-footer">
-        <slot name="footer"></slot>
-      </div>
     </div>
   </div>
 </template>
