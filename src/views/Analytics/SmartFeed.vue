@@ -44,7 +44,6 @@
 
 <script>
 import Multiselect from 'vue-multiselect';
-import Teleport from 'vue2-teleport';
 
 let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
     FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
@@ -53,7 +52,7 @@ let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
 
 export default {
   name: "SmartFeed",
-  components: { Multiselect, Teleport },
+  components: { Multiselect },
   computed: {
     selectedWidget() {
       return this.widgets[this.selectedWidgetIndex];
