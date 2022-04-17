@@ -51,8 +51,11 @@ import Multiselect from 'vue-multiselect';
 
 let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
     FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
+    Scatter3D = () => import('@/components/Analytics/SmartFeed/Scatter3D'),
     LineRace = () => import('@/components/Analytics/SmartFeed/LineRace'),
     BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart'),
+    BarChart = () => import('@/components/Analytics/SmartFeed/BarChart'),
+    Map = () => import('@/components/Analytics/SmartFeed/Map'),
     Gauge = () => import('@/components/Analytics/SmartFeed/Gauge');
 
 export default {
@@ -86,13 +89,17 @@ export default {
         { name: $t('tags.3d'), color: '#299d2e' },
         { name: 'tag_4', color: '#9433ab' },
         { name: $t('tags.gauge'), color: '#a7babd' },
+        { name: $t('tags.map'), color: '#afd232' },
       ],
       widgets: [
-        { component: Sunburst, tags: [0], selectable: true },
+        { component: Sunburst, tags: [3], selectable: true },
         { component: LineRace, tags: [0, 1], selectable: true },
         { component: Gauge, tags: [4], selectable: true },
+        { component: Map, tags: [5], selectable: true },
         { component: FlightChart, tags: [2, 3], selectable: true },
         { component: BubbleChart, tags: [0, 3], selectable: true },
+        { component: BarChart, tags: [0, 1], selectable: true },
+        { component: Scatter3D, tags: [0, 2], selectable: true },
       ],
     }
   },
@@ -111,9 +118,6 @@ export default {
 
       if (!this.selectedTags.includes(tag))
         this.selectedTags.push(tag);
-    },
-    removeTag(id) {
-
     }
   }
 }
@@ -133,7 +137,8 @@ export default {
       "diagram": "Diagram",
       "income": "Income",
       "gauge": "Gauge",
-      "3d": "3D"
+      "3d": "3D",
+      "map": "Map"
     }
   },
   "ru": {
@@ -148,7 +153,8 @@ export default {
       "diagram": "Диаграмма",
       "income": "Доход",
       "gauge": "Измеритель",
-      "3d": "3D"
+      "3d": "3D",
+      "map": "Карта"
     }
   }
 }
@@ -255,7 +261,7 @@ export default {
       width: 100%;
       position: absolute;
       left: 0;
-      z-index: 1;
+      z-index: 1001;
       border-radius: 0 0 5px 5px;
       top: calc(100% - 5px);
       color: white;
@@ -383,7 +389,7 @@ export default {
           background-color: #0000008c;
           border-radius: 5px;
           font-size: 10px;
-          padding: 3px;
+          padding: 3px 5px;
           margin: 0 2px;
           cursor: pointer;
         }
