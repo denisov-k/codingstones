@@ -1,6 +1,6 @@
 <template>
-  <widget-container :title="title" :exportURL="dataURL" v-lazy="setupChart"
-                    id="sunburst-1" :extra-buttons="extraButtons" :is-loading="isLoading">
+  <widget-container :title="$t('title')" v-lazy="setupChart"
+                    id="kpi-1" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -11,17 +11,14 @@ import * as echarts from "echarts";
 import defaultOptions from "./options";
 
 import data from "./data";
-import colors from "./colors";
 
 export default {
-  name: "Sunburst",
+  name: "Gauge",
   components: {  WidgetContainer },
   data() {
     return {
-      title: this.$t('title'),
       isLoading: true,
       chart: Object,
-      dataURL: 'data/piechart.json',
       extraButtons: [
         { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
       ]
@@ -37,74 +34,59 @@ export default {
       a.click();
     },
     getData() {
-      const bgColor = '#2E2733';
-
-      let series = [
+      let series =  [
         {
-          type: 'sunburst',
-          center: ['50%', '50%'],
+          type: 'gauge',
+          color: ['#0b0477', '#1b10b9', '#157ada'],
+          radius: '90%',
+          startAngle: 90,
+          endAngle: -270,
+          pointer: {
+            show: false
+          },
+          progress: {
+            show: true,
+            overlap: false,
+            roundCap: true,
+            clip: false,
+            itemStyle: {
+              borderWidth: 0,
+              borderColor: '#464646',
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              width: 40,
+              color: [[1, 'rgba(0,0,0,0.49)']],
+            }
+          },
+          splitLine: {
+            show: false,
+            distance: 0,
+            length: 10
+          },
+          axisTick: {
+            show: false
+          },
+          axisLabel: {
+            show: false,
+            distance: 50
+          },
           data: data,
-          sort: function (a, b) {
-            if (a.depth === 1) {
-              return b.getValue() - a.getValue();
-            } else {
-              return a.dataIndex - b.dataIndex;
-            }
+          title: {
+            fontSize: 12,
+            color: '#6e6e6e'
           },
-          label: {
-            rotate: 'radial',
-            color: bgColor
-          },
-          itemStyle: {
-            borderColor: bgColor,
-            borderWidth: 2
-          },
-          levels: [
-            {},
-            {
-              r0: 0,
-              r: 80,
-              label: {
-                rotate: 0
-              }
-            },
-            {
-              r0: 80,
-              r: 165
-            },
-            {
-              r0: 175,
-              r: 200,
-              itemStyle: {
-                shadowBlur: 2,
-                shadowColor: colors[2],
-                color: 'transparent'
-              },
-              label: {
-                rotate: 'tangential',
-                fontSize: 10,
-                color: colors[0]
-              }
-            },
-            {
-              r0: 200,
-              r: 205,
-              itemStyle: {
-                shadowBlur: 80,
-                shadowColor: colors[0]
-              },
-              label: {
-                position: 'outside',
-                textShadowBlur: 5,
-                textShadowColor: '#333'
-              },
-              downplay: {
-                label: {
-                  opacity: 0.5
-                }
-              }
-            }
-          ]
+          detail: {
+            width: 50,
+            height: 14,
+            fontSize: 12,
+            color: 'inherit',
+            borderColor: 'inherit',
+            borderRadius: 20,
+            borderWidth: 1,
+            formatter: '{value}%'
+          }
         }
       ]
       return Promise.resolve({ series });
@@ -121,7 +103,6 @@ export default {
     paintChart({xAxes, yAxes, series}) {
       const options = {
         ...defaultOptions,
-        color: colors,
         series: series
       }
 
@@ -169,7 +150,7 @@ export default {
 </script>
 
 <style scoped>
-#sunburst-1 {
+#kpi-1 {
 
 }
 .chart {

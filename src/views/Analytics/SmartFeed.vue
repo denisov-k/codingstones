@@ -15,21 +15,25 @@
                          :multiple="true" label="name" :placeholder="$t('search.placeholder')"
                          trackBy="name" tagPosition="bottom" :closeOnSelect="false" :limit="3"
                          :searchable="false" :limitText="(count) => $t('search.limitText', { count })">
-              <template v-slot:tag="{ option }">
-                <span class="option__title" :style="{ color: option.color }">{{ option.name }}</span>
+              <template v-slot:tag="{ option, remove }">
+                <div class="tag">
+                  <span class="option__title" :style="{ color: option.color }">{{ option.name }}</span>
+                  <i aria-hidden="true" tabindex="1" class="multiselect__tag-icon" @click="remove(option)"></i>
+                </div>
               </template>
             </multiselect>
           </div>
           <div class="widgets-list">
             <div class="feed-item" v-for="(widget, widgetIndex) in widgetsList" :key="widgetIndex"
-                 :class="[ widget === selectedWidget ? 'selected' : ''  ]">
+                 :class="[ widget === selectedWidget ? 'selected' : '',
+                  widget.selectable ? 'selectable' : '' ]">
 
               <component  :is="widget.component" @click.native="selectWidget(widget)" ref="widgets">
               </component>
 
               <div class="tags">
                 <div class="tag" v-for="(tagId, tagIndex) in widget.tags" :key="tagIndex"
-                     :style="{ color: tags[tagId].color }">
+                     :style="{ color: tags[tagId].color }" @click="onTagClick(tagId)">
                   {{ tags[tagId].name }}
                 </div>
               </div>
@@ -48,7 +52,8 @@ import Multiselect from 'vue-multiselect';
 let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
     FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
     LineRace = () => import('@/components/Analytics/SmartFeed/LineRace'),
-    BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart');
+    BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart'),
+    Gauge = () => import('@/components/Analytics/SmartFeed/Gauge');
 
 export default {
   name: "SmartFeed",
@@ -69,21 +74,25 @@ export default {
     }
   },
   data: function () {
+    const $t = this.$t.bind(this)
+
     return {
       searchInputValue: "",
       selectedWidgetIndex: 0,
       selectedTags: [],
       tags: [
-        { name: 'Diagram', color: '#2269a2' },
-        { name: 'Income', color: '#ca5d10' },
-        { name: 'tag_with_long_name', color: '#299d2e' },
+        { name: $t('tags.diagram'), color: '#2269a2' },
+        { name: $t('tags.income'), color: '#ca5d10' },
+        { name: $t('tags.3d'), color: '#299d2e' },
         { name: 'tag_4', color: '#9433ab' },
+        { name: $t('tags.gauge'), color: '#a7babd' },
       ],
       widgets: [
-        { component: Sunburst, tags: [0] },
-        { component: LineRace, tags: [0, 1] },
-        { component: FlightChart, tags: [2, 3] },
-        { component: BubbleChart, tags: [0, 3] },
+        { component: Sunburst, tags: [0], selectable: true },
+        { component: LineRace, tags: [0, 1], selectable: true },
+        { component: Gauge, tags: [4], selectable: true },
+        { component: FlightChart, tags: [2, 3], selectable: true },
+        { component: BubbleChart, tags: [0, 3], selectable: true },
       ],
     }
   },
@@ -95,6 +104,15 @@ export default {
       this.selectedWidgetIndex = this.widgets.indexOf(widget);
     },
     getTitles() {
+
+    },
+    onTagClick(id) {
+      const tag = this.tags[id];
+
+      if (!this.selectedTags.includes(tag))
+        this.selectedTags.push(tag);
+    },
+    removeTag(id) {
 
     }
   }
@@ -110,6 +128,12 @@ export default {
       "placeholder": "Search by tags",
       "limitText": "and {count} more",
       "noResult": "No result more"
+    },
+    "tags": {
+      "diagram": "Diagram",
+      "income": "Income",
+      "gauge": "Gauge",
+      "3d": "3D"
     }
   },
   "ru": {
@@ -119,6 +143,12 @@ export default {
       "placeholder": "Поиск по тегам",
       "limitText": "и {count} ещё",
       "noResult": "Результатов больше нет"
+    },
+    "tags": {
+      "diagram": "Диаграмма",
+      "income": "Доход",
+      "gauge": "Измеритель",
+      "3d": "3D"
     }
   }
 }
@@ -171,12 +201,32 @@ export default {
       width: 100%;
       background-color: #0000008c;
       color: #dadada;
-      padding: 8px 15px;
       border-radius: 5px;
       border: unset;
       font-size: 14px;
       box-sizing: border-box;
       cursor: pointer;
+      padding: 8px 30px 8px 8px;
+    }
+    .multiselect__select {
+      position: absolute;
+      right: 10px;
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      transform: translate(0%, -50%);
+      transition: transform .2s ease;
+    }
+    .multiselect__select:before {
+      position: relative;
+      right: 0;
+      top: 65%;
+      color: #999;
+      margin-top: 4px;
+      border-style: solid;
+      border-width: 5px 5px 0;
+      border-color: #999 transparent transparent;
+      content: "";
     }
     .multiselect__tags {
       font-size: 14px;
@@ -218,7 +268,7 @@ export default {
     }
     .multiselect__tags-wrap {
       display: flex;
-      margin-right: 8px;
+      flex-wrap: wrap;
     }
     .multiselect__strong {
 
@@ -232,19 +282,44 @@ export default {
     .multiselect__option--selected {
       background: #103b1b;
     }
-    .option__title {
+    .tag {
       background-color: #1c1c1c;
       margin: 5px;
       padding: 3px 5px;
       border-radius: 5px;
       display: flex;
       height: fit-content;
-    }
-    .option__title:first-child {
-      margin-left: 0;
-    }
-    .option__title:last-child {
-      margin-right: 0;
+      align-items: center;
+
+      .option__title {
+
+      }
+      .option__title:first-child {
+        margin-left: 0;
+      }
+      .option__title:last-child {
+        margin-right: 0;
+      }
+      .multiselect__tag-icon {
+        font-weight: 700;
+        font-style: normal;
+        width: 16px;
+        text-align: center;
+        transition: all .2s ease;
+        border-radius: 5px;
+        height: 16px;
+        margin: 0 0 0 2px;
+        display: flex;
+        justify-content: center;
+      }
+      .multiselect__tag-icon:after {
+        content: "\D7";
+        color: #5f5f5f;
+        line-height: 16px;
+      }
+      .multiselect__tag-icon:hover {
+        background-color: #0000004f;
+      }
     }
   }
 
@@ -274,6 +349,15 @@ export default {
     display: flex;
     flex-direction: column;
 
+    .feed-item.selectable {
+      .widget-content {
+        pointer-events: none;
+        zoom: 0.75;
+      }
+      .expanded .widget-content {
+        zoom: 1;
+      }
+    }
     .feed-item {
       margin: 10px 10px 10px 0;
 
@@ -282,15 +366,12 @@ export default {
         height: 300px;
         cursor: pointer;
 
+        .widget:hover {
+          background-color: #00000063;
+        }
+
         .widget-buttons {
           display: none;
-        }
-        .widget-content {
-          pointer-events: none;
-          zoom: 0.75;
-        }
-        .expanded .widget-content {
-          zoom: 1;
         }
       }
 

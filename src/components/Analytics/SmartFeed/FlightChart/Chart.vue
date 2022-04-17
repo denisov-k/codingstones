@@ -160,7 +160,7 @@ export default {
     }
   },
   mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"], {}, { useDirtyRect: true });
+    this.chart = echarts.init(this.$refs["chartContainer"]);
 
     this.resizeObserver = new ResizeObserver(this.repaint);
     this.resizeObserver.observe(this.$el)
