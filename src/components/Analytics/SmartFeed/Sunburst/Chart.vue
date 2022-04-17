@@ -1,6 +1,6 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart"
-                    id="sunburst-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
+  <widget-container :title="title" :exportURL="dataURL" v-lazy="setupChart"
+                    id="sunburst-1" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -18,6 +18,7 @@ export default {
   components: {  WidgetContainer },
   data() {
     return {
+      title: this.$t('title'),
       isLoading: true,
       chart: Object,
       dataURL: 'data/piechart.json',
@@ -126,8 +127,9 @@ export default {
 
       this.chart.setOption(options);
     },
-    repaint() {
-      this.chart.resize();
+    repaint([$container]) {
+      if ($container.contentRect.width > 0 && $container.contentRect.height > 0)
+        this.chart.resize();
     },
     catchError(e) {
       this.chart.setOption({
@@ -154,16 +156,14 @@ export default {
     }
   },
   mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"], {} ,{ devicePixelRatio: 2, useDirtyRect: true });
+    this.chart = echarts.init(this.$refs["chartContainer"], {}, { useDirtyRect: true });
 
-    // this.setupChart();
+    this.resizeObserver = new ResizeObserver(this.repaint);
+    this.resizeObserver.observe(this.$el)
   },
-  created() {
-    window.addEventListener("resize", this.repaint);
-  },
-  destroyed() {
+  beforeDestroy() {
     this.chart.dispose();
-    window.removeEventListener("resize", this.repaint);
+    this.resizeObserver.unobserve(this.$el);
   }
 }
 </script>

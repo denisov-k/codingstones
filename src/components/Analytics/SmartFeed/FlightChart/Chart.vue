@@ -1,6 +1,6 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL"
-                    id="flights" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
+  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart"
+                    id="flights" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       chart: Object,
+      resizeObserver: null,
       isLoading: true,
       dataURL: '/data/draft2/flights/data.json',
       watchableFields: ['region'],
@@ -66,8 +67,10 @@ export default {
 
       this.chart.setOption(options);
     },
-    repaint() {
-      this.chart.resize();
+    repaint([$container]) {
+      // console.log(container, this);
+      if ($container.contentRect.width > 0 && $container.contentRect.height > 0)
+        this.chart.resize();
     },
     getData() {
       return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' })
@@ -157,16 +160,14 @@ export default {
     }
   },
   mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"]);
+    this.chart = echarts.init(this.$refs["chartContainer"], {}, { useDirtyRect: true });
 
-    this.setupChart();
+    this.resizeObserver = new ResizeObserver(this.repaint);
+    this.resizeObserver.observe(this.$el)
   },
-  created() {
-    window.addEventListener("resize", this.repaint);
-  },
-  destroyed() {
+  beforeDestroy() {
     this.chart.dispose();
-    window.removeEventListener("resize", this.repaint);
+    this.resizeObserver.unobserve(this.$el);
   }
 }
 </script>

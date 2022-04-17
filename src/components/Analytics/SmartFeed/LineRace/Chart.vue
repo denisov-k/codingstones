@@ -1,6 +1,6 @@
 <template>
   <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart"
-                    id="line_race" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
+                    id="line_race" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
@@ -19,7 +19,7 @@ export default {
     return {
       isLoading: true,
       chart: Object,
-      dataURL: 'data/draft2/line-race-data.json',
+      dataURL: '/data/draft2/line-race-data.json',
       extraButtons: [
         { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
       ]
@@ -128,8 +128,9 @@ export default {
 
       this.chart.setOption(options);
     },
-    repaint() {
-      this.chart.resize();
+    repaint([$container]) {
+      if ($container.contentRect.width > 0 && $container.contentRect.height > 0)
+        this.chart.resize();
     },
     catchError(e) {
       this.chart.setOption({
@@ -156,16 +157,14 @@ export default {
     }
   },
   mounted() {
-    this.chart = echarts.init(this.$refs["chartContainer"], {} ,{ devicePixelRatio: 2, useDirtyRect: true });
+    this.chart = echarts.init(this.$refs["chartContainer"], {}, { useDirtyRect: true });
 
-    // this.setupChart();
+    this.resizeObserver = new ResizeObserver(this.repaint);
+    this.resizeObserver.observe(this.$el)
   },
-  created() {
-    window.addEventListener("resize", this.repaint);
-  },
-  destroyed() {
+  beforeDestroy() {
     this.chart.dispose();
-    window.removeEventListener("resize", this.repaint);
+    this.resizeObserver.unobserve(this.$el);
   }
 }
 </script>

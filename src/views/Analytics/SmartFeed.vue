@@ -2,9 +2,11 @@
   <div id="smart-feed">
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8">
-
-          <component :is="selectedWidget.component"></component>
-
+        <div id="selected-widget-container">
+          <keep-alive>
+            <component :is="selectedWidget.component"></component>
+          </keep-alive>
+        </div>
       </div>
       <div class="col-xs-12 col-md-4 col-lg-4">
         <div class="widgets-feed">
@@ -41,7 +43,8 @@
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect'
+import Multiselect from 'vue-multiselect';
+import Teleport from 'vue2-teleport';
 
 let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
     FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
@@ -50,7 +53,7 @@ let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
 
 export default {
   name: "SmartFeed",
-  components: { Multiselect },
+  components: { Multiselect, Teleport },
   computed: {
     selectedWidget() {
       return this.widgets[this.selectedWidgetIndex];
@@ -195,6 +198,9 @@ export default {
     .multiselect__element:has(.multiselect__option--selected) {
       background-color: green;
     }
+    .multiselect__element:hover {
+      background-color: #292929;
+    }
     .multiselect__content-wrapper {
       background: #000000eb;
       width: 100%;
@@ -299,12 +305,16 @@ export default {
           font-size: 10px;
           padding: 3px;
           margin: 0 2px;
+          cursor: pointer;
         }
         .tag:first-child {
           margin-left: 0;
         }
         .tag:last-child {
           margin-right: 0;
+        }
+        .tag:hover {
+          background-color: #00000063;
         }
       }
     }
@@ -337,7 +347,7 @@ export default {
       flex-direction: row;
 
       .widget-container {
-        width: 400px;
+        width: 350px;
         height: 400px;
         display: inline-flex;
       }
