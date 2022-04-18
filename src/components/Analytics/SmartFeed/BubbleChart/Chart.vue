@@ -128,9 +128,12 @@ export default {
         ...defaultOptions,
         series,
         legend: {
-          right: '10%',
+          right: '20px',
           top: '3%',
-          data: ['1990', '2015']
+          data: ['1990', '2015'],
+          textStyle: {
+            color: '#dadada'
+          }
         },
       }
 

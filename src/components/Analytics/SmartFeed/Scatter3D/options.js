@@ -24,7 +24,10 @@ const options = {
     },
     axisLabel: {
       textStyle: {
-        color: '#2269a2'
+        color: '#838383',
+        fontWeight: 600,
+        textBorderColor: 'black',
+        textBorderWidth: 2
       }
     },
   },

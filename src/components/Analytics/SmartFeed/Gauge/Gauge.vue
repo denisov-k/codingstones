@@ -38,7 +38,7 @@ export default {
       let series =  [
         {
           type: 'gauge',
-          color: ['#0b0477', '#1b10b9', '#157ada'],
+          color: ['#538f2a', '#00aac0', '#c26d27'],
           radius: '90%',
           startAngle: 90,
           endAngle: -270,

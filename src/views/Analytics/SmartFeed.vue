@@ -56,6 +56,7 @@ let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
     BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart'),
     BarChart = () => import('@/components/Analytics/SmartFeed/BarChart'),
     Map = () => import('@/components/Analytics/SmartFeed/Map'),
+    SankeyChart = () => import('@/components/Analytics/SmartFeed/SankeyChart'),
     Gauge = () => import('@/components/Analytics/SmartFeed/Gauge');
 
 export default {
@@ -100,6 +101,7 @@ export default {
         { component: BubbleChart, tags: [0, 3], selectable: true },
         { component: BarChart, tags: [0, 1], selectable: true },
         { component: Scatter3D, tags: [0, 2], selectable: true },
+        { component: SankeyChart, tags: [0, 3], selectable: true },
       ],
     }
   },

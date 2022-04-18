@@ -1,4 +1,5 @@
 const options = {
+    color: ['#538f2a', '#00aac0', '#c26d27'],
     grid: {
         top: 40,
         right: 20,
@@ -13,7 +14,10 @@ const options = {
         }
     },
     legend: {
-        data: ['Profit', 'Expenses', 'Income']
+        data: ['Profit', 'Expenses', 'Income'],
+        textStyle: {
+            color: '#dadada'
+        }
     },
     xAxis: [
         {

@@ -41,7 +41,11 @@ export default {
           type: 'bar',
           label: {
             show: true,
-            position: 'inside'
+            position: 'inside',
+            color: '#838383',
+            fontWeight: 600,
+            textBorderColor: 'black',
+            textBorderWidth: 2
           },
           emphasis: {
             focus: 'series'
@@ -53,7 +57,11 @@ export default {
           type: 'bar',
           stack: 'Total',
           label: {
-            show: true
+            show: true,
+            color: '#838383',
+            fontWeight: 600,
+            textBorderColor: 'black',
+            textBorderWidth: 2
           },
           emphasis: {
             focus: 'series'
@@ -66,7 +74,11 @@ export default {
           stack: 'Total',
           label: {
             show: true,
-            position: 'left'
+            position: 'left',
+            color: '#838383',
+            fontWeight: 600,
+            textBorderColor: 'black',
+            textBorderWidth: 2
           },
           emphasis: {
             focus: 'series'
