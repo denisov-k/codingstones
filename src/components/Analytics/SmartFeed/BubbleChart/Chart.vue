@@ -17,6 +17,7 @@ export default {
   components: {  WidgetContainer },
   data() {
     return {
+      resizeObserver: null,
       isLoading: true,
       chart: Object,
       dataURL: 'data/draft2/bubble-chart-data.json',
@@ -113,6 +114,9 @@ export default {
     setupChart() {
       this.isLoading = true;
 
+      this.resizeObserver = new ResizeObserver(this.repaint);
+      this.resizeObserver.observe(this.$el)
+
       this.getData().then(({ series }) => {
 
         this.paintChart({ series });
@@ -162,13 +166,12 @@ export default {
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
-
-    this.resizeObserver = new ResizeObserver(this.repaint);
-    this.resizeObserver.observe(this.$el)
   },
   beforeDestroy() {
     this.chart.dispose();
-    this.resizeObserver.unobserve(this.$el);
+
+    if (this.resizeObserver)
+      this.resizeObserver.unobserve(this.$el);
   }
 }
 </script>

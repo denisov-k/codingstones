@@ -351,7 +351,7 @@ export default {
   }
   .widgets-list /deep/ {
     overflow: auto;
-    margin: 10px 0 0 0;
+    /*margin: 10px 0 0 0;*/
     display: flex;
     flex-direction: column;
 
@@ -365,7 +365,7 @@ export default {
       }
     }
     .feed-item {
-      margin: 10px 10px 10px 0;
+      margin: 5px 10px 5px 0;
 
       .widget-container {
         margin: 0;

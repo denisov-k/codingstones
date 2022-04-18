@@ -25,6 +25,7 @@ export default {
   },
   data() {
     return {
+      resizeObserver: null,
       isLoading: true,
       dataURL: 'data/map.json',
       layer: layers[3],
@@ -43,6 +44,9 @@ export default {
     },
     setupChart() {
       this.chart = leaflet.map('chartContainer').setView([56.126944, 43.8915], 11);
+
+      this.resizeObserver = new ResizeObserver(this.repaint);
+      this.resizeObserver.observe(this.$el)
 
       this.getData().then(({ points }) => {
         this.paintChart({ points, layer: this.layer })
@@ -102,12 +106,11 @@ export default {
     }
   },
   mounted() {
-    this.resizeObserver = new ResizeObserver(this.repaint);
-    this.resizeObserver.observe(this.$el)
+
   },
   beforeDestroy() {
-    // this.chart.dispose();
-    this.resizeObserver.unobserve(this.$el);
+    if (this.resizeObserver)
+      this.resizeObserver.unobserve(this.$el);
   }
 }
 
