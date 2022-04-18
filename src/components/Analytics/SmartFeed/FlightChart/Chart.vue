@@ -23,7 +23,7 @@ export default {
       chart: Object,
       resizeObserver: null,
       isLoading: true,
-      dataURL: '/data/draft2/flights/data.json',
+      dataURL: '/data/smart_feed/flights/data.json',
       watchableFields: ['region'],
       extraButtons: [
         { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },

@@ -19,7 +19,7 @@ export default {
     return {
       isLoading: true,
       chart: Object,
-      dataURL: '/data/draft2/sankey-chart-data.json',
+      dataURL: '/data/smart_feed/sankey-chart-data.json',
       extraButtons: [
         { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
       ]

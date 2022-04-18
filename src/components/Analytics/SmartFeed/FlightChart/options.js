@@ -1,7 +1,7 @@
 module.exports = {
   globe: {
-    environment: '/data/draft2/flights/starfield.jpg',
-    heightTexture: '/data/draft2/flights/bathymetry_bw_composite_4k.jpg',
+    environment: '/data/smart_feed/flights/starfield.jpg',
+    heightTexture: '/data/smart_feed/flights/bathymetry_bw_composite_4k.jpg',
     displacementScale: 0.1,
     displacementQuality: 'high',
     baseColor: '#000',
@@ -29,7 +29,7 @@ module.exports = {
         shadow: false
       },
       ambientCubemap: {
-        texture: '/data/draft2/flights/lake.hdr',
+        texture: '/data/smart_feed/flights/lake.hdr',
         exposure: 1,
         diffuseIntensity: 0.5,
         specularIntensity: 2

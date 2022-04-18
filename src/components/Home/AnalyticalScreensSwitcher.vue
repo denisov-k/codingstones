@@ -28,9 +28,9 @@ export default {
 
       return [
         { name: $t('list.classic.name'), view: () => import("@/views/Analytics/Classic") },
-        { name: $t('list.second.name'), view: () => import("@/views/Analytics/Draft2") },
-        { name: $t('list.third.name'), view: () => import("@/views/Analytics/Draft3") },
         { name: $t('list.smart_feed.name'), view: () => import("@/views/Analytics/SmartFeed") },
+        { name: $t('list.personal_account.name'), view: () => import("@/views/Analytics/PersonalAccount") },
+        { name: $t('list.gamification.name'), view: () => import("@/views/Analytics/Gamification") },
       ]
     },
     activeItem: function () {
@@ -52,10 +52,10 @@ export default {
       "classic": {
         "name": "Classic dashboard"
       },
-      "second": {
-        "name": "Personal analytic"
+      "personal_account": {
+        "name": "Personal account"
       },
-      "third": {
+      "gamification": {
         "name": "Gamification"
       },
       "smart_feed": {
@@ -68,10 +68,10 @@ export default {
       "classic": {
         "name": "Классическая аналитика"
       },
-      "second": {
+      "personal_account": {
         "name": "Личный кабинет"
       },
-      "third": {
+      "gamification": {
         "name": "Геймификация"
       },
       "smart_feed": {

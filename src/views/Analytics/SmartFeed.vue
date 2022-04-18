@@ -30,11 +30,19 @@
 
               <component  :is="widget.component" @click.native="selectWidget(widget)" ref="widgets">
               </component>
-
-              <div class="tags">
-                <div class="tag" v-for="(tagId, tagIndex) in widget.tags" :key="tagIndex"
-                     :style="{ color: tags[tagId].color }" @click="onTagClick(tagId)">
-                  {{ tags[tagId].name }}
+              <div class="widget-footer">
+                <div class="tags">
+                  <div class="tag" v-for="(tagId, tagIndex) in widget.tags" :key="tagIndex"
+                       :style="{ color: tags[tagId].color }" @click="onTagClick(tagId)">
+                    {{ tags[tagId].name }}
+                  </div>
+                </div>
+                <div class="views">
+                  <inline-svg :src="require('@/assets/analytics/smart_feed/views-icon.svg')" />
+                  <span class="views-count">{{ widget.views }}</span>
+                </div>
+                <div class="favorite-button" :class="[ widget.inFavorite ? 'active' : '']">
+                  <inline-svg :src="require('@/assets/analytics/smart_feed/favorite-icon.svg')" />
                 </div>
               </div>
             </div>
@@ -69,9 +77,26 @@ export default {
     widgetsList() {
       let selectedTags = this.selectedTags.map(item => item.name);
 
-      return this.widgets.filter((item, index) =>
+      let filteredWidgets = this.widgets.filter((item, index) =>
           !this.selectedTags.length || item.tags.some(tagIndex => selectedTags.includes(this.tags[tagIndex].name))
-      )
+      );
+
+      let favoriteWidgets = [],
+          nonFavoriteWidgets = [];
+
+      for (let i = 0; i < filteredWidgets.length; i++) {
+        if (filteredWidgets[i].inFavorite)
+          favoriteWidgets.push(filteredWidgets[i])
+        else
+          nonFavoriteWidgets.push(filteredWidgets[i]);
+      }
+
+      let sortedWidgets = [
+        ...favoriteWidgets.sort((a, b) => b.views - a.views),
+        ...nonFavoriteWidgets.sort((a, b) => b.views - a.views)
+      ];
+
+      return sortedWidgets;
     },
     isNoResultShow() {
       return !this.widgetsList.length || (this.widgetsList.length === 1 && this.widgetsList[0] === this.selectedWidget);
@@ -93,15 +118,15 @@ export default {
         { name: $t('tags.map'), color: '#afd232' },
       ],
       widgets: [
-        { component: Sunburst, tags: [3], selectable: true },
-        { component: LineRace, tags: [0, 1], selectable: true },
-        { component: Gauge, tags: [4], selectable: true },
-        { component: Map, tags: [5], selectable: true },
-        { component: FlightChart, tags: [2, 3], selectable: true },
-        { component: BubbleChart, tags: [0, 3], selectable: true },
-        { component: BarChart, tags: [0, 1], selectable: true },
-        { component: Scatter3D, tags: [0, 2], selectable: true },
-        { component: SankeyChart, tags: [0, 3], selectable: true },
+        { component: Sunburst, tags: [3], inFavorite: false, views: 81, selectable: true },
+        { component: LineRace, tags: [0, 1], inFavorite: true, views: 79, selectable: true },
+        { component: Gauge, tags: [4], inFavorite: false, views: 22, selectable: true },
+        { component: Map, tags: [5], inFavorite: false, views: 40, selectable: true },
+        { component: FlightChart, tags: [2, 3], inFavorite: false, views: 59, selectable: true },
+        { component: BubbleChart, tags: [0, 3], inFavorite: true, views: 116, selectable: true },
+        { component: BarChart, tags: [0, 1], inFavorite: false, views: 34, selectable: true },
+        { component: Scatter3D, tags: [0, 2], inFavorite: false, views: 37, selectable: true },
+        { component: SankeyChart, tags: [0, 3], inFavorite: false, views: 26, selectable: true },
       ],
     }
   },
@@ -382,27 +407,79 @@ export default {
           display: none;
         }
       }
+      .widget-footer {
+        display: flex;
+        margin: 4px 0;
 
-      .tags {
-        margin: 2px 0;
+        .tags {
+          display: inline-flex;
 
-        .tag {
-          display: inline-block;
+          .tag {
+            display: inline-block;
+            background-color: #0000008c;
+            border-radius: 5px;
+            font-size: 10px;
+            padding: 3px 5px;
+            margin: 0 2px;
+            cursor: pointer;
+          }
+          .tag:first-child {
+            margin-left: 0;
+          }
+          .tag:last-child {
+            margin-right: 0;
+          }
+          .tag:hover {
+            background-color: #00000063;
+          }
+        }
+        .favorite-button {
+          width: 20px;
           background-color: #0000008c;
           border-radius: 5px;
-          font-size: 10px;
-          padding: 3px 5px;
-          margin: 0 2px;
-          cursor: pointer;
-        }
-        .tag:first-child {
-          margin-left: 0;
-        }
-        .tag:last-child {
+          padding: 2px 1px;
           margin-right: 0;
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          svg {
+            fill: #8484844a;
+            width: 100%;
+            height: 14px;
+          }
         }
-        .tag:hover {
-          background-color: #00000063;
+        .favorite-button.active {
+          svg {
+            fill: #941414;
+          }
+        }
+        .favorite-button:hover {
+          svg {
+            fill: #ae495b;
+          }
+        }
+        .views {
+          display: inline-flex;
+          align-items: center;
+          margin-right: 0;
+          margin-left: auto;
+          background-color: #0000008c;
+          border-radius: 5px;
+          padding: 2px 4px;
+
+          svg {
+            fill: #8484844a;
+            width: 100%;
+            height: 14px;
+          }
+
+          .views-count {
+            font-size: 10px;
+            color: #818181;
+            margin-left: 3px;
+          }
         }
       }
     }
