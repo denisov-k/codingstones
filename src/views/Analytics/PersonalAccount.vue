@@ -16,12 +16,12 @@
 
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-        <pie-chart></pie-chart>
+        <tree-chart></tree-chart>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6">
-        <tree-chart></tree-chart>
+        <pie-chart></pie-chart>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6">
         <bar-chart></bar-chart>
@@ -88,11 +88,13 @@ $text-color: #545454;
     background-color: unset;
     border: 1px solid #00000052;
   }
-  .title {
-    color: $text-color;
-  }
-  .button {
-    fill: $text-color;
+  .widget-header {
+    .title {
+      color: $text-color;
+    }
+    .button {
+      fill: $text-color;
+    }
   }
 
   &.expanded .widget {

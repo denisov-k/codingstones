@@ -1,16 +1,13 @@
 <template>
   <div class="widget-buttons">
-    <div class="button" v-for="(extraButton, ind) in extraButtons" v-on:click="extraButton.onClick" v-bind:key="ind">
+    <div class="button" v-for="(extraButton, ind) in extraButtons" :title="extraButton.title"
+         v-on:click="extraButton.onClick" v-bind:key="ind">
       <inline-svg :src="extraButton.icon" />
     </div>
-
-    <div class="button" v-on:click="onexportImage" v-if="pdfExport">
-      <inline-svg :src="require('@/assets/widget/image.svg')" />
-    </div>
-    <div class="button" v-on:click="onExportXLS" v-if="exportURL">
+    <div class="button" v-on:click="onExportXLS" v-if="exportURL" :title="$t('export_data')">
       <inline-svg :src="require('@/assets/widget/table.svg')" />
     </div>
-    <div class="button" v-on:click="onExpandClick">
+    <div class="button" v-on:click="onExpandClick" :title="expanded ? $t('collapse') : $t('expand')">
       <inline-svg :src="require('@/assets/widget/expand.svg')" v-if="!expanded" />
       <inline-svg :src="require('@/assets/widget/collapse.svg')" v-else />
     </div>
@@ -49,7 +46,7 @@ export default {
     }
   },
   methods: {
-    onexportImage: function () {
+    onExportImage: function () {
       this.pdfExport();
     },
     onExpandClick: function () {
@@ -110,3 +107,20 @@ export default {
   width: 100%;
 }
 </style>
+
+<i18n>
+{
+  "en": {
+    "export_image": "Export image",
+    "export_data": "Export data",
+    "expand": "Expand widget",
+    "collapse": "Collapse widget"
+  },
+  "ru": {
+    "export_image": "Экспортировать изображение",
+    "export_data": "Экспортировать исходные данные",
+    "expand": "Развернуть на весь экран",
+    "collapse": "Выйти из режима полного экрана"
+  }
+}
+</i18n>

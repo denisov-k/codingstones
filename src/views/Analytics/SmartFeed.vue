@@ -218,11 +218,14 @@ export default {
     .widget {
       background-color: #0000008c;
     }
-    .title {
-      color: $text-color;
-    }
-    .button {
-      fill: $text-color;
+    .widget-header {
+      .title {
+        color: $text-color;
+      }
+
+      .button {
+        fill: $text-color;
+      }
     }
   }
 
