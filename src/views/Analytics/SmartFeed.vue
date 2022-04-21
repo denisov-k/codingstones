@@ -506,7 +506,7 @@ export default {
     .widgets-search {
       margin: 10px;
     }
-    .widgets-list {
+    .widgets-list /deep/ {
       margin: 10px;
       white-space: nowrap;
       flex-direction: row;
@@ -516,11 +516,14 @@ export default {
         height: 400px;
         display: inline-flex;
       }
+      .feed-item {
+        margin: 0 5px 10px 5px;
+      }
       .feed-item:last-child {
-        margin: 10px 0 10px 10px;
+        margin: 0 0 10px 5px;
       }
       .feed-item:first-child {
-        margin: 10px 10px 10px 0;
+        margin: 0 5px 10px 0;
       }
     }
   }
