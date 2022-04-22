@@ -16,7 +16,7 @@
         <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/search.svg')" />
       </div>
     </div>
-    <img src="@/assets/cs-icon-logo.svg">
+    <inline-svg :src="require('@/assets/cs-icon-logo.svg')" class="logo" />
     <div class="footer">
       <img class="application" src="@/assets/welcome/desktop/safari.svg" />
       <img class="application" src="@/assets/welcome/desktop/messages.svg" />
@@ -63,7 +63,7 @@ export default {
     position: relative;
     height: 100%;
     background-color: linear-gradient(180deg, #0d1223 0%, #1b2d5f 50%, #0f1a3a 100%);
-    background-image: url("@/assets/welcome/desktop/wallpaper.jpg");
+    background-image: url("@/assets/welcome/desktop/background.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -124,7 +124,7 @@ export default {
     box-sizing: border-box;
   }
 
-  .desktop > img {
+  .desktop > .logo {
     max-width: 300px;
     width: 15%;
     -webkit-user-drag: none;
@@ -132,6 +132,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    min-width: 95px;
   }
   .message {
     position: absolute;

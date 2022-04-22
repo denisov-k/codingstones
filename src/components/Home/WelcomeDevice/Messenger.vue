@@ -86,12 +86,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $interface-color: #1d2429;
+  $interface-color: #fff;
 
   .messenger {
     display: flex;
     height: 100%;
-    background-color: #0e1820;
+    background-image: url("@/assets/welcome/messenger/background.png");
     font-size: 8px;
     border-radius: inherit;
   }
@@ -108,6 +108,7 @@ export default {
     max-width: 35%;
     height: 100%;
     background-color: $interface-color;
+    border-right: 1px solid #d5d5d5;
   }
   .sidebar .header {
 
@@ -125,7 +126,7 @@ export default {
     display: flex;
     align-items: center;
     width: -webkit-fill-available;
-    background-color: #0e1820;
+    background-color: #e5e5e5;
     border-radius: 2px;
     height: 18px;
     margin-left: 7px;
@@ -141,7 +142,7 @@ export default {
     display: flex;
   }
   .dialog.selected {
-    background-color: #292f47;
+    background-color: #a9c5f0;
   }
   .dialog .avatar {
     width: 28px;
@@ -160,7 +161,6 @@ export default {
   .main {
     width: -webkit-fill-available;
     height: 100%;
-    margin-left: 1px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -173,6 +173,7 @@ export default {
 
     border-top-right-radius: inherit;
     border-top-left-radius: inherit;
+    border-bottom: 1px solid #d5d5d5;
   }
   .titles {
     display: flex;
@@ -183,6 +184,7 @@ export default {
   }
   .titles > span {
     margin: 1px 0;
+    color: #000000;
   }
   .subtitle {
     color: #686868;
@@ -221,7 +223,7 @@ export default {
     width: 24px;
     height: 24px;
     border-radius: 16px;
-    background-color: #00000036;
+    background-color: #0000001c;
     margin-left: 10px;
     fill: #1d2429;
     padding: 5px;
@@ -233,7 +235,7 @@ export default {
   .message .content {
     display: flex;
     flex-direction: column;
-    background-color: #383639;
+    background-color: #ffffff;
     padding: 5px;
     border-radius: 3px;
     width: 100%;
@@ -243,7 +245,7 @@ export default {
     margin-bottom: 5px;
   }
   .message .content span {
-    color: #eaeaea;
+    color: #6b6b6b;
     text-align: left;
     font-size: 10px;
   }
@@ -252,6 +254,7 @@ export default {
     background-color: $interface-color;
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: inherit;
+    border-top: 1px solid #d5d5d5;
   }
   .footer .placeholder {
     width: -webkit-fill-available;

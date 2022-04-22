@@ -70,6 +70,8 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
+  $text-color: #737373;
+
   #classic-analytic {
     width: 100%;
     box-sizing: border-box;
@@ -79,11 +81,11 @@ export default {
     background-position: center;
 
     .title {
-      color: #8a8a8a;
+      color: $text-color;
       margin: 20px 10px;
     }
     .subtitle {
-      color: #8a8a8a;
+      color: $text-color;
       margin: 20px 10px;
     }
   }
@@ -93,10 +95,10 @@ export default {
       border: 1px solid #d7d7d7;
     }
     .title {
-      color: #8a8a8a;
+      color: $text-color;
     }
     .button {
-      fill: #8a8a8a;
+      fill: $text-color;
     }
   }
 

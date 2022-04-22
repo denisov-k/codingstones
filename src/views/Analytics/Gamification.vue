@@ -27,14 +27,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $text-color: #dadada;
+  $text-color: #1e776a;
 
   #gamification {
     width: 100%;
     box-sizing: border-box;
     min-height: 100vh;
     padding: 15px;
-    background-image: url("@/assets/analytics/gamification/background.jpg");
+    background-image: url("@/assets/analytics/gamification/background.png");
     background-size: cover;
     background-position: center;
   }
@@ -42,7 +42,8 @@ export default {
     margin: 0;
 
     .widget {
-      background-color: #000000d9;
+      background-color: #ffffff;
+      border: 1px solid #bbe0c6;
     }
     .title {
       color: $text-color;

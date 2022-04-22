@@ -197,7 +197,7 @@ export default {
     box-sizing: border-box;
     padding: 1%;
     background-color: white;
-    background-image: url("@/assets/analytics/smart_feed/background3.png");
+    background-image: url("@/assets/analytics/smart_feed/background.png");
     background-position: center;
 
     .row {
@@ -248,10 +248,10 @@ export default {
       color: #fbfbfb;
       border-radius: 5px;
       border: unset;
-      font-size: 14px;
+      font-size: 12px;
       box-sizing: border-box;
       cursor: pointer;
-      padding: 8px 30px 8px 8px;
+      padding: 5px 30px 5px 5px;
     }
     .multiselect__select {
       position: absolute;
@@ -273,11 +273,17 @@ export default {
       content: "";
     }
     .multiselect__tags {
-      font-size: 14px;
       padding: 0;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+
+      .multiselect__strong {
+        margin-left: 5px;
+      }
+      .multiselect__placeholder {
+        padding: 2px 3px;
+      }
     }
     .multiselect__element {
       margin: 1px 0;
@@ -327,8 +333,8 @@ export default {
       background: #103b1b;
     }
     .tag {
-      background-color: #fbfbfb;
-      margin: 5px;
+      background-color: #0f0f0f;
+      margin: 3px;
       padding: 3px 5px;
       border-radius: 5px;
       display: flex;
