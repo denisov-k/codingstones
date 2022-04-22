@@ -1,5 +1,5 @@
 <template>
-  <div id="gamification" class="container">
+  <div id="gamification" class="container-fluid">
     <div class="row">
     </div>
     <div class="row">
@@ -30,8 +30,9 @@ export default {
   $text-color: #dadada;
 
   #gamification {
-    min-height: 100vh;
+    width: 100%;
     box-sizing: border-box;
+    min-height: 100vh;
     padding: 15px;
     background-image: url("@/assets/analytics/gamification/background.jpg");
     background-size: cover;

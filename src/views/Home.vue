@@ -120,6 +120,7 @@ export default {
   #analytic-examples h3 {
     display: flex;
     justify-content: center;
+    margin: 0;
   }
   #about-us {
     background-color: #080808;

@@ -28,7 +28,7 @@ export default {
       resizeObserver: null,
       isLoading: true,
       dataURL: 'data/map.json',
-      layer: layers[3],
+      layer: layers[2],
       chart: Object,
     }
   },

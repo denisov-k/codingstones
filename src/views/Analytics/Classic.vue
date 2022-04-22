@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="classic-analytic">
+  <div class="container-fluid" id="classic-analytic">
     <div class="row">
       <div class="col-xs-12 col-sm-6 start-sm">
         <h2 class="title">{{ $t('title') }}</h2>
@@ -71,6 +71,8 @@ export default {
 
 <style lang="scss" scoped>
   #classic-analytic {
+    width: 100%;
+    box-sizing: border-box;
     padding: 1%;
     background-color: #eceef0;
     background-image: url("@/assets/analytics/classic/background.png");

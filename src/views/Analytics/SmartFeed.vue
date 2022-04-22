@@ -1,5 +1,5 @@
 <template>
-  <div id="smart-feed" class="container">
+  <div id="smart-feed" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8">
         <div id="selected-widget-container">
@@ -186,14 +186,24 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-  $text-color: #fefefe;
-  $container-color: #00000085;
+  $text-color: #678069;
+  $container-color: #195c4891;
 
   #smart-feed {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     padding: 1%;
     background-color: white;
     background-image: url("@/assets/analytics/smart_feed/background.png");
     background-position: center;
+
+    .row {
+      width: 100%;
+      margin: 0;
+    }
 
     .title {
       color: $text-color;
@@ -207,14 +217,17 @@ export default {
 
   .widget-container.expanded /deep/ {
     .widget {
-      background-color: #121212;
+      background-color: #ffffff;
     }
   }
   .widget-container /deep/ {
     height: 600px;
+    margin: 10px 0;
 
     .widget {
       background-color: $container-color;
+      background-color: #fbfbfb;
+      border: 1px solid #adadad;
     }
     .widget-header {
       .title {
@@ -317,7 +330,7 @@ export default {
       background: #103b1b;
     }
     .tag {
-      background-color: #1c1c1c;
+      background-color: #88c59d;
       margin: 5px;
       padding: 3px 5px;
       border-radius: 5px;
@@ -401,7 +414,7 @@ export default {
         cursor: pointer;
 
         .widget:hover {
-          background-color: #00000063;
+          background-color: white;
         }
 
         .widget-buttons {

@@ -1,5 +1,5 @@
 <template>
-  <div id="personal-account" class="container">
+  <div id="personal-account" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-6 start-sm">
         <h2 class="title">{{ $t('title') }}</h2>
@@ -66,6 +66,8 @@ export default {
   $text-color: #545454;
 
   #personal-account {
+    width: 100%;
+    box-sizing: border-box;
     padding: 1%;
     background-color: #eceef0;
     background-image: url("@/assets/analytics/personal_account/background.png");
