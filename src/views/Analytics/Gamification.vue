@@ -4,7 +4,7 @@
     </div>
     <div class="row">
       <div class="col-xs-6 col-md-6 col-lg-6">
-        <radar-chart></radar-chart>
+        <sunburst></sunburst>
       </div>
       <div class="col-xs-6 col-md-6 col-lg-6">
         <radar-chart></radar-chart>
@@ -16,11 +16,12 @@
 <script>
 
 import RadarChart from "@/components/Analytics/Gamification/RadarChart";
+let Sunburst = () => import('@/components/Analytics/Gamification/Sunburst');
 
 export default {
   name: "Gamification",
   components: {
-    RadarChart
+    RadarChart, Sunburst
   },
 }
 </script>
@@ -29,8 +30,12 @@ export default {
   $text-color: #dadada;
 
   #gamification {
+    min-height: 100vh;
+    box-sizing: border-box;
     padding: 15px;
-    background-color: #367dc3;
+    background-image: url("@/assets/analytics/gamification/background.jpg");
+    background-size: cover;
+    background-position: center;
   }
   .widget-container /deep/ {
     margin: 0;

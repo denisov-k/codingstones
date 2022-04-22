@@ -1,5 +1,5 @@
 <template>
-  <div id="smart-feed">
+  <div id="smart-feed" class="container">
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8">
         <div id="selected-widget-container">
@@ -57,8 +57,7 @@
 <script>
 import Multiselect from 'vue-multiselect';
 
-let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
-    FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
+let FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
     Scatter3D = () => import('@/components/Analytics/SmartFeed/Scatter3D'),
     LineRace = () => import('@/components/Analytics/SmartFeed/LineRace'),
     BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart'),
@@ -118,7 +117,6 @@ export default {
         { name: $t('tags.map'), color: '#afd232' },
       ],
       widgets: [
-        { component: Sunburst, tags: [3], inFavorite: false, views: 81, selectable: true },
         { component: LineRace, tags: [0, 1], inFavorite: true, views: 79, selectable: true },
         { component: Gauge, tags: [4], inFavorite: false, views: 22, selectable: true },
         { component: Map, tags: [5], inFavorite: false, views: 40, selectable: true },
@@ -188,13 +186,13 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-  $text-color: #dadada;
+  $text-color: #fefefe;
+  $container-color: #00000085;
 
   #smart-feed {
     padding: 1%;
-    background-color: #eceef0;
-    background-image: url("@/assets/analytics/smart_feed/background_2.jpg");
-    background-size: cover;
+    background-color: white;
+    background-image: url("@/assets/analytics/smart_feed/background.png");
     background-position: center;
 
     .title {
@@ -216,7 +214,7 @@ export default {
     height: 600px;
 
     .widget {
-      background-color: #0000008c;
+      background-color: $container-color;
     }
     .widget-header {
       .title {
@@ -235,7 +233,7 @@ export default {
     .input {
       position: relative;
       width: 100%;
-      background-color: #0000008c;
+      background-color: $container-color;
       color: #dadada;
       border-radius: 5px;
       border: unset;
@@ -419,7 +417,7 @@ export default {
 
           .tag {
             display: inline-block;
-            background-color: #0000008c;
+            background-color: $container-color;
             border-radius: 5px;
             font-size: 10px;
             padding: 3px 5px;
@@ -438,7 +436,7 @@ export default {
         }
         .favorite-button {
           width: 20px;
-          background-color: #0000008c;
+          background-color: $container-color;
           border-radius: 5px;
           padding: 2px 1px;
           margin-right: 0;
@@ -468,19 +466,19 @@ export default {
           align-items: center;
           margin-right: 0;
           margin-left: auto;
-          background-color: #0000008c;
+          background-color: $container-color;
           border-radius: 5px;
           padding: 2px 4px;
 
           svg {
-            fill: #8484844a;
+            fill: #fefefe;
             width: 100%;
             height: 14px;
           }
 
           .views-count {
             font-size: 10px;
-            color: #818181;
+            color: #fefefe;
             margin-left: 3px;
           }
         }

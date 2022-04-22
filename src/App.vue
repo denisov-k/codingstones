@@ -49,9 +49,5 @@ export default {
     flex-direction: column;
     overflow: auto;
   }
-  .row {
-    margin: 0;
-    width: 100%;
-  }
 
 </style>

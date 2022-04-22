@@ -1,5 +1,5 @@
 <template>
-  <div class="analytic-screen">
+  <div class="analytic-screen" id="classic-analytic">
     <div class="row">
       <div class="col-xs-12 col-sm-6 start-sm">
         <h2 class="title">{{ $t('title') }}</h2>
@@ -21,10 +21,10 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6">
-        <tree-map-chart2></tree-map-chart2>
+        <bar-chart></bar-chart>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6">
-        <bar-chart></bar-chart>
+        <tree-map-chart2></tree-map-chart2>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@ import LineChart from "@/components/Analytics/Classic/LineChart";
 import PieChart from "@/components/Analytics/Classic/PieChart";
 
 export default {
-  name: "Draft1",
+  name: "ClassicAnalytic",
   components: {
     PieChart,
     BarChart,
@@ -73,6 +73,8 @@ export default {
   .analytic-screen {
     padding: 1%;
     background-color: #eceef0;
+    background-image: url("@/assets/analytics/classic/background.png");
+    background-position: center;
 
     .title {
       color: #8a8a8a;
@@ -85,6 +87,9 @@ export default {
   }
 
   .widget-container /deep/ {
+    .widget {
+      border: 1px solid #d7d7d7;
+    }
     .title {
       color: #8a8a8a;
     }

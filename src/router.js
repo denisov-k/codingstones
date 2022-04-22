@@ -43,6 +43,74 @@ export default new Router({
                 authGroups: [],
             },
             children: [],
+        },
+        {
+            path: '/classic_analytic',
+            name: 'classic_analytic',
+            components: {
+                default: () => import('@/views/Analytics/Classic.vue')
+            },
+            meta: {
+                title: 'Классическая аналитика',
+                description: '',
+                viewTitle: '',
+                viewDescription: '',
+                icon: '',
+                visible: true,
+                authGroups: [],
+            },
+            children: [],
+        },
+        {
+            path: '/gamification',
+            name: 'gamification',
+            components: {
+                default: () => import('@/views/Analytics/Gamification.vue')
+            },
+            meta: {
+                title: 'Геймификация',
+                description: '',
+                viewTitle: '',
+                viewDescription: '',
+                icon: '',
+                visible: true,
+                authGroups: [],
+            },
+            children: [],
+        },
+        {
+            path: '/personal_account',
+            name: 'personal_account',
+            components: {
+                default: () => import('@/views/Analytics/PersonalAccount.vue')
+            },
+            meta: {
+                title: 'Личный кабинет',
+                description: '',
+                viewTitle: '',
+                viewDescription: '',
+                icon: '',
+                visible: true,
+                authGroups: [],
+            },
+            children: [],
+        },
+        {
+            path: '/smart_feed',
+            name: 'smart_feed',
+            components: {
+                default: () => import('@/views/Analytics/SmartFeed.vue')
+            },
+            meta: {
+                title: 'Умная лента',
+                description: '',
+                viewTitle: '',
+                viewDescription: '',
+                icon: '',
+                visible: true,
+                authGroups: [],
+            },
+            children: [],
         }
     ]
 })

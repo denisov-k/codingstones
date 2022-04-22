@@ -1,5 +1,5 @@
 <template>
-  <div class="row" id="services-and-features-container">
+  <div class="container" id="services-and-features-container">
     <div class="info col-xs-12 col-sm-6">
       <div class="service-icon">
         <img :src="activeItem.image" />

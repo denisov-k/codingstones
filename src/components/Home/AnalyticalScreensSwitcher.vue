@@ -110,7 +110,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
     border: 7px solid #080808;
     border-radius: 30px;
     overflow: hidden;

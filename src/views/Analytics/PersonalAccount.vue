@@ -9,13 +9,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <div class="col-xs-12 col-sm-6 col-md-4">
 
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <div class="col-xs-12 col-sm-6 col-md-8">
         <tree-chart></tree-chart>
       </div>
     </div>
@@ -71,7 +68,7 @@ $text-color: #545454;
 .analytic-screen {
   padding: 1%;
   background-color: #eceef0;
-  background-image: url("@/assets/analytics/classic/background.jpg");
+  background-image: url("@/assets/analytics/personal_account/background.png");
 
   .title {
     color: $text-color;
@@ -98,7 +95,7 @@ $text-color: #545454;
   }
 
   &.expanded .widget {
-    background-image: url("@/assets/analytics/classic/background.jpg");
+    background-image: url("@/assets/analytics/personal_account/background.png");
   }
 }
 </style>
