@@ -186,7 +186,7 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-  $text-color: #a5bdc1;
+  $text-color: #aeaeae;
   $container-color: #00000070;
 
   #smart-feed {
@@ -196,7 +196,7 @@ export default {
     height: 100%;
     box-sizing: border-box;
     padding: 1%;
-    background-color: white;
+    background-color: #373737;
     background-image: url("@/assets/analytics/smart_feed/background.png");
     background-position: center;
 
@@ -241,11 +241,14 @@ export default {
   .widgets-search /deep/ {
     margin: 10px 0;
 
+    :focus-visible {
+      outline: unset;
+    }
     .input {
       position: relative;
       width: 100%;
       background-color: $container-color;
-      color: #fbfbfb;
+      color: $text-color;
       border-radius: 5px;
       border: unset;
       font-size: 12px;
