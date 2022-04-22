@@ -186,8 +186,8 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-  $text-color: #678069;
-  $container-color: #195c4891;
+  $text-color: #a5bdc1;
+  $container-color: #00000070;
 
   #smart-feed {
     display: flex;
@@ -197,7 +197,7 @@ export default {
     box-sizing: border-box;
     padding: 1%;
     background-color: white;
-    background-image: url("@/assets/analytics/smart_feed/background.png");
+    background-image: url("@/assets/analytics/smart_feed/background3.png");
     background-position: center;
 
     .row {
@@ -226,8 +226,6 @@ export default {
 
     .widget {
       background-color: $container-color;
-      background-color: #fbfbfb;
-      border: 1px solid #adadad;
     }
     .widget-header {
       .title {
@@ -247,7 +245,7 @@ export default {
       position: relative;
       width: 100%;
       background-color: $container-color;
-      color: #dadada;
+      color: #fbfbfb;
       border-radius: 5px;
       border: unset;
       font-size: 14px;
@@ -268,11 +266,10 @@ export default {
       position: relative;
       right: 0;
       top: 65%;
-      color: #999;
       margin-top: 4px;
       border-style: solid;
       border-width: 5px 5px 0;
-      border-color: #999 transparent transparent;
+      border-color: #fbfbfb transparent transparent;
       content: "";
     }
     .multiselect__tags {
@@ -330,7 +327,7 @@ export default {
       background: #103b1b;
     }
     .tag {
-      background-color: #88c59d;
+      background-color: #fbfbfb;
       margin: 5px;
       padding: 3px 5px;
       border-radius: 5px;
@@ -414,7 +411,7 @@ export default {
         cursor: pointer;
 
         .widget:hover {
-          background-color: white;
+          background-color: #00000091;
         }
 
         .widget-buttons {
@@ -466,7 +463,7 @@ export default {
         }
         .favorite-button.active {
           svg {
-            fill: #941414;
+            fill: #a53c3c;
           }
         }
         .favorite-button:hover {
@@ -484,14 +481,14 @@ export default {
           padding: 2px 4px;
 
           svg {
-            fill: #fefefe;
+            fill: #9d9d9d;
             width: 100%;
             height: 14px;
           }
 
           .views-count {
             font-size: 10px;
-            color: #fefefe;
+            color: #9d9d9d;
             margin-left: 3px;
           }
         }

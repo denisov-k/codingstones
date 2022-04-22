@@ -120,16 +120,18 @@ export default {
   }
   .item .external-link {
     cursor: pointer;
-    width: 22px;
+    width: 20px;
     padding: 0 5px;
-    fill: #a7a7a7;
-    border-radius: 20px;
+    fill: #929292;
+    border-radius: 5px;
     box-sizing: border-box;
-    height: 22px;
-    margin-left: 2px;
+    height: 20px;
+    margin-left: 3px;
+    margin-top: 3px;
   }
   .item .external-link:hover {
-    background-color: #eeeeee;
+    outline: 1px dashed #c8c8c8;
+    outline-offset: -1px;
   }
 
   .tablet {
