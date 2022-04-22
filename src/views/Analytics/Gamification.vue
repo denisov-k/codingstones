@@ -1,5 +1,5 @@
 <template>
-  <div id="gamification">
+  <div id="gamification" class="container">
     <div class="row">
     </div>
     <div class="row">

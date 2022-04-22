@@ -5,9 +5,7 @@
       <h2>{{ $t('welcome.subtitle') }}</h2>
       <welcome-device></welcome-device>
     </div>
-    <div id="services-and-features">
-      <services-and-features-list></services-and-features-list>
-    </div>
+    <services-and-features-list></services-and-features-list>
     <div id="analytic-examples">
       <h3>{{ $t('analytic.title') }}</h3>
       <analytical-screens-slider></analytical-screens-slider>

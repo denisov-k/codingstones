@@ -114,5 +114,7 @@ export default {
     border-radius: 30px;
     overflow: hidden;
     box-shadow: inset 0 0 3px #000000;
+    width: 100%;
+    box-sizing: border-box;
   }
 </style>

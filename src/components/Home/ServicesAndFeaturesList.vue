@@ -1,26 +1,32 @@
 <template>
-  <div class="container" id="services-and-features-container">
-    <div class="info col-xs-12 col-sm-6">
-      <div class="service-icon">
-        <img :src="activeItem.image" />
-      </div>
-      <div class="description">{{ activeItem.description }}</div>
-    </div>
-    <div class="lists col-xs-12 col-sm-6">
-      <div class="list">
-        <h3>{{ $t('services.list_name') }}</h3>
-        <div v-for="(item, index) in services" :key="index" class="list-item"
-             v-on:click="setActiveItem(index, 0)"
-             :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
-          {{ item.name }}
+  <div id="services-and-features-container" class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="info">
+          <div class="service-icon">
+            <img :src="activeItem.image" />
+          </div>
+          <div class="description">{{ activeItem.description }}</div>
         </div>
       </div>
-      <div class="list">
-        <h3>{{ $t('features.list_name') }}</h3>
-        <div v-for="(item, index) in features" :key="index" class="list-item"
-             v-on:click="setActiveItem(index, 1)"
-             :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
-          {{ item.name }}
+      <div class="col-xs-12 col-sm-6">
+        <div class="lists">
+          <div class="list">
+            <h3>{{ $t('services.list_name') }}</h3>
+            <div v-for="(item, index) in services" :key="index" class="list-item"
+                 v-on:click="setActiveItem(index, 0)"
+                 :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
+              {{ item.name }}
+            </div>
+          </div>
+          <div class="list">
+            <h3>{{ $t('features.list_name') }}</h3>
+            <div v-for="(item, index) in features" :key="index" class="list-item"
+                 v-on:click="setActiveItem(index, 1)"
+                 :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
+              {{ item.name }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -81,12 +87,14 @@ export default {
   }
 
   #services-and-features-container {
-    /*padding: 0 5%;*/
     display: flex;
     justify-content: center;
+    padding: 60px 0;
+    background-color: #080808;
+    width: 100%;
   }
   #services-and-features-container > div {
-    padding: 0 5%;
+    width: 100%;
   }
   .info {
     display: flex;

@@ -1,5 +1,5 @@
 <template>
-  <div class="analytic-screen">
+  <div id="personal-account" class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 start-sm">
         <h2 class="title">{{ $t('title') }}</h2>
@@ -63,39 +63,39 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-$text-color: #545454;
+  $text-color: #545454;
 
-.analytic-screen {
-  padding: 1%;
-  background-color: #eceef0;
-  background-image: url("@/assets/analytics/personal_account/background.png");
+  #personal-account {
+    padding: 1%;
+    background-color: #eceef0;
+    background-image: url("@/assets/analytics/personal_account/background.png");
 
-  .title {
-    color: $text-color;
-    margin: 20px 10px;
-  }
-  .subtitle {
-    color: $text-color;
-    margin: 20px 10px;
-  }
-}
-
-.widget-container /deep/ {
-  .widget {
-    background-color: unset;
-    border: 1px solid #00000052;
-  }
-  .widget-header {
     .title {
       color: $text-color;
+      margin: 20px 10px;
     }
-    .button {
-      fill: $text-color;
+    .subtitle {
+      color: $text-color;
+      margin: 20px 10px;
     }
   }
 
-  &.expanded .widget {
-    background-image: url("@/assets/analytics/personal_account/background.png");
+  .widget-container /deep/ {
+    .widget {
+      background-color: unset;
+      border: 1px solid #00000052;
+    }
+    .widget-header {
+      .title {
+        color: $text-color;
+      }
+      .button {
+        fill: $text-color;
+      }
+    }
+
+    &.expanded .widget {
+      background-image: url("@/assets/analytics/personal_account/background.png");
+    }
   }
-}
 </style>
