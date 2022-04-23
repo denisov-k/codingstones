@@ -3,7 +3,8 @@ const options = {
     trigger: 'axis'
   },
   legend: {
-    data: ['Rainfall', 'Evaporation']
+    data: ['Rainfall', 'Evaporation'],
+    bottom: 15,
   },
   calculable: true,
   xAxis: [
@@ -19,9 +20,9 @@ const options = {
     }
   ],
   grid: {
-    top: 70,
-    right: 40,
-    bottom: 20,
+    top: 40,
+    right: 20,
+    bottom: 60,
     left: 20,
     containLabel: true,
   },

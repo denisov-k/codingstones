@@ -9,10 +9,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
-
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <profile></profile>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-8">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <tree-chart></tree-chart>
       </div>
     </div>
@@ -31,14 +31,15 @@
 import TreeChart from "@/components/Analytics/PersonalAccount/TreeChart";
 import PieChart from "@/components/Analytics/PersonalAccount/PieChart";
 import BarChart from "@/components/Analytics/PersonalAccount/BarChart";
+import Profile from "@/components/Analytics/PersonalAccount/Profile";
 
 export default {
   name: "PersonalAccount",
   components: {
+    Profile,
     TreeChart,
     PieChart,
     BarChart,
-
   },
   data: () => {
     return {

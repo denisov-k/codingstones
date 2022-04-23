@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
+  <widget-container :title="$t('title')" :exportURL="dataURL" :export-image="exportImage"
                     id="line_race" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -17,10 +17,11 @@ export default {
   components: {WidgetContainer},
   computed: {
     extraButtons() {
+      const $t = this.$t.bind(this);
       const icon = this.seriesType === 'bar' ? require('./assets/line.svg') : require('./assets/bar.svg');
 
       return [
-        { icon, onClick: this.switchType },
+        { icon, onClick: this.switchType, title: $t('switch_type') },
       ]
     }
   },
@@ -57,7 +58,8 @@ export default {
             ]
           },
           markLine: {
-            data: [{type: 'average', name: 'Avg'}]
+            data: [{type: 'average', name: 'Avg'}],
+            label: { position: 'middle' }
           }
         },
         {
@@ -73,7 +75,8 @@ export default {
             ]
           },
           markLine: {
-            data: [{type: 'average', name: 'Avg'}]
+            data: [{type: 'average', name: 'Avg'}],
+            label: { position: 'middle' }
           }
         }
       ];
@@ -138,6 +141,8 @@ export default {
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
+
+    this.setupChart()
   },
   beforeDestroy() {
     this.chart.dispose();
@@ -161,11 +166,13 @@ export default {
 {
   "en": {
     "title": "Rainfall vs Evaporation",
-    "subtitle": ""
+    "subtitle": "",
+    "switch_type": "Switch view type"
   },
   "ru": {
     "title": "Rainfall vs Evaporation",
-    "subtitle": ""
+    "subtitle": "",
+    "switch_type": "Изменить тип отображения"
   }
 }
 </i18n>

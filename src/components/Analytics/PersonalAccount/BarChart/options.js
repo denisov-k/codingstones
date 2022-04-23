@@ -8,13 +8,6 @@ const options = {
       }
     }
   },
-  toolbox: {
-    show: true,
-    feature: {
-      mark: { show: true },
-      magicType: { show: true, type: ['line', 'bar'] },
-    }
-  },
   calculable: true,
   legend: {
     data: ['Growth', 'Budget 2011', 'Budget 2012'],

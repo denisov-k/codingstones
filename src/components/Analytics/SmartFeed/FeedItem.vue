@@ -47,6 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  $text-color: #aeaeae;
   $container-color: #00000070;
 
   .feed-item.selectable /deep/ {
@@ -72,9 +73,18 @@ export default {
       .widget:hover {
         background-color: #00000091;
       }
+      .widget-header {
+        .title {
+          color: $text-color;
+        }
 
-      .widget-buttons {
-        display: none;
+        .widget-buttons {
+          display: none;
+
+          .button {
+            fill: $text-color;
+          }
+        }
       }
     }
     .widget-footer {

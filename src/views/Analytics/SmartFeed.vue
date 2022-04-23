@@ -50,7 +50,7 @@ let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
 
 export default {
   name: "SmartFeed",
-  components: {FeedItem, Multiselect },
+  components: { FeedItem, Multiselect },
   computed: {
     selectedWidget() {
       return this.widgets[this.selectedWidgetIndex];
@@ -400,7 +400,7 @@ export default {
 
       .widget-container {
         width: 350px;
-        height: 400px;
+        height: 300px;
         display: inline-flex;
       }
     }

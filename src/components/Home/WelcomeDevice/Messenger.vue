@@ -239,6 +239,7 @@ export default {
     padding: 5px;
     border-radius: 3px;
     width: 100%;
+    box-shadow: 0px 0px 3px #afafaf;
   }
   .message .content img {
     width: 100%;

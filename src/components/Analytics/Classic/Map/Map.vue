@@ -9,6 +9,8 @@ import leaflet from 'leaflet';
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
 import 'leaflet.markercluster';
+import 'leaflet-search';
+import "leaflet-lasso";
 import layers from './layers.json';
 
 import api from "@/services/api";
@@ -26,7 +28,7 @@ export default {
     return {
       isLoading: true,
       dataURL: 'data/map.json',
-      layer: layers[2],
+      baseLayer: layers[2],
       chart: Object,
     }
   },
@@ -44,27 +46,42 @@ export default {
       this.chart = leaflet.map('chartContainer').setView([56.126944, 43.8915], 11);
 
       this.getData().then(({ points }) => {
-        this.paintChart({ points, layer: this.layer })
+        this.paintChart({ points, baseLayer: this.baseLayer })
 
         this.isLoading = false;
       })
     },
-    paintChart({ points, layer }) {
+    paintChart({ points, baseLayer }) {
 
       this.chart.options.crs = leaflet.CRS.EPSG3395;
 
       let tileLayerOptions = {
-        subdomains: layer.subdomains || [],
+        subdomains: baseLayer.subdomains || [],
         attribution: '',
         reuseTiles: true,
         updateWhenIdle: false
       };
 
-      leaflet.tileLayer(layer.value, tileLayerOptions).addTo(this.chart);
+      leaflet.tileLayer(baseLayer.value, tileLayerOptions).addTo(this.chart);
 
+      let markersLayer = this.setMarkers(points);
 
+      let controlSearch = new L.Control.Search({
+        position:'topright',
+        layer: markersLayer,
+        initial: false,
+        zoom: 12,
+        marker: false
+      });
 
-      this.setMarkers(points);
+      this.chart.addControl( controlSearch );
+
+      L.control.lasso({}).addTo(this.chart);
+
+      this.chart.on('lasso.finished', (event) => {
+        console.log(event.layers);
+      });
+
       //setInterval(fillMarkers, 10000);
     },
     setMarkers(points) {
@@ -93,6 +110,8 @@ export default {
       }
 
       this.chart.addLayer(markersGroup);
+
+      return markersGroup;
     },
     repaint() {
       setTimeout(() => {
@@ -123,25 +142,33 @@ function getRandomInt(max) {
 }
 </i18n>
 
-<style src="../../../../../node_modules/leaflet/dist/leaflet.css"></style>
-<style src="../../../../../node_modules/leaflet.markercluster/dist/MarkerCluster.css"></style>
-<style src="../../../../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"></style>
-<style scoped>
+<style src="leaflet/dist/leaflet.css"></style>
+<style src="leaflet.markercluster/dist/MarkerCluster.css"></style>
+<style src="leaflet.markercluster/dist/MarkerCluster.Default.css"></style>
+<style src="leaflet-search/dist/leaflet-search.min.css"></style>
+<style lang="scss" scoped>
 #map {
   height: 400px;
 }
-.chart {
+.chart /deep/ {
   height: 100%;
-}
-.chart >>> .blob {
-  background: #367dc3;
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-  /*margin: 10px;*/
-  height: 20px;
-  width: 20px;
-  /*transform: scale(1);*/
-  animation: pulse-black 2s infinite;
+
+  .leaflet-control-search {
+    display: flex;
+  }
+  .leaflet-control-search .search-input {
+    margin: auto 0 auto 4px;
+  }
+  .blob {
+    background: #367dc3;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    /*margin: 10px;*/
+    height: 20px;
+    width: 20px;
+    /*transform: scale(1);*/
+    animation: pulse-blue 2s infinite;
+  }
 }
 
 @keyframes pulse-black {

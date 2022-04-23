@@ -138,8 +138,8 @@ export default {
 {
   "en": {
     "welcome": {
-      "title": "Hello, World!",
-      "subtitle": "Subtitle"
+      "title": "The next generation of business intelligence",
+      "subtitle": "Efficient work with data"
     },
     "analytic": {
       "title": "Examples"
@@ -150,8 +150,8 @@ export default {
   },
   "ru": {
     "welcome": {
-      "title": "Новое поколение бизнес-анализа",
-      "subtitle": "Второй заголовок"
+      "title": "Новое поколение бизнес-аналитики",
+      "subtitle": "Эффективная работа с данными"
     },
     "analytic": {
       "title": "Примеры"
