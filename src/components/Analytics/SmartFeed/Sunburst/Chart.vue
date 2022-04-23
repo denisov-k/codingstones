@@ -173,7 +173,7 @@ export default {
 
 <style scoped>
 #sunburst-1 {
-  height: 400px;
+
 }
 .chart {
   width: 100%;

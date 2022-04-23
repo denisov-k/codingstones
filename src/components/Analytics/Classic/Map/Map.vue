@@ -123,9 +123,9 @@ function getRandomInt(max) {
 }
 </i18n>
 
-<style src="leaflet/dist/leaflet.css"></style>
-<style src="leaflet.markercluster/dist/MarkerCluster.css"></style>
-<style src="leaflet.markercluster/dist/MarkerCluster.Default.css"></style>
+<style src="../../../../../node_modules/leaflet/dist/leaflet.css"></style>
+<style src="../../../../../node_modules/leaflet.markercluster/dist/MarkerCluster.css"></style>
+<style src="../../../../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"></style>
 <style scoped>
 #map {
   height: 400px;

@@ -1,5 +1,5 @@
 const options = {
-    animationDuration: 5000,
+    animationDuration: 3000,
     tooltip: {
         order: 'valueDesc',
         trigger: 'axis'

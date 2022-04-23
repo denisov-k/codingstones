@@ -5,12 +5,6 @@ const options = {
   legend: {
     data: ['Rainfall', 'Evaporation']
   },
-  toolbox: {
-    show: true,
-    feature: {
-      magicType: {show: true, type: ['line', 'bar']},
-    }
-  },
   calculable: true,
   xAxis: [
     {

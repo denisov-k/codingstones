@@ -10,7 +10,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <line-chart></line-chart>
+        <bar-line-chart></bar-line-chart>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <pie-chart></pie-chart>
@@ -34,10 +34,10 @@
 
 <script>
 import BarChart from "@/components/Analytics/Classic/BarChart";
-import Map from "@/components/Analytics/Map";
+import Map from "@/components/Analytics/Classic/Map";
 import TreeMapChart2 from "@/components/Analytics/Classic/TreeMapChart2";
 
-import LineChart from "@/components/Analytics/Classic/LineChart";
+import BarLineChart from "@/components/Analytics/Classic/BarLineChart";
 import PieChart from "@/components/Analytics/Classic/PieChart";
 
 export default {
@@ -47,7 +47,7 @@ export default {
     BarChart,
     Map,
     TreeMapChart2,
-    LineChart,
+    BarLineChart,
   },
   data: () => {
     return {

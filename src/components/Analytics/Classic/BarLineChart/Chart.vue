@@ -15,15 +15,22 @@ import api from "@/services/api";
 export default {
   name: "LineRace",
   components: {WidgetContainer},
+  computed: {
+    extraButtons() {
+      const icon = this.seriesType === 'bar' ? require('./assets/line.svg') : require('./assets/bar.svg');
+
+      return [
+        { icon, onClick: this.switchType },
+      ]
+    }
+  },
   data() {
     return {
       seriesType: 'bar',
       isLoading: true,
       chart: Object,
       dataURL: '/data/smart_feed/line-race-data.json',
-      extraButtons: [
-        {icon: require('@/assets/widget/image.svg'), onClick: this.switchType },
-      ]
+      series: null
     }
   },
   methods: {
@@ -74,29 +81,24 @@ export default {
       return Promise.resolve({ series });
     },
     setupChart() {
-      this.isLoading = true;
+      this.resizeObserver = new ResizeObserver(([$container]) => this.repaint($container));
+      this.resizeObserver.observe(this.$el)
 
       this.getData().then(({ series }) => {
+
+        this.series = series;
 
         this.paintChart({ series });
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
     switchType() {
-      this.seriesType = 'line';
+      this.seriesType = this.seriesType === 'bar' ? 'line' : 'bar';
 
-      this.chart.dispatchAction({
-        type: 'changeMagicType',
-        currentType: this.seriesType,
-        newOption: {
-          series: [
-            { type: this.seriesType },
-            { type: this.seriesType },
-          ]
-        },
-        newTitle: null,
-        featureName: 'magicType'
-      })
+      this.series[0].type = this.seriesType;
+      this.series[1].type = this.seriesType;
+
+      this.chart.setOption({ series: this.series });
     },
     paintChart({ series }) {
       const options = {
@@ -106,7 +108,7 @@ export default {
 
       this.chart.setOption(options);
     },
-    repaint([$container]) {
+    repaint($container) {
       if ($container.contentRect.width > 0 && $container.contentRect.height > 0)
         this.chart.resize();
     },
@@ -136,13 +138,6 @@ export default {
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
-
-    this.chart.on('magictypechanged', function () {
-      console.log(this, arguments)
-    })
-
-    this.resizeObserver = new ResizeObserver(this.repaint);
-    this.resizeObserver.observe(this.$el)
   },
   beforeDestroy() {
     this.chart.dispose();
