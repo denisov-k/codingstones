@@ -4,7 +4,7 @@
     </div>
     <div class="row">
       <div class="col-xs-6 col-md-6 col-lg-6">
-        <sunburst></sunburst>
+        <bar-chart></bar-chart>
       </div>
       <div class="col-xs-6 col-md-6 col-lg-6">
         <radar-chart></radar-chart>
@@ -15,13 +15,14 @@
 
 <script>
 
-import RadarChart from "@/components/Analytics/Gamification/RadarChart";
-let Sunburst = () => import('@/components/Analytics/Gamification/Sunburst');
+let BarChart = () => import('@/components/Analytics/Gamification/BarChart'),
+    RadarChart = () => import('@/components/Analytics/Gamification/RadarChart');
 
 export default {
   name: "Gamification",
   components: {
-    RadarChart, Sunburst
+    BarChart,
+    RadarChart
   },
 }
 </script>

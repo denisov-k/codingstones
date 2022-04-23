@@ -4,6 +4,9 @@
          v-on:click="extraButton.onClick" v-bind:key="ind">
       <inline-svg :src="extraButton.icon" />
     </div>
+    <div class="button" v-on:click="exportImage" v-if="exportImage" :title="$t('export_image')">
+      <inline-svg :src="require('@/assets/widget/image.svg')" />
+    </div>
     <div class="button" v-on:click="onExportXLS" v-if="exportURL" :title="$t('export_data')">
       <inline-svg :src="require('@/assets/widget/table.svg')" />
     </div>
@@ -27,7 +30,7 @@ export default {
       type: String,
       required: false
     },
-    pdfExport: {
+    exportImage: {
       type: Function,
       required: false
     },

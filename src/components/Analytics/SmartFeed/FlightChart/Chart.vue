@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart"
+  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
                     id="flights" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -26,7 +26,7 @@ export default {
       dataURL: '/data/smart_feed/flights/data.json',
       watchableFields: ['region'],
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+
       ]
     }
   },

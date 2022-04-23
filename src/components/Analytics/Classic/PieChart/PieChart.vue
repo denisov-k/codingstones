@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL" :export-image="exportImage"
                     id="pie-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -14,7 +14,7 @@ import api from "@/services/api";
 
 export default {
   name: "PieChart",
-  components: {  WidgetContainer },
+  components: {WidgetContainer},
   data() {
     return {
       isLoading: true,
@@ -22,14 +22,14 @@ export default {
       dataURL: 'data/piechart.json',
       // dataURL: 'api/app2/page_2/pie_2',
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+
       ]
     }
   },
   methods: {
     exportImage() {
       let a = document.createElement("a"),
-          image = this.chart.getDataURL({ pixelRatio: 2, backgroundColor: '#fff' });
+          image = this.chart.getDataURL({pixelRatio: 2, backgroundColor: '#fff'});
 
       a.href = image;
       a.download = "Image.png";
@@ -37,7 +37,7 @@ export default {
     },
     getData() {
 
-      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
+      return api.request(this.dataURL, {}, null, 'get', {baseURL: '/'}).then(({data}) => {
 
         let seriesData = data.map(({type, total}) => {
           return {
@@ -46,15 +46,15 @@ export default {
           }
         });
 
-        return { series: [seriesData] }
+        return {series: [seriesData]}
       })
     },
     setupChart() {
       this.isLoading = true;
 
-      this.getData().then(({ series }) => {
+      this.getData().then(({series}) => {
 
-        this.paintChart({ xAxes: [], yAxes: [], series });
+        this.paintChart({xAxes: [], yAxes: [], series});
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
@@ -64,25 +64,21 @@ export default {
         ...defaultOptions,
         series: [
           {
-            type: "pie",
-            tooltip: {
-              show: true,
-              formatter: function(item) {
-                return `${item.marker}${item.name}: ${item.value.toLocaleString()}\nДоля: ${item.percent}%`;
-              }
-            },
-            data: series[0],
-            center: ['50%', '50%'],
-            radius: [0, '40%'],
-            minShowLabelAngle: 1,
-            label: {
-              bleedMargin: 5,
-            },
+            name: 'Access From',
+            type: 'pie',
+            radius: '50%',
+            data: [
+              {value: 1048, name: 'Search Engine'},
+              {value: 735, name: 'Direct'},
+              {value: 580, name: 'Email'},
+              {value: 484, name: 'Union Ads'},
+              {value: 300, name: 'Video Ads'}
+            ],
             emphasis: {
               itemStyle: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)"
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
               }
             }
           }
@@ -137,6 +133,7 @@ export default {
 #pie-chart-1 {
   height: 400px;
 }
+
 .chart {
   width: -webkit-fill-available;
   height: 100%;

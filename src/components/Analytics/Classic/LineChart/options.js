@@ -1,38 +1,36 @@
-module.exports = {
-  //color: "#006699",
+const options = {
   tooltip: {
-    formatter: function(item) {
-      return `${item.marker}${item.seriesName}, ${item.name}\nОшибочных строк: ${item.value.toFixed(0)}`;
-    },
-    extraCssText: "white-space:pre-wrap; max-width:400px;",
-    confine: true,
-  },
-  grid: {
-    top: 20,
-    right: 30,
-    bottom: 45,
-    left: '10px',
-    containLabel: true,
-  },
-  yAxis: {
-    type: "value",
-    name: '',
-    nameLocation: "middle",
-    nameTextStyle: {
-      padding: [0, 0, 40, 0],
-    },
-    axisLabel: {
-      //formatter: "{value}",
-      formatter: (value) => value / 1000
-    },
+    trigger: 'axis'
   },
   legend: {
-    icon: 'circle',
-    type: 'scroll',
-    /*left: 20,
-    right: 20,*/
-    padding: [0, 25],
-    bottom: 15,
-    orient: "horizontal"
+    data: ['Rainfall', 'Evaporation']
   },
-}
+  toolbox: {
+    show: true,
+    feature: {
+      magicType: {show: true, type: ['line', 'bar']},
+    }
+  },
+  calculable: true,
+  xAxis: [
+    {
+      type: 'category',
+      // prettier-ignore
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
+  grid: {
+    top: 70,
+    right: 40,
+    bottom: 20,
+    left: 20,
+    containLabel: true,
+  },
+};
+
+export default options;

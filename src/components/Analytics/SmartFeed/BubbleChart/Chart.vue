@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart"
+  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
                     id="bubble_chart" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -22,7 +22,6 @@ export default {
       chart: Object,
       dataURL: 'data/smart_feed/bubble-chart-data.json',
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
       ]
     }
   },

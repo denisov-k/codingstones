@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL" :export-image="exportImage"
                     id="tree-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -36,7 +36,7 @@ export default {
       watchableFields: ['region'],
 
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+
       ]
     }
   },

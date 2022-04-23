@@ -9,14 +9,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <line-chart></line-chart>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-        <Map></Map>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <pie-chart></pie-chart>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <Map></Map>
       </div>
     </div>
     <div class="row">

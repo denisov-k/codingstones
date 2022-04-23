@@ -1,122 +1,114 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL"
-                    id="chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
+  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
+                    id="line_race" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
 </template>
 
 <script>
-import * as echarts from "echarts";
-
-import defaultOptions from './options';
 import WidgetContainer from "@/components/Widget/Container";
+import * as echarts from "echarts";
+import defaultOptions from "./options";
 
 import api from "@/services/api";
 
 export default {
-  name: "LineChart",
-  components: { WidgetContainer },
+  name: "LineRace",
+  components: {WidgetContainer},
   data() {
     return {
+      seriesType: 'bar',
       isLoading: true,
       chart: Object,
-      data: null,
-      dataURL: '/data/linechart.json',
+      dataURL: '/data/smart_feed/line-race-data.json',
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+        {icon: require('@/assets/widget/image.svg'), onClick: this.switchType },
       ]
     }
   },
   methods: {
     exportImage() {
       let a = document.createElement("a"),
-          image = this.chart.getDataURL({ pixelRatio: 2, backgroundColor: '#fff' });
+          image = this.chart.getDataURL({pixelRatio: 2, backgroundColor: '#fff'});
 
       a.href = image;
       a.download = "Image.png";
       a.click();
     },
-    repaint() {
-      this.chart.resize();
-    },
-    parseData(data) {
-      let dataByRegions = [],
-          dates = [];
-
-      data.forEach((col, index) => {
-
-        let entity = col[1].qText,
-            entityID = col[1].qElemNumber,
-            month = col[0].qText,
-            monthID = col[0].qNum,
-            value = col[2].qNum;
-
-        if (!dataByRegions[entityID])
-          dataByRegions[entityID] = { name: entity, values: [] };
-
-        dataByRegions[entityID].values[monthID] = value;
-
-        dates[monthID] = month;
-
-      })
-
-      return { rowsData: Object.entries(dataByRegions), columnsData: dates.filter(Object) }
-    },
     getData() {
-
-      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
-
-        const { rowsData, columnsData } = this.parseData(data);
-
-        let series = rowsData.map(item => {
-
-          return {
-            name: item[1].name,
-            type: "line",
-            smooth: false,
-            connectNulls: false,
-            data: item[1].values.filter(Object)
+      let series = [
+        {
+          name: 'Rainfall',
+          type: this.seriesType,
+          data: [
+            2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
+          ],
+          markPoint: {
+            data: [
+              {type: 'max', name: 'Max'},
+              {type: 'min', name: 'Min'}
+            ]
+          },
+          markLine: {
+            data: [{type: 'average', name: 'Avg'}]
           }
-        })
+        },
+        {
+          name: 'Evaporation',
+          type: this.seriesType,
+          data: [
+            2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
+          ],
+          markPoint: {
+            data: [
+              {name: 'Max', value: 182.2, xAxis: 7, yAxis: 183},
+              {name: 'Min', value: 2.3, xAxis: 11, yAxis: 3}
+            ]
+          },
+          markLine: {
+            data: [{type: 'average', name: 'Avg'}]
+          }
+        }
+      ];
 
-        return { xAxesData: [columnsData], series: series }
-
-      })
+      return Promise.resolve({ series });
     },
     setupChart() {
-
       this.isLoading = true;
 
-      this.getData().then(({ xAxesData, series }) => {
+      this.getData().then(({ series }) => {
 
-        this.paintChart({ xAxes: xAxesData, series: series });
+        this.paintChart({ series });
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
-
     },
-    paintChart({xAxes, yAxes, series}) {
+    switchType() {
+      this.seriesType = 'line';
 
+      this.chart.dispatchAction({
+        type: 'changeMagicType',
+        currentType: this.seriesType,
+        newOption: {
+          series: [
+            { type: this.seriesType },
+            { type: this.seriesType },
+          ]
+        },
+        newTitle: null,
+        featureName: 'magicType'
+      })
+    },
+    paintChart({ series }) {
       const options = {
         ...defaultOptions,
-        series,
-        xAxis: [{
-          type: "category",
-          data: xAxes[0],
-          nameTextStyle: {
-            padding: [0, 0, 40, 0],
-          },
-          axisLabel: {
-            formatter: (data) => {
-              if (data.length > 40) {
-                return data.slice(0, 40) + '...';
-              }
-              return data;
-            }
-          }
-        }]
+        series
       }
 
       this.chart.setOption(options);
+    },
+    repaint([$container]) {
+      if ($container.contentRect.width > 0 && $container.contentRect.height > 0)
+        this.chart.resize();
     },
     catchError(e) {
       this.chart.setOption({
@@ -145,49 +137,39 @@ export default {
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
 
-    this.setupChart();
+    this.chart.on('magictypechanged', function () {
+      console.log(this, arguments)
+    })
+
+    this.resizeObserver = new ResizeObserver(this.repaint);
+    this.resizeObserver.observe(this.$el)
   },
-  created() {
-    window.addEventListener("resize", this.repaint);
-  },
-  destroyed() {
+  beforeDestroy() {
     this.chart.dispose();
-    window.removeEventListener("resize", this.repaint);
+    this.resizeObserver.unobserve(this.$el);
   }
 }
 </script>
 
 <style scoped>
-#chart-1 {
+#line_race {
   height: 400px;
 }
-#chart-1 .widget-content {
-  padding: 8px;
-}
+
 .chart {
-  width: -webkit-fill-available;
+  width: 100%;
   height: 100%;
-}
-.chart >>> .tooltip {
-  max-width:400px;
-}
-.chart >>> .tooltip > div {
-  display: flex;
-  justify-content: space-between;
-}
-.chart >>> .tooltip > div > span:nth-of-type(2) {
-  margin-left: 50px;
 }
 </style>
 
 <i18n>
 {
   "en": {
-    "title": "Dynamics of changes in the number of errors by type",
+    "title": "Rainfall vs Evaporation",
     "subtitle": ""
   },
   "ru": {
-    "title": "Динамика изменения количества ошибок по типам",
+    "title": "Rainfall vs Evaporation",
     "subtitle": ""
   }
 }

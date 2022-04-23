@@ -17,12 +17,11 @@ export default {
   components: {WidgetContainer},
   data() {
     return {
+      isLoading: true,
       chart: Object,
-      dataURL: 'data/personal_account/barchart.json',
       extraButtons: [
 
-      ],
-      isLoading: true,
+      ]
     }
   },
   methods: {
@@ -35,47 +34,21 @@ export default {
       a.click();
     },
     getData() {
-      return api.request(this.dataURL, {}, null, 'get', {baseURL: '/'})
-          .then(({data}) => {
-
-            let xAxis = [
-              {
-                type: 'category',
-                data: data.names
-              }
-            ];
-
-            let series = [
-              {
-                name: 'Budget 2011',
-                type: 'bar',
-                data: data.budget2011List
-              },
-              {
-                name: 'Budget 2012',
-                type: 'bar',
-                data: data.budget2012List
-              }
-            ];
-
-            return { xAxis, series }
-          })
+      return Promise.resolve();
     },
     setupChart() {
       this.isLoading = true;
 
-      this.getData().then(({ xAxis, series }) => {
+      this.getData().then(() => {
 
-        this.paintChart({ xAxis, series });
+        this.paintChart();
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
-    paintChart({ xAxis, series }) {
+    paintChart() {
 
       const options = {
         ...defaultOptions,
-        xAxis,
-        series
       }
 
       this.chart.setOption(options);

@@ -1,33 +1,56 @@
 const options = {
   tooltip: {
-    formatter: "{b}: {c}",
-    extraCssText: "white-space:pre-wrap; max-width:400px;",
-    confine: true,
-  },
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-    {
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: 'bar',
-      showBackground: true,
-      backgroundStyle: {
-        color: 'rgba(180, 180, 180, 0.2)'
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+      label: {
+        show: true
       }
     }
-  ],
+  },
+  toolbox: {
+    show: true,
+    feature: {
+      mark: { show: true },
+      magicType: { show: true, type: ['line', 'bar'] },
+    }
+  },
+  calculable: true,
+  legend: {
+    data: ['Growth', 'Budget 2011', 'Budget 2012'],
+    itemGap: 5
+  },
   grid: {
-    top: 50,
+    top: 70,
     right: 20,
-    bottom: 20,
+    bottom: 50,
     left: 20,
     containLabel: true,
   },
+  yAxis: [
+    {
+      type: 'value',
+      name: 'Budget (million USD)',
+      /*axisLabel: {
+        formatter: function (a) {
+          a = +a;
+          return isFinite(a) ? echarts.format.addCommas(+a / 1000) : '';
+        }
+      }*/
+    }
+  ],
+  dataZoom: [
+    {
+      show: true,
+      start: 94,
+      end: 100,
+      left: 40,
+      right: 40
+    },
+    {
+      type: 'inside'
+    }
+  ]
 };
 
 export default options;

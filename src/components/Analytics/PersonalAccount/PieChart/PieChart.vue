@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL"
+  <widget-container :title="$t('title')" :exportURL="dataURL" :export-image="exportImage"
                     id="pie-chart-1" :extra-buttons="extraButtons" :on-resize="repaint" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -22,7 +22,7 @@ export default {
       dataURL: 'data/piechart.json',
       // dataURL: 'api/app2/page_2/pie_2',
       extraButtons: [
-        {icon: require('@/assets/widget/image.svg'), onClick: this.exportImage},
+
       ]
     }
   },

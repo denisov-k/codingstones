@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" v-lazy="setupChart"
+  <widget-container :title="$t('title')" v-lazy="setupChart" :export-image="exportImage"
                     id="barchart" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -21,7 +21,7 @@ export default {
       isLoading: true,
       chart: Object,
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+
       ]
     }
   },

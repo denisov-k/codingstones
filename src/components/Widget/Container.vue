@@ -4,7 +4,8 @@
       <div class="widget-header">
         <span class="title">{{ title }}</span>
         <span class="subtitle">{{ subtitle }}</span>
-        <widget-tools :exportURL="exportURL" :onExpand="onResize" :extra-buttons="extraButtons" :title="title"></widget-tools>
+        <widget-tools :exportURL="exportURL" :onExpand="onResize" :exportImage="exportImage"
+                      :extra-buttons="extraButtons" :title="title"></widget-tools>
       </div>
       <div class="widget-content">
         <loading v-show="isLoading"></loading>
@@ -32,6 +33,10 @@ export default {
     isLoading: {
       type: Boolean,
       default: false
+    },
+    exportImage: {
+      type: Function,
+      required: false
     },
     exportURL: {
       type: String,

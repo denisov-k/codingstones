@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" :export-u-r-l="dataURL"
+  <widget-container :title="$t('title')" :export-u-r-l="dataURL" :export-image="exportImage"
                     id="tree-chart" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="orgchart" ref="orgchart"></div>
   </widget-container>
@@ -23,7 +23,6 @@ export default {
       extraButtons: [
         { icon: require('./assets/collapse.svg'), onClick: this.collapseAll, title: $t('collapse_all') },
         { icon: require('./assets/fit.svg'), onClick: this.fit, title: $t('fit') },
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage, title: $t('export_image') },
       ],
       isLoading: true,
       resizeObserver: null,

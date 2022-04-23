@@ -24,28 +24,8 @@
             </multiselect>
           </div>
           <div class="widgets-list">
-            <div class="feed-item" v-for="(widget, widgetIndex) in widgetsList" :key="widgetIndex"
-                 :class="[ widget === selectedWidget ? 'selected' : '',
-                  widget.selectable ? 'selectable' : '' ]">
-
-              <component  :is="widget.component" @click.native="selectWidget(widget)" ref="widgets">
-              </component>
-              <div class="widget-footer">
-                <div class="tags">
-                  <div class="tag" v-for="(tagId, tagIndex) in widget.tags" :key="tagIndex"
-                       :style="{ color: tags[tagId].color }" @click="onTagClick(tagId)">
-                    {{ tags[tagId].name }}
-                  </div>
-                </div>
-                <div class="views">
-                  <inline-svg :src="require('@/assets/analytics/smart_feed/views-icon.svg')" />
-                  <span class="views-count">{{ widget.views }}</span>
-                </div>
-                <div class="favorite-button" :class="[ widget.inFavorite ? 'active' : '']">
-                  <inline-svg :src="require('@/assets/analytics/smart_feed/favorite-icon.svg')" />
-                </div>
-              </div>
-            </div>
+            <feed-item :widget="widget" v-for="(widget, widgetIndex) in widgetsList"
+                       :class="[ widget === selectedWidget ? 'selected' : '']" :key="widgetIndex"></feed-item>
             <div class="no-result" v-if="isNoResultShow">{{ $t('search.noResult') }}</div>
           </div>
         </div>
@@ -56,8 +36,10 @@
 
 <script>
 import Multiselect from 'vue-multiselect';
+import FeedItem from "@/components/Analytics/SmartFeed/FeedItem";
 
-let FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
+let Sunburst = () => import('@/components/Analytics/SmartFeed/Sunburst'),
+    FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
     Scatter3D = () => import('@/components/Analytics/SmartFeed/Scatter3D'),
     LineRace = () => import('@/components/Analytics/SmartFeed/LineRace'),
     BubbleChart = () => import('@/components/Analytics/SmartFeed/BubbleChart'),
@@ -68,7 +50,7 @@ let FlightChart = () => import('@/components/Analytics/SmartFeed/FlightChart'),
 
 export default {
   name: "SmartFeed",
-  components: { Multiselect },
+  components: {FeedItem, Multiselect },
   computed: {
     selectedWidget() {
       return this.widgets[this.selectedWidgetIndex];
@@ -118,6 +100,7 @@ export default {
       ],
       widgets: [
         { component: LineRace, tags: [0, 1], inFavorite: true, views: 79, selectable: true },
+        { component: Sunburst, tags: [3], inFavorite: true, views: 85, selectable: true },
         { component: Gauge, tags: [4], inFavorite: false, views: 22, selectable: true },
         { component: Map, tags: [5], inFavorite: false, views: 40, selectable: true },
         { component: FlightChart, tags: [2, 3], inFavorite: false, views: 59, selectable: true },
@@ -128,15 +111,9 @@ export default {
       ],
     }
   },
-  created() {
-    this.getTitles();
-  },
   methods: {
     selectWidget(widget) {
       this.selectedWidgetIndex = this.widgets.indexOf(widget);
-    },
-    getTitles() {
-
     },
     onTagClick(id) {
       const tag = this.tags[id];
@@ -402,116 +379,6 @@ export default {
     display: flex;
     flex-direction: column;
 
-    .feed-item.selectable {
-      .widget-content {
-        pointer-events: none;
-        zoom: 0.75;
-      }
-      .expanded .widget-content {
-        zoom: 1;
-      }
-    }
-    .feed-item {
-      margin: 5px 10px 5px 0;
-
-      .widget-container {
-        margin: 0;
-        height: 300px;
-        cursor: pointer;
-
-        .widget:hover {
-          background-color: #00000091;
-        }
-
-        .widget-buttons {
-          display: none;
-        }
-      }
-      .widget-footer {
-        display: flex;
-        margin: 4px 0;
-
-        .tags {
-          display: inline-flex;
-
-          .tag {
-            display: inline-block;
-            background-color: $container-color;
-            border-radius: 5px;
-            font-size: 10px;
-            padding: 3px 5px;
-            margin: 0 2px;
-            cursor: pointer;
-          }
-          .tag:first-child {
-            margin-left: 0;
-          }
-          .tag:last-child {
-            margin-right: 0;
-          }
-          .tag:hover {
-            background-color: #00000063;
-          }
-        }
-        .favorite-button {
-          width: 20px;
-          background-color: $container-color;
-          border-radius: 5px;
-          padding: 2px 1px;
-          margin-right: 0;
-          margin-left: 5px;
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-
-          svg {
-            fill: #8484844a;
-            width: 100%;
-            height: 14px;
-          }
-        }
-        .favorite-button.active {
-          svg {
-            fill: #a53c3c;
-          }
-        }
-        .favorite-button:hover {
-          svg {
-            fill: #ae495b;
-          }
-        }
-        .views {
-          display: inline-flex;
-          align-items: center;
-          margin-right: 0;
-          margin-left: auto;
-          background-color: $container-color;
-          border-radius: 5px;
-          padding: 2px 4px;
-
-          svg {
-            fill: #9d9d9d;
-            width: 100%;
-            height: 14px;
-          }
-
-          .views-count {
-            font-size: 10px;
-            color: #9d9d9d;
-            margin-left: 3px;
-          }
-        }
-      }
-    }
-    .feed-item.selected {
-      display: none;
-    }
-    .feed-item:first-child {
-      margin-top: 0;
-    }
-    .feed-item:last-child {
-      margin-bottom: 0;
-    }
     .no-result {
       width: 100%;
       background-color: #0000008c;
@@ -535,15 +402,6 @@ export default {
         width: 350px;
         height: 400px;
         display: inline-flex;
-      }
-      .feed-item {
-        margin: 0 5px 10px 5px;
-      }
-      .feed-item:last-child {
-        margin: 0 0 10px 5px;
-      }
-      .feed-item:first-child {
-        margin: 0 5px 10px 0;
       }
     }
   }

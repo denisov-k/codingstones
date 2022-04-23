@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="title" :exportURL="dataURL" v-lazy="setupChart"
+  <widget-container :title="title" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
                     id="sunburst-1" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -24,7 +24,7 @@ export default {
       chart: Object,
       dataURL: 'data/piechart.json',
       extraButtons: [
-        { icon: require('@/assets/widget/image.svg'), onClick: this.exportImage },
+
       ]
     }
   },

@@ -1,3 +1,3 @@
-import Chart from './Chart';
+import PieChart from './Chart';
 
-export default Chart;
+export default PieChart;
