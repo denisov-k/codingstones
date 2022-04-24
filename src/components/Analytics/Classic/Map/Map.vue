@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       isLoading: true,
-      dataURL: 'data/map.json',
+      dataURL: 'data/classic/map.json',
       baseLayer: layers[2],
       chart: Object,
     }

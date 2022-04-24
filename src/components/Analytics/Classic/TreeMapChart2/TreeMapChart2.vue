@@ -30,7 +30,7 @@ export default {
     return {
       chart: Object,
       isLoading: false,
-      dataURL: 'data/tiles_2.json',
+      dataURL: 'data/classic/tiles_2.json',
       // dataURL: 'api/app2/page_2/tiles_2',
       data: [],
       watchableFields: ['region'],
@@ -99,14 +99,14 @@ export default {
           type: 'treemap',
           data: series[0],
           name: 'Структура',
-          visibleMin: 500,
+          visibleMin: 10000,
           left: 20,
           right: 20,
           top: 10,
           bottom: 40,
           label: {
             show: true,
-            overflow: 'break',
+
 
             formatter: function (params) {
               let arr = [

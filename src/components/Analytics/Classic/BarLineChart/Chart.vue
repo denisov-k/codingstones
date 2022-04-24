@@ -30,7 +30,7 @@ export default {
       seriesType: 'bar',
       isLoading: true,
       chart: Object,
-      dataURL: '/data/smart_feed/line-race-data.json',
+      dataURL: '',
       series: null
     }
   },

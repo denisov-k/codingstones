@@ -1,5 +1,7 @@
 <template>
-  <div class="profile"></div>
+  <div class="profile">
+    <img :src="avatar" />
+  </div>
 </template>
 
 <script>
@@ -8,7 +10,8 @@ export default {
   data() {
     return {
       userData: {
-        name: ''
+        name: '',
+        avatar: ''
       }
     }
   }

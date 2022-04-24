@@ -132,14 +132,14 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    min-width: 95px;
+    min-width: 70px;
   }
   .message {
     position: absolute;
     width: 25%;
     right: 15px;
     height: 15%;
-    min-width: 130px;
+    min-width: 140px;
     min-height: 45px;
     background-color: #0000005e;
     top: 30px;
@@ -193,8 +193,8 @@ export default {
       width: 35%;
     }
     .desktop > .footer {
-      width: 85%;
-      height: 35px;
+      width: 75%;
+      height: 60px;
       box-sizing: border-box;
     }
     .message {

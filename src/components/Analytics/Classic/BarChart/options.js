@@ -28,6 +28,7 @@ module.exports = {
   },
   xAxis: {
     type: "value",
+    splitNumber: 2,
     /*name: 'Количество ошибок всего',*/
     axisLabel: {
       formatter(item) {
