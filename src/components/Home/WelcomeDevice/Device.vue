@@ -1,8 +1,8 @@
 <template>
-  <div class="device">
+  <div class="device" v-on:click="nextScreen">
     <img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall">
     <img src="@/assets/welcome/mobile.svg" v-else>
-    <div class="screen" v-on:click="nextScreen">
+    <div class="screen">
       <desktop v-if="activeScreenIndex === 0"></desktop>
       <messenger v-else-if="activeScreenIndex === 1"></messenger>
       <browser v-else-if="activeScreenIndex === 2"></browser>
@@ -73,7 +73,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
   }
   .screen {
     box-sizing: border-box;

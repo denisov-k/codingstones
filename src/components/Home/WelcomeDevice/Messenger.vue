@@ -174,6 +174,7 @@ export default {
     border-top-right-radius: inherit;
     border-top-left-radius: inherit;
     border-bottom: 1px solid #d5d5d5;
+    z-index: 1;
   }
   .titles {
     display: flex;
@@ -201,7 +202,6 @@ export default {
   }
   .main .body {
     height: calc(100% - 66px);
-    z-index: 10;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -276,17 +276,17 @@ export default {
       display: none;
     }
     .header {
-      height: 40px;
-      padding: 10px 15px 0;
+      height: 35px;
+      padding: 10px 10px 5px;
     }
     .body {
-      height: calc(100% - 86px) !important;
+      /*height: calc(100% - 86px) !important;*/
       bottom: 40px !important;
       margin: 2px 0;
     }
     .footer {
-      height: 40px;
-      padding: 0 10px 12px;
+      height: 35px;
+      padding: 0 10px 5px;
     }
     .body .message {
       max-width: 100%;

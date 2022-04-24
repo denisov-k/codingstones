@@ -52,6 +52,7 @@ export default {
     display: flex;
     flex-direction: column;
     border-radius: inherit;
+    overflow: hidden;
   }
   .header {
     display: flex;

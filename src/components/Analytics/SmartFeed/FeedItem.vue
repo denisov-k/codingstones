@@ -14,7 +14,8 @@
         <inline-svg :src="require('@/assets/analytics/smart_feed/views-icon.svg')" />
         <span class="views-count">{{ widget.views }}</span>
       </div>
-      <div class="favorite-button" :class="[ widget.inFavorite ? 'active' : '']">
+      <div class="favorite-button" :class="[ widget.inFavorite ? 'active' : '']"
+           @click="onFavoriteButtonClick(widget)">
         <inline-svg :src="require('@/assets/analytics/smart_feed/favorite-icon.svg')" />
       </div>
     </div>
@@ -41,6 +42,9 @@ export default {
     },
     onTagClick(id) {
       return this.$parent.onTagClick(id);
+    },
+    onFavoriteButtonClick(widget) {
+      return this.$parent.onFavoriteButtonClick(widget);
     }
   }
 }

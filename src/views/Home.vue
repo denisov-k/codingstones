@@ -12,6 +12,7 @@
     </div>
     <div id="about-us">
       <h3>{{ $t('about_us.title') }}</h3>
+      <about-us></about-us>
     </div>
     <contacts></contacts>
   </main>
@@ -22,11 +23,13 @@ import WelcomeDevice from "@/components/Home/WelcomeDevice";
 import ServicesAndFeaturesList from "@/components/Home/ServicesAndFeaturesList";
 import AnalyticalScreensSlider from "@/components/Home/AnalyticalScreensSwitcher";
 import Contacts from "@/components/Home/Contacts";
+import AboutUs from "@/components/Home/AboutUs";
 
 
 export default {
   name: "Home",
   components: {
+    AboutUs,
     WelcomeDevice, ServicesAndFeaturesList, AnalyticalScreensSlider, Contacts
   },
   data() {

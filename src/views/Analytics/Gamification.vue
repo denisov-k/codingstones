@@ -3,10 +3,10 @@
     <div class="row">
     </div>
     <div class="row">
-      <div class="col-xs-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <bar-chart></bar-chart>
       </div>
-      <div class="col-xs-6 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-md-6 col-lg-6">
         <radar-chart></radar-chart>
       </div>
     </div>
@@ -40,7 +40,7 @@ export default {
     background-position: center;
   }
   .widget-container /deep/ {
-    margin: 0;
+    margin: 10px 0;
 
     .widget {
       background-color: #ffffff;

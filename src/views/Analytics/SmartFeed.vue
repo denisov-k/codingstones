@@ -62,20 +62,7 @@ export default {
           !this.selectedTags.length || item.tags.some(tagIndex => selectedTags.includes(this.tags[tagIndex].name))
       );
 
-      let favoriteWidgets = [],
-          nonFavoriteWidgets = [];
-
-      for (let i = 0; i < filteredWidgets.length; i++) {
-        if (filteredWidgets[i].inFavorite)
-          favoriteWidgets.push(filteredWidgets[i])
-        else
-          nonFavoriteWidgets.push(filteredWidgets[i]);
-      }
-
-      let sortedWidgets = [
-        ...favoriteWidgets.sort((a, b) => b.views - a.views),
-        ...nonFavoriteWidgets.sort((a, b) => b.views - a.views)
-      ];
+      let sortedWidgets = filteredWidgets.sort((a, b) => b.views - a.views);
 
       return sortedWidgets;
     },
@@ -120,6 +107,9 @@ export default {
 
       if (!this.selectedTags.includes(tag))
         this.selectedTags.push(tag);
+    },
+    onFavoriteButtonClick(widget) {
+      widget.inFavorite = !widget.inFavorite;
     }
   }
 }
@@ -194,7 +184,7 @@ export default {
 
   .widget-container.expanded /deep/ {
     .widget {
-      background-color: #ffffff;
+      background-color: #1f1f1f;
     }
   }
   .widget-container /deep/ {

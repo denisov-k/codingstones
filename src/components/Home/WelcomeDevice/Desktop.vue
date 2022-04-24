@@ -149,6 +149,7 @@ export default {
     z-index: 100;
     cursor: pointer;
     padding-right: 10px;
+    box-sizing: border-box;
   }
   .message > svg {
     width: 20%;
@@ -190,6 +191,11 @@ export default {
   @media only screen and (max-width: 600px) {
     .desktop > img {
       width: 35%;
+    }
+    .desktop > .footer {
+      width: 85%;
+      height: 35px;
+      box-sizing: border-box;
     }
     .message {
       width: 90%;
