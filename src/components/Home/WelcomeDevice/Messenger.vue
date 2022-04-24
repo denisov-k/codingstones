@@ -37,7 +37,7 @@
         <div class="message" key="0">
           <div class="content">
             <img src="@/assets/welcome/messenger/piechart.svg">
-            <span>{{ $t('message.first') }}</span>
+            <span>{{ $t('messages.first') }}</span>
           </div>
           <inline-svg :src="require('@/assets/welcome/messenger/share.svg')" class="share" />
         </div>
@@ -45,7 +45,7 @@
 
           <div class="content">
             <img src="@/assets/welcome/messenger/barchart.svg">
-            <span>{{ $t('message.second') }}</span>
+            <span>{{ $t('messages.second') }}</span>
           </div>
           <inline-svg :src="require('@/assets/welcome/messenger/share.svg')" class="share" />
         </div>
@@ -68,14 +68,16 @@ export default {
 
   },
   data() {
+    const $t = this.$t.bind(this);
+
     return {
       dialogs: [
-        { avatar: '', name: 'Имя 1', message: 'Новое сообщение' },
-        { avatar: '', name: 'CodingStones', message: 'Новое сообщение' },
-        { avatar: '', name: 'Имя 3', message: 'Новое сообщение' },
-        { avatar: '', name: 'Имя 4', message: 'Новое сообщение' },
+        { avatar: '', name: $t('dialogs.first.name'), message: $t('dialogs.first.message') },
+        { avatar: '', name: $t('dialogs.second.name'), message: $t('dialogs.second.message') },
+        { avatar: '', name: $t('dialogs.third.name'), message: $t('dialogs.third.message') },
+        { avatar: '', name: $t('dialogs.fourth.name'), message: $t('dialogs.fourth.message') },
       ],
-      selectedDialogIndex: 1,
+      selectedDialogIndex: 0,
       isNewMessageDisplayed: false
     }
   },
@@ -142,7 +144,7 @@ export default {
     display: flex;
   }
   .dialog.selected {
-    background-color: #a9c5f0;
+    background-color: #dfddff;
   }
   .dialog .avatar {
     width: 28px;
@@ -223,9 +225,9 @@ export default {
     width: 24px;
     height: 24px;
     border-radius: 16px;
-    background-color: #0000001c;
+    background-color: #00000014;
     margin-left: 10px;
-    fill: #1d2429;
+    fill: #afafaf;
     padding: 5px;
     box-sizing: border-box;
   }
@@ -304,8 +306,24 @@ export default {
       "search": "Search"
     },
     "dialogs": {
+      "first": {
+        "name": "CodingStones",
+        "message": "New message"
+      },
+      "second": {
+        "name": "Ivan Petrov",
+        "message": "Pushed it yesterday"
+      },
+      "third": {
+        "name": "Ivan Petrov",
+        "message": "Pushed it yesterday"
+      },
+      "fourth": {
+        "name": "Ivan Petrov",
+        "message": "Pushed it yesterday"
+      }
     },
-    "message": {
+    "messages": {
       "first": "This is example of text message",
       "second": "This is example of text message"
     },

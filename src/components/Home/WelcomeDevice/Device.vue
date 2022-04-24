@@ -83,12 +83,12 @@
 
   @media only screen and (max-width: 600px) {
     .device {
-      aspect-ratio: 76 / 150;
+      aspect-ratio: 75 / 150;
       max-height: 100vh;
       margin-top: 10px;
     }
     .screen {
-      padding: 3% 4.5% 2.5%;
+      padding: 3.5% 3.5% 3%;
       border-radius: 20px;
     }
   }

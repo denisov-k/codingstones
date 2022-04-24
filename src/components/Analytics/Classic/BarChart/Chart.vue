@@ -21,7 +21,7 @@ export default {
     return {
       chart: Object,
       isLoading: true,
-      dataURL: '/data/barchart.json',
+      dataURL: '/data/classic/barchart.json',
       // dataURL: 'api/app2/page_2/barchart',
       watchableFields: ['region'],
       extraButtons: [

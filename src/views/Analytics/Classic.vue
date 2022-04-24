@@ -1,14 +1,6 @@
 <template>
   <div class="container-fluid" id="classic-analytic">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 start-sm">
-        <h2 class="title">{{ $t('title') }}</h2>
-      </div>
-      <div class="col-xs-12 col-sm-6 end-sm">
-        <h2 class="subtitle">{{ $t('subtitle') }}</h2>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <bar-line-chart></bar-line-chart>
       </div>
@@ -17,15 +9,29 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-xs-6 col-sm-3">
+        <filter-list></filter-list>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <filter-list></filter-list>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <filter-list></filter-list>
+      </div>
+      <div class="col-xs-6 col-sm-3">
+        <filter-list></filter-list>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12">
         <Map></Map>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <bar-chart></bar-chart>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="col-xs-12 col-sm-6 col-md-6">
         <tree-map-chart2></tree-map-chart2>
       </div>
     </div>
@@ -39,6 +45,7 @@ import TreeMapChart2 from "@/components/Analytics/Classic/TreeMapChart2";
 
 import BarLineChart from "@/components/Analytics/Classic/BarLineChart";
 import PieChart from "@/components/Analytics/Classic/PieChart";
+import FilterList from "@/components/Analytics/Classic/FilterList";
 
 export default {
   name: "ClassicAnalytic",
@@ -48,6 +55,7 @@ export default {
     Map,
     TreeMapChart2,
     BarLineChart,
+    FilterList
   },
   data: () => {
     return {

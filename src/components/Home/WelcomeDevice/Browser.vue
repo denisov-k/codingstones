@@ -67,6 +67,7 @@ export default {
   }
   .window-controls {
     margin-right: 10px;
+    width: 45px;
   }
   .window-controls > div {
     width: 7px;
@@ -84,7 +85,9 @@ export default {
     background-color: #2a962a;
   }
   .navigation-controls {
-    margin: auto 0;
+    margin-right: 10px;
+    width: 45px;
+    display: none;
   }
   .navigation-controls > svg, .page-controls > svg {
     height: 8px;
@@ -116,12 +119,13 @@ export default {
     fill: #6a6a6a;
   }
   .page-controls {
-    /*margin-left: 10px;*/
+    margin-left: 10px;
+    width: 45px;
+    justify-content: flex-end;
   }
 
   .analyst-screen {
     background-color: rgb(230 230 230);
-    z-index: 10;
     cursor: pointer;
     display: flex;
     height: calc(100% - 25px);
@@ -132,6 +136,9 @@ export default {
   @media only screen and (max-width: 600px) {
     .window-controls {
       display: none;
+    }
+    .navigation-controls {
+      display: inline-flex;
     }
   }
 </style>

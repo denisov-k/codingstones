@@ -19,7 +19,7 @@ export default {
     return {
       isLoading: true,
       chart: Object,
-      dataURL: 'data/piechart.json',
+      dataURL: 'data/personal_account/piechart.json',
       // dataURL: 'api/app2/page_2/pie_2',
       extraButtons: [
 

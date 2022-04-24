@@ -27,7 +27,7 @@ export default {
     return {
       resizeObserver: null,
       isLoading: true,
-      dataURL: 'data/map.json',
+      dataURL: 'data/smart_feed/map.json',
       layer: layers[2],
       chart: Object,
     }
