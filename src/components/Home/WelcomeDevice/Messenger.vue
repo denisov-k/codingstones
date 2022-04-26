@@ -164,14 +164,19 @@ export default {
       }
     }
     .name {
-
+      font-weight: 600;
+      color: #3b3b3b;
     }
     .message {
-      color: #335cd2;
+      color: black;
     }
   }
   .dialog.selected {
     background-color: #dfddff;
+
+    .message {
+      color: #335cd2;
+    }
   }
 
   .main {

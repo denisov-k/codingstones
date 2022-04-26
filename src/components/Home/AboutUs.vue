@@ -51,13 +51,15 @@ export default {
 h3 {
   font-size: 25px;
   display: inline-flex;
-  margin: 25px 0;
+  margin: 0;
   float: left;
   line-height: 25px;
 }
 .description {
   text-align: left;
   font-size: 14px;
+  margin: 20px 0;
+  color: #e0e0e0;
 }
 
 .row {
@@ -69,13 +71,13 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0 25px;
+  margin: 0 10%;
 }
 
 img {
-  width: calc(100% - 50px);
+  width: 80%;
   border-radius: 10px;
   box-shadow: 4px 4px 0px 1px #173f84;
-  margin: 25px;
+  margin: 0 10% 30px;
 }
 </style>
