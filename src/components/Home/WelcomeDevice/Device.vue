@@ -91,8 +91,9 @@
   @media only screen and (max-width: 600px) {
     .device {
       aspect-ratio: 75 / 150;
-      max-height: 100vh;
+      max-height: unset;
       margin-top: 10px;
+      width: 350px;
     }
     .screen {
       border-image-source: url("@/assets/welcome/mobile.svg");

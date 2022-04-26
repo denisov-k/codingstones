@@ -83,7 +83,7 @@ export default {
 <style scoped>
   h3 {
     font-size: 24px;
-    margin: 14px 8px;
+    margin: 14px 0;
   }
 
   #services-and-features-container {
@@ -126,24 +126,21 @@ export default {
     margin: auto;
   }
   .list-item {
-    color: #080808;
+    color: #ababab;
     font-size: 15px;
-    font-weight: 600;
     cursor: pointer;
-    background-color: #254e76;
-    border-radius: 7px;
     margin: 5px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* line-height: 22px; */
-    padding: 7px 10px;
+    padding: 7px 0px;
+    border-bottom: 1px solid #565656;
   }
   .list-item:hover {
-    background-color: #606a82;
+    color: #e0e0e0;
   }
   .list-item.selected {
-    background-color: #a9a9a9;
+    color: #83a0c5;
   }
 </style>
 

@@ -10,10 +10,7 @@
       <h3>{{ $t('analytic.title') }}</h3>
       <analytical-screens-slider></analytical-screens-slider>
     </div>
-    <div id="about-us">
-      <h3>{{ $t('about_us.title') }}</h3>
-      <about-us></about-us>
-    </div>
+    <about-us></about-us>
     <contacts></contacts>
   </main>
 </template>
@@ -124,16 +121,6 @@ export default {
     display: flex;
     justify-content: center;
     margin: 0;
-  }
-  #about-us {
-    background-color: #080808;
-    display: flex;
-    flex-direction: column;
-    padding: 6vmin;
-    height: 100vh;
-  }
-  #about-us h3 {
-    font-size: 32px;
   }
 </style>
 
