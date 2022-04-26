@@ -12,7 +12,9 @@
       <div class="dialogs">
         <div class="dialog" v-for="(item, index) in dialogs" :key="index"
              :class="[ selectedDialogIndex === index ? 'selected' : ''  ]">
-          <div class="avatar"></div>
+          <div class="avatar">
+            <img :src="item.avatar">
+          </div>
           <div class="titles">
             <span class="name">{{ item.name }}</span>
             <span class="message">{{ item.message }}</span>
@@ -72,12 +74,16 @@ export default {
 
     return {
       dialogs: [
-        { avatar: '', name: $t('dialogs.first.name'), message: $t('dialogs.first.message') },
-        { avatar: '', name: $t('dialogs.second.name'), message: $t('dialogs.second.message') },
-        { avatar: '', name: $t('dialogs.third.name'), message: $t('dialogs.third.message') },
-        { avatar: '', name: $t('dialogs.fourth.name'), message: $t('dialogs.fourth.message') },
+        { avatar: require('@/assets/welcome/messenger/avatars/bookmark.svg'),
+          name: $t('dialogs.first.name'), message: $t('dialogs.first.message') },
+        { avatar: require('@/assets/welcome/messenger/avatars/circle-logo.svg'),
+          name: $t('dialogs.second.name'), message: $t('dialogs.second.message') },
+        { avatar: require('@/assets/welcome/messenger/avatars/man.jpg'),
+          name: $t('dialogs.third.name'), message: $t('dialogs.third.message') },
+        { avatar: require('@/assets/welcome/messenger/avatars/woman.jpg'),
+          name: $t('dialogs.fourth.name'), message: $t('dialogs.fourth.message') },
       ],
-      selectedDialogIndex: 0,
+      selectedDialogIndex: 1,
       isNewMessageDisplayed: false
     }
   },
@@ -107,7 +113,7 @@ export default {
   }
   .sidebar {
     min-width: 30%;
-    max-width: 35%;
+    max-width: 33%;
     height: 100%;
     background-color: $interface-color;
     border-right: 1px solid #d5d5d5;
@@ -141,23 +147,31 @@ export default {
     height: calc(100% - 35px);
   }
   .dialog {
-    display: flex;
+    display: inline-flex;
+    width: 100%;
+
+    .avatar {
+      width: 28px;
+      margin: 10px;
+      background-color: #678291;
+      border-radius: 16px;
+      height: 28px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .name {
+
+    }
+    .message {
+      color: #335cd2;
+    }
   }
   .dialog.selected {
     background-color: #dfddff;
-  }
-  .dialog .avatar {
-    width: 28px;
-    margin: 10px;
-    background-color: #678291;
-    border-radius: 16px;
-    height: 28px;
-  }
-  .dialog .name {
-
-  }
-  .dialog .message {
-    color: #335cd2;
   }
 
   .main {
@@ -168,15 +182,46 @@ export default {
     justify-content: space-between;
     position: relative;
     border-radius: inherit;
-  }
-  .main .header {
-    justify-content: space-between;
-    background-color: $interface-color;
 
-    border-top-right-radius: inherit;
-    border-top-left-radius: inherit;
-    border-bottom: 1px solid #d5d5d5;
-    z-index: 1;
+    .header {
+      justify-content: space-between;
+      background-color: $interface-color;
+
+      border-top-right-radius: inherit;
+      border-top-left-radius: inherit;
+      border-bottom: 1px solid #d5d5d5;
+      z-index: 1;
+    }
+    .body {
+      height: calc(100% - 66px);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3px 0;
+      overflow: hidden;
+      position: absolute;
+      bottom: 30px;
+
+      .message {
+        display: flex;
+        margin: 2px 5px;
+        align-items: flex-end;
+        max-width: 250px;
+
+        .share {
+          flex: none;
+          width: 24px;
+          height: 24px;
+          border-radius: 16px;
+          background-color: #00000014;
+          margin-left: 10px;
+          fill: #afafaf;
+          padding: 5px;
+          box-sizing: border-box;
+        }
+      }
+    }
   }
   .titles {
     display: flex;
@@ -202,35 +247,7 @@ export default {
     fill: #7c7c7c;
     height: 10px;
   }
-  .main .body {
-    height: calc(100% - 66px);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 3px 0;
-    overflow: hidden;
-    position: absolute;
-    bottom: 30px;
-  }
-  .body .message {
-    display: flex;
-    margin: 2px 5px;
-    align-items: flex-end;
-    max-width: 250px;
-  }
 
-  .message .share {
-    flex: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 16px;
-    background-color: #00000014;
-    margin-left: 10px;
-    fill: #afafaf;
-    padding: 5px;
-    box-sizing: border-box;
-  }
   .message:not(:last-child) .avatar {
     opacity: 0;
   }
@@ -307,16 +324,16 @@ export default {
     },
     "dialogs": {
       "first": {
+        "name": "Favorite",
+        "message": ""
+      },
+      "second": {
         "name": "CodingStones",
         "message": "New message"
       },
-      "second": {
-        "name": "Ivan Petrov",
-        "message": "Pushed it yesterday"
-      },
       "third": {
         "name": "Ivan Petrov",
-        "message": "Pushed it yesterday"
+        "message": "Thank for link!"
       },
       "fourth": {
         "name": "Ivan Petrov",
@@ -337,7 +354,25 @@ export default {
       "subtitle": "Бот",
       "search": "Поиск"
     },
-    "message": {
+    "dialogs": {
+      "first": {
+        "name": "Избранное",
+        "message": "Купить хлеб"
+      },
+      "second": {
+        "name": "CodingStones",
+        "message": "Новое сообщение"
+      },
+      "third": {
+        "name": "Ivan Petrov",
+        "message": "Спасибо за ссылку!"
+      },
+      "fourth": {
+        "name": "Alex Brown",
+        "message": "Pushed it yesterday"
+      }
+    },
+    "messages": {
       "first": "Пример первого сообщения",
       "second": "Пример второго сообщения"
     },

@@ -1,14 +1,6 @@
 <template>
   <div id="personal-account" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 start-sm">
-        <h2 class="title">{{ $t('title') }}</h2>
-      </div>
-      <div class="col-xs-12 col-sm-6 end-sm">
-        <h2 class="subtitle">{{ $t('subtitle') }}</h2>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
         <profile></profile>
       </div>
@@ -24,6 +16,11 @@
         <bar-chart></bar-chart>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <heatmap></heatmap>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,10 +29,12 @@ import TreeChart from "@/components/Analytics/PersonalAccount/TreeChart";
 import PieChart from "@/components/Analytics/PersonalAccount/PieChart";
 import BarChart from "@/components/Analytics/PersonalAccount/BarChart";
 import Profile from "@/components/Analytics/PersonalAccount/Profile";
+import Heatmap from "@/components/Analytics/PersonalAccount/Heatmap";
 
 export default {
   name: "PersonalAccount",
   components: {
+    Heatmap,
     Profile,
     TreeChart,
     PieChart,

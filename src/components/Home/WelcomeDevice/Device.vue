@@ -1,7 +1,7 @@
 <template>
   <div class="device" v-on:click="nextScreen">
-    <img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall">
-    <img src="@/assets/welcome/mobile.svg" v-else>
+    <!--<img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall" draggable="false">
+    <img src="@/assets/welcome/mobile.svg" v-else draggable="false">-->
     <div class="screen">
       <desktop v-if="activeScreenIndex === 0"></desktop>
       <messenger v-else-if="activeScreenIndex === 1"></messenger>
@@ -76,9 +76,16 @@
     z-index: 2;
   }
   .screen {
+    overflow: hidden;
     box-sizing: border-box;
-    padding: 1.7% 11.5% 5.3%;
+    margin: 1.7% 11.5% 5.3%;
     width: 100%;
+    border-image-source: url("@/assets/welcome/laptop.svg");
+    border-image-slice: 12% 11.7% 10.5%;
+    border-image-width: 40px 68px 40px;
+    border-image-outset: 3.4 64px 15;
+    border-style: solid;
+    border-image-repeat: stretch;
   }
 
   @media only screen and (max-width: 600px) {
@@ -88,8 +95,12 @@
       margin-top: 10px;
     }
     .screen {
-      padding: 3.5% 3.5% 3%;
-      border-radius: 20px;
+      border-image-source: url("@/assets/welcome/mobile.svg");
+      margin: 3.5% 3.5% 3%;
+      border-radius: 35px;
+      border-image-slice: 1.7% 15%;
+      border-image-width: 13px 68px;
+      border-image-outset: 3 15px;
     }
   }
 </style>
