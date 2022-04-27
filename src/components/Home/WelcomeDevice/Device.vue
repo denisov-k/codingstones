@@ -87,11 +87,12 @@
     border-image-outset: 3.4 64px 15;
     border-style: solid;
     border-image-repeat: stretch;
+    aspect-ratio: 125 / 75;
   }
 
   @media only screen and (max-width: 600px) {
     .device {
-      aspect-ratio: 75 / 150;
+      aspect-ratio: 75 / 135;
       max-height: unset;
       margin-top: 10px;
       width: 350px;

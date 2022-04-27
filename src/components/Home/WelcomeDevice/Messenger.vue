@@ -30,7 +30,6 @@
         </div>
         <div class="controls">
           <inline-svg :src="require('@/assets/welcome/messenger/search.svg')" />
-          <inline-svg :src="require('@/assets/welcome/messenger/phone.svg')" />
           <inline-svg :src="require('@/assets/welcome/messenger/window.svg')" />
           <inline-svg :src="require('@/assets/welcome/messenger/setting-dots.svg')" />
         </div>
@@ -111,9 +110,11 @@ export default {
     font-size: 8px;
     border-radius: inherit;
   }
+  .header {
+    height: 35px;
+  }
   .header, .footer {
     display: flex;
-    height: 30px;
     width: 100%;
     padding: 0 8px;
     box-sizing: border-box;
@@ -144,8 +145,8 @@ export default {
     width: -webkit-fill-available;
     background-color: #e5e5e5;
     border-radius: 2px;
-    height: 18px;
-    margin-left: 7px;
+    height: 20px;
+    margin-left: 8px;
   }
   .search-box .placeholder {
     padding: 0 6px;
@@ -193,17 +194,13 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
-    border-radius: inherit;
 
     .header {
       justify-content: space-between;
       background-color: $interface-color;
 
-      border-top-right-radius: inherit;
-      border-top-left-radius: inherit;
       border-bottom: 1px solid #d5d5d5;
-      z-index: 1;
+      padding: 0 10px;
     }
 
     .fade-enter-active, .fade-leave-active {
@@ -216,19 +213,20 @@ export default {
       transition-delay: 0s;
     }
     .body {
-      height: -webkit-fill-available;
+      height: calc(100% - 65px);
       display: flex;
       flex-direction: column;
       padding: 5px 0px;
       box-sizing: border-box;
       overflow-y: auto;
       margin: 0;
+      justify-content: flex-end;
 
       .message {
         display: flex;
         align-items: flex-end;
         max-width: 250px;
-        margin: auto 5px 5px;
+        margin: 0 5px 5px;
 
         .share {
           flex: none;
@@ -310,6 +308,7 @@ export default {
   }
 
   .main .footer {
+    height: 30px;
     background-color: $interface-color;
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: inherit;
