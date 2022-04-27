@@ -35,19 +35,11 @@
           <inline-svg :src="require('@/assets/welcome/messenger/setting-dots.svg')" />
         </div>
       </div>
-      <transition-group name="fade" tag="div" class="body">
-        <div class="message" key="0">
+      <transition-group name="fade" tag="ul" class="body">
+        <div class="message" :key="index" v-for="(item, index) in messagesList">
           <div class="content">
-            <img src="@/assets/welcome/messenger/piechart.svg">
-            <span>{{ $t('messages.first') }}</span>
-          </div>
-          <inline-svg :src="require('@/assets/welcome/messenger/share.svg')" class="share" />
-        </div>
-        <div class="message" key="1" v-if="isNewMessageDisplayed">
-
-          <div class="content">
-            <img src="@/assets/welcome/messenger/barchart.svg">
-            <span>{{ $t('messages.second') }}</span>
+            <img :src="item.image" rel="preload">
+            <span>{{ item.text }}</span>
           </div>
           <inline-svg :src="require('@/assets/welcome/messenger/share.svg')" class="share" />
         </div>
@@ -64,10 +56,20 @@
 
 <script>
 
+const images = [
+  require("@/assets/welcome/messenger/piechart.svg"),
+  require("@/assets/welcome/messenger/barchart.svg")
+];
+
 export default {
   name: "Messenger",
   components: {
 
+  },
+  computed: {
+    messagesList: function () {
+      return this.messages.filter((item, index) => index !== 1 || this.isNewMessageDisplayed);
+    }
   },
   data() {
     const $t = this.$t.bind(this);
@@ -84,7 +86,11 @@ export default {
           name: $t('dialogs.fourth.name'), message: $t('dialogs.fourth.message') },
       ],
       selectedDialogIndex: 1,
-      isNewMessageDisplayed: false
+      isNewMessageDisplayed: false,
+      messages: [
+        { image: images[0], text: $t('messages.first') },
+        { image: images[1], text: $t('messages.second') }
+      ]
     }
   },
   mounted() {
@@ -95,6 +101,8 @@ export default {
 
 <style lang="scss" scoped>
   $interface-color: #fff;
+
+
 
   .messenger {
     display: flex;
@@ -179,7 +187,7 @@ export default {
     }
   }
 
-  .main {
+  .main /deep/ {
     width: -webkit-fill-available;
     height: 100%;
     display: flex;
@@ -196,6 +204,16 @@ export default {
       border-top-left-radius: inherit;
       border-bottom: 1px solid #d5d5d5;
       z-index: 1;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+      transition: all 0.5s;
+    }
+    .fade-enter, .fade-leave-to{
+      opacity: 0;
+    }
+    .fade-enter-active {
+      transition-delay: 0s;
     }
     .body {
       height: calc(100% - 66px);
@@ -267,6 +285,7 @@ export default {
   }
   .message .content img {
     width: 100%;
+    height: 100%;
     margin-bottom: 5px;
   }
   .message .content span {

@@ -126,7 +126,7 @@ export default {
     margin: auto;
   }
   .list-item {
-    color: #ababab;
+    color: #cdcdcd;
     font-size: 15px;
     cursor: pointer;
     margin: 5px 0;

@@ -77,7 +77,7 @@ export default {
     width: 100%;
     background-color: $interface-color;
     justify-content: space-between;
-    padding: 3px 10px;
+    padding: 3px 5px;
     box-sizing: border-box;
   }
   .controls {
@@ -86,11 +86,11 @@ export default {
     margin-right: 20px;
   }
   .controls > span {
-    margin: 0 7px;
+    margin: 0 5px;
   }
   .controls > span:nth-child(1) {
     font-weight: 600;
-    margin-left: 0;
+    /*margin-left: 0;*/
   }
   .indicators {
     display: flex;
@@ -98,7 +98,7 @@ export default {
     fill: $text-color;
   }
   .indicator {
-    margin: 0 3px;
+    margin: 0 5px;
     width: auto;
     height: 8px;
   }
