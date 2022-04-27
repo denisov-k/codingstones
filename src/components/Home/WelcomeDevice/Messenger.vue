@@ -216,21 +216,19 @@ export default {
       transition-delay: 0s;
     }
     .body {
-      height: calc(100% - 66px);
-      cursor: pointer;
+      height: -webkit-fill-available;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 3px 0;
-      overflow: hidden;
-      position: absolute;
-      bottom: 30px;
+      padding: 5px 0px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      margin: 0;
 
       .message {
         display: flex;
-        margin: 2px 5px;
         align-items: flex-end;
         max-width: 250px;
+        margin: auto 5px 5px;
 
         .share {
           flex: none;
@@ -244,6 +242,23 @@ export default {
           box-sizing: border-box;
         }
       }
+      .message:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .body::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    .body::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0.35);
+      border-radius: 25px;
+    }
+
+    .body::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 25px;
     }
   }
   .titles {

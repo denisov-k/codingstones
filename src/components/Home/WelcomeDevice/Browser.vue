@@ -11,10 +11,10 @@
         <inline-svg :src="require('@/assets/welcome/browser/arrow-right.svg')" />
       </div>
       <div class="address-input">
-
+        <inline-svg :src="require('@/assets/welcome/browser/read.svg')" />
         <div class="address">
           <inline-svg :src="require('@/assets/welcome/browser/lock-close.svg')" />
-          {{ $t('address') }}
+          <span class="url">{{ $t('address') }}</span>
         </div>
         <inline-svg :src="require('@/assets/welcome/browser/reload.svg')" />
       </div>
@@ -101,20 +101,24 @@ export default {
     display: flex;
     background-color: #c7d8e8;
     margin: auto;
-    border-radius: 2px;
-    height: 16px;
+    border-radius: 4px;
+    height: 18px;
     text-align: center;
     padding: 0 2px;
     box-sizing: border-box;
+    align-items: center;
   }
   .address {
     display: flex;
-    font-size: 8px;
+    font-size: 10px;
     color: #7c7c7c;
     margin: auto;
   }
+  .address > .url {
+    margin-left: 1px;
+  }
   .address-input svg {
-    height: 6px;
+    height: 7px;
     margin: auto 2px;
     fill: #6a6a6a;
   }
@@ -126,7 +130,6 @@ export default {
 
   .analyst-screen {
     background-color: rgb(230 230 230);
-    cursor: pointer;
     display: flex;
     height: calc(100% - 25px);
     border-bottom-right-radius: inherit;

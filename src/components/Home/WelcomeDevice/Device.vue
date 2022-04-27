@@ -76,6 +76,7 @@
     z-index: 2;
   }
   .screen {
+    cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
     margin: 1.7% 11.5% 5.3%;
