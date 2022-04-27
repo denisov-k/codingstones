@@ -97,10 +97,10 @@ export default {
     width: 100%;
   }
   .info {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    margin: 30px 0;
+    height: 100%;
   }
   .info img {
     width: 250px;

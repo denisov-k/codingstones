@@ -101,14 +101,11 @@ export default {
 <style lang="scss" scoped>
   $interface-color: #fff;
 
-
-
   .messenger {
     display: flex;
     height: 100%;
     background-image: url("@/assets/welcome/messenger/background.png");
     font-size: 8px;
-    border-radius: inherit;
   }
   .header {
     height: 35px;
@@ -268,10 +265,14 @@ export default {
   }
   .titles > span {
     margin: 1px 0;
-    color: #000000;
+  }
+  .title {
+    color: #3b3b3b;
+    font-weight: 600;
   }
   .subtitle {
     color: #686868;
+    text-transform: lowercase;
   }
   .controls {
     height: 100%;

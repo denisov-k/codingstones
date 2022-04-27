@@ -51,7 +51,6 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: inherit;
     overflow: hidden;
   }
   .header {
@@ -132,8 +131,6 @@ export default {
     background-color: rgb(230 230 230);
     display: flex;
     height: calc(100% - 25px);
-    border-bottom-right-radius: inherit;
-    border-bottom-left-radius: inherit;
   }
 
   @media only screen and (max-width: 600px) {

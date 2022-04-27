@@ -105,8 +105,11 @@ export default {
     line-height: 32px;
     align-items: center;
   }
-  .item:nth-child(1) {
+  .item:first-child {
     margin-left: 0;
+  }
+  .item:last-child {
+    margin-right: 0;
   }
   .item .label {
     cursor: pointer;

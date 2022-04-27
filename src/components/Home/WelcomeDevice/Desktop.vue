@@ -16,15 +16,6 @@
         <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/search.svg')" />
       </div>
     </div>
-    <inline-svg :src="require('@/assets/cs-icon-logo.svg')" class="logo" />
-    <div class="footer">
-      <img class="application" src="@/assets/welcome/desktop/safari.svg" />
-      <img class="application" src="@/assets/welcome/desktop/messages.svg" />
-      <img class="application" src="@/assets/welcome/desktop/calendar.svg" />
-      <img class="application" src="@/assets/welcome/desktop/notes.svg" />
-      <img class="application" src="@/assets/welcome/desktop/music.svg" />
-      <img class="application" src="@/assets/welcome/desktop/notebook.svg" />
-    </div>
     <transition name="fade">
       <div class="message" v-show="isMessageShowed">
         <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/mail.svg')" />
@@ -34,6 +25,15 @@
         </div>
       </div>
     </transition>
+    <inline-svg :src="require('@/assets/cs-icon-logo.svg')" class="logo" />
+    <div class="footer">
+      <img class="application" src="@/assets/welcome/desktop/safari.svg" />
+      <img class="application" src="@/assets/welcome/desktop/messages.svg" />
+      <img class="application" src="@/assets/welcome/desktop/calendar.svg" />
+      <img class="application" src="@/assets/welcome/desktop/notes.svg" />
+      <img class="application" src="@/assets/welcome/desktop/music.svg" />
+      <img class="application" src="@/assets/welcome/desktop/notebook.svg" />
+    </div>
   </div>
 </template>
 
@@ -70,7 +70,6 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: inherit;
   }
   .desktop > .header {
     display: flex;
@@ -108,15 +107,15 @@ export default {
   }
 
   .desktop > .footer {
-    margin: 2%;
     display: flex;
-    background-color: $interface-color;
+    background-color: #000000a8;
     padding: 0 5%;
     border-radius: 6px;
     height: 45px;
     justify-content: center;
+    margin: auto 2% 2%;
   }
-  .application {
+  .footer .application {
     display: inline-block;
     padding: 3% 3%;
     min-width: 30px;
@@ -135,14 +134,11 @@ export default {
     min-width: 70px;
   }
   .message {
-    position: absolute;
     width: 25%;
-    right: 15px;
     height: 15%;
     min-width: 140px;
     min-height: 45px;
     background-color: #0000005e;
-    top: 30px;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -150,6 +146,9 @@ export default {
     cursor: pointer;
     padding-right: 10px;
     box-sizing: border-box;
+    margin-right: 10px;
+    margin-left: auto;
+    margin-top: 10px;
   }
   .message > svg {
     width: 20%;
@@ -199,9 +198,8 @@ export default {
     }
     .message {
       width: 90%;
-      right: auto;
-      left: auto;
       height: 10%;
+      margin-left: 10px;
     }
     .message > svg {
       width: 15%;

@@ -3,9 +3,8 @@
     <!--<img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall" draggable="false">
     <img src="@/assets/welcome/mobile.svg" v-else draggable="false">-->
     <div class="screen">
-      <desktop v-if="activeScreenIndex === 0"></desktop>
-      <messenger v-else-if="activeScreenIndex === 1"></messenger>
-      <browser v-else-if="activeScreenIndex === 2"></browser>
+      <div class="mobile-header"></div>
+      <widget :is="applications[activeApplicationIndex]" class="application"></widget>
     </div>
   </div>
 </template>
@@ -22,21 +21,22 @@
     },
     data: () => {
       return {
-        activeScreenIndex: 0,
+        activeApplicationIndex: 0,
         window: {
           width: 0,
           height: 0
-        }
+        },
+        applications: [
+          Desktop, Messenger, Browser
+        ]
       }
     },
     computed: {
-      isDeviceSmall: function () {
-        return this.window.width <= 600;
-      }
+
     },
     methods: {
       nextScreen() {
-        this.activeScreenIndex = this.activeScreenIndex >= 2 ? 0 : this.activeScreenIndex + 1;
+        this.activeApplicationIndex = this.activeApplicationIndex >= 2 ? 0 : this.activeApplicationIndex + 1;
       },
       handleResize() {
         this.window.width = window.innerWidth;
@@ -67,6 +67,7 @@
     aspect-ratio: 146 / 75;
     max-height: 60vh;
     width: 90%;
+    min-height: 300px;
   }
 
   .device > img {
@@ -89,6 +90,14 @@
     border-image-repeat: stretch;
     aspect-ratio: 125 / 75;
   }
+  .mobile-header {
+    display: none;
+    height: 20px;
+    background-color: #9c9c9c;
+  }
+  .application {
+
+  }
 
   @media only screen and (max-width: 600px) {
     .device {
@@ -100,10 +109,16 @@
     .screen {
       border-image-source: url("@/assets/welcome/mobile.svg");
       margin: 3.5% 3.5% 3%;
-      border-radius: 35px;
-      border-image-slice: 1.7% 15%;
+      border-radius: 38px;
+      border-image-slice: 1.8% 15%;
       border-image-width: 13px 68px;
       border-image-outset: 3 15px;
+    }
+    .mobile-header {
+      display: flex;
+    }
+    .application {
+      height: calc(100% - 20px);
     }
   }
 </style>
