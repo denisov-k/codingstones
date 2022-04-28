@@ -100,24 +100,24 @@
   }
   .mobile-header {
     display: none;
-    height: 35px;
+    height: 30px;
     width: 100%;
     justify-content: space-between;
     z-index: 1000;
-    padding: 0 15px;
+    padding: 0px 25px;
     box-sizing: border-box;
   }
   .mobile-header > div:nth-child(1) {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     align-self: center;
   }
   .camera {
     display: none;
-    width: 100px;
-    height: 20px;
+    width: 125px;
+    height: 25px;
     background-color: #000000;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 15px 15px;
     position: absolute;
     left: 0;
     right: 0;

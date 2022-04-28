@@ -105,8 +105,8 @@ export default {
   .messenger {
     display: flex;
     height: 100%;
-    background-color: #f4f4f4;
-    font-size: 8px;
+    background-color: #fff;
+    font-size: 10px;
   }
   .header {
     height: 35px;
@@ -158,11 +158,11 @@ export default {
     width: 100%;
 
     .avatar {
-      width: 28px;
+      width: 30px;
       margin: 10px;
       background-color: #678291;
       border-radius: 16px;
-      height: 28px;
+      height: 30px;
       overflow: hidden;
 
       img {
@@ -172,10 +172,10 @@ export default {
     }
     .name {
       font-weight: 600;
-      color: #3b3b3b;
+      color: #333;
     }
     .message {
-      color: black;
+      color: #686868;
     }
   }
   .dialog.selected {
@@ -219,7 +219,7 @@ export default {
       transition-delay: 0s;
     }
     .body {
-      height: calc(100% - 65px);
+      height: calc(100% - 70px);
       display: flex;
       flex-direction: column;
       padding: 5px 0px;
@@ -307,12 +307,12 @@ export default {
     box-shadow: 0px 0px 3px #afafaf;
   }
   .message .content img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     margin-bottom: 5px;
   }
   .message .content span {
-    color: #6b6b6b;
+    color: #000000;
     text-align: left;
     font-size: 10px;
   }
@@ -345,6 +345,9 @@ export default {
     .header {
       height: 35px;
       padding: 10px 10px 5px;
+    }
+    .header .title {
+      font-size: 10px;
     }
     .main {
       height: calc(100% - 35px);

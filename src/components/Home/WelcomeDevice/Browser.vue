@@ -141,7 +141,7 @@ export default {
   .analyst-screen {
     background-color: rgb(230, 230, 230);
     display: flex;
-    height: calc(100% - 75px);
+    height: calc(100% - 70px);
   }
 
   @media only screen and (max-width: 600px) {
