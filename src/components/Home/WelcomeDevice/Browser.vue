@@ -1,6 +1,8 @@
 <template>
   <div class="browser">
+    <slot></slot>
     <div class="header">
+      <div class=""></div>
       <div class="window-controls">
         <div></div>
         <div></div>
@@ -45,17 +47,26 @@ export default {
 }
 </i18n>
 
-<style scoped>
+<style lang="scss" scoped>
   .browser {
     height: 100%;
     position: relative;
     display: flex;
+    background-color: #e6e6e6;
     flex-direction: column;
     overflow: hidden;
   }
+  .mobile-header /deep/ {
+    color: #0c0c0c;
+
+    svg {
+      fill: #0c0c0c !important;
+    }
+  }
+
   .header {
     display: flex;
-    height: 25px;
+    height: 24px;
     padding: 0 10px;
     background-color: #f6f6f6;
     border-top-right-radius: inherit;
@@ -101,9 +112,9 @@ export default {
     background-color: #c7d8e8;
     margin: auto;
     border-radius: 4px;
-    height: 18px;
+    height: 66.6%;
     text-align: center;
-    padding: 0 2px;
+    padding: 0 5px;
     box-sizing: border-box;
     align-items: center;
   }
@@ -128,12 +139,16 @@ export default {
   }
 
   .analyst-screen {
-    background-color: rgb(230 230 230);
+    background-color: rgb(230, 230, 230);
     display: flex;
-    height: calc(100% - 25px);
+    height: calc(100% - 75px);
   }
 
   @media only screen and (max-width: 600px) {
+    .header {
+      height: 40px;
+      order: 1;
+    }
     .window-controls {
       display: none;
     }

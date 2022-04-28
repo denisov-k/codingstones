@@ -1,5 +1,6 @@
 <template>
   <div class="messenger">
+    <slot></slot>
     <div class="sidebar">
       <div class="header">
         <div class="menu-button">
@@ -104,7 +105,7 @@ export default {
   .messenger {
     display: flex;
     height: 100%;
-    background-image: url("@/assets/welcome/messenger/background.png");
+    background-color: #f4f4f4;
     font-size: 8px;
   }
   .header {
@@ -185,10 +186,18 @@ export default {
     }
   }
 
+  .mobile-header /deep/ {
+    color: #474747;
+
+    svg {
+      fill: #474747 !important;
+    }
+  }
   .main /deep/ {
     width: -webkit-fill-available;
-    height: 100%;
+    height: auto;
     display: flex;
+    background-image: url("@/assets/welcome/messenger/background.png");
     flex-direction: column;
     justify-content: space-between;
 
@@ -336,6 +345,9 @@ export default {
     .header {
       height: 35px;
       padding: 10px 10px 5px;
+    }
+    .main {
+      height: calc(100% - 35px);
     }
     .body {
       /*height: calc(100% - 86px) !important;*/

@@ -1,5 +1,6 @@
 <template>
   <div class="desktop">
+    <slot></slot>
     <div class="header">
       <div class="controls">
         <span>{{ $t('controls.finder') }}</span>
@@ -18,7 +19,7 @@
     </div>
     <transition name="fade">
       <div class="message" v-show="isMessageShowed">
-        <inline-svg class="indicator" :src="require('@/assets/welcome/desktop/mail.svg')" />
+        <inline-svg :src="require('@/assets/welcome/desktop/mail.svg')" />
         <div class="labels">
           <span class="header">{{ $t('message.header') }}</span>
           <span class="content">{{ $t('message.content') }}</span>
@@ -70,6 +71,13 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+  .desktop > .mobile-header /deep/ {
+    color: #d4d4d4;
+
+    svg {
+      fill: #d4d4d4 !important;
+    }
   }
   .desktop > .header {
     display: flex;
@@ -144,17 +152,17 @@ export default {
     align-items: center;
     z-index: 100;
     cursor: pointer;
-    padding-right: 10px;
+    padding: 0 10px;
     box-sizing: border-box;
     margin-right: 10px;
     margin-left: auto;
     margin-top: 10px;
   }
   .message > svg {
-    width: 20%;
+    width: 25%;
     height: auto;
-    margin: 0 10%;
     fill: #ffffff;
+    margin-right: 10px;
   }
   .message .labels {
     display: flex;
@@ -191,6 +199,9 @@ export default {
     .desktop > img {
       width: 35%;
     }
+    .desktop > .header {
+      display: none;
+    }
     .desktop > .footer {
       width: 75%;
       height: 60px;
@@ -198,12 +209,16 @@ export default {
     }
     .message {
       width: 90%;
-      height: 10%;
+      height: 12.5%;
       margin-left: 10px;
     }
     .message > svg {
-      width: 15%;
-      margin: 0 5%;
+      height: 60%;
+      margin-right: 10px;
+      width: auto;
+    }
+    .message > .labels {
+      font-size: 10px;
     }
     .controls {
       display: none;
