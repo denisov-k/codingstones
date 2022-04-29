@@ -79,16 +79,16 @@ export default {
 
 <style scoped>
   main {
-    margin-top: -50px;
-    min-width: 400px;
+    margin-top: -10vh;
+    /* min-width: 400px; */
   }
   h1 {
-    font-size: 1.5vmax;
+    font-size: clamp( 0.9rem, 3.5vw, 3vh);
     margin: 0;
   }
   h2 {
-    font-size: 2.5vmax;
-    margin: 2vmax 0;
+    font-size: clamp( 1.3rem, 3.4vw, 4vh);
+    margin: 3vh;
   }
   h3 {
     font-size: 24px;
@@ -101,7 +101,7 @@ export default {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    padding: 120px 0 30px;
+    padding: 15vh 0 5vh;
     background-color: #080808;
   }
   #services-and-features {

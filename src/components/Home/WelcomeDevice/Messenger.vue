@@ -106,10 +106,10 @@ export default {
     display: flex;
     height: 100%;
     background-color: #fff;
-    font-size: 10px;
+    font-size: clamp( 0.4rem, 1.5vw, 1.3vh);
   }
   .header {
-    min-height: 35px;
+    min-height: 10%;
   }
   .header, .footer {
     display: flex;
@@ -119,6 +119,8 @@ export default {
     align-items: center;
   }
   .sidebar {
+    display: flex;
+    flex-direction: column;
     min-width: 30%;
     max-width: 33%;
     height: 100%;
@@ -151,23 +153,28 @@ export default {
     color: #686868;
   }
   .sidebar .dialogs {
-    height: calc(100% - 35px);
+
   }
   .dialog {
     display: inline-flex;
     width: 100%;
+    height: 7vh;
+    align-items: center;
 
     .avatar {
-      width: 30px;
-      margin: 10px;
-      background-color: #678291;
-      border-radius: 16px;
-      height: 30px;
+      width: auto;
+      padding: 10px;
+      /* background-color: #678291; */
+      /* border-radius: 16px; */
+      height: 100%;
       overflow: hidden;
+      box-sizing: border-box;
 
       img {
         width: 100%;
         height: 100%;
+        background-color: #678291;
+        border-radius: 100%;
       }
     }
     .name {
@@ -231,7 +238,8 @@ export default {
       .message {
         display: flex;
         align-items: flex-end;
-        max-width: 250px;
+        max-width: 60%;
+        min-width: 275px;
         margin: 0 5px 5px;
 
         .share {
@@ -269,8 +277,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /*margin: 0 0.5vw;*/
     justify-content: center;
+    margin: 1vh 0;
   }
   .titles > span {
     margin: 1px 0;
@@ -289,9 +297,9 @@ export default {
     align-items: center;
   }
   .controls > svg {
-    margin: 0 5px;
+    margin: 0 10%;
     fill: #7c7c7c;
-    height: 10px;
+    height: 75%;
   }
 
   .message:not(:last-child) .avatar {
@@ -306,9 +314,11 @@ export default {
     width: 100%;
     box-shadow: 0px 0px 3px #afafaf;
   }
+  .message .content:hover {
+    /*background-color: #0d1223;*/
+  }
   .message .content img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
     margin-bottom: 5px;
   }
   .message .content span {
@@ -318,10 +328,8 @@ export default {
   }
 
   .main .footer {
-    min-height: 30px;
-    background-color: $interface-color;
-    border-bottom-right-radius: inherit;
-    border-bottom-left-radius: inherit;
+    min-height: 7.5%;
+    background-color: #fff;
     border-top: 1px solid #d5d5d5;
   }
   .footer .placeholder {
@@ -343,8 +351,8 @@ export default {
       display: none;
     }
     .header {
-      height: 35px;
-      padding: 10px 10px 5px;
+      min-height: 40px;
+      /*padding: 10px 10px 5px;*/
     }
     .header .title {
       font-size: 10px;
@@ -353,7 +361,7 @@ export default {
       height: calc(100% - 30px);
     }
     .body {
-      bottom: 40px !important;
+
     }
     .footer {
       padding-bottom: 15px;
@@ -421,7 +429,7 @@ export default {
       },
       "fourth": {
         "name": "Alex Brown",
-        "message": "Pushed it yesterday"
+        "message": "Released it yesterday"
       }
     },
     "messages": {

@@ -69,8 +69,6 @@ export default {
     min-height: 24px;
     padding: 0 10px;
     background-color: #f6f6f6;
-    border-top-right-radius: inherit;
-    border-top-left-radius: inherit;
   }
   .header > * {
     display: flex;

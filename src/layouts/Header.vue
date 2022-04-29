@@ -72,14 +72,13 @@ export default {
     top: 0;
     background-color: #080808c7;
     z-index: 10000;
+    /*min-height: 7.5%;*/
   }
   .header-content {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1000px;
-    height: 50px;
-    margin: 0 3%;
+    margin: 1.5vh 3vw;
   }
 
   .logo {
@@ -88,7 +87,7 @@ export default {
     color: white;
     opacity: 0.92;
     font-weight: 600;
-    font-size: 21px;
+    font-size: clamp( 1.3rem, 3.4vw, 3vh);
     align-self: center;
     cursor: pointer;
   }
@@ -97,17 +96,17 @@ export default {
   }
 
   .links {
-    font-size: 14px;
+    font-size: clamp( 0.8rem, 2vw, 1.6vh);
     color: #b7b7b7;
     align-self: center;
   }
   .links > span {
     cursor: pointer;
-    padding: 4px 10px;
-    margin: 0 5px;
+    padding: 0.5vh 1.5vw;
+    margin: 0 1vh;
   }
   .links > .solid {
-    border-radius: 15px;
+    border-radius: 1.2vh;
     background-color: #335cd2;
     color: white;
   }

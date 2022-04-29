@@ -21,7 +21,7 @@ export default {
   margin: 0 5px;
 }
 select {
-  font-size: 15px;
+  font-size: inherit;
   background-color: #080808;
   color: wheat;
   border-radius: 4px;

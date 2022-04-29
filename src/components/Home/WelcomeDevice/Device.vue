@@ -1,8 +1,8 @@
 <template>
-  <div class="device" v-on:click="nextScreen">
+  <div class="device">
     <!--<img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall" draggable="false">
     <img src="@/assets/welcome/mobile.svg" v-else draggable="false">-->
-    <div class="screen">
+    <div class="screen" v-on:click="nextScreen">
       <div class="camera"></div>
       <widget :is="applications[activeApplicationIndex]" class="application">
         <div class="mobile-header">
@@ -147,7 +147,7 @@
     }
     .screen {
       border-image-source: url("@/assets/welcome/device/mobile.svg");
-      margin: 3.5% 3.5% 3%;
+      margin: 4% 3.5% 3%;
       border-radius: 38px;
       border-image-slice: 1.8% 15%;
       border-image-width: 13px 68px;

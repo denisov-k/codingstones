@@ -1,7 +1,7 @@
 <template>
   <div id="services-and-features-container" class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-6 center-xs end-sm">
         <div class="info">
           <div class="service-icon">
             <img :src="activeItem.image" />
@@ -9,7 +9,7 @@
           <div class="description">{{ activeItem.description }}</div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-6 center-xs start-sm">
         <div class="lists">
           <div class="list">
             <h3>{{ $t('services.list_name') }}</h3>
@@ -92,6 +92,7 @@ export default {
     padding: 60px 0;
     background-color: #080808;
     width: 100%;
+    min-height: 80vh;
   }
   #services-and-features-container > div {
     width: 100%;
@@ -100,30 +101,46 @@ export default {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 100%;
+    min-width: 300px;
+    margin: 0;
+    border-width: 1px 1px 1px 1px;
+    /*border-style: solid;*/
+    border-color: #565656;
+    padding: 0 15%;
+    box-sizing: border-box;
+    width: 100%;
   }
   .info img {
     width: 250px;
   }
   .description {
     font-size: 17px;
-    margin: 5px auto;
+    margin: 20px auto;
     min-width: 270px;
     max-width: 400px;
+    text-align: center;
   }
   .service-icon {
     margin: 10px 0;
   }
   .lists {
-    text-align: left;
+    width: 100%;
+    min-width: 300px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 15%;
+    display: inline-flex;
+    flex-flow: wrap;
+    height: 100%;
+    align-content: center;
   }
   .lists > div:nth-child(1) {
     margin-bottom: 20px;
   }
   .list {
-    min-width: 270px;
-    max-width: 340px;
-    margin: auto;
+    width: 100%;
   }
   .list-item {
     color: #cdcdcd;
