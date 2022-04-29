@@ -66,7 +66,7 @@ export default {
 
   .header {
     display: flex;
-    height: 24px;
+    min-height: 24px;
     padding: 0 10px;
     background-color: #f6f6f6;
     border-top-right-radius: inherit;
@@ -141,12 +141,13 @@ export default {
   .analyst-screen {
     background-color: rgb(230, 230, 230);
     display: flex;
-    height: calc(100% - 70px);
+    height: -webkit-fill-available;
   }
 
   @media only screen and (max-width: 600px) {
     .header {
-      height: 40px;
+      min-height: 40px;
+      padding-bottom: 15px;
       order: 1;
     }
     .window-controls {

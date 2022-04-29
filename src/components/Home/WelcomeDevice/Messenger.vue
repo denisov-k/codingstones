@@ -109,7 +109,7 @@ export default {
     font-size: 10px;
   }
   .header {
-    height: 35px;
+    min-height: 35px;
   }
   .header, .footer {
     display: flex;
@@ -219,14 +219,14 @@ export default {
       transition-delay: 0s;
     }
     .body {
-      height: calc(100% - 70px);
       display: flex;
       flex-direction: column;
-      padding: 5px 0px;
+      padding: 5px 0;
       box-sizing: border-box;
       overflow-y: auto;
-      margin: 0;
       justify-content: flex-end;
+      height: -webkit-fill-available;
+      margin: 0;
 
       .message {
         display: flex;
@@ -318,7 +318,7 @@ export default {
   }
 
   .main .footer {
-    height: 30px;
+    min-height: 30px;
     background-color: $interface-color;
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: inherit;
@@ -350,16 +350,14 @@ export default {
       font-size: 10px;
     }
     .main {
-      height: calc(100% - 35px);
+      height: calc(100% - 30px);
     }
     .body {
-      /*height: calc(100% - 86px) !important;*/
       bottom: 40px !important;
-      margin: 2px 0;
     }
     .footer {
-      height: 35px;
-      padding: 0 10px 5px;
+      padding-bottom: 15px;
+      min-height: 45px !important;
     }
     .body .message {
       max-width: 100%;

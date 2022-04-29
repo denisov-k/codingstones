@@ -100,7 +100,7 @@
   }
   .mobile-header {
     display: none;
-    height: 30px;
+    min-height: 30px;
     width: 100%;
     justify-content: space-between;
     z-index: 1000;
