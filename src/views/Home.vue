@@ -83,15 +83,15 @@ export default {
     /* min-width: 400px; */
   }
   h1 {
-    font-size: clamp( 0.9rem, 3.5vw, 3vh);
+    font-size: 1.25rem;
     margin: 0;
   }
   h2 {
-    font-size: clamp( 1.3rem, 3.4vw, 4vh);
+    font-size: 2rem;
     margin: 3vh;
   }
   h3 {
-    font-size: 24px;
+    font-size: 1.75rem;
     margin: 5px 0;
     display: inline-block;
   }
@@ -115,7 +115,7 @@ export default {
     min-height: 100vh;
     color: black;
     text-align: left;
-    padding: 60px 6vmin;
+    padding: 6vmax 6vmin;
   }
   #analytic-examples h3 {
     display: flex;

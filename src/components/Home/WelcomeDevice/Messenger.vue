@@ -238,7 +238,7 @@ export default {
         align-items: flex-end;
         max-width: 60%;
         min-width: 275px;
-        margin: 0 5px 5px;
+        margin: 0.4vh 0.6vw;
 
         .share {
           flex: none;
@@ -310,7 +310,7 @@ export default {
     padding: 5px;
     border-radius: 3px;
     width: 100%;
-    box-shadow: 0px 0px 3px #afafaf;
+    box-shadow: 0px 0px 0.5vh #afafaf;
   }
   .message .content:hover {
     /*background-color: #0d1223;*/

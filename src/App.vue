@@ -33,6 +33,7 @@ export default {
   html, body {
     height: 100%;
     overflow: hidden;
+    font-size: clamp(12px, 3vw, 2vh);
   }
   body {
     margin: auto;

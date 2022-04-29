@@ -94,15 +94,15 @@ export default {
 
 <style scoped>
   .navigation {
-    font-size: 17px;
+    font-size: 1.2rem;
     color: #747474;
-    margin: 20px 0;
+    margin: 3vh 0;
     text-align: center;
   }
   .item {
     display: inline-flex;
     margin: 0 2%;
-    line-height: 32px;
+    line-height: 4vh;
     align-items: center;
   }
   .item:first-child {

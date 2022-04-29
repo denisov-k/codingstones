@@ -83,11 +83,10 @@ export default {
 
   .logo {
     display: flex;
-    margin: 0 5px;
-    color: white;
-    opacity: 0.92;
+    margin: 0;
+    color: #e1e1e1;
     font-weight: 600;
-    font-size: clamp( 1.3rem, 3.4vw, 3vh);
+    font-size: 1.5rem;
     align-self: center;
     cursor: pointer;
   }
@@ -96,17 +95,17 @@ export default {
   }
 
   .links {
-    font-size: clamp( 0.8rem, 2vw, 1.6vh);
+    font-size: 1rem;
     color: #b7b7b7;
     align-self: center;
   }
   .links > span {
     cursor: pointer;
-    padding: 0.5vh 1.5vw;
-    margin: 0 1vh;
+    padding: 0.5vh 1vw;
+    margin: 0 0.5vw;
   }
   .links > .solid {
-    border-radius: 1.2vh;
+    border-radius: 1vh;
     background-color: #335cd2;
     color: white;
   }

@@ -18,12 +18,13 @@ export default {
 <style scoped>
 .locale-switcher {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 0.5vw;
 }
 select {
   font-size: inherit;
   background-color: #080808;
   color: wheat;
-  border-radius: 4px;
+  border-radius: 0.25rem;
+  padding: 0.1vh 0.3vw;
 }
 </style>

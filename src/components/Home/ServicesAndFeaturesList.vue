@@ -1,7 +1,7 @@
 <template>
   <div id="services-and-features-container" class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 center-xs end-sm">
+      <div class="col-xs-12 col-sm-6">
         <div class="info">
           <div class="service-icon">
             <img :src="activeItem.image" />
@@ -9,7 +9,7 @@
           <div class="description">{{ activeItem.description }}</div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6 center-xs start-sm">
+      <div class="col-xs-12 col-sm-6">
         <div class="lists">
           <div class="list">
             <h3>{{ $t('services.list_name') }}</h3>
@@ -82,7 +82,7 @@ export default {
 
 <style scoped>
   h3 {
-    font-size: 24px;
+    font-size: 2.2vw;
     margin: 14px 0;
   }
 
@@ -113,17 +113,17 @@ export default {
     width: 100%;
   }
   .info img {
-    width: 250px;
+    width: 100%;
   }
   .description {
-    font-size: 17px;
+    font-size: 1rem;
     margin: 20px auto;
-    min-width: 270px;
-    max-width: 400px;
+    width: 90%;
     text-align: center;
   }
   .service-icon {
     margin: 10px 0;
+    width: 80%;
   }
   .lists {
     width: 100%;
@@ -144,13 +144,13 @@ export default {
   }
   .list-item {
     color: #cdcdcd;
-    font-size: 15px;
+    font-size: 1rem;
     cursor: pointer;
-    margin: 5px 0;
+    margin: 1vh 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 7px 0px;
+    padding: 1vh 0;
     border-bottom: 1px solid #565656;
   }
   .list-item:hover {

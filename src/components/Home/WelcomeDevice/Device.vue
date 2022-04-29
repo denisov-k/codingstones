@@ -68,7 +68,7 @@
   .device {
     display: flex;
     justify-content: center;
-    margin: 10px auto;
+    margin: 1vh auto;
     user-select: none;
     box-sizing: border-box;
     aspect-ratio: 146 / 75;

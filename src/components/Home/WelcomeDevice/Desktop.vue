@@ -60,7 +60,6 @@ export default {
   $text-color: #6c6c6c;
 
   .desktop {
-    font-size: 8px;
     position: relative;
     height: 100%;
     background-color: linear-gradient(180deg, #0d1223 0%, #1b2d5f 50%, #0f1a3a 100%);
@@ -82,18 +81,20 @@ export default {
   .desktop > .header {
     display: flex;
     width: 100%;
-    background-color: $interface-color;
+    background-color: #000000a8;
     justify-content: space-between;
-    padding: 3px 5px;
+    padding: 0 0.5vw;
     box-sizing: border-box;
+    height: 5%;
+    align-items: center;
   }
   .controls {
-    font-size: 8px;
+    font-size: 0.65rem;
     color: $text-color;
     margin-right: 20px;
   }
   .controls > span {
-    margin: 0 5px;
+    margin: 0 0.75vw;
   }
   .controls > span:nth-child(1) {
     font-weight: 600;
@@ -103,11 +104,12 @@ export default {
     display: flex;
     align-items: center;
     fill: $text-color;
+    height: 100%;
   }
   .indicator {
-    margin: 0 5px;
+    margin: 0 0.5vw;
     width: auto;
-    height: 8px;
+    height: 45%;
   }
   .time {
     display: none;
@@ -118,8 +120,8 @@ export default {
     display: flex;
     background-color: #000000a8;
     padding: 0 5%;
-    border-radius: 6px;
-    height: 45px;
+    border-radius: 0.6rem;
+    height: 12%;
     justify-content: center;
     margin: auto 2% 2%;
   }
@@ -132,46 +134,40 @@ export default {
   }
 
   .desktop > .logo {
-    max-width: 300px;
-    width: 15%;
+    width: 8rem;
     -webkit-user-drag: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    min-width: 70px;
   }
   .message {
     width: 25%;
     height: 15%;
-    min-width: 140px;
-    min-height: 45px;
     background-color: #0000005e;
-    border-radius: 6px;
+    border-radius: 0.6rem;
     display: flex;
     align-items: center;
     z-index: 100;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0 0.8vw;
     box-sizing: border-box;
-    margin-right: 10px;
+    margin-right: 2%;
     margin-left: auto;
-    margin-top: 10px;
+    margin-top: 2%;
   }
   .message > svg {
     width: 25%;
     height: auto;
     fill: #ffffff;
-    margin-right: 10px;
+    margin-right: 0.8vw;
   }
   .message .labels {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 9px;
-    /*margin: 0 2% auto;
-    height: 50%;*/
+    font-size: 0.7rem;
   }
   .message span {
     display: inline-block;
