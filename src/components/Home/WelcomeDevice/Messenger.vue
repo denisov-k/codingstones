@@ -162,13 +162,11 @@ export default {
     align-items: center;
 
     .avatar {
-      width: auto;
-      padding: 10px;
-      /* background-color: #678291; */
-      /* border-radius: 16px; */
+      padding: 5%;
       height: 100%;
       overflow: hidden;
       box-sizing: border-box;
+      aspect-ratio: 1;
 
       img {
         width: 100%;

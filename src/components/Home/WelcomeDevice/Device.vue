@@ -92,8 +92,8 @@
     width: 100%;
     border-image-source: url("@/assets/welcome/device/laptop.svg");
     border-image-slice: 12% 11.7% 10.5%;
-    border-image-width: 40px 68px 40px;
-    border-image-outset: 3.4 64px 15;
+    border-image-width: 10% 6.5vw 5.5vh;
+    border-image-outset: 0.9vh 6vw 4.7vh;
     border-style: solid;
     border-image-repeat: stretch;
     aspect-ratio: 125 / 75;
@@ -148,10 +148,10 @@
     .screen {
       border-image-source: url("@/assets/welcome/device/mobile.svg");
       margin: 4% 3.5% 3%;
-      border-radius: 38px;
-      border-image-slice: 1.8% 15%;
-      border-image-width: 13px 68px;
-      border-image-outset: 3 15px;
+      border-radius: 35px;
+      border-image-slice: 14 50;
+      border-image-width: 15px 60px;
+      border-image-outset: 6px 10px 5px;
     }
     .mobile-header {
       display: flex;
