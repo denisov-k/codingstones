@@ -153,7 +153,7 @@ export default {
 
 <style scoped>
 #line_race {
-  height: 400px;
+  height: 55vh;
 }
 
 .chart {

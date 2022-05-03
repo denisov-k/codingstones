@@ -27,16 +27,16 @@ $container-color: #00000070;
 
 .filter-list /deep/ {
   position: relative;
-  width: calc(100% - 20px);
+  width: calc(100% - 1.4rem);
   background-color: white;
-  color: #aeaeae;
-  border-radius: 5px;
+  color: $text-color;
+  border-radius: 0.5rem;
   border: 1px solid #d7d7d7;
-  font-size: 12px;
+  font-size: 1.2rem;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 5px 30px 5px 5px;
-  margin: 10px;
+  padding: 0.7vh 1vw;
+  margin: 0.7rem;
 
   .multiselect__select {
     position: absolute;

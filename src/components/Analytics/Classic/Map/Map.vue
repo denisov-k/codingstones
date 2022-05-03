@@ -148,7 +148,7 @@ function getRandomInt(max) {
 <style src="leaflet-search/dist/leaflet-search.min.css"></style>
 <style lang="scss" scoped>
 #map {
-  height: 400px;
+  height: 55vh;
 }
 .chart /deep/ {
   height: 100%;

@@ -102,7 +102,7 @@ export default {
   .item {
     display: inline-flex;
     margin: 0 2%;
-    line-height: 2.5rem;
+    line-height: 3rem;
     align-items: center;
   }
   .item:first-child {
@@ -141,11 +141,11 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 7px solid #080808;
-    border-radius: 30px;
+    border-radius: 2rem;
     overflow: hidden;
-    box-shadow: inset 0 0 3px #000000;
+    box-shadow: inset 0 0 0.5vw #000000;
     width: 100%;
     box-sizing: border-box;
+    border: 0.6rem solid #080808;
   }
 </style>

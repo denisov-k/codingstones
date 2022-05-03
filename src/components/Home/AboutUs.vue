@@ -43,10 +43,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* color: black; */
+  padding: 15vh 0;
+  box-sizing: border-box;
   background-color: #080808;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 h3 {
   font-size: 25px;
@@ -76,8 +77,8 @@ h3 {
 
 img {
   width: 80%;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0px 1px #173f84;
-  margin: 0 10% 30px;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 0 1px #173f84;
+  margin: 0 10% 10%;
 }
 </style>

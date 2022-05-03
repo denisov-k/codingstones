@@ -84,11 +84,9 @@ export default {
 
 <style scoped>
 .widget-buttons {
-  border-radius: 18px;
-  /*background-color: white;*/
   display: inline-flex;
   float: right;
-  margin: 0 10px;
+  margin: 0 0.5vw;
 }
 .button {
   width: 16px;

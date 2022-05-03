@@ -101,14 +101,22 @@ export default {
   }
 
   .widget-container /deep/ {
+    margin: 0.7rem;
+
     .widget {
-      border: 1px solid #d7d7d7;
+      border: 0.125rem solid #d7d7d7;
+      border-radius: 1rem;
     }
     .title {
+      font-size: 1.2rem;
       color: $text-color;
+      margin: 0.75rem;
     }
     .button {
       fill: $text-color;
+      padding: 0.5rem;
+      width: max-content;
+      height: 1rem;
     }
   }
 

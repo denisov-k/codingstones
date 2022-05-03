@@ -113,7 +113,7 @@ export default {
   #analytic-examples {
     min-height: 100vh;
     color: black;
-    padding: 6vmax 6vmin;
+    padding: 3rem;
   }
   #analytic-examples h3 {
     display: flex;

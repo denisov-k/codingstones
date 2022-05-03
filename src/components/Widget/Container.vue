@@ -86,6 +86,7 @@ export default {
   flex-flow: column;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
   border-radius: 20px;
   background-color: white;
   overflow: auto;

@@ -44,6 +44,6 @@ export default {
   }
   svg {
     fill: #b5b5b5;
-    height: 100px;
+    height: 17.5%;
   }
 </style>

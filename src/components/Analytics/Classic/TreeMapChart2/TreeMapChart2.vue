@@ -207,7 +207,7 @@ export default {
 
 <style scoped>
 #tree-chart-1 {
-  height: 300px;
+  height: 55vh;
 }
 .chart {
   width: -webkit-fill-available;

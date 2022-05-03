@@ -136,7 +136,7 @@ export default {
 
 <style scoped>
 #pie-chart-1 {
-  height: 400px;
+  height: 55vh;
 }
 
 .chart {

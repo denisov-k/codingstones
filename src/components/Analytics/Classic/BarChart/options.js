@@ -7,7 +7,7 @@ module.exports = {
     {
       show: true,
       yAxisIndex: 0,
-      start: 90,
+      start: 80,
       end: 100,
       showDetail: false,
       right: 20

@@ -175,7 +175,7 @@ export default {
 
 <style scoped>
 #bar-chart-1 {
-  height: 300px;
+  height: 55vh;
 }
 .chart {
   width: -webkit-fill-available;

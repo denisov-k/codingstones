@@ -94,7 +94,7 @@ export default {
     margin-right: 20px;
   }
   .controls > span {
-    margin: 0 0.75vw;
+    margin: 0.7rem;
   }
   .controls > span:nth-child(1) {
     font-weight: 600;
