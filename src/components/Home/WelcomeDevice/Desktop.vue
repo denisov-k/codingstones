@@ -142,8 +142,7 @@ export default {
     position: absolute;
   }
   .message {
-    width: 25%;
-    height: 15%;
+    width: 15vw;
     background-color: #0000005e;
     border-radius: 0.6rem;
     display: flex;
@@ -155,6 +154,7 @@ export default {
     margin-right: 2%;
     margin-left: auto;
     margin-top: 2%;
+    aspect-ratio: 2.5;
   }
   .message > svg {
     width: 25%;
@@ -207,6 +207,8 @@ export default {
       width: 90%;
       height: 12.5%;
       margin-left: 10px;
+      padding: 0 15px;
+      margin-right: 10px;
     }
     .message > svg {
       height: 60%;
@@ -214,7 +216,7 @@ export default {
       width: auto;
     }
     .message > .labels {
-      font-size: 10px;
+      font-size: 1.25rem;
     }
     .controls {
       display: none;

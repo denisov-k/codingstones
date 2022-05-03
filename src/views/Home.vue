@@ -7,7 +7,7 @@
     </div>
     <services-and-features-list></services-and-features-list>
     <div id="analytic-examples">
-      <h3>{{ $t('analytic.title') }}</h3>
+      <h2>{{ $t('analytic.title') }}</h2>
       <analytical-screens-slider></analytical-screens-slider>
     </div>
     <about-us></about-us>
@@ -83,17 +83,16 @@ export default {
     /* min-width: 400px; */
   }
   h1 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 0;
   }
   h2 {
     font-size: 2rem;
-    margin: 3vh;
+    margin: 3vh 0;
   }
   h3 {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
     margin: 5px 0;
-    display: inline-block;
   }
   #welcome {
     width: 100%;
@@ -114,7 +113,6 @@ export default {
   #analytic-examples {
     min-height: 100vh;
     color: black;
-    text-align: left;
     padding: 6vmax 6vmin;
   }
   #analytic-examples h3 {

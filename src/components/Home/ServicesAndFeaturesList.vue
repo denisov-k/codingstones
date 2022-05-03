@@ -82,8 +82,8 @@ export default {
 
 <style scoped>
   h3 {
-    font-size: 2.2vw;
-    margin: 14px 0;
+    font-size: 2rem;
+    margin: 1vh 0;
   }
 
   #services-and-features-container {
@@ -116,8 +116,8 @@ export default {
     width: 100%;
   }
   .description {
-    font-size: 1rem;
-    margin: 20px auto;
+    font-size: 1.25rem;
+    margin: 5vh auto;
     width: 90%;
     text-align: center;
   }
@@ -144,9 +144,9 @@ export default {
   }
   .list-item {
     color: #cdcdcd;
-    font-size: 1rem;
+    font-size: 1.25rem;
     cursor: pointer;
-    margin: 1vh 0;
+    margin: 2% 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

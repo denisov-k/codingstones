@@ -279,7 +279,7 @@ export default {
     margin: 1vh 0;
   }
   .titles > span {
-    margin: 1px 0;
+    margin: 1% 0;
   }
   .title {
     color: #3b3b3b;

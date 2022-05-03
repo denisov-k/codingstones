@@ -33,7 +33,7 @@ export default {
   html, body {
     height: 100%;
     overflow: hidden;
-    font-size: clamp(12px, 3vw, 2vh);
+    font-size: clamp(14px, 2.75vw, 1.5vh);
   }
   body {
     margin: auto;
