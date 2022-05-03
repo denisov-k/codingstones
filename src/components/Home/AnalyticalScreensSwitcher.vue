@@ -94,7 +94,7 @@ export default {
 
 <style scoped>
   .navigation {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #747474;
     margin: 3vh 0;
     text-align: center;

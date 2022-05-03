@@ -122,7 +122,7 @@ export default {
     text-align: center;
   }
   .service-icon {
-    margin: 10px 0;
+    /*margin: 10px 0;*/
     width: 80%;
   }
   .lists {

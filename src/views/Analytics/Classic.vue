@@ -116,7 +116,7 @@ export default {
       fill: $text-color;
       padding: 0.5rem;
       width: max-content;
-      height: 1rem;
+      height: 1.15rem;
     }
   }
 

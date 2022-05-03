@@ -188,7 +188,7 @@ export default {
     }
   }
   .widget-container /deep/ {
-    height: 600px;
+    height: 75vh;
     margin: 10px 0;
 
     .widget {

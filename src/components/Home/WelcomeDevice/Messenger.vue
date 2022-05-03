@@ -106,7 +106,7 @@ export default {
     display: flex;
     height: 100%;
     background-color: #fff;
-    font-size: clamp( 0.4rem, 1.5vw, 1.3vh);
+    font-size: 0.8rem;
   }
   .header {
     min-height: 10%;
@@ -353,7 +353,7 @@ export default {
       /*padding: 10px 10px 5px;*/
     }
     .header .title {
-      font-size: 10px;
+      font-size: 11px;
     }
     .main {
       height: calc(100% - 30px);

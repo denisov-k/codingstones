@@ -50,16 +50,15 @@ export default {
   min-height: 100vh;
 }
 h3 {
-  font-size: 25px;
+  font-size: 2rem;
   display: inline-flex;
   margin: 0;
   float: left;
-  line-height: 25px;
 }
 .description {
   text-align: left;
-  font-size: 14px;
-  margin: 20px 0;
+  font-size: 1.25rem;
+  margin: 4% 0;
   color: #e0e0e0;
 }
 

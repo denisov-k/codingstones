@@ -66,8 +66,8 @@ export default {
 
   .header {
     display: flex;
-    min-height: 24px;
-    padding: 0 10px;
+    min-height: 6%;
+    padding: 0 0.5vw;
     background-color: #f6f6f6;
   }
   .header > * {

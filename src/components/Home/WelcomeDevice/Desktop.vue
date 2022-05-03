@@ -134,7 +134,7 @@ export default {
   }
 
   .desktop > .logo {
-    width: 8rem;
+    height: 6rem;
     -webkit-user-drag: none;
     top: 50%;
     left: 50%;
@@ -142,7 +142,7 @@ export default {
     position: absolute;
   }
   .message {
-    width: 15vw;
+    width: 13rem;
     background-color: #0000005e;
     border-radius: 0.6rem;
     display: flex;
