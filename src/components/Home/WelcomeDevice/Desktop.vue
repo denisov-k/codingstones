@@ -142,14 +142,14 @@ export default {
     position: absolute;
   }
   .message {
-    width: 13rem;
+    width: 12rem;
     background-color: #0000005e;
     border-radius: 0.6rem;
     display: flex;
     align-items: center;
     z-index: 100;
     cursor: pointer;
-    padding: 0 0.8vw;
+    padding: 0 1rem;
     box-sizing: border-box;
     margin-right: 2%;
     margin-left: auto;
@@ -167,7 +167,7 @@ export default {
     align-items: flex-start;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
   .message span {
     display: inline-block;
@@ -216,7 +216,7 @@ export default {
       width: auto;
     }
     .message > .labels {
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
     .controls {
       display: none;

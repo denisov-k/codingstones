@@ -109,12 +109,12 @@ export default {
     font-size: 0.8rem;
   }
   .header {
-    min-height: 10%;
+    min-height: 3rem;
   }
   .header, .footer {
     display: flex;
     width: 100%;
-    padding: 0 8px;
+    padding: 0 0.6rem;
     box-sizing: border-box;
     align-items: center;
   }
@@ -136,20 +136,20 @@ export default {
     padding: 0 2px;
   }
   .menu-button svg {
-    height: 8px;
+    height: 0.6rem;
     width: auto;
   }
   .header .search-box {
     display: flex;
     align-items: center;
-    width: -webkit-fill-available;
+    width: stretch;
     background-color: #e5e5e5;
-    border-radius: 2px;
-    height: 20px;
-    margin-left: 8px;
+    border-radius: 0.25rem;
+    height: 60%;
+    margin-left: 0.7rem;
   }
   .search-box .placeholder {
-    padding: 0 6px;
+    padding: 0 0.5rem;
     color: #686868;
   }
   .sidebar .dialogs {
@@ -158,11 +158,11 @@ export default {
   .dialog {
     display: inline-flex;
     width: 100%;
-    height: 7vh;
+    height: 4rem;
     align-items: center;
 
     .avatar {
-      padding: 5%;
+      padding: 0.75rem;
       height: 100%;
       overflow: hidden;
       box-sizing: border-box;
@@ -199,7 +199,7 @@ export default {
     }
   }
   .main /deep/ {
-    width: -webkit-fill-available;
+    width: stretch;
     height: auto;
     display: flex;
     background-image: url("@/assets/welcome/messenger/background.png");
@@ -211,7 +211,6 @@ export default {
       background-color: $interface-color;
 
       border-bottom: 1px solid #d5d5d5;
-      padding: 0 10px;
     }
 
     .fade-enter-active, .fade-leave-active {
@@ -226,11 +225,11 @@ export default {
     .body {
       display: flex;
       flex-direction: column;
-      padding: 5px 0;
+      padding: 1vh 0;
       box-sizing: border-box;
       overflow-y: auto;
       justify-content: flex-end;
-      height: -webkit-fill-available;
+      height: stretch;
       margin: 0;
 
       .message {
@@ -238,17 +237,17 @@ export default {
         align-items: flex-end;
         max-width: 60%;
         min-width: 275px;
-        margin: 0.4vh 0.6vw;
+        margin: 0.5rem;
 
         .share {
           flex: none;
-          width: 24px;
-          height: 24px;
-          border-radius: 16px;
+          width: 2rem;
+          /* height: 24px; */
+          border-radius: 1rem;
           background-color: #00000014;
-          margin-left: 10px;
+          margin-left: 0.5rem;
           fill: #afafaf;
-          padding: 5px;
+          padding: 0.4rem;
           box-sizing: border-box;
         }
       }
@@ -295,9 +294,9 @@ export default {
     align-items: center;
   }
   .controls > svg {
-    margin: 0 10%;
     fill: #7c7c7c;
-    height: 75%;
+    height: 1rem;
+    margin: 0 0.5rem;
   }
 
   .message:not(:last-child) .avatar {
@@ -307,32 +306,31 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
-    padding: 5px;
-    border-radius: 3px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     width: 100%;
-    box-shadow: 0px 0px 0.5vh #afafaf;
+    box-shadow: 0 0 0.5vh #afafaf;
   }
   .message .content:hover {
     /*background-color: #0d1223;*/
   }
   .message .content img {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
   }
   .message .content span {
     color: #000000;
     text-align: left;
-    font-size: 10px;
+    font-size: 1rem;
   }
 
   .main .footer {
-    min-height: 7.5%;
+    min-height: 2.5rem;
     background-color: #fff;
     border-top: 1px solid #d5d5d5;
   }
   .footer .placeholder {
-    width: -webkit-fill-available;
-    font-size: 8px;
+    width: stretch;
     color: #686868;
     align-self: center;
     text-align: left;
@@ -340,9 +338,9 @@ export default {
     box-sizing: border-box;
   }
   .footer > svg {
-    margin: 0 5px;
+    margin: 0 0.5rem;
     fill: #7c7c7c;
-    height: 12px;
+    height: 1rem;
   }
   @media only screen and (max-width: 600px) {
     .sidebar {
@@ -350,7 +348,6 @@ export default {
     }
     .header {
       min-height: 40px;
-      /*padding: 10px 10px 5px;*/
     }
     .header .title {
       font-size: 11px;

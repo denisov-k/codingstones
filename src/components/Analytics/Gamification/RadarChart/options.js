@@ -3,7 +3,7 @@ const options = {
   legend: {
     data: ['Allocated Budget', 'Actual Spending'],
     textStyle: {
-      color: '#dadada'
+      /*color: '#dadada'*/
     }
   },
   radar: {

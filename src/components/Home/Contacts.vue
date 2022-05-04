@@ -1,7 +1,7 @@
 <template>
   <div id="contacts">
     <inline-svg :src="require('@/assets/welcome/contacts/send.svg')" />
-    <h3>{{ $t('title') }}</h3>
+    <span>{{ $t('title') }}</span>
     <a :href="`mailto:${email}`">{{ email }}</a>
   </div>
 </template>
@@ -39,11 +39,16 @@ export default {
     height: 100vh;
   }
   a {
+    font-size: 1.25rem;
     color: #335cd2;
     text-decoration: none;
   }
   svg {
     fill: #b5b5b5;
     height: 17.5%;
+  }
+  span {
+    font-size: 1.75rem;
+    margin: 2% 0;
   }
 </style>
