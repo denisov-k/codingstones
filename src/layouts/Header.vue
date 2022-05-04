@@ -72,7 +72,7 @@ export default {
     top: 0;
     background-color: #080808c7;
     z-index: 10000;
-    /*min-height: 7.5%;*/
+    min-height: 4rem;
   }
   .header-content {
     display: flex;
@@ -101,11 +101,11 @@ export default {
   }
   .links > span {
     cursor: pointer;
-    padding: 0.5vh 1vw;
-    margin: 0 1vw;
+    padding: 0.4rem;
+    margin: 0 0.5rem;
   }
   .links > .solid {
-    border-radius: 1vh;
+    border-radius: 0.5rem;
     background-color: #335cd2;
     color: white;
   }

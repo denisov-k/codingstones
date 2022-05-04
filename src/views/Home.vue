@@ -79,15 +79,15 @@ export default {
 
 <style scoped>
   main {
-    margin-top: -10vh;
-    /* min-width: 400px; */
+    margin-top: -4rem;
+    margin-bottom: -4rem;
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 0;
   }
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin: 3vh 0;
   }
   h3 {
@@ -113,7 +113,7 @@ export default {
   #analytic-examples {
     min-height: 100vh;
     color: black;
-    padding: 3rem;
+    padding: 4rem 2rem;
   }
   #analytic-examples h3 {
     display: flex;

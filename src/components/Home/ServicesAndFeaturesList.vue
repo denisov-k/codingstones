@@ -126,11 +126,10 @@ export default {
     width: 80%;
   }
   .lists {
-    width: 100%;
+    width: 50%;
     min-width: 300px;
     text-align: center;
     box-sizing: border-box;
-    padding: 0 15%;
     display: inline-flex;
     flex-flow: wrap;
     height: 100%;
@@ -150,7 +149,7 @@ export default {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 1vh 0;
+    padding: 0.5rem 0;
     border-bottom: 1px solid #565656;
   }
   .list-item:hover {
