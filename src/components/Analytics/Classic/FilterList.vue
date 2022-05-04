@@ -35,7 +35,7 @@ $container-color: #00000070;
   font-size: 1.2rem;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 0.7vh 1vw;
+  padding: 0.5rem;
   margin: 0.7rem;
 
   .multiselect__select {

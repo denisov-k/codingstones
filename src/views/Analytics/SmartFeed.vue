@@ -359,7 +359,7 @@ export default {
   }
 
   .widgets-feed {
-    max-height: 610px;
+    max-height: 75vh;
     display: flex;
     flex-direction: column;
   }

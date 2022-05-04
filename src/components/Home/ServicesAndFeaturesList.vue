@@ -76,11 +76,14 @@ export default {
       this.activeItemIndex = itemIndex;
       this.activeListIndex = listIndex;
     }
+  },
+  mounted() {
+
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   h3 {
     font-size: 2rem;
     margin: 1vh 0;
@@ -123,7 +126,7 @@ export default {
   }
   .service-icon {
     /*margin: 10px 0;*/
-    width: 80%;
+    width: 25rem;
   }
   .lists {
     width: 50%;
@@ -151,6 +154,7 @@ export default {
     text-overflow: ellipsis;
     padding: 0.5rem 0;
     border-bottom: 1px solid #565656;
+    animation: myanim 3s ease-out;
   }
   .list-item:hover {
     color: #e0e0e0;
@@ -158,6 +162,13 @@ export default {
   .list-item.selected {
     color: #83a0c5;
   }
+
+  @keyframes myanim {
+    20% {
+      border-color: red;
+    }
+  }
+
 </style>
 
 <i18n>

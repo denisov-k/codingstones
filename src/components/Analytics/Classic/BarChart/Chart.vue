@@ -81,6 +81,7 @@ export default {
           //name: 'Регион',
           nameLocation: "middle",
           axisLabel: {
+            fontSize: '1rem',
             formatter: (data) => {
               if (data.length > 40) {
                 return data.slice(0, 40) + '...';

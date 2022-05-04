@@ -1,6 +1,6 @@
 module.exports = {
   tooltip: {
-    extraCssText: "white-space:pre-wrap; max-width:400px;",
+    extraCssText: "white-space:pre-wrap; max-width:40vw; font-size: 1rem; padding: 0.5rem;",
     confine: true,
   },
   dataZoom: [
@@ -10,7 +10,8 @@ module.exports = {
       start: 80,
       end: 100,
       showDetail: false,
-      right: 20
+      right: 20,
+      width: '5%'
     },
     {
       type: 'inside',
@@ -20,10 +21,10 @@ module.exports = {
     },
   ],
   grid: {
-    top: 10,
-    left: 30,
-    right: 80,
-    bottom: 10,
+    top: '5%',
+    left: '5%',
+    right: '20%',
+    bottom: '5%',
     containLabel: true
   },
   xAxis: {
@@ -31,13 +32,14 @@ module.exports = {
     splitNumber: 2,
     /*name: 'Количество ошибок всего',*/
     axisLabel: {
+      fontSize: '1rem',
       formatter(item) {
         return item.toLocaleString();
       }
     },
     nameLocation: "middle",
     nameTextStyle: {
-      padding: [20, 0, 0, 0]
+      padding: ['20%', 0, 0, 0]
     }
   }
 }

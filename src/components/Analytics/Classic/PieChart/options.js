@@ -2,17 +2,18 @@ const options = {
   //color: ['#c23531','#5E6F7B', '#3192CB', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
   tooltip: {
     formatter: "{b}: {c}",
-    extraCssText: "white-space:pre-wrap; max-width:400px;",
+    extraCssText: "white-space:pre-wrap; max-width:40vw; font-size: 1rem; padding: 0.5rem;",
     confine: true,
   },
   series: [],
   legend: {
     icon: 'circle',
     type: 'scroll',
-    /*left: 20,
-    right: 20,*/
     padding: [0, 25],
-    bottom: 15,
+    bottom: '2%',
+    textStyle: {
+      fontSize: '1rem'
+    },
     orient: "horizontal"
   },
 };

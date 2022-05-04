@@ -10,6 +10,8 @@ import WidgetContainer from "@/components/Widget/Container";
 import * as echarts from "echarts";
 import defaultOptions from "./options";
 
+const symbol = 'path://M30.9,53.2C16.8,53.2,5.3,41.7,5.3,27.6S16.8,2,30.9,2C45,2,56.4,13.5,56.4,27.6S45,53.2,30.9,53.2z M30.9,3.5C17.6,3.5,6.8,14.4,6.8,27.6c0,13.3,10.8,24.1,24.101,24.1C44.2,51.7,55,40.9,55,27.6C54.9,14.4,44.1,3.5,30.9,3.5z M36.9,35.8c0,0.601-0.4,1-0.9,1h-1.3c-0.5,0-0.9-0.399-0.9-1V19.5c0-0.6,0.4-1,0.9-1H36c0.5,0,0.9,0.4,0.9,1V35.8z M27.8,35.8 c0,0.601-0.4,1-0.9,1h-1.3c-0.5,0-0.9-0.399-0.9-1V19.5c0-0.6,0.4-1,0.9-1H27c0.5,0,0.9,0.4,0.9,1L27.8,35.8L27.8,35.8z';
+
 import api from "@/services/api";
 
 export default {
@@ -44,6 +46,16 @@ export default {
       a.click();
     },
     getData() {
+
+      const symbolSize = () => {
+        const clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (!clientWidth)
+          return;
+        let fontSize = clientWidth / 1920;
+
+        return 60 * fontSize;
+      };
+
       let series = [
         {
           name: 'Rainfall',
@@ -52,6 +64,8 @@ export default {
             2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
           ],
           markPoint: {
+            symbolSize,
+            label: { fontSize: '1rem' },
             data: [
               {type: 'max', name: 'Max'},
               {type: 'min', name: 'Min'}
@@ -59,7 +73,7 @@ export default {
           },
           markLine: {
             data: [{type: 'average', name: 'Avg'}],
-            label: { position: 'middle' }
+            label: { position: 'middle', fontSize: '1rem' }
           }
         },
         {
@@ -69,6 +83,8 @@ export default {
             2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
           ],
           markPoint: {
+            symbolSize,
+            label: { fontSize: '1rem' },
             data: [
               {name: 'Max', value: 182.2, xAxis: 7, yAxis: 183},
               {name: 'Min', value: 2.3, xAxis: 11, yAxis: 3}
@@ -76,7 +92,7 @@ export default {
           },
           markLine: {
             data: [{type: 'average', name: 'Avg'}],
-            label: { position: 'middle' }
+            label: { position: 'middle', fontSize: '1rem' }
           }
         }
       ];
