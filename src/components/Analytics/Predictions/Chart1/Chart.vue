@@ -147,6 +147,7 @@ export default {
 <style scoped>
 #line_race {
   height: 100%;
+  min-height: 20vh;
 }
 
 .chart {

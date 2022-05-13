@@ -76,6 +76,7 @@ export default {
     background-position: center;
     display: flex;
     flex-direction: column;
+    overflow: auto;
   }
 
   .widget-container /deep/ {
@@ -85,7 +86,7 @@ export default {
       border-radius: 1rem;
     }
     .title {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       color: $text-color;
       margin: 0.5rem 0.75rem;
     }

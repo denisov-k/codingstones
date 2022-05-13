@@ -9,10 +9,14 @@ const options = {
   legend: {
     icon: 'circle',
     type: 'scroll',
-    padding: [0, 25],
-    right: '2%',
+    padding: [0, 0],
+    right: '15%',
+    top: 'center',
+    itemGap: 5,
+    itemWidth: 5,
+    itemHeight: 5,
     textStyle: {
-      fontSize: '1rem'
+      fontSize: '0.75rem',
     },
     orient: "vertical"
   },

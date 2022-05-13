@@ -53,7 +53,7 @@ export default {
     margin: 0 0.5rem;
   }
   .title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
   }
   .subtitle {

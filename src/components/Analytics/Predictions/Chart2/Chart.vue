@@ -145,7 +145,7 @@ export default {
 
 <style scoped>
 .chart-container {
-  height: 15vh;
+  height: 18vh;
 }
 
 .chart {

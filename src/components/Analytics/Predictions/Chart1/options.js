@@ -1,4 +1,5 @@
 const options = {
+  color: ['#5893b8', '#54c67c'],
   tooltip: {
     extraCssText: "display: flex; flex-direction: column;white-space:nowrap; max-width:40vw; font-size: 1rem; padding: 0.5rem;",
     formatter: function (params) {
@@ -38,6 +39,7 @@ const options = {
   yAxis: [
     {
       type: 'value',
+      splitNumber: 2,
       axisLabel: {
         fontSize: '1rem',
       }

@@ -66,15 +66,16 @@ export default {
           {
             name: 'Access From',
             type: 'pie',
-            radius: ['25%', '50%'],
+            /*roseType: 'radius',*/
+            radius: ['25%', '90%'],
+            center: ['25%', '50%'],
             label: {
-              fontSize: '1rem'
+              fontSize: '0.75rem',
+              position: 'inner',
+              formatter: '{c}'
             },
             itemStyle: {
-              borderRadius: 10,
-              borderColor: 'rgba(255,255,255,1)',
-              borderWidth: 2,
-
+              borderWidth: 0,
             },
             data: [
               {value: 1048, name: 'Search Engine'},
@@ -140,7 +141,7 @@ export default {
 
 <style scoped>
 .chart-container {
-  height: 15vh;
+  height: 18vh;
 }
 
 .chart {
@@ -152,11 +153,11 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Fractional structure of error types",
+    "title": "Daily income by categories",
     "subtitle": ""
   },
   "ru": {
-    "title": "Долевая структура типов ошибок",
+    "title": "Выручка за день по категориям",
     "subtitle": ""
   }
 }

@@ -124,7 +124,7 @@ export default {
 
 <style scoped>
   .kpi {
-    background-color: #5470c6;
+    background-color: #5893b8;
   }
   .chart {
     width: 100%;
