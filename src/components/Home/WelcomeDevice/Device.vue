@@ -138,7 +138,7 @@
     box-sizing: border-box;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 48em) {
     .device {
       aspect-ratio: 75 / 135;
       max-height: unset;

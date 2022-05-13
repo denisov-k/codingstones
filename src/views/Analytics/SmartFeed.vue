@@ -190,6 +190,7 @@ export default {
   .widget-container /deep/ {
     height: 75vh;
     margin: 10px 0;
+    padding: 0;
 
     .widget {
       background-color: $container-color;

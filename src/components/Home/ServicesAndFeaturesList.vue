@@ -86,7 +86,7 @@ export default {
 <style lang="scss" scoped>
   h3 {
     font-size: 2rem;
-    margin: 1vh 0;
+    margin: 1.25vh 0;
   }
 
   #services-and-features-container {
@@ -152,7 +152,7 @@ export default {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
     border-bottom: 1px solid #565656;
     animation: myanim 3s ease-out;
   }

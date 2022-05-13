@@ -191,7 +191,7 @@ export default {
     opacity: 0;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 48em) {
     .desktop > img {
       width: 35%;
     }

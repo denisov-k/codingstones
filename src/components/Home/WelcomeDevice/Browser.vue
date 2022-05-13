@@ -26,12 +26,19 @@
         <inline-svg :src="require('@/assets/welcome/browser/frames.svg')" />
       </div>
     </div>
-    <div class="analyst-screen"></div>
+    <div class="analyst-screen">
+      <predictions></predictions>
+    </div>
   </div>
 </template>
 
 <script>
+import Predictions from "@/views/Analytics/Predictions";
+
 export default {
+  components: {
+    Predictions
+  },
   name: "Browser"
 }
 </script>
@@ -68,7 +75,8 @@ export default {
     display: flex;
     min-height: 4vh;
     padding: 0 0.5rem;
-    background-color: #f6f6f6;
+    background-color: #fff;
+    border-bottom: 1px solid #e4e4e4;
   }
   .header > * {
     display: flex;
@@ -142,10 +150,9 @@ export default {
     height: -webkit-fill-available;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 48em) {
     .header {
-      min-height: 40px;
-      padding-bottom: 15px;
+      padding-bottom: 1rem;
       order: 1;
     }
     .window-controls {

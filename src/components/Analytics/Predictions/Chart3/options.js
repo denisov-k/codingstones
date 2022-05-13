@@ -10,11 +10,11 @@ const options = {
     icon: 'circle',
     type: 'scroll',
     padding: [0, 25],
-    bottom: '2%',
+    right: '2%',
     textStyle: {
       fontSize: '1rem'
     },
-    orient: "horizontal"
+    orient: "vertical"
   },
 };
 

@@ -342,7 +342,7 @@ export default {
     fill: #7c7c7c;
     height: 1rem;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 48em) {
     .sidebar {
       display: none;
     }
