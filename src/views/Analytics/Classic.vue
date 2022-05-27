@@ -115,7 +115,6 @@ export default {
     .button {
       fill: $text-color;
       padding: 0.5rem;
-      width: max-content;
       height: 1.15rem;
     }
   }

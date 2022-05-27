@@ -89,7 +89,7 @@ export default {
   margin: 0 0.5vw;
 }
 .button {
-  width: 16px;
+  aspect-ratio: 1;
   height: 16px;
   padding: 6px;
   display: flex;

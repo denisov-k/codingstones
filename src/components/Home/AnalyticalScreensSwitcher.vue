@@ -116,6 +116,7 @@ export default {
     text-decoration-line: underline;
     text-underline-position: under;
     text-decoration-color: #aeaeae;
+    white-space: nowrap;
   }
   .item.selected .label {
     color: black;
