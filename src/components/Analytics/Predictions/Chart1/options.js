@@ -15,15 +15,20 @@ const options = {
     trigger: 'axis'
   },
   legend: {
+    itemGap: 5,
+    itemWidth: 15,
+    itemHeight: 5,
     type: 'scroll',
     data: ['Rainfall', 'Evaporation'],
-    padding: [0, 25],
-    top: '0%',
+    padding: [0, 0],
+    top: 'center',
+    right: '5%',
     textStyle: {
       fontSize: '0.75rem',
+      lineHeight: 20,
       color: '#737373'
     },
-    orient: "horizontal"
+    orient: "vertical"
   },
   calculable: true,
   xAxis: [
@@ -32,7 +37,7 @@ const options = {
       // prettier-ignore
       data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       axisLabel: {
-        fontSize: '1rem',
+        fontSize: '0.75rem',
       }
     }
   ],
@@ -41,15 +46,15 @@ const options = {
       type: 'value',
       splitNumber: 2,
       axisLabel: {
-        fontSize: '1rem',
+        fontSize: '0.75rem',
       }
     }
   ],
   grid: {
-    top: '15%',
+    top: '5%',
     left: '2.5%',
-    right: '2.5%',
-    bottom: '2.5%',
+    right: '25%',
+    bottom: '5%',
     containLabel: true,
   },
 };

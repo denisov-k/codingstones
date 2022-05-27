@@ -83,13 +83,12 @@ export default {
   }
   .window-controls {
     margin-right: 10px;
-    width: 45px;
   }
   .window-controls > div {
-    width: 7px;
-    height: 7px;
-    border-radius: 20px;
-    margin: auto 2px;
+    height: 0.5rem;
+    aspect-ratio: 1;
+    border-radius: 1rem;
+    margin: auto 0.2rem;
   }
   .window-controls > div:nth-child(1) {
     background-color: #ff3400;
@@ -101,14 +100,13 @@ export default {
     background-color: #2a962a;
   }
   .navigation-controls {
-    margin-right: 10px;
-    width: 45px;
+    /*margin-right: 10px;*/
     display: none;
   }
   .navigation-controls > svg, .page-controls > svg {
-    height: 8px;
+    height: 0.6rem;
     width: auto;
-    margin: auto 3px;
+    margin: auto 0.3rem;
     fill: #757575;
   }
   .address-input {
@@ -117,30 +115,29 @@ export default {
     display: flex;
     background-color: #c7d8e8;
     margin: auto;
-    border-radius: 4px;
+    border-radius: 0.3rem;
     height: 66.6%;
     text-align: center;
-    padding: 0 5px;
+    padding: 0 0.4rem;
     box-sizing: border-box;
     align-items: center;
   }
   .address {
     display: flex;
-    font-size: 10px;
+    font-size: 0.8rem;
     color: #7c7c7c;
     margin: auto;
   }
   .address > .url {
-    margin-left: 1px;
+    /*margin-left: 1px;*/
   }
   .address-input svg {
-    height: 7px;
-    margin: auto 2px;
+    height: 0.6rem;
+    margin: auto 0.3rem;
     fill: #6a6a6a;
   }
   .page-controls {
-    margin-left: 10px;
-    width: 45px;
+    /*margin-left: 10px;*/
     justify-content: flex-end;
   }
 

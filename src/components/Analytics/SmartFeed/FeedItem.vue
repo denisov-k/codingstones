@@ -68,7 +68,7 @@ export default {
 
     .widget-container {
       margin: 0;
-      height: 300px;
+      height: 25rem;
       cursor: pointer;
 
       .widget {

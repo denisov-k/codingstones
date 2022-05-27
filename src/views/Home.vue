@@ -107,7 +107,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 0;
+    padding: 5rem 0;
     background-color: #080808;
   }
   #analytic-examples {

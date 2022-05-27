@@ -1,7 +1,7 @@
 <template>
   <k-p-i :title="$t('title', { value })" :subtitle="$t('subtitle')">
     <template v-slot:icon>
-      <inline-svg :src="require('../KPI1/icon.svg')" />
+      <inline-svg :src="require('./icon.svg')" />
     </template>
     <template v-slot:progress>
       <div class="chart" ref="chartContainer"></div>
@@ -124,11 +124,17 @@ export default {
 
 <style scoped>
   .kpi {
-    background-color: #5893b8;
+    /*background-color: #5893b8;*/
   }
   .chart {
     width: 100%;
     height: 100%;
+  }
+  .icon svg {
+    fill: #5893b8;
+  }
+  .kpi /deep/ .progress {
+    background-color: #5893b8;
   }
 </style>
 

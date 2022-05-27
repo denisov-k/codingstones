@@ -29,7 +29,7 @@ export default {
 {
   "en": {
     "title": "About us",
-    "description": ""
+    "description": "We are developing software products in the field of Business Intelligence and Data management. We are approached by companies seeking to improve the efficiency of their business."
   },
   "ru": {
     "title": "О нас",

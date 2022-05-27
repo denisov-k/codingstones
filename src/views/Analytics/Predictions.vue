@@ -77,11 +77,27 @@ export default {
     display: flex;
     flex-direction: column;
     overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 25px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ababab;
+      border-radius: 25px;
+    }
   }
 
   .widget-container /deep/ {
 
     .widget {
+      background-color: #b5b5b538;
       border: 0.125rem solid #d7d7d7;
       border-radius: 1rem;
     }

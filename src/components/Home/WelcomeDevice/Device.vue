@@ -21,7 +21,7 @@
 
 <script>
   import Desktop from "./Desktop";
-  import Messenger from "./Messenger";
+  import Messenger from "./Messenger/Messenger";
   import Browser from "./Browser";
 
   export default {

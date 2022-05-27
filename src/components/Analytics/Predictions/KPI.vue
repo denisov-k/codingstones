@@ -26,14 +26,17 @@ export default {
 <style scoped>
   .kpi {
     display: flex;
-    height: 4vh;
-    border-radius: 0.5rem;
+    height: 2.5rem;
     padding: 0.5rem;
-    margin: 0.5rem 0rem;
+    margin: 0.5rem 0;
+    background-color: #b5b5b538;
+    border: 0.125rem solid #d7d7d7;
+    border-radius: 1rem;
+    color: #737373;
   }
   .icon {
     fill: white;
-    background-color: #0000005e;
+    /*background-color: #0000005e;*/
     aspect-ratio: 1 / 1;
     height: 100%;
     box-sizing: border-box;
@@ -62,8 +65,9 @@ export default {
     text-align: left;
   }
   .progress {
-    height: 100%;
+    height: 2rem;
     aspect-ratio: 1 / 1;
+    opacity: 0.65;
     background-color: #0000005e;
     box-sizing: border-box;
     margin-left: auto;

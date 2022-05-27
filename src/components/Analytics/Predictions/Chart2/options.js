@@ -5,10 +5,9 @@ const options = {
       return `
         <b style="margin-bottom: 0.5rem;">${params[0].axisValueLabel}</b>
         <p style="margin: 0 0 0.5rem;">${params[0].marker} ${params[0].seriesName}:
-        <span style="border: 0.1rem dashed #737373;border-radius: 0.3rem;padding: 0 0.2rem;font-size: 0.8rem;">${params[0].value}</span></p>
+        <span>${params[0].value}</span></p>
         <p style="margin: 0;">${params[1].marker} ${params[1].seriesName}:
-        <span style="border: 0.1rem dashed #737373;border-radius: 0.3rem;padding: 0 0.2rem;font-size: 0.8rem;">${params[1].value}</span></p>
-        `
+        <span>${params[1].value}</span></p>`
     },
     confine: true,
     trigger: 'axis'
@@ -20,23 +19,24 @@ const options = {
       // prettier-ignore
       data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       axisLabel: {
-        fontSize: '1rem',
+        fontSize: '0.75rem',
       }
     }
   ],
   yAxis: [
     {
       type: 'value',
+      splitNumber: 2,
       axisLabel: {
-        fontSize: '1rem',
+        fontSize: '0.75rem',
       }
     }
   ],
   grid: {
     top: '5%',
-    left: '2.5%',
-    right: '2.5%',
-    bottom: '12.5%',
+    left: '5%',
+    right: '5%',
+    bottom: '5%',
     containLabel: true,
   },
 };
