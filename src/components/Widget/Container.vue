@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .widget-container {
-  padding: 0.5rem 0;
+  /*padding: 0.5rem 0;*/
   box-sizing: border-box;
   margin: 0;
   background-origin: content-box;

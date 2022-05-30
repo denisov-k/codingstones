@@ -94,7 +94,7 @@ export default {
 
 <style scoped>
   .navigation {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     color: #747474;
     margin: 3vh 0;
     text-align: center;
@@ -102,7 +102,7 @@ export default {
   .item {
     display: inline-flex;
     margin: 0 2%;
-    line-height: 3rem;
+    line-height: 2.5rem;
     align-items: center;
   }
   .item:first-child {
@@ -129,9 +129,8 @@ export default {
     fill: #929292;
     border-radius: 0.5vw;
     box-sizing: border-box;
-    height: 1.5rem;
-    margin-left: 0.3vw;
-    margin-top: 0.3vw;
+    height: 1.25rem;
+    margin: 0 0.3rem;
   }
   .item .external-link:hover {
     outline: 1px dashed #c8c8c8;

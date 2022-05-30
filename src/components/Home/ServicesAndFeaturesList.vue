@@ -16,7 +16,10 @@
             <div v-for="(item, index) in services" :key="index" class="list-item"
                  v-on:click="setActiveItem(index, 0)"
                  :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
-              {{ item.name }}
+              <span>{{ item.name }}</span>
+              <div class="progressbar">
+                <span class="progress"></span>
+              </div>
             </div>
           </div>
           <div class="list">
@@ -24,7 +27,10 @@
             <div v-for="(item, index) in features" :key="index" class="list-item"
                  v-on:click="setActiveItem(index, 1)"
                  :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
-              {{ item.name }}
+              <span>{{ item.name }}</span>
+              <div class="progressbar">
+                <span class="progress"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -44,7 +50,10 @@ export default {
   },
   computed: {
     activeItem: function () {
-      return [this.services, this.features][this.activeListIndex][this.activeItemIndex];
+      return this.activeList[this.activeItemIndex];
+    },
+    activeList: function () {
+      return this.activeListIndex === 0 ? this.services : this.features;
     },
     services: function() {
       const $t = this.$t.bind(this)
@@ -75,18 +84,28 @@ export default {
     setActiveItem(itemIndex, listIndex) {
       this.activeItemIndex = itemIndex;
       this.activeListIndex = listIndex;
+    },
+    setActiveNextItem() {
+      if (this.activeItemIndex >= this.activeList.length) {
+        this.activeItemIndex = 0;
+
+        this.activeItemIndex = this.activeItemIndex === 1 ? 0 : 1;
+      } else this.activeItemIndex = this.activeItemIndex + 1;
     }
   },
   mounted() {
-
+    const timeout = 5000;
+      setInterval(() => {
+        this.setActiveNextItem()
+      }, timeout);
   }
 }
 </script>
 
 <style lang="scss" scoped>
   h3 {
-    font-size: 2rem;
-    margin: 1.25vh 0;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
   }
 
   #services-and-features-container {
@@ -121,15 +140,15 @@ export default {
   .description {
     font-size: 1.25rem;
     margin: 5vh auto;
-    width: 90%;
+    width: 75%;
     text-align: center;
   }
   .service-icon {
     /*margin: 10px 0;*/
-    width: 25rem;
+    width: 20rem;
   }
   .lists {
-    width: 50%;
+    width: 45%;
     min-width: 300px;
     text-align: center;
     box-sizing: border-box;
@@ -148,27 +167,39 @@ export default {
     color: #cdcdcd;
     font-size: 1.25rem;
     cursor: pointer;
-    margin: 2% 0;
+    margin: 0.75rem 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #565656;
-    animation: myanim 3s ease-out;
+    /*border-bottom: 1px solid #565656;*/
   }
   .list-item:hover {
     color: #e0e0e0;
   }
   .list-item.selected {
     color: #83a0c5;
-  }
 
-  @keyframes myanim {
-    20% {
-      border-color: red;
+    span.progress {
+      width: 100%;
     }
   }
-
+  .progressbar {
+    position: relative;
+    width: 100%;
+    margin: 0.75rem auto;
+    height: 1px;
+    background: #565656;
+    overflow: hidden;
+  }
+  span.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: #83a0c5;
+    transition: width 5s ease-in-out;
+  }
 </style>
 
 <i18n>

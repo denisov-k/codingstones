@@ -95,6 +95,7 @@ export default {
   }
 
   .widget-container /deep/ {
+    margin: 0.7rem 0;
 
     .widget {
       background-color: #b5b5b538;

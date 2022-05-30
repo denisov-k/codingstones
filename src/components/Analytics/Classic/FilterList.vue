@@ -32,7 +32,7 @@ $container-color: #00000070;
   color: $text-color;
   border-radius: 0.5rem;
   border: 1px solid #d7d7d7;
-  font-size: 1.2rem;
+  font-size: 1rem;
   box-sizing: border-box;
   cursor: pointer;
   padding: 0.5rem;
@@ -47,6 +47,7 @@ $container-color: #00000070;
     transform: translate(0%, -50%);
     transition: transform .2s ease;
   }
+
   .multiselect__select:before {
     position: relative;
     right: 0;
@@ -57,6 +58,7 @@ $container-color: #00000070;
     border-color: #fbfbfb transparent transparent;
     content: "";
   }
+
   .multiselect__tags {
     padding: 0;
     display: flex;
@@ -66,25 +68,32 @@ $container-color: #00000070;
     .multiselect__strong {
       margin-left: 5px;
     }
+
     .multiselect__placeholder {
       padding: 2px 3px;
     }
   }
+
   .multiselect__element {
     margin: 1px 0;
   }
+
   .multiselect__element:first-child {
     margin-top: 0;
   }
+
   .multiselect__element:last-child {
     margin-bottom: 0;
   }
+
   .multiselect__element:has(.multiselect__option--selected) {
     background-color: green;
   }
+
   .multiselect__element:hover {
     background-color: #292929;
   }
+
   .multiselect__content-wrapper {
     background: #000000eb;
     width: 100%;
@@ -95,28 +104,34 @@ $container-color: #00000070;
     top: calc(100% - 5px);
     color: white;
   }
+
   .multiselect__content {
     width: 100%;
     list-style-type: none;
     padding-inline-start: 0;
     margin: auto;
   }
+
   .multiselect__tags-wrap {
     display: flex;
     flex-wrap: wrap;
   }
+
   .multiselect__strong {
 
   }
+
   .multiselect__option {
     display: flex;
     cursor: pointer;
     padding: 5px;
     box-sizing: border-box;
   }
+
   .multiselect__option--selected {
     background: #103b1b;
   }
+
   .tag {
     background-color: #0f0f0f;
     margin: 3px;
@@ -129,12 +144,15 @@ $container-color: #00000070;
     .option__title {
 
     }
+
     .option__title:first-child {
       margin-left: 0;
     }
+
     .option__title:last-child {
       margin-right: 0;
     }
+
     .multiselect__tag-icon {
       font-weight: 700;
       font-style: normal;
@@ -147,11 +165,13 @@ $container-color: #00000070;
       display: flex;
       justify-content: center;
     }
+
     .multiselect__tag-icon:after {
       content: "\D7";
       color: #5f5f5f;
       line-height: 16px;
     }
+
     .multiselect__tag-icon:hover {
       background-color: #0000004f;
     }

@@ -45,8 +45,8 @@ const options = {
   ],
   grid: {
     top: '5%',
-    left: '2.5%',
-    right: '2.5%',
+    left: '5%',
+    right: '5%',
     bottom: '12.5%',
     containLabel: true,
   },

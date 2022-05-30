@@ -40,7 +40,7 @@ export default {
     background-position: center;
   }
   .widget-container /deep/ {
-    margin: 10px 0;
+    margin: 0.7rem;
 
     .widget {
       background-color: #ffffff;

@@ -2,7 +2,12 @@
   {
     "value": "http://vec{s}.maps.yandex.net/tiles?l=map&v=4.55.2&z={z}&x={x}&y={y}&scale=2&lang=ru_RU",
     "label": "Yandex",
-    "subdomains": ["01", "02", "03", "04"]
+    "subdomains": [
+      "01",
+      "02",
+      "03",
+      "04"
+    ]
   },
   {
     "value": "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png",

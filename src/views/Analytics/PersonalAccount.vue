@@ -83,15 +83,20 @@ export default {
   }
 
   .widget-container /deep/ {
+    margin: 0.7rem;
+
     .widget {
       background-color: unset;
       border: 1px solid #00000052;
     }
     .widget-header {
       .title {
+        font-size: 1rem;
         color: $text-color;
       }
       .button {
+        height: 1rem;
+        padding: 0 0.4rem;
         fill: $text-color;
       }
     }

@@ -15,7 +15,7 @@ import api from "@/services/api";
 
 export default {
   name: "TreeChart",
-  components: {  WidgetContainer },
+  components: {WidgetContainer},
   computed: {
     selectedRegions() {
       return this.$store.state.session.filters.filter(item => this.watchableFields.includes(item.name)).map(item => item.value);
@@ -35,9 +35,7 @@ export default {
       data: [],
       watchableFields: ['region'],
 
-      extraButtons: [
-
-      ]
+      extraButtons: []
     }
   },
   methods: {
@@ -53,9 +51,9 @@ export default {
 
       this.isLoading = true;
 
-      this.getData().then(({ series }) => {
+      this.getData().then(({series}) => {
 
-        this.paintChart({ xAxes: [], yAxes: [], series: [series] });
+        this.paintChart({xAxes: [], yAxes: [], series: [series]});
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
@@ -64,8 +62,8 @@ export default {
     },
     getData() {
 
-      let dataReq = this.data.length ? Promise.resolve({ data: this.data}) :
-          api.request(this.dataURL, {}, null, 'get', { baseURL: '/' });
+      let dataReq = this.data.length ? Promise.resolve({data: this.data}) :
+          api.request(this.dataURL, {}, null, 'get', {baseURL: '/'});
 
       return dataReq.then(({data}) => {
 
@@ -85,13 +83,13 @@ export default {
           rtnData[foundInd].value += el.total;
         });
 
-        return { series: rtnData };
+        return {series: rtnData};
       })
     },
     paintChart({xAxes, yAxes, series}) {
 
-      if (!this.selectedRegions.length)
-        return this.catchError('Выберите элемент на графике "Количество ошибок"')
+     /* if (!this.selectedRegions.length)
+        return this.catchError('Выберите элемент на графике "Количество ошибок"')*/
 
       const options = {
         ...defaultOptions,
@@ -160,7 +158,7 @@ export default {
               }
             }
           ],
-          breadcrumb: { show: true, bottom: 10, top: 'auto' }
+          breadcrumb: {show: true, bottom: 10, top: 'auto'}
         }]
       }
 
@@ -209,6 +207,7 @@ export default {
 #tree-chart-1 {
   height: 55vh;
 }
+
 .chart {
   width: -webkit-fill-available;
   height: 100%;

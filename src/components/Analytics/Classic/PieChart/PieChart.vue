@@ -21,9 +21,7 @@ export default {
       chart: Object,
       dataURL: 'data/classic/piechart.json',
       // dataURL: 'api/app2/page_2/pie_2',
-      extraButtons: [
-
-      ]
+      extraButtons: []
     }
   },
   methods: {

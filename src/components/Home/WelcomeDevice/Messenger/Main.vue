@@ -159,7 +159,7 @@ export default {
             margin-bottom: 1vh;
           }
           span {
-            color: #000000;
+            color: #4c4b4b;
             text-align: left;
             font-size: .9rem;
           }

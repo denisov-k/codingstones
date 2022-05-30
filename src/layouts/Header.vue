@@ -95,7 +95,7 @@ export default {
   }
 
   .links {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #b7b7b7;
     align-self: center;
   }

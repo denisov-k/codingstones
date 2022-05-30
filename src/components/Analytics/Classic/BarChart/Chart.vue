@@ -15,7 +15,7 @@ import api from "@/services/api";
 
 export default {
   name: "BarChart",
-  components: {  WidgetContainer },
+  components: {WidgetContainer},
   props: {},
   data() {
     return {
@@ -25,14 +25,14 @@ export default {
       // dataURL: 'api/app2/page_2/barchart',
       watchableFields: ['region'],
       extraButtons: [
-        { icon: require('@/assets/widget/clear.svg'), onClick: this.clearAllSelections },
+        {icon: require('@/assets/widget/clear.svg'), onClick: this.clearAllSelections},
       ]
     }
   },
   methods: {
     exportImage() {
       let a = document.createElement("a"),
-          image = this.chart.getDataURL({ pixelRatio: 2, backgroundColor: '#fff' });
+          image = this.chart.getDataURL({pixelRatio: 2, backgroundColor: '#fff'});
 
       a.href = image;
       a.download = "Image.png";
@@ -41,20 +41,20 @@ export default {
     setupChart() {
       this.isLoading = true;
 
-      this.getData().then(({ xAxes, series }) => {
+      this.getData().then(({xAxes, series}) => {
 
-        this.paintChart({ xAxes, yAxes: [], series });
-        this.setupEvents({ xAxes });
+        this.paintChart({xAxes, yAxes: [], series});
+        this.setupEvents({xAxes});
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
-    setupEvents({ xAxes }) {
+    setupEvents({xAxes}) {
       this.chart.on('selectchanged', (params) => {
         let selectedRegions = [];
 
         if (params.selected.length)
           selectedRegions = params.selected[0].dataIndex.map(item => {
-            return { name: 'region', value: xAxes[0][item], id: item } // FIXME
+            return {name: 'region', value: xAxes[0][item], id: item} // FIXME
           });
 
         this.$store.commit('setFilters', selectedRegions);
@@ -104,7 +104,7 @@ export default {
             },
             tooltip: {
               show: true,
-              formatter: function(item) {
+              formatter: function (item) {
                 return `${item.name}: <b>${item.value.toLocaleString()}</b>`;
               }
             }
@@ -121,7 +121,7 @@ export default {
       const X_AXIS_KEY = 'region';
       const Y_AXIS_KEY = 'errors';
 
-      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
+      return api.request(this.dataURL, {}, null, 'get', {baseURL: '/'}).then(({data}) => {
         data.sort((a, b) => parseFloat(a[Y_AXIS_KEY]) - parseFloat(b[Y_AXIS_KEY]));
         const xArray = [];
         const yArray = [];
@@ -129,10 +129,10 @@ export default {
         data.forEach((el) => {
           const formatedYData = Math.round(parseFloat(el[Y_AXIS_KEY]));
           xArray.push(el[X_AXIS_KEY]);
-          yArray.push({ value: formatedYData });
+          yArray.push({value: formatedYData});
         });
 
-        return { xAxes: [xArray], series: [yArray] }
+        return {xAxes: [xArray], series: [yArray]}
       })
     },
     catchError(e) {
@@ -178,6 +178,7 @@ export default {
 #bar-chart-1 {
   height: 55vh;
 }
+
 .chart {
   width: -webkit-fill-available;
   height: 100%;

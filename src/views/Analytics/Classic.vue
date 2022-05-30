@@ -108,14 +108,14 @@ export default {
       border-radius: 1rem;
     }
     .title {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: $text-color;
       margin: 0.75rem;
     }
     .button {
       fill: $text-color;
-      padding: 0.5rem;
-      height: 1.15rem;
+      padding: 0 0.4rem;
+      height: 1rem;
     }
   }
 

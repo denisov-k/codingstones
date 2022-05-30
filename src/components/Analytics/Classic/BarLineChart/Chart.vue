@@ -23,7 +23,7 @@ export default {
       const icon = this.seriesType === 'bar' ? require('./assets/line.svg') : require('./assets/bar.svg');
 
       return [
-        { icon, onClick: this.switchType, title: $t('switch_type') },
+        {icon, onClick: this.switchType, title: $t('switch_type')},
       ]
     }
   },
@@ -65,7 +65,7 @@ export default {
           ],
           markPoint: {
             symbolSize,
-            label: { fontSize: '1rem' },
+            label: {fontSize: '1rem'},
             data: [
               {type: 'max', name: 'Max'},
               {type: 'min', name: 'Min'}
@@ -73,7 +73,7 @@ export default {
           },
           markLine: {
             data: [{type: 'average', name: 'Avg'}],
-            label: { position: 'middle', fontSize: '1rem' }
+            label: {position: 'middle', fontSize: '1rem'}
           }
         },
         {
@@ -84,7 +84,7 @@ export default {
           ],
           markPoint: {
             symbolSize,
-            label: { fontSize: '1rem' },
+            label: {fontSize: '1rem'},
             data: [
               {name: 'Max', value: 182.2, xAxis: 7, yAxis: 183},
               {name: 'Min', value: 2.3, xAxis: 11, yAxis: 3}
@@ -92,22 +92,22 @@ export default {
           },
           markLine: {
             data: [{type: 'average', name: 'Avg'}],
-            label: { position: 'middle', fontSize: '1rem' }
+            label: {position: 'middle', fontSize: '1rem'}
           }
         }
       ];
 
-      return Promise.resolve({ series });
+      return Promise.resolve({series});
     },
     setupChart() {
       this.resizeObserver = new ResizeObserver(([$container]) => this.repaint($container));
       this.resizeObserver.observe(this.$el)
 
-      this.getData().then(({ series }) => {
+      this.getData().then(({series}) => {
 
         this.series = series;
 
-        this.paintChart({ series });
+        this.paintChart({series});
 
       }).catch(e => this.catchError(e)).finally(() => this.isLoading = false);
     },
@@ -117,9 +117,9 @@ export default {
       this.series[0].type = this.seriesType;
       this.series[1].type = this.seriesType;
 
-      this.chart.setOption({ series: this.series });
+      this.chart.setOption({series: this.series});
     },
-    paintChart({ series }) {
+    paintChart({series}) {
       const options = {
         ...defaultOptions,
         series

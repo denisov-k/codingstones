@@ -21,7 +21,7 @@ export default {
 <style scoped>
   .profile {
     height: 400px;
-    margin: 10px;
+    margin: 0.7rem;
     border: 1px solid #00000052;
     border-radius: 20px;
   }

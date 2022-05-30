@@ -20,7 +20,7 @@ const COLORS = ['green', 'white', 'red', 'orange', 'yellow', 'black']
 
 export default {
   name: "Map",
-  components: {  WidgetContainer },
+  components: {WidgetContainer},
   props: {
     tile: Object
   },
@@ -37,21 +37,21 @@ export default {
   },
   methods: {
     getData(count) {
-      return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' }).then(({data}) => {
-      // return api.request(this.dataURL).then((response) => {
-        return { points: data }
+      return api.request(this.dataURL, {}, null, 'get', {baseURL: '/'}).then(({data}) => {
+        // return api.request(this.dataURL).then((response) => {
+        return {points: data}
       })
     },
     setupChart() {
       this.chart = leaflet.map('chartContainer').setView([56.126944, 43.8915], 11);
 
-      this.getData().then(({ points }) => {
-        this.paintChart({ points, baseLayer: this.baseLayer })
+      this.getData().then(({points}) => {
+        this.paintChart({points, baseLayer: this.baseLayer})
 
         this.isLoading = false;
       })
     },
-    paintChart({ points, baseLayer }) {
+    paintChart({points, baseLayer}) {
 
       this.chart.options.crs = leaflet.CRS.EPSG3395;
 
@@ -67,14 +67,14 @@ export default {
       let markersLayer = this.setMarkers(points);
 
       let controlSearch = new L.Control.Search({
-        position:'topright',
+        position: 'topright',
         layer: markersLayer,
         initial: false,
         zoom: 12,
         marker: false
       });
 
-      this.chart.addControl( controlSearch );
+      this.chart.addControl(controlSearch);
 
       L.control.lasso({}).addTo(this.chart);
 
@@ -85,7 +85,7 @@ export default {
       //setInterval(fillMarkers, 10000);
     },
     setMarkers(points) {
-      let markersGroup = leaflet.markerClusterGroup({ chunkedLoading: true }),
+      let markersGroup = leaflet.markerClusterGroup({chunkedLoading: true}),
           markers = [];
 
       for (let point of points) {
@@ -94,7 +94,7 @@ export default {
 
         let markerIcon = leaflet.divIcon({
           className: ``,
-          iconSize: [20, 20] ,
+          iconSize: [20, 20],
           html: `<div alt="LOL" class='blob ${color}'></div>`,
         });
 
@@ -150,15 +150,18 @@ function getRandomInt(max) {
 #map {
   height: 55vh;
 }
+
 .chart /deep/ {
   height: 100%;
 
   .leaflet-control-search {
     display: flex;
   }
+
   .leaflet-control-search .search-input {
     margin: auto 0 auto 4px;
   }
+
   .blob {
     background: #367dc3;
     border-radius: 50%;

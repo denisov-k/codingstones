@@ -79,6 +79,7 @@ export default {
       }
       .widget-header {
         .title {
+          font-size: 1rem;
           color: $text-color;
         }
 

@@ -158,9 +158,8 @@ export default {
 
   #smart-feed {
     display: flex;
-    align-items: center;
     width: 100%;
-    height: 100%;
+    /*height: 80vh;*/
     box-sizing: border-box;
     padding: 1%;
     background-color: #373737;
@@ -168,15 +167,17 @@ export default {
     background-position: center;
 
     .row {
-      width: 100%;
-      margin: 0;
+      /*width: 100%;*/
+      /*margin: 0;*/
     }
 
     .title {
+      font-size: 1rem;
       color: $text-color;
       margin: 20px 10px;
     }
     .subtitle {
+      font-size: 1rem;
       color: $text-color;
       margin: 20px 10px;
     }
@@ -189,7 +190,7 @@ export default {
   }
   .widget-container /deep/ {
     height: 75vh;
-    margin: 10px 0;
+    margin: 0.7rem;
     padding: 0;
 
     .widget {
@@ -197,17 +198,20 @@ export default {
     }
     .widget-header {
       .title {
+        font-size: 1rem;
         color: $text-color;
       }
 
       .button {
+        height: 1rem;
+        padding: 0 0.4rem;
         fill: $text-color;
       }
     }
   }
 
   .widgets-search /deep/ {
-    margin: 10px 0;
+    margin: 1rem 0;
 
     :focus-visible {
       outline: unset;
@@ -219,7 +223,7 @@ export default {
       color: $text-color;
       border-radius: 5px;
       border: unset;
-      font-size: 12px;
+      font-size: 1rem;
       box-sizing: border-box;
       cursor: pointer;
       padding: 5px 30px 5px 5px;
@@ -344,27 +348,12 @@ export default {
     }
   }
 
-  .widgets-list::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  .widgets-list::-webkit-scrollbar-track {
-    background-color: black;
-    border-radius: 25px;
-  }
-
-  .widgets-list::-webkit-scrollbar-thumb {
-    background: #4e4e4e;
-    border-radius: 25px;
-  }
-
   .widgets-feed {
     max-height: 75vh;
     display: flex;
     flex-direction: column;
   }
-  .widgets-list /deep/ {
+  .widgets-list {
     overflow: auto;
     /*margin: 10px 0 0 0;*/
     display: flex;
@@ -378,14 +367,29 @@ export default {
       border-radius: 5px;
       box-sizing: border-box;
     }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: black;
+      border-radius: 25px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #4e4e4e;
+      border-radius: 25px;
+    }
   }
 
   @media only screen and (max-width: 1024px) {
     .widgets-search {
-      margin: 10px;
+      /*margin: 10px;*/
     }
     .widgets-list /deep/ {
-      margin: 10px;
+      /*margin: 10px;*/
       white-space: nowrap;
       flex-direction: row;
 
