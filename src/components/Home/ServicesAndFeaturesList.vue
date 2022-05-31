@@ -73,10 +73,10 @@ export default {
       const $t = this.$t.bind(this)
 
       return [
-        { name: 'Современные подход и технологии', description: 'test' },
-        { name: 'Различные форматы', description: 'Различные форматы (классическая аналитика, соц.сети и т.д.)' },
-        { name: 'Уникальный дизайн', description: 'test' },
-        { name: 'Независимость от вендора', description: 'test' },
+        { name: $t('features.modern_approach.name'), description: $t('features.modern_approach.description') },
+        { name: $t('features.various_formats.name'), description: $t('features.various_formats.description') },
+        { name: $t('features.unique_design.name'), description: $t('features.unique_design.description') },
+        { name: $t('features.vendor_independence.name'), description: $t('features.vendor_independence.description') },
       ]
     }
   },
@@ -217,27 +217,43 @@ export default {
         },
         "data_modeling": {
           "name": "Data modeling",
-          "description": "Создание схемы данных в нормализованном виде"
+          "description": "Creating a Normalized Data Schema"
         },
         "data_connecting": {
           "name": "Data connecting",
-          "description": "Конфигурация планировщика и адаптеров для работы с источниками данных"
+          "description": "Scheduler and adapters configuration for working with data sources"
         },
         "visualisation": {
           "name": "Creating visualisation layer",
-          "description": "Подготовка макета и разработка визуального слоя"
+          "description": "Preparing the layout and developing the visual layer"
         },
         "integration": {
           "name": "Solution integration",
-          "description": "Интеграция аналитического решения в контур заказчика"
+          "description": "Integration of an analytical solution into the customer's circuit"
         },
         "support": {
           "name": "Support",
-          "description": "Поддержка"
+          "description": "Support"
         }
       },
       "features": {
-        "list_name": "Features"
+        "list_name": "Features",
+        "modern_approach": {
+          "name": "Modern approach and technologies",
+          "description": "Our specialists live in IT, so they are aware of the trends of the technological world. We keep the balance of the past and the future, because our decisions are in time and place."
+        },
+        "various_formats": {
+          "name": "Various formats of analytics",
+          "description": ""
+        },
+        "unique_design": {
+          "name": "Unique design",
+          "description": "We will prepare several variations of the layout, in accordance with the color base of your organization."
+        },
+        "vendor_independence": {
+          "name": "Vendor Independence",
+          "description": "Our technology stack policy is transparent."
+        }
       }
     },
     "ru": {
@@ -273,7 +289,23 @@ export default {
         }
       },
       "features": {
-        "list_name": "Особенности"
+        "list_name": "Особенности",
+        "modern_approach": {
+          "name": "Современный подход и технологии",
+          "description": "Наши специалисты живут IT, поэтому вкурсе тенденций технологического мира. Мы соблюдаем баланс прошлого и будущего, потому наши решения ко времени и месту."
+        },
+        "various_formats": {
+          "name": "Различные форматы аналитики",
+          "description": ""
+        },
+        "unique_design": {
+          "name": "Уникальный дизайн",
+          "description": "Мы подготовим несколько вариаций макета, в соответствии с цветовым базисом вашей организации."
+        },
+        "vendor_independence": {
+          "name": "Независимость от вендора",
+          "description": "Наша политика при выборе технологического стека прозрачна."
+        }
       }
     }
   }
