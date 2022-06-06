@@ -181,34 +181,35 @@ export default {
       color: $text-color;
       margin: 20px 10px;
     }
-  }
+    .widget-container /deep/ {
+      height: 75vh;
+      margin: 0.7rem;
+      padding: 0;
 
-  .widget-container.expanded /deep/ {
-    .widget {
-      background-color: #1f1f1f;
-    }
-  }
-  .widget-container /deep/ {
-    height: 75vh;
-    margin: 0.7rem;
-    padding: 0;
-
-    .widget {
-      background-color: $container-color;
-    }
-    .widget-header {
-      .title {
-        font-size: 1rem;
-        color: $text-color;
+      .widget {
+        background-color: $container-color;
       }
+      .widget-header {
+        .title {
+          font-size: 1rem;
+          color: $text-color;
+        }
 
-      .button {
-        height: 1rem;
-        padding: 0 0.4rem;
-        fill: $text-color;
+        .button {
+          height: 1rem;
+          padding: 0 0.4rem;
+          fill: $text-color;
+        }
       }
     }
+    .widget-container.expanded /deep/ {
+      .widget {
+        background-color: #1f1f1f;
+      }
+    }
   }
+
+
 
   .widgets-search /deep/ {
     margin: 1rem 0;

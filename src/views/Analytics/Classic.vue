@@ -98,25 +98,24 @@ export default {
       color: $text-color;
       margin: 20px 10px;
     }
+
+    .widget-container /deep/ {
+      margin: 0.7rem;
+
+      .widget {
+        border: 0.125rem solid #d7d7d7;
+        border-radius: 1rem;
+      }
+      .title {
+        font-size: 1rem;
+        color: $text-color;
+        margin: 0.75rem;
+      }
+      .button {
+        fill: $text-color;
+        padding: 0 0.4rem;
+        height: 1rem;
+      }
+    }
   }
-
-  .widget-container /deep/ {
-    margin: 0.7rem;
-
-    .widget {
-      border: 0.125rem solid #d7d7d7;
-      border-radius: 1rem;
-    }
-    .title {
-      font-size: 1rem;
-      color: $text-color;
-      margin: 0.75rem;
-    }
-    .button {
-      fill: $text-color;
-      padding: 0 0.4rem;
-      height: 1rem;
-    }
-  }
-
 </style>

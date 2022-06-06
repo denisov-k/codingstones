@@ -17,9 +17,7 @@
                  v-on:click="setActiveItem(index, 0)"
                  :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
               <span>{{ item.name }}</span>
-              <div class="progressbar">
-                <span class="progress"></span>
-              </div>
+              <div class="underline"></div>
             </div>
           </div>
           <div class="list">
@@ -28,9 +26,7 @@
                  v-on:click="setActiveItem(index, 1)"
                  :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
               <span>{{ item.name }}</span>
-              <div class="progressbar">
-                <span class="progress"></span>
-              </div>
+              <div class="underline"></div>
             </div>
           </div>
         </div>
@@ -86,11 +82,17 @@ export default {
       this.activeListIndex = listIndex;
     },
     setActiveNextItem() {
-      if (this.activeItemIndex >= this.activeList.length) {
+      if (this.activeItemIndex + 1 === this.activeList.length) {
+
         this.activeItemIndex = 0;
 
-        this.activeItemIndex = this.activeItemIndex === 1 ? 0 : 1;
+        this.activeListIndex = this.activeListIndex === 1 ? 0 : 1;
       } else this.activeItemIndex = this.activeItemIndex + 1;
+    }
+  },
+  watch: {
+    activeItemIndex(value) {
+      console.log(value)
     }
   },
   mounted() {
@@ -183,22 +185,22 @@ export default {
       width: 100%;
     }
   }
-  .progressbar {
+  .underline {
     position: relative;
     width: 100%;
     margin: 0.75rem auto;
     height: 1px;
-    background: #565656;
     overflow: hidden;
+
+    background: linear-gradient(to right, black 50%, transparent 0);
+    background-size: 200% 100%;
+    background-position: right;
+    animation: makeItfadeIn 3s 1s forwards;
   }
-  span.progress {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 0;
-    background: #83a0c5;
-    transition: width 5s ease-in-out;
+  @keyframes makeItfadeIn {
+    100% {
+      background-position: left;
+    }
   }
 </style>
 
