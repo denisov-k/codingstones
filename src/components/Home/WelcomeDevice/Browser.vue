@@ -1,34 +1,36 @@
 <template>
-  <div class="browser">
-    <slot></slot>
-    <div class="header">
-      <div class=""></div>
-      <div class="window-controls">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="navigation-controls">
-        <inline-svg :src="require('@/assets/welcome/browser/arrow-left.svg')" />
-        <inline-svg :src="require('@/assets/welcome/browser/arrow-right.svg')" />
-      </div>
-      <div class="address-input">
-        <inline-svg :src="require('@/assets/welcome/browser/read.svg')" />
-        <div class="address">
-          <inline-svg :src="require('@/assets/welcome/browser/lock-close.svg')" />
-          <span class="url">{{ $t('address') }}</span>
+  <div class="browser-screen">
+    <slot name="header"></slot>
+    <div class="browser">
+      <div class="header">
+        <div class="window-controls">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-        <inline-svg :src="require('@/assets/welcome/browser/reload.svg')" />
+        <div class="navigation-controls">
+          <inline-svg :src="require('@/assets/welcome/browser/arrow-left.svg')" />
+          <inline-svg :src="require('@/assets/welcome/browser/arrow-right.svg')" />
+        </div>
+        <div class="address-input">
+          <inline-svg :src="require('@/assets/welcome/browser/read.svg')" />
+          <div class="address">
+            <inline-svg :src="require('@/assets/welcome/browser/lock-close.svg')" />
+            <span class="url">{{ $t('address') }}</span>
+          </div>
+          <inline-svg :src="require('@/assets/welcome/browser/reload.svg')" />
+        </div>
+        <div class="page-controls">
+          <inline-svg :src="require('@/assets/welcome/browser/share.svg')" />
+          <inline-svg :src="require('@/assets/welcome/browser/plus.svg')" />
+          <inline-svg :src="require('@/assets/welcome/browser/frames.svg')" />
+        </div>
       </div>
-      <div class="page-controls">
-        <inline-svg :src="require('@/assets/welcome/browser/share.svg')" />
-        <inline-svg :src="require('@/assets/welcome/browser/plus.svg')" />
-        <inline-svg :src="require('@/assets/welcome/browser/frames.svg')" />
+      <div class="analyst-screen">
+        <predictions></predictions>
       </div>
     </div>
-    <div class="analyst-screen">
-      <predictions></predictions>
-    </div>
+    <slot name="footer"></slot>
   </div>
 </template>
 
@@ -55,28 +57,33 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
+  .browser-screen {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+    background-color: #141414;
+  }
   .browser {
     height: 100%;
     position: relative;
     display: flex;
-    background-color: #e6e6e6;
     flex-direction: column;
     overflow: hidden;
   }
   .mobile-header /deep/ {
-    color: #0c0c0c;
+    color: #757575;
 
     svg {
-      fill: #0c0c0c !important;
+      fill: #757575 !important;
     }
   }
 
   .header {
     display: flex;
-    min-height: 4vh;
+    height: 3vh;
     padding: 0 0.5rem;
-    background-color: #fff;
-    border-bottom: 1px solid #e4e4e4;
+    background-color: #141414;
+    box-sizing: border-box;
   }
   .header > * {
     display: flex;
@@ -113,7 +120,7 @@ export default {
     width: 50%;
     min-width: 120px;
     display: flex;
-    background-color: #c7d8e8;
+    background-color: #323232;
     margin: auto;
     border-radius: 0.3rem;
     height: 66.6%;
@@ -142,15 +149,23 @@ export default {
   }
 
   .analyst-screen {
-    background-color: rgb(230, 230, 230);
+    background-color: #f2f2f2;
     display: flex;
-    height: calc(100% - 4vh);
+    height: 0;
+    flex: 1;
+    margin: 0;
+    flex-direction: column;
+    box-sizing: border-box;
   }
 
   @media only screen and (max-width: 48em) {
     .header {
-      padding-bottom: 1rem;
+      height: 4vh;
       order: 1;
+      border-bottom: 0;
+    }
+    .analyst-screen {
+      height: calc(100% - 11vh);
     }
     .window-controls {
       display: none;

@@ -65,14 +65,16 @@ export default {
 </i18n>
 
 <style lang="scss" scoped>
-  $text-color: #737373;
+  $text-color: #b8b8b8;
+  $background: #1c1c1c;
 
   #predictions {
     width: 100%;
     box-sizing: border-box;
     padding: 2%;
-    background-color: #eceef0;
-    background-image: url("@/assets/analytics/classic/background.png");
+    background-color: #1c1c1c;
+    background-image: url("@/assets/analytics/predictions/background.png");
+    background-size: 45%;
     background-position: center;
     display: flex;
     flex-direction: column;
@@ -84,38 +86,43 @@ export default {
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: unset;
       border-radius: 25px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: #ababab;
+      background: #141414;
       border-radius: 25px;
     }
-  }
 
-  .widget-container /deep/ {
-    margin: 0.7rem 0;
+    .widget-container /deep/ {
+      margin: 0.7rem 0;
 
-    .widget {
-      background-color: #b5b5b538;
-      border: 0.125rem solid #d7d7d7;
-      border-radius: 1rem;
+      .widget {
+        background-color: $background;
+        /*border: 0.125rem solid #d7d7d7;*/
+        border-radius: 1rem;
+      }
+      .title {
+        font-size: 0.75rem;
+        color: $text-color;
+        margin: 0.5rem 0.75rem;
+      }
+      .widget-buttons {
+        display: none;
+      }
+      .button {
+        fill: $text-color;
+        padding: 0.5rem;
+        width: max-content;
+        height: 1.15rem;
+      }
     }
-    .title {
-      font-size: 0.75rem;
+    .kpi /deep/ {
       color: $text-color;
-      margin: 0.5rem 0.75rem;
-    }
-    .widget-buttons {
-      display: none;
-    }
-    .button {
-      fill: $text-color;
-      padding: 0.5rem;
-      width: max-content;
-      height: 1.15rem;
+      background-color: $background;
+      border: none;
+      border-radius: 0.75rem;
     }
   }
-
 </style>

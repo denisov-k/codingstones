@@ -67,7 +67,7 @@ export default {
             name: 'Access From',
             type: 'pie',
             /*roseType: 'radius',*/
-            radius: ['25%', '90%'],
+            radius: ['25%', '80%'],
             center: ['25%', '50%'],
             label: {
               fontSize: '0.75rem',

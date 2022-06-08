@@ -1,5 +1,5 @@
 <template>
-  <div id="services-and-features-container" class="container">
+  <Observer id="services-and-features-container" class="container" @on-change="onChange">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <div class="info">
@@ -36,15 +36,20 @@
         </div>
       </div>
     </div>
-  </div>
+  </Observer>
 </template>
 
 <script>
+import Observer from 'vue-intersection-observer'
+
 export default {
   name: "ServicesAndFeaturesList",
+  components: {
+    Observer
+  },
   data() {
     return {
-      activeItemIndex: 0,
+      activeItemIndex: -1,
       activeListIndex: 0,
       images: [
         [
@@ -67,7 +72,7 @@ export default {
   },
   computed: {
     activeItem() {
-      return this.activeList[this.activeItemIndex];
+      return this.activeList[this.activeItemIndex] || {};
     },
     activeList() {
       return this.activeListIndex === 0 ? this.services : this.features;
@@ -127,15 +132,21 @@ export default {
       return setInterval(() => {
         this.setActiveNextItem()
       }, timeout);
+    },
+    onChange(entry, unobserve) {
+      if (entry.isIntersecting) {
+        this.setActiveItem(0, 0);
+        unobserve()
+      }
     }
   },
   watch: {
     activeItemIndex(value) {
-      console.log(value)
+
     }
   },
   mounted() {
-    this.interval = this.launchInterval();
+
   }
 }
 </script>
@@ -149,10 +160,11 @@ export default {
   #services-and-features-container {
     display: flex;
     justify-content: center;
-    padding: 60px 0;
     background-color: #080808;
     width: 100%;
     min-height: 80vh;
+    padding: 6rem clamp(1vw, 5%, 5vw);
+    box-sizing: border-box;
   }
   #services-and-features-container > div {
     width: 100%;
@@ -163,31 +175,32 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-width: 300px;
+   /* min-width: 300px;*/
     margin: 0;
     border-width: 1px 1px 1px 1px;
     /*border-style: solid;*/
     border-color: #565656;
-    padding: 0 15%;
+    padding: 0 3rem;
     box-sizing: border-box;
-    width: 100%;
+    /*width: 100%;*/
   }
   .info img {
-    width: 100%;
+     width: 20rem;
   }
   .description {
     font-size: 1.25rem;
     margin: 5vh auto;
-    width: 75%;
+    /*width: 75%;*/
     text-align: center;
   }
   .service-icon {
     /*margin: 10px 0;*/
-    width: 20rem;
+    /*width: 20rem;*/
   }
   .lists {
-    width: 45%;
-    min-width: 300px;
+    /*width: 45%;
+    min-width: 300px;*/
+    padding: 0 3rem;
     text-align: center;
     box-sizing: border-box;
     display: inline-flex;
@@ -196,7 +209,7 @@ export default {
     align-content: center;
   }
   .lists > div:nth-child(1) {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
   }
   .list {
     width: 100%;

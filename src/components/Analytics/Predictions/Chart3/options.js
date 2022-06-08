@@ -17,6 +17,7 @@ const options = {
     itemHeight: 5,
     textStyle: {
       fontSize: '0.75rem',
+      color: '#b8b8b8'
     },
     orient: "vertical"
   },

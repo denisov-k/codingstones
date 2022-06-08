@@ -43,7 +43,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15vh 0;
+  padding: 6rem clamp(1vw, 5%, 5vw);
   box-sizing: border-box;
   background-color: #080808;
   justify-content: center;

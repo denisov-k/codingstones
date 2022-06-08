@@ -96,7 +96,7 @@ export default {
   }
   #welcome {
     width: 100%;
-    min-height: 80vh;
+    min-height: 85vh;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;

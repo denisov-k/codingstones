@@ -1,8 +1,9 @@
 <template>
   <div class="messenger">
-    <slot></slot>
+    <slot name="header"></slot>
     <sidebar></sidebar>
     <Main></Main>
+    <slot name="footer"></slot>
   </div>
 </template>
 
@@ -37,7 +38,7 @@ export default {
     font-size: 0.8rem;
 
     .header {
-      min-height: 3rem;
+      height: 2.75rem;
     }
     .header, .footer {
       display: flex;
@@ -75,7 +76,8 @@ export default {
         min-height: 40px;
       }
       .main {
-        height: calc(100% - 30px);
+        height: 0;
+        /*height: calc(100% - 30px);*/
 
         .body .message {
           max-width: 100%;
@@ -83,8 +85,8 @@ export default {
         }
       }
       .footer {
-        padding-bottom: 15px;
-        min-height: 45px !important;
+        /*padding-bottom: 15px;
+        min-height: 45px !important;*/
       }
     }
   }

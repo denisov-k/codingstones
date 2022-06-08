@@ -1,19 +1,24 @@
 <template>
   <div class="device">
-    <!--<img src="@/assets/welcome/laptop.svg" v-if="!isDeviceSmall" draggable="false">
-    <img src="@/assets/welcome/mobile.svg" v-else draggable="false">-->
     <div class="screen" v-on:click="nextScreen">
       <div class="camera"></div>
       <widget :is="applications[activeApplicationIndex]" class="application">
-        <div class="mobile-header">
-          <div>13:30</div>
-          <div class="camera"></div>
-          <div>
-            <inline-svg class="" :src="require('@/assets/welcome/device/network.svg')" />
-            <inline-svg class="" :src="require('@/assets/welcome/device/wifi.svg')" />
-            <inline-svg class="" :src="require('@/assets/welcome/device/battery.svg')" />
+        <template v-slot:header>
+          <div class="mobile-header">
+            <div>13:30</div>
+            <div class="camera"></div>
+            <div>
+              <inline-svg class="" :src="require('@/assets/welcome/device/network.svg')" />
+              <inline-svg class="" :src="require('@/assets/welcome/device/wifi.svg')" />
+              <inline-svg class="" :src="require('@/assets/welcome/device/battery.svg')" />
+            </div>
           </div>
-        </div>
+        </template>
+        <template v-slot:footer>
+          <div class="mobile-footer">
+            <div class="home-button"></div>
+          </div>
+        </template>
       </widget>
     </div>
   </div>
@@ -134,6 +139,19 @@
     align-self: center;
     margin: 0 3px;
   }
+  .mobile-footer {
+    height: 3vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-button {
+    background-color: #454545;
+    height: 3px;
+    width: 75px;
+    border-radius: 5px;
+  }
   .application {
     box-sizing: border-box;
   }
@@ -159,6 +177,9 @@
     .application {
       height: 100%;
       flex-direction: column;
+    }
+    .mobile-footer {
+      display: flex;
     }
     .camera {
       display: flex;

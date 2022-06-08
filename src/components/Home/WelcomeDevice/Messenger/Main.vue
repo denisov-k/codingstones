@@ -65,8 +65,8 @@ export default {
 
   .main /deep/ {
     width: stretch;
-    height: auto;
     display: flex;
+    flex: 1;
     background-image: url("@/assets/welcome/messenger/background.png");
     flex-direction: column;
     justify-content: space-between;

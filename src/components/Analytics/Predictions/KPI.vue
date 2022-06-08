@@ -67,7 +67,6 @@ export default {
   .progress {
     height: 2rem;
     aspect-ratio: 1 / 1;
-    opacity: 0.65;
     background-color: #0000005e;
     box-sizing: border-box;
     margin-left: auto;

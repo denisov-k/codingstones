@@ -1,6 +1,6 @@
 <template>
   <div class="desktop">
-    <slot></slot>
+    <slot name="header"></slot>
     <div class="header">
       <div class="controls">
         <span>{{ $t('controls.finder') }}</span>

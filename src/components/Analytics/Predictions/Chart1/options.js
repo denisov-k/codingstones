@@ -26,7 +26,7 @@ const options = {
     textStyle: {
       fontSize: '0.75rem',
       lineHeight: 20,
-      color: '#737373'
+      color: '#b8b8b8'
     },
     orient: "vertical"
   },
@@ -38,6 +38,7 @@ const options = {
       data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       axisLabel: {
         fontSize: '0.75rem',
+        color: '#b8b8b8'
       }
     }
   ],
@@ -47,11 +48,17 @@ const options = {
       splitNumber: 2,
       axisLabel: {
         fontSize: '0.75rem',
+        color: '#b8b8b8'
+      },
+      splitLine: {
+        lineStyle: {
+          color: '#575757'
+        }
       }
     }
   ],
   grid: {
-    top: '5%',
+    top: '7.5%',
     left: '2.5%',
     right: '25%',
     bottom: '5%',
