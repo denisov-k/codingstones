@@ -2,11 +2,9 @@
   <div id="smart-feed" class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8">
-        <div id="selected-widget-container">
-          <keep-alive>
-            <component :is="selectedWidget.component"></component>
-          </keep-alive>
-        </div>
+        <keep-alive>
+          <component :is="selectedWidget.component" class="selected"></component>
+        </keep-alive>
       </div>
       <div class="col-xs-12 col-md-4 col-lg-4">
         <div class="widgets-feed">
@@ -183,7 +181,6 @@ export default {
     }
     .widget-container /deep/ {
       height: 75vh;
-      margin: 0.7rem;
       padding: 0;
 
       .widget {
@@ -193,6 +190,7 @@ export default {
         .title {
           font-size: 1rem;
           color: $text-color;
+          margin: 0.75rem;
         }
 
         .button {
@@ -207,12 +205,13 @@ export default {
         background-color: #1f1f1f;
       }
     }
+    .widget-container.selected {
+      padding: 0.7rem;
+    }
   }
 
-
-
   .widgets-search /deep/ {
-    margin: 1rem 0;
+    margin: 0 0 1rem 0;
 
     :focus-visible {
       outline: unset;
@@ -353,7 +352,8 @@ export default {
     max-height: 75vh;
     display: flex;
     flex-direction: column;
-    padding: 0 0.7rem;
+    padding: 0.7rem;
+    box-sizing: border-box;
   }
   .widgets-list {
     overflow: auto;

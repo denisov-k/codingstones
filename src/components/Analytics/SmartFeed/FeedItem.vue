@@ -64,7 +64,7 @@ export default {
     }
   }
   .feed-item /deep/ {
-    margin: 5px 10px 5px 0;
+    margin: 0.5rem 0.5rem 0.5rem 0;
 
     .widget-container {
       margin: 0;
@@ -81,6 +81,7 @@ export default {
         .title {
           font-size: 1rem;
           color: $text-color;
+          margin: 0.75rem;
         }
 
         .widget-buttons {
@@ -180,13 +181,13 @@ export default {
 
   @media only screen and (max-width: 1024px) {
     .feed-item {
-      margin: 0 5px 10px 5px;
+      margin: 0 0.5rem 0.5rem 0.5rem;
     }
     .feed-item:last-child {
-      margin: 0 0 10px 5px;
+      margin: 0 0 0.5rem 0.5rem;
     }
     .feed-item:first-child {
-      margin: 0 5px 10px 0;
+      margin: 0 0.5rem 0.5rem 0;
     }
   }
 </style>

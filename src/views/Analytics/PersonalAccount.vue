@@ -1,25 +1,14 @@
 <template>
-  <div id="personal-account" class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <profile></profile>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <tree-chart></tree-chart>
-      </div>
+  <div id="personal-account">
+    <div class="sidebar">
+      <profile :userdata="userdata"></profile>
+      <navigation :pages="pages"></navigation>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-6">
-        <pie-chart></pie-chart>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-6">
-        <bar-chart></bar-chart>
-      </div>
+    <div class="header">
+
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <heatmap></heatmap>
-      </div>
+    <div class="main">
+
     </div>
   </div>
 </template>
@@ -30,12 +19,14 @@ import PieChart from "@/components/Analytics/PersonalAccount/PieChart";
 import BarChart from "@/components/Analytics/PersonalAccount/BarChart";
 import Profile from "@/components/Analytics/PersonalAccount/Profile";
 import Heatmap from "@/components/Analytics/PersonalAccount/Heatmap";
+import Navigation from "@/components/Analytics/PersonalAccount/Navigation";
 
 export default {
   name: "PersonalAccount",
   components: {
     Heatmap,
     Profile,
+    Navigation,
     TreeChart,
     PieChart,
     BarChart,
@@ -43,7 +34,22 @@ export default {
   data: () => {
     return {
       title: 'Пример аналитического экрана',
-      subtitle: 'Ещё один заголовок'
+      subtitle: 'Ещё один заголовок',
+      pages: [
+        { name: 'General' },
+        { name: 'Team' },
+        { name: 'Events' },
+      ],
+      userdata: {
+        name: 'Bess Willis',
+        description: 'willisbs@gmail.com',
+        avatar: require('@/assets/analytics/personal_account/avatar.jpg'),
+        stats: [
+          { name: 'blood', value: '-B' },
+          { name: 'height', value: '170' },
+          { name: 'weight', value: '60' },
+        ]
+      }
     }
   }
 }
@@ -102,6 +108,9 @@ export default {
       &.expanded .widget {
         background-image: url("@/assets/analytics/personal_account/background.png");
       }
+    }
+    .sidebar {
+      width: 20rem;
     }
   }
 </style>
