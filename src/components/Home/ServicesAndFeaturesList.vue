@@ -17,7 +17,9 @@
                  v-on:click="setActiveItem(index, 0)"
                  :class="[ activeItemIndex === index && activeListIndex === 0 ? 'selected' : ''  ]">
               <span>{{ item.name }}</span>
-              <div class="underline"></div>
+              <div class="progress-bar">
+                <span class="progress-bar-fill" ></span>
+              </div>
             </div>
           </div>
           <div class="list">
@@ -26,7 +28,9 @@
                  v-on:click="setActiveItem(index, 1)"
                  :class="[ activeItemIndex === index && activeListIndex === 1 ? 'selected' : ''  ]">
               <span>{{ item.name }}</span>
-              <div class="underline"></div>
+              <div class="progress-bar">
+                <span class="progress-bar-fill"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -38,25 +42,41 @@
 <script>
 export default {
   name: "ServicesAndFeaturesList",
-  data: function() {
+  data() {
     return {
       activeItemIndex: 0,
-      activeListIndex: 0
+      activeListIndex: 0,
+      images: [
+        [
+          require('@/assets/services/consulting.png'),
+          require('@/assets/services/analysis.png'),
+          require('@/assets/services/modeling.png'),
+          require('@/assets/services/source.png'),
+          require('@/assets/services/visual.png'),
+          require('@/assets/services/integration.png'),
+          require('@/assets/services/support.png')
+        ],
+        [
+          require('@/assets/services/innovation.png'),
+          require('@/assets/services/format.png'),
+          require('@/assets/services/design.png'),
+          require('@/assets/services/freedom.png'),
+        ]
+      ]
     }
   },
   computed: {
-    activeItem: function () {
+    activeItem() {
       return this.activeList[this.activeItemIndex];
     },
-    activeList: function () {
+    activeList() {
       return this.activeListIndex === 0 ? this.services : this.features;
     },
-    services: function() {
-      const $t = this.$t.bind(this)
+    services() {
+      const $t = this.$t.bind(this);
 
-      return [
-        { name: $t('services.consultation.name'), description: $t('services.consultation.description'),
-          image: require('@/assets/services/analysis.png') },
+      let services = [
+        { name: $t('services.consultation.name'), description: $t('services.consultation.description') },
         { name: $t('services.data_analysis.name'), description: $t('services.data_analysis.description') },
         { name: $t('services.data_modeling.name'), description: $t('services.data_modeling.description') },
         { name: $t('services.data_connecting.name'), description: $t('services.data_connecting.description') },
@@ -64,22 +84,34 @@ export default {
         { name: $t('services.integration.name'), description: $t('services.integration.description') },
         { name: $t('services.support.name'), description: $t('services.support.description') },
       ]
+
+      return services.map((item, index) => {
+        return { ...item, image: this.images[0][index] }
+      })
     },
     features: function() {
       const $t = this.$t.bind(this)
 
-      return [
+      let features = [
         { name: $t('features.modern_approach.name'), description: $t('features.modern_approach.description') },
         { name: $t('features.various_formats.name'), description: $t('features.various_formats.description') },
         { name: $t('features.unique_design.name'), description: $t('features.unique_design.description') },
         { name: $t('features.vendor_independence.name'), description: $t('features.vendor_independence.description') },
       ]
+
+      return features.map((item, index) => {
+        return { ...item, image: this.images[1][index] }
+      })
     }
   },
   methods: {
     setActiveItem(itemIndex, listIndex) {
+      clearInterval(this.interval);
+
       this.activeItemIndex = itemIndex;
       this.activeListIndex = listIndex;
+
+      this.interval = this.launchInterval();
     },
     setActiveNextItem() {
       if (this.activeItemIndex + 1 === this.activeList.length) {
@@ -88,6 +120,13 @@ export default {
 
         this.activeListIndex = this.activeListIndex === 1 ? 0 : 1;
       } else this.activeItemIndex = this.activeItemIndex + 1;
+    },
+    launchInterval() {
+      const timeout = 7500;
+
+      return setInterval(() => {
+        this.setActiveNextItem()
+      }, timeout);
     }
   },
   watch: {
@@ -96,10 +135,7 @@ export default {
     }
   },
   mounted() {
-    const timeout = 5000;
-      setInterval(() => {
-        this.setActiveNextItem()
-      }, timeout);
+    this.interval = this.launchInterval();
   }
 }
 </script>
@@ -181,26 +217,26 @@ export default {
   .list-item.selected {
     color: #83a0c5;
 
-    span.progress {
+    .progress-bar-fill {
       width: 100%;
+      transition: width 7.5s ease-in-out;
     }
   }
-  .underline {
-    position: relative;
+  .progress-bar {
     width: 100%;
     margin: 0.75rem auto;
     height: 1px;
-    overflow: hidden;
-
-    background: linear-gradient(to right, black 50%, transparent 0);
-    background-size: 200% 100%;
-    background-position: right;
-    animation: makeItfadeIn 3s 1s forwards;
+    background: #797979;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
   }
-  @keyframes makeItfadeIn {
-    100% {
-      background-position: left;
-    }
+
+  .progress-bar-fill {
+    display: block;
+    width: 0;
+    height: 1px;
+    background: #659cef;
+    border-radius: 3px;
+
   }
 </style>
 

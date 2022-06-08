@@ -38,19 +38,20 @@ export default {
     background-image: url("@/assets/analytics/gamification/background.png");
     background-size: cover;
     background-position: center;
-  }
-  .widget-container /deep/ {
-    margin: 0.7rem;
 
-    .widget {
-      background-color: #ffffff;
-      border: 1px solid #bbe0c6;
-    }
-    .title {
-      color: $text-color;
-    }
-    .button {
-      fill: $text-color;
+    .widget-container /deep/ {
+      margin: 0.7rem;
+
+      .widget {
+        background-color: #ffffff;
+        border: 1px solid #bbe0c6;
+      }
+      .title {
+        color: $text-color;
+      }
+      .button {
+        fill: $text-color;
+      }
     }
   }
 </style>

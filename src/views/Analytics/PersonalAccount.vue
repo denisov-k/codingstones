@@ -80,29 +80,28 @@ export default {
       color: $text-color;
       margin: 20px 10px;
     }
-  }
+    .widget-container /deep/ {
+      margin: 0.7rem;
 
-  .widget-container /deep/ {
-    margin: 0.7rem;
-
-    .widget {
-      background-color: unset;
-      border: 1px solid #00000052;
-    }
-    .widget-header {
-      .title {
-        font-size: 1rem;
-        color: $text-color;
+      .widget {
+        background-color: unset;
+        border: 1px solid #00000052;
       }
-      .button {
-        height: 1rem;
-        padding: 0 0.4rem;
-        fill: $text-color;
+      .widget-header {
+        .title {
+          font-size: 1rem;
+          color: $text-color;
+        }
+        .button {
+          height: 1rem;
+          padding: 0 0.4rem;
+          fill: $text-color;
+        }
       }
-    }
 
-    &.expanded .widget {
-      background-image: url("@/assets/analytics/personal_account/background.png");
+      &.expanded .widget {
+        background-image: url("@/assets/analytics/personal_account/background.png");
+      }
     }
   }
 </style>
