@@ -353,6 +353,7 @@ export default {
     max-height: 75vh;
     display: flex;
     flex-direction: column;
+    padding: 0 0.7rem;
   }
   .widgets-list {
     overflow: auto;

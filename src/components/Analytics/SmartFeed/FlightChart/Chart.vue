@@ -1,11 +1,14 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
+  <widget-container :title="$t('title')" :exportURL="dataURL" :export-image="exportImage"
                     id="flights" :extra-buttons="extraButtons" :is-loading="isLoading">
-    <div class="chart" ref="chartContainer"></div>
+    <Observer @on-change="onChange" style="height: 100%">
+      <div class="chart" ref="chartContainer"></div>
+    </Observer>
   </widget-container>
 </template>
 
 <script>
+import Observer from 'vue-intersection-observer';
 import * as echarts from "echarts";
 import 'echarts-gl';
 
@@ -16,7 +19,7 @@ import api from "@/services/api";
 
 export default {
   name: "BarChart",
-  components: {  WidgetContainer },
+  components: {  WidgetContainer, Observer },
   props: {},
   data() {
     return {
@@ -74,6 +77,12 @@ export default {
       // console.log(container, this);
       if ($container.contentRect.width > 0 && $container.contentRect.height > 0)
         this.chart.resize();
+    },
+    onChange(entry, unobserve) {
+      if (entry.isIntersecting) {
+        this.setupChart()
+        unobserve()
+      }
     },
     getData() {
       return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' })

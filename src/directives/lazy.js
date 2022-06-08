@@ -12,7 +12,7 @@ export default {
       }
     }
 
-    const observerOptions = { threshold: 0, trackVisibility: true, delay: 100, root: vnode.parent.context.$el };
+    const observerOptions = { threshold: 1, trackVisibility: false, delay: 0, root: vnode.parent.context.$el };
 
     const observer = new IntersectionObserver(function([entry]) {
       handleIntersect(entry, vnode);

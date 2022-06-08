@@ -1,11 +1,14 @@
 <template>
   <widget-container :title="$t('title')" v-lazy="setupChart" :export-image="exportImage"
                     id="kpi-1" :extra-buttons="extraButtons" :is-loading="isLoading">
-    <div class="chart" ref="chartContainer"></div>
+    <Observer @on-change="onChange" style="height: 100%">
+      <div class="chart" ref="chartContainer"></div>
+    </Observer>
   </widget-container>
 </template>
 
 <script>
+import Observer from 'vue-intersection-observer';
 import WidgetContainer from "@/components/Widget/Container";
 import * as echarts from "echarts";
 import defaultOptions from "./options";
@@ -14,7 +17,7 @@ import data from "./data";
 
 export default {
   name: "Gauge",
-  components: {  WidgetContainer },
+  components: { WidgetContainer, Observer },
   data() {
     return {
       resizeObserver: null,
@@ -33,6 +36,12 @@ export default {
       a.href = image;
       a.download = "Image.png";
       a.click();
+    },
+    onChange(entry, unobserve) {
+      if (entry.isIntersecting) {
+        this.setupChart()
+        unobserve()
+      }
     },
     getData() {
       let series =  [

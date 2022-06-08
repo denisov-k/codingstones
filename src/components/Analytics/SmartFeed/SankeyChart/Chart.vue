@@ -1,11 +1,14 @@
 <template>
-  <widget-container :title="$t('title')" :exportURL="dataURL" v-lazy="setupChart" :export-image="exportImage"
+  <widget-container :title="$t('title')" :exportURL="dataURL" :export-image="exportImage"
                     id="sankey-chart" :extra-buttons="extraButtons" :is-loading="isLoading">
-    <div class="chart" ref="chartContainer"></div>
+    <Observer @on-change="onChange" style="height: 100%">
+      <div class="chart" ref="chartContainer"></div>
+    </Observer>
   </widget-container>
 </template>
 
 <script>
+import Observer from 'vue-intersection-observer';
 import WidgetContainer from "@/components/Widget/Container";
 import * as echarts from "echarts";
 import defaultOptions from "./options";
@@ -14,7 +17,7 @@ import api from "@/services/api";
 
 export default {
   name: "SankeyChart",
-  components: {  WidgetContainer },
+  components: { WidgetContainer, Observer },
   data() {
     return {
       isLoading: true,
@@ -33,6 +36,12 @@ export default {
       a.href = image;
       a.download = "Image.png";
       a.click();
+    },
+    onChange(entry, unobserve) {
+      if (entry.isIntersecting) {
+        this.setupChart()
+        unobserve()
+      }
     },
     getData() {
       return api.request(this.dataURL, {}, null, 'get', { baseURL: '/' })

@@ -42,6 +42,24 @@
 <script>
 import Observer from 'vue-intersection-observer'
 
+const images = [
+    [
+      require('@/assets/services/consulting.png'),
+      require('@/assets/services/analysis.png'),
+      require('@/assets/services/modeling.png'),
+      require('@/assets/services/source.png'),
+      require('@/assets/services/visual.png'),
+      require('@/assets/services/integration.png'),
+      require('@/assets/services/support.png')
+    ],
+    [
+      require('@/assets/services/innovation.png'),
+      require('@/assets/services/format.png'),
+      require('@/assets/services/design.png'),
+      require('@/assets/services/freedom.png'),
+    ]
+  ];
+
 export default {
   name: "ServicesAndFeaturesList",
   components: {
@@ -50,24 +68,7 @@ export default {
   data() {
     return {
       activeItemIndex: -1,
-      activeListIndex: 0,
-      images: [
-        [
-          require('@/assets/services/consulting.png'),
-          require('@/assets/services/analysis.png'),
-          require('@/assets/services/modeling.png'),
-          require('@/assets/services/source.png'),
-          require('@/assets/services/visual.png'),
-          require('@/assets/services/integration.png'),
-          require('@/assets/services/support.png')
-        ],
-        [
-          require('@/assets/services/innovation.png'),
-          require('@/assets/services/format.png'),
-          require('@/assets/services/design.png'),
-          require('@/assets/services/freedom.png'),
-        ]
-      ]
+      activeListIndex: 0
     }
   },
   computed: {
@@ -91,7 +92,7 @@ export default {
       ]
 
       return services.map((item, index) => {
-        return { ...item, image: this.images[0][index] }
+        return { ...item, image: images[0][index] }
       })
     },
     features: function() {
@@ -105,7 +106,7 @@ export default {
       ]
 
       return features.map((item, index) => {
-        return { ...item, image: this.images[1][index] }
+        return { ...item, image: images[1][index] }
       })
     }
   },

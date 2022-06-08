@@ -1,10 +1,13 @@
 <template>
-  <widget-container :title="$t('title')" id="map" :is-loading="isLoading" v-lazy="setupChart">
-    <div id="chartContainer" class="chart" ref="chartContainer"></div>
+  <widget-container :title="$t('title')" id="map" :is-loading="isLoading">
+    <Observer @on-change="onChange" style="height: 100%">
+      <div id="chartContainer" class="chart" ref="chartContainer"></div>
+    </Observer>
   </widget-container>
 </template>
 
 <script>
+import Observer from 'vue-intersection-observer';
 import leaflet from 'leaflet';
 import 'leaflet.markercluster/dist/MarkerCluster.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
@@ -19,7 +22,7 @@ const COLORS = ['green', 'white', 'red', 'orange', 'yellow', 'black']
 
 export default {
   name: "Map",
-  components: {  WidgetContainer },
+  components: { WidgetContainer, Observer },
   props: {
     tile: Object
   },
@@ -53,6 +56,12 @@ export default {
 
         this.isLoading = false;
       })
+    },
+    onChange(entry, unobserve) {
+      if (entry.isIntersecting) {
+        this.setupChart()
+        unobserve()
+      }
     },
     paintChart({ points, layer }) {
 
