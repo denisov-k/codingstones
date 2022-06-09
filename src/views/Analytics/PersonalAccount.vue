@@ -8,7 +8,7 @@
 
     </div>
     <div class="main">
-
+      <line-chart></line-chart>
     </div>
   </div>
 </template>
@@ -20,6 +20,7 @@ import BarChart from "@/components/Analytics/PersonalAccount/BarChart";
 import Profile from "@/components/Analytics/PersonalAccount/Profile";
 import Heatmap from "@/components/Analytics/PersonalAccount/Heatmap";
 import Navigation from "@/components/Analytics/PersonalAccount/Navigation";
+import LineChart from "@/components/Analytics/PersonalAccount/LineChart";
 
 export default {
   name: "PersonalAccount",
@@ -27,6 +28,7 @@ export default {
     Heatmap,
     Profile,
     Navigation,
+    LineChart,
     TreeChart,
     PieChart,
     BarChart,
@@ -77,6 +79,7 @@ export default {
     padding: 1%;
     background-color: #eceef0;
     background-image: url("@/assets/analytics/personal_account/background.png");
+    flex-direction: row;
 
     .title {
       color: $text-color;
@@ -110,7 +113,10 @@ export default {
       }
     }
     .sidebar {
-      width: 20rem;
+      width: 15rem;
+    }
+    .main {
+      flex: 1;
     }
   }
 </style>

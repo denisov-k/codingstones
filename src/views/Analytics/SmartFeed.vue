@@ -185,6 +185,7 @@ export default {
 
       .widget {
         background-color: $container-color;
+        border-radius: 1rem;
       }
       .widget-header {
         .title {

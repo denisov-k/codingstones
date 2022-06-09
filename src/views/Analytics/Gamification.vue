@@ -1,6 +1,7 @@
 <template>
   <div id="gamification" class="container-fluid">
     <div class="row">
+      <character-info></character-info>
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 col-lg-6">
@@ -15,12 +16,14 @@
 
 <script>
 
+import CharacterInfo from "@/components/Analytics/Gamification/CharacterInfo";
 let BarChart = () => import('@/components/Analytics/Gamification/BarChart'),
     RadarChart = () => import('@/components/Analytics/Gamification/RadarChart');
 
 export default {
   name: "Gamification",
   components: {
+    CharacterInfo,
     BarChart,
     RadarChart
   },
@@ -46,11 +49,17 @@ export default {
         background-color: #ffffff;
         border: 1px solid #bbe0c6;
       }
-      .title {
-        color: $text-color;
-      }
-      .button {
-        fill: $text-color;
+      .widget-header {
+        .title {
+          font-size: 1rem;
+          color: $text-color;
+        }
+
+        .button {
+          height: 1rem;
+          padding: 0 0.4rem;
+          fill: $text-color;
+        }
       }
     }
   }

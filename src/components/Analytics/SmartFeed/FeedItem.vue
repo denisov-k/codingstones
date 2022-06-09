@@ -73,6 +73,7 @@ export default {
 
       .widget {
         background-color: $container-color;
+        border-radius: 1rem;
       }
       .widget:hover {
         background-color: #00000091;

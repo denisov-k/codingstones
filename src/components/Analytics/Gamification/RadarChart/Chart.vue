@@ -1,5 +1,5 @@
 <template>
-  <widget-container :title="$t('title')" v-lazy="setupChart" :export-image="exportImage"
+  <widget-container :title="$t('title')" :export-image="exportImage"
                     id="radar_chart" :extra-buttons="extraButtons" :is-loading="isLoading">
     <div class="chart" ref="chartContainer"></div>
   </widget-container>
@@ -86,6 +86,8 @@ export default {
   },
   mounted() {
     this.chart = echarts.init(this.$refs["chartContainer"]);
+
+    this.setupChart();
   },
   beforeDestroy() {
     this.chart.dispose();
