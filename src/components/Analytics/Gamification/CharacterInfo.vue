@@ -15,11 +15,9 @@ export default {
         name: 'Bess Willis',
         description: 'Mage, 25 level',
         avatar: require('@/assets/analytics/gamification/character.png'),
-        stats: [
-          { name: 'blood', value: '-B' },
-          { name: 'height', value: '170' },
-          { name: 'weight', value: '60' },
-        ]
+        level: 25,
+        exp: 72,
+        gold: 115
       }
     }
   }

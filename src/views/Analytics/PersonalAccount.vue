@@ -4,10 +4,9 @@
       <profile :userdata="userdata"></profile>
       <navigation :pages="pages"></navigation>
     </div>
-    <div class="header">
-
-    </div>
     <div class="main">
+      <h3>{{ $t('title', { name: userdata.firstname }) }}</h3>
+      <span class="subtitle">{{ $t('subtitle', { weekday, date }) }}</span>
       <line-chart></line-chart>
     </div>
   </div>
@@ -43,7 +42,8 @@ export default {
         { name: 'Events' },
       ],
       userdata: {
-        name: 'Bess Willis',
+        firstname: 'Bess',
+        surname: 'Willis',
         description: 'willisbs@gmail.com',
         avatar: require('@/assets/analytics/personal_account/avatar.jpg'),
         stats: [
@@ -53,6 +53,16 @@ export default {
         ]
       }
     }
+  },
+  computed: {
+    weekday() {
+      let date = new Date();
+      return date.toLocaleString(window.navigator.language, { weekday: 'long' });
+    },
+    date() {
+      const date = new Date();
+      return date.toLocaleDateString(window.navigator.language, { dateStyle: 'long' });
+    }
   }
 }
 </script>
@@ -60,12 +70,12 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Title",
-    "subtitle": "Subtitle"
+    "title": "Hello, {name}",
+    "subtitle": "Today is {weekday}, {date}"
   },
   "ru": {
-    "title": "Пример аналитического экрана",
-    "subtitle": "Ещё один заголовок"
+    "title": "Привет, {name}",
+    "subtitle": "Сегодня {weekday}, {date}"
   }
 }
 </i18n>
@@ -77,8 +87,8 @@ export default {
     width: 100%;
     box-sizing: border-box;
     padding: 1%;
-    background-color: #eceef0;
-    background-image: url("@/assets/analytics/personal_account/background.png");
+    background-color: #d5dadf;
+    /*background-image: url("@/assets/analytics/personal_account/background.png");*/
     flex-direction: row;
 
     .title {
@@ -117,6 +127,16 @@ export default {
     }
     .main {
       flex: 1;
+      text-align: left;
+
+      h3 {
+        font-size: 1.25rem;
+        margin: 0.7rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+        margin: 0.7rem;
+      }
     }
   }
 </style>

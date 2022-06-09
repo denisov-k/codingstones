@@ -2,14 +2,16 @@ const options = {
   xAxis: {
     splitLine: {
       lineStyle: {
-        type: 'dashed'
+        type: 'dashed',
+        color: '#aeaeae'
       }
     }
   },
   yAxis: {
     splitLine: {
       lineStyle: {
-        type: 'dashed'
+        type: 'dashed',
+        color: '#aeaeae'
       }
     },
     scale: true

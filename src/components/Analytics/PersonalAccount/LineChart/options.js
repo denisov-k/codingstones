@@ -11,6 +11,11 @@ const options =  {
     type: 'value',
     axisLabel: {
       formatter: '{value} °C'
+    },
+    splitLine: {
+      lineStyle: {
+        color: '#aeaeae'
+      }
     }
   },
   series: [

@@ -16,7 +16,7 @@ const options = {
   legend: {
     data: ['Profit', 'Expenses', 'Income'],
     textStyle: {
-      color: '#dadada'
+      color: '#aeaeae'
     }
   },
   xAxis: [

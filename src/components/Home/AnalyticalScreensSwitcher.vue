@@ -131,6 +131,7 @@ export default {
     box-sizing: border-box;
     height: 1.25rem;
     margin: 0 0.3rem;
+    display: none;
   }
   .item .external-link:hover {
     outline: 1px dashed #c8c8c8;

@@ -9,7 +9,12 @@ const options = {
         nameLocation: 'middle'
     },
     yAxis: {
-        name: ''
+        name: '',
+        splitLine: {
+            lineStyle: {
+                color: '#aeaeae'
+            }
+        },
     },
     grid: {
         top: 20,

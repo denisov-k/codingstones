@@ -84,13 +84,14 @@ export default {
           },
           data: data,
           title: {
-            fontSize: 12,
-            color: '#6e6e6e'
+            fontSize: '1rem',
+            color: '#aeaeae'
           },
           detail: {
             width: 50,
-            height: 14,
-            fontSize: 12,
+            height: 0,
+            padding: [10, 0],
+            fontSize: '1rem',
             color: 'inherit',
             borderColor: 'inherit',
             borderRadius: 20,

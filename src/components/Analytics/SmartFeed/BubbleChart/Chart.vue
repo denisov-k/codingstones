@@ -134,7 +134,7 @@ export default {
           top: '3%',
           data: ['1990', '2015'],
           textStyle: {
-            color: '#dadada'
+            color: '#aeaeae'
           }
         },
       }

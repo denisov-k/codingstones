@@ -201,7 +201,7 @@ export default {
   .lists {
     /*width: 45%;
     min-width: 300px;*/
-    padding: 0 3rem;
+    padding: 0 4rem;
     text-align: center;
     box-sizing: border-box;
     display: inline-flex;

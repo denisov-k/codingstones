@@ -2,7 +2,7 @@
   <div class="profile">
     <img :src="userdata.avatar" class="avatar" />
     <div class="user-info">
-      <span class="name">{{ userdata.name }}</span>
+      <span class="name">{{ userdata.firstname }} {{ userdata.surname }}</span>
       <span class="description">{{ userdata.description }}</span>
     </div>
     <div class="stats">
