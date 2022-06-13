@@ -15,8 +15,8 @@ const options = {
   },
   legend: {
     type: 'scroll',
-    data: ['Rainfall', 'Evaporation'],
-    padding: [0, 25],
+    //data: ['Rainfall', 'Evaporation'],
+      padding: [0, 25],
     bottom: '2%',
     textStyle: {
       fontSize: '1rem',

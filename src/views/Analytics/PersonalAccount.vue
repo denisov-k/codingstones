@@ -34,34 +34,41 @@ export default {
   },
   data: () => {
     return {
-      title: 'Пример аналитического экрана',
-      subtitle: 'Ещё один заголовок',
-      pages: [
-        { name: 'General' },
-        { name: 'Team' },
-        { name: 'Events' },
-      ],
-      userdata: {
-        firstname: 'Bess',
-        surname: 'Willis',
-        description: 'willisbs@gmail.com',
-        avatar: require('@/assets/analytics/personal_account/avatar.jpg'),
-        stats: [
-          { name: 'blood', value: '-B' },
-          { name: 'height', value: '170' },
-          { name: 'weight', value: '60' },
-        ]
-      }
+
     }
   },
   computed: {
     weekday() {
       let date = new Date();
-      return date.toLocaleString(window.navigator.language, { weekday: 'long' });
+      return date.toLocaleString(this.$i18n.locale, { weekday: 'long' });
     },
     date() {
       const date = new Date();
-      return date.toLocaleDateString(window.navigator.language, { dateStyle: 'long' });
+      return date.toLocaleDateString(this.$i18n.locale, { dateStyle: 'long' });
+    },
+    pages() {
+      const $t = this.$t.bind(this);
+
+      return [
+        { name: $t('page_1') },
+        { name: $t('page_2') },
+        { name: $t('page_3') },
+      ];
+    },
+    userdata() {
+      const $t = this.$t.bind(this);
+
+      return {
+        firstname: $t('user.firstname'),
+        surname: $t('user.surname'),
+        description: 'willisbs@gmail.com',
+        avatar: require('@/assets/analytics/personal_account/avatar.jpg'),
+        stats: [
+          { name: $t('user.stat_1'), value: '-B' },
+          { name: $t('user.stat_2'), value: '170' },
+          { name: $t('user.stat_3'), value: '60' },
+        ]
+      }
     }
   }
 }
@@ -71,11 +78,31 @@ export default {
 {
   "en": {
     "title": "Hello, {name}",
-    "subtitle": "Today is {weekday}, {date}"
+    "subtitle": "Today is {weekday}, {date}",
+    "user": {
+      "firstname": "Bess",
+      "surname": "Bess",
+      "stat_1": "Blood",
+      "stat_2": "Height",
+      "stat_3": "Weight"
+    },
+    "page_1": "General",
+    "page_2": "Team",
+    "page_3": "Events"
   },
   "ru": {
     "title": "Привет, {name}",
-    "subtitle": "Сегодня {weekday}, {date}"
+    "subtitle": "Сегодня {weekday}, {date}",
+    "user": {
+      "firstname": "Екатерина",
+      "surname": "Иванова",
+      "stat_1": "Кровь",
+      "stat_2": "Рост",
+      "stat_3": "Вес"
+    },
+    "page_1": "Основное",
+    "page_2": "Команда",
+    "page_3": "События"
   }
 }
 </i18n>

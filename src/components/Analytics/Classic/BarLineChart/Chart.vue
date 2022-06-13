@@ -58,7 +58,7 @@ export default {
 
       let series = [
         {
-          name: 'Rainfall',
+          name: this.$t('dim_1'),
           type: this.seriesType,
           data: [
             2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3
@@ -77,7 +77,7 @@ export default {
           }
         },
         {
-          name: 'Evaporation',
+          name: this.$t('dim_2'),
           type: this.seriesType,
           data: [
             2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
@@ -182,11 +182,15 @@ export default {
 {
   "en": {
     "title": "Rainfall vs Evaporation",
+    "dim_1": "Rainfall",
+    "dim_2": "Evaporation",
     "subtitle": "",
     "switch_type": "Switch view type"
   },
   "ru": {
-    "title": "Rainfall vs Evaporation",
+    "title": "Осадки и Испарения",
+    "dim_1": "Осадки",
+    "dim_2": "Испарения",
     "subtitle": "",
     "switch_type": "Изменить тип отображения"
   }

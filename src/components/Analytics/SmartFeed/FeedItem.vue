@@ -10,13 +10,15 @@
           {{ tags[tagId].name }}
         </div>
       </div>
-      <div class="views">
-        <inline-svg :src="require('@/assets/analytics/smart_feed/views-icon.svg')" />
-        <span class="views-count">{{ widget.views }}</span>
-      </div>
-      <div class="favorite-button" :class="[ widget.inFavorite ? 'active' : '']"
-           @click="onFavoriteButtonClick(widget)">
-        <inline-svg :src="require('@/assets/analytics/smart_feed/favorite-icon.svg')" />
+      <div style="display:flex;">
+        <div class="views">
+          <inline-svg :src="require('@/assets/analytics/smart_feed/views-icon.svg')" />
+          <span class="views-count">{{ widget.views }}</span>
+        </div>
+        <div class="favorite-button" :class="[ widget.inFavorite ? 'active' : '']"
+             @click="onFavoriteButtonClick(widget)">
+          <inline-svg :src="require('@/assets/analytics/smart_feed/favorite-icon.svg')" />
+        </div>
       </div>
     </div>
   </div>
@@ -34,7 +36,9 @@ export default {
     }
   },
   mounted() {
-
+      this.$el.onmousewheel = (event) => {
+        event.stopPropagation();
+      }
   },
   methods: {
     selectWidget(widget) {
@@ -54,17 +58,18 @@ export default {
   $text-color: #aeaeae;
   $container-color: #00000070;
 
-  .feed-item.selectable /deep/ {
-    .widget-content {
-      pointer-events: none;
-      zoom: 0.75;
-    }
-    .expanded .widget-content {
-      zoom: 1;
-    }
-  }
   .feed-item /deep/ {
     margin: 0.5rem 0.5rem 0.5rem 0;
+
+    & .selectable /deep/ {
+      .widget-content {
+        pointer-events: none;
+        zoom: 0.75;
+      }
+      .expanded .widget-content {
+        zoom: 1;
+      }
+    }
 
     .widget-container {
       margin: 0;
@@ -97,44 +102,38 @@ export default {
     .widget-footer {
       display: flex;
       margin: 4px 0;
+      justify-content: space-between;
 
       .tags {
         display: inline-flex;
+        margin: 0 -0.25rem;
 
         .tag {
           display: inline-block;
           background-color: $container-color;
-          border-radius: 5px;
-          font-size: 10px;
-          padding: 3px 5px;
-          margin: 0 2px;
+          border-radius: 0.5rem;
+          font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
+          margin: 0 0.25rem;
           cursor: pointer;
-        }
-        .tag:first-child {
-          margin-left: 0;
-        }
-        .tag:last-child {
-          margin-right: 0;
         }
         .tag:hover {
           background-color: #00000063;
         }
       }
       .favorite-button {
-        width: 20px;
         background-color: $container-color;
-        border-radius: 5px;
-        padding: 2px 1px;
-        margin-right: 0;
-        margin-left: 5px;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        margin: 0 0.25rem;
         display: flex;
         align-items: center;
         cursor: pointer;
+        justify-content: center;
 
         svg {
           fill: #8484844a;
-          width: 100%;
-          height: 14px;
+          height: 0.75rem;
         }
       }
       .favorite-button.active {
@@ -150,22 +149,21 @@ export default {
       .views {
         display: inline-flex;
         align-items: center;
-        margin-right: 0;
-        margin-left: auto;
+        margin: 0 0.25rem;
         background-color: $container-color;
-        border-radius: 5px;
-        padding: 2px 4px;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
 
         svg {
           fill: #9d9d9d;
           width: 100%;
-          height: 14px;
+          height: 0.75rem;
         }
 
         .views-count {
-          font-size: 10px;
+          font-size: 0.75rem;
           color: #9d9d9d;
-          margin-left: 3px;
+          margin-left: 0.25rem;
         }
       }
     }
@@ -173,22 +171,10 @@ export default {
   .feed-item.selected {
     display: none;
   }
-  .feed-item:first-child {
-    margin-top: 0;
-  }
-  .feed-item:last-child {
-    margin-bottom: 0;
-  }
 
   @media only screen and (max-width: 1024px) {
     .feed-item {
       margin: 0 0.5rem 0.5rem 0.5rem;
-    }
-    .feed-item:last-child {
-      margin: 0 0 0.5rem 0.5rem;
-    }
-    .feed-item:first-child {
-      margin: 0 0.5rem 0.5rem 0;
     }
   }
 </style>

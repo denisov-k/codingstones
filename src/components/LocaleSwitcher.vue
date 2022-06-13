@@ -27,4 +27,7 @@ select {
   border-radius: 0.25rem;
   padding: 0.1vh 0.3vw;
 }
+select:focus-visible {
+
+}
 </style>

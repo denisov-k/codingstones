@@ -1,5 +1,5 @@
 const options = {
-  color: '#1c1c1c',
+  color: '#161616',
   tooltip: {
     show: false,
     confine: false,

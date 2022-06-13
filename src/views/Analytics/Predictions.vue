@@ -66,12 +66,12 @@ export default {
 
 <style lang="scss" scoped>
   $text-color: #b8b8b8;
-  $background: #1c1c1c;
+  $background: #161616;
 
   #predictions {
     width: 100%;
     box-sizing: border-box;
-    padding: 2%;
+    padding: calc(2% - 0.5rem) 2%;
     background-color: #1c1c1c;
     background-image: url("@/assets/analytics/predictions/background.png");
     background-size: 45%;
@@ -96,7 +96,7 @@ export default {
     }
 
     .widget-container /deep/ {
-      margin: 0.7rem 0;
+      margin: 0.5rem 0;
 
       .widget {
         background-color: $background;
